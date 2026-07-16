@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="164" viewBox="0 0 520 164" role="img" aria-labelledby="title desc">
+  <title id="title">MAX SITE</title>
+  <desc id="desc">САЙТИ ПІД КЛЮЧ ДЛЯ БІЗНЕСУ</desc>
+  <rect width="520" height="164" rx="22" fill="#05070A"/>
+  <circle cx="426" cy="28" r="110" fill="#18F45B" opacity=".12"/>
+  <path d="M36 122H484" stroke="#18F45B" stroke-opacity=".16"/>
+  <g font-family="Inter, Manrope, Arial, sans-serif" font-weight="900">
+    <text x="36" y="76" fill="#18F45B" font-size="64">MAX</text>
+    <text x="203" y="76" fill="#FFFFFF" font-size="64">SITE</text>
+  </g>
+  <g transform="translate(404 25)">
+    <rect x="1" y="1" width="64" height="64" rx="15" fill="#0B0F14" stroke="#18F45B" stroke-width="2"/>
+    <path d="M20 45 45 20m0 0H26.5M45 20v18.5" fill="none" stroke="#18F45B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="38" y="120" fill="#C8CED8" font-family="Inter, Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="4.2">САЙТИ ПІД КЛЮЧ ДЛЯ БІЗНЕСУ</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">MAX SITE icon</title>
+  <rect width="128" height="128" rx="28" fill="#05070A"/>
+  <rect x="22" y="22" width="84" height="84" rx="22" fill="#0B0F14" stroke="#18F45B" stroke-width="4"/>
+  <path d="M43 83 83 43m0 0H53.5M83 43v29.5" fill="none" stroke="#18F45B" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

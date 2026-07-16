@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">MAX SITE social icon</title>
+  <rect width="512" height="512" rx="112" fill="#05070A"/>
+  <circle cx="378" cy="92" r="210" fill="#18F45B" opacity=".16"/>
+  <rect x="88" y="88" width="336" height="336" rx="82" fill="#0B0F14" stroke="#18F45B" stroke-width="14"/>
+  <path d="M174 334 334 174m0 0H216m118 0v118" fill="none" stroke="#18F45B" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="256" y="454" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Manrope, Arial, sans-serif" font-size="38" font-weight="900">MAX SITE</text>
+</svg>

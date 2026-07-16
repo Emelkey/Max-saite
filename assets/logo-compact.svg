@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="244" height="58" viewBox="0 0 244 58" role="img" aria-labelledby="title">
+  <title id="title">MAX SITE</title>
+  <g font-family="Inter, Manrope, Arial, sans-serif" font-weight="900">
+    <text x="0" y="40" fill="#18F45B" font-size="42">MAX</text>
+    <text x="109" y="40" fill="#FFFFFF" font-size="42">SITE</text>
+  </g>
+  <g transform="translate(198 8)">
+    <rect x="0.8" y="0.8" width="40.4" height="40.4" rx="10" fill="#0B0F14" stroke="#18F45B" stroke-width="1.6"/>
+    <path d="M13 28.5 28.5 13m0 0H17m11.5 0v11.5" fill="none" stroke="#18F45B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
