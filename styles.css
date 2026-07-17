@@ -562,97 +562,17 @@ p {
   filter: blur(8px);
 }
 
-.laptop {
+.hero-agency-image {
   position: relative;
-  width: min(100%, 560px);
-  transform: perspective(900px) rotateX(3deg) rotateY(-7deg);
-}
-
-.laptop-top {
-  position: relative;
-  padding: 18px;
-  aspect-ratio: 1.45;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 18px;
-  background: linear-gradient(145deg, #151b25, #06090d);
-  box-shadow: 0 35px 100px rgba(24, 244, 91, 0.18), inset 0 0 0 1px rgba(24, 244, 91, 0.08);
-}
-
-.browser-dots {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.browser-dots i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.24);
-}
-
-.mock-site {
-  height: calc(100% - 21px);
-  display: grid;
-  grid-template-columns: 1.1fr 0.75fr;
-  gap: 18px;
-  padding: 28px;
-  overflow: hidden;
-  border-radius: 12px;
-  background:
-    linear-gradient(135deg, rgba(24, 244, 91, 0.18), transparent 45%),
-    linear-gradient(160deg, #111821, #070a0f);
-}
-
-.mock-copy span {
-  color: var(--green);
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.mock-copy strong {
+  z-index: 1;
   display: block;
-  margin: 14px 0;
-  font-size: clamp(24px, 3.2vw, 40px);
-  line-height: 1.05;
-}
-
-.mock-copy em {
-  display: inline-flex;
-  margin-top: 12px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: #031008;
-  background: var(--green);
-  font-style: normal;
-  font-weight: 850;
-}
-
-.mock-card {
-  align-self: end;
-  padding: 22px;
-  border: 1px solid rgba(24, 244, 91, 0.28);
-  border-radius: 14px;
-  background: rgba(5, 7, 10, 0.76);
-}
-
-.mock-card b {
-  display: block;
-  color: var(--green);
-  font-size: 42px;
-}
-
-.mock-card small {
-  color: var(--muted);
-}
-
-.laptop-base {
-  width: 86%;
-  height: 28px;
-  margin: -2px auto 0;
-  border-radius: 0 0 26px 26px;
-  background: linear-gradient(180deg, #222b38, #07090d);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: min(100%, 640px);
+  aspect-ratio: 1586 / 992;
+  object-fit: cover;
+  border: 1px solid rgba(24, 244, 91, 0.22);
+  border-radius: 8px;
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.5), 0 26px 90px rgba(24, 244, 91, 0.14);
+  filter: saturate(1.08) contrast(1.05);
 }
 
 .floating-card {
@@ -1869,17 +1789,8 @@ p {
     min-height: 380px;
   }
 
-  .laptop {
-    transform: none;
-  }
-
-  .mock-site {
-    grid-template-columns: 1fr;
-    padding: 18px;
-  }
-
-  .mock-card {
-    display: none;
+  .hero-agency-image {
+    width: min(100%, 560px);
   }
 
   .floating-card {
