@@ -1,0 +1,6 @@
+name = "max-site-leads"
+main = "telegram-worker.js"
+compatibility_date = "2026-07-18"
+
+[vars]
+ALLOWED_ORIGINS = "https://emelkey.github.io,https://maxsite.ua,https://www.maxsite.ua"
