@@ -705,8 +705,10 @@ p {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .work-card,
@@ -722,6 +724,8 @@ p {
 }
 
 .work-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.48fr) minmax(0, 1fr);
   overflow: hidden;
   transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
@@ -748,20 +752,20 @@ p {
 
 .preview-browser {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
+  top: 8px;
+  left: 8px;
+  right: 8px;
   z-index: 2;
   display: flex;
   align-items: center;
   gap: 6px;
   min-width: 0;
-  padding: 7px 10px;
+  padding: 6px 8px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
   background: rgba(15, 22, 30, 0.78);
   color: #e8edf5;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
   line-height: 1.1;
   backdrop-filter: blur(10px);
@@ -769,8 +773,8 @@ p {
 
 .preview-browser i {
   flex: 0 0 auto;
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 999px;
   background: #18f45b;
   box-shadow: 0 0 16px rgba(24, 244, 91, 0.5);
@@ -799,16 +803,16 @@ p {
 
 .preview-label {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+  right: 10px;
+  bottom: 10px;
   z-index: 2;
   max-width: calc(100% - 24px);
-  padding: 7px 10px;
+  padding: 6px 8px;
   border: 1px solid rgba(24, 244, 91, 0.38);
   border-radius: 8px;
   background: rgba(15, 22, 30, 0.84);
   color: #18f45b;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 900;
   line-height: 1.1;
   text-transform: uppercase;
@@ -824,10 +828,17 @@ p {
   background: #070b10;
 }
 
+.work-media {
+  height: 100%;
+}
+
 .work-media img {
-  aspect-ratio: 16 / 7.2;
-  max-height: 260px;
-  border-bottom: 1px solid rgba(24, 244, 91, 0.22);
+  height: 100%;
+  min-height: 185px;
+  max-height: 220px;
+  aspect-ratio: auto;
+  border-right: 1px solid rgba(24, 244, 91, 0.22);
+  border-bottom: 0;
   transition: transform 0.35s ease, filter 0.35s ease;
 }
 
@@ -837,12 +848,12 @@ p {
 }
 
 .work-content {
-  padding: 18px;
+  padding: 18px 20px;
 }
 
 .work-category {
   display: block;
-  min-height: 28px;
+  min-height: 0;
   color: var(--green);
   font-size: 12px;
   font-weight: 900;
@@ -852,7 +863,7 @@ p {
 
 .work-content h3,
 .portfolio-case h2 {
-  margin: 8px 0 12px;
+  margin: 6px 0 10px;
   font-size: clamp(21px, 2.5vw, 30px);
   line-height: 1.06;
   text-transform: uppercase;
@@ -863,7 +874,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
-  margin: 16px 0 20px;
+  margin: 12px 0 16px;
 }
 
 .work-badges span,
@@ -944,15 +955,15 @@ p {
 
 .portfolio-case {
   display: grid;
-  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
   transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .case-main-media img {
-  aspect-ratio: 16 / 7.4;
-  max-height: 250px;
+  aspect-ratio: 16 / 7;
+  max-height: 190px;
   border: 1px solid rgba(24, 244, 91, 0.25);
   border-radius: 8px;
 }
@@ -980,7 +991,7 @@ p {
 .case-gallery {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
   grid-column: 1 / -1;
 }
 
@@ -991,7 +1002,7 @@ p {
 
 .portfolio-gallery-card img {
   aspect-ratio: 16 / 7.6;
-  max-height: 150px;
+  max-height: 110px;
 }
 
 .portfolio-gallery-card span {
@@ -1705,7 +1716,6 @@ p {
   .niche-grid,
   .feature-grid,
   .site-types,
-  .work-grid,
   .promotion-grid,
   .setup-grid,
   .seo-columns,
@@ -1774,7 +1784,6 @@ p {
   .niche-grid,
   .feature-grid,
   .site-types,
-  .work-grid,
   .promotion-grid,
   .setup-grid,
   .seo-columns,
@@ -1787,6 +1796,18 @@ p {
   .tags,
   .shop-card ul {
     grid-template-columns: 1fr;
+  }
+
+  .work-card {
+    grid-template-columns: 1fr;
+  }
+
+  .work-media img {
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 16 / 8;
+    border-right: 0;
+    border-bottom: 1px solid rgba(24, 244, 91, 0.22);
   }
 
   .hero-visual {
@@ -1812,7 +1833,7 @@ p {
   }
 
   .work-content {
-    padding: 22px;
+    padding: 18px;
   }
 
   .work-actions .btn,
