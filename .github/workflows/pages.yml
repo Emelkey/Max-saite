@@ -30,10 +30,16 @@ jobs:
         with:
           enablement: true
 
+      - name: Build production site
+        run: >-
+          node tools/build-hosting-package.js
+          --site-url https://maxsite.com.ua
+          --form-endpoint https://max-site-leads.emelkey777.workers.dev
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: release/max-site-production
 
       - name: Deploy to GitHub Pages
         id: deployment

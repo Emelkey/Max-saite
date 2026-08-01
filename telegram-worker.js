@@ -1,7 +1,5 @@
 const DEFAULT_ALLOWED_ORIGINS = [
   "https://emelkey.github.io",
-  "https://maxsite.ua",
-  "https://www.maxsite.ua",
 ];
 
 const json = (data, status, headers) =>
@@ -18,15 +16,20 @@ const getAllowedOrigin = (request, env) => {
     .filter(Boolean);
   const allowedOrigins = [...DEFAULT_ALLOWED_ORIGINS, ...extraOrigins];
 
-  return allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+  return allowedOrigins.includes(origin) ? origin : "";
 };
 
-const getCorsHeaders = (request, env) => ({
-  "Access-Control-Allow-Origin": getAllowedOrigin(request, env),
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-  "Access-Control-Max-Age": "86400",
-});
+const getCorsHeaders = (request, env) => {
+  const allowedOrigin = getAllowedOrigin(request, env);
+
+  return {
+    ...(allowedOrigin ? { "Access-Control-Allow-Origin": allowedOrigin } : {}),
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
+  };
+};
 
 const clean = (value) => String(value || "").trim().slice(0, 1000);
 
@@ -48,6 +51,11 @@ const buildTelegramText = (payload) => {
 export default {
   async fetch(request, env) {
     const headers = getCorsHeaders(request, env);
+    const requestOrigin = request.headers.get("Origin") || "";
+
+    if (requestOrigin && !getAllowedOrigin(request, env)) {
+      return json({ ok: false, error: "origin_not_allowed" }, 403, headers);
+    }
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers });
@@ -61,10 +69,24 @@ export default {
       return json({ ok: false, error: "telegram_not_configured" }, 500, headers);
     }
 
+    const contentLength = Number(request.headers.get("Content-Length") || 0);
+    if (contentLength > 20000) {
+      return json({ ok: false, error: "payload_too_large" }, 413, headers);
+    }
+
     const payload = await request.json().catch(() => null);
 
     if (!payload || !payload.fields || !clean(payload.fields.phone)) {
       return json({ ok: false, error: "invalid_lead" }, 400, headers);
+    }
+
+    if (clean(payload.website)) {
+      return json({ ok: true }, 200, headers);
+    }
+
+    const formStartedAt = Number(payload.formStartedAt || 0);
+    if (formStartedAt && Date.now() - formStartedAt < 800) {
+      return json({ ok: true }, 200, headers);
     }
 
     const response = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -78,6 +100,12 @@ export default {
     });
 
     if (!response.ok) {
+      const telegramError = await response.json().catch(() => ({}));
+      console.error("Telegram API request failed", {
+        status: response.status,
+        errorCode: telegramError.error_code || null,
+        description: clean(telegramError.description).slice(0, 200),
+      });
       return json({ ok: false, error: "telegram_request_failed" }, 502, headers);
     }
 

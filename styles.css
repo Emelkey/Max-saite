@@ -11,6 +11,28 @@
   --shadow: 0 14px 38px rgba(0, 0, 0, 0.26);
 }
 
+/* Global keyboard focus and motion preferences. */
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 3px solid #18f45b;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -46,6 +68,16 @@ button,
 input,
 textarea {
   font: inherit;
+}
+
+.form-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .site-header {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maxsite.ua/sitemap.xml
+Sitemap: https://emelkey.github.io/Max-saite/sitemap.xml
