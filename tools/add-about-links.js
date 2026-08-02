@@ -38,15 +38,15 @@ for (const file of collectHtml(root)) {
 
   html = html.replace(
     /(<a href="[^"]*portfolio\/?">Портфоліо<\/a>)(\s*)(<a href="[^"]*blog\/?">Блог<\/a>)/g,
-    '$1$2<a href="/Max-saite/pro-nas/">Про нас</a>$2$3'
+    '$1$2<a href="/pro-nas/">Про нас</a>$2$3'
   );
 
   html = html.replace(
     /(<div><h3>Компанія<\/h3><a href="[^"]*portfolio\/?">Портфоліо \/ Кейси<\/a>)(?!<a href="[^"]*pro-nas)/g,
-    '$1<a href="/Max-saite/pro-nas/">Про нас</a>'
+    '$1<a href="/pro-nas/">Про нас</a>'
   );
 
-  html = html.replace(/<a href="index\.html">Про нас<\/a>/g, '<a href="/Max-saite/pro-nas/">Про нас</a>');
+  html = html.replace(/<a href="index\.html">Про нас<\/a>/g, '<a href="/pro-nas/">Про нас</a>');
 
   html = html
     .replace(/styles\.css\?v=[^"']+/g, "styles.css?v=20260802-trust-v2")
