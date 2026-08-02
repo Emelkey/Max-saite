@@ -4,8 +4,8 @@ const { spawnSync } = require("child_process");
 
 const root = path.resolve(__dirname, "..");
 const releaseRoot = path.join(root, "release");
-const sourceSiteUrl = "https://emelkey.github.io/Max-saite";
-const sourceBasePath = "/Max-saite/";
+const sourceSiteUrl = "https://maxsite.com.ua";
+const sourceBasePath = "/";
 
 const args = process.argv.slice(2);
 const hasFlag = (name) => args.includes(name);
@@ -64,6 +64,7 @@ const zipPath = path.join(releaseRoot, `${packageName}.zip`);
 
 const publicRootFiles = new Set([
   ".nojekyll",
+  "CNAME",
   "404.html",
   "index.html",
   "privacy.html",
@@ -156,7 +157,14 @@ const transformDirectory = (directory) => {
     let content = fs.readFileSync(file, "utf8");
     const publicUrlToken = "__MAX_SITE_PUBLIC_URL__";
     content = content.replaceAll(sourceSiteUrl, publicUrlToken);
-    content = content.replaceAll(sourceBasePath, targetBasePath);
+    if (sourceBasePath !== targetBasePath) {
+      if (sourceBasePath === "/") {
+        content = content.replace(/((?:href|src|action)=["'])\/(?!\/)/g, `$1${targetBasePath}`);
+        content = content.replace(/(url\(["']?)\/(?!\/)/g, `$1${targetBasePath}`);
+      } else {
+        content = content.replaceAll(sourceBasePath, targetBasePath);
+      }
+    }
     content = content.replaceAll(publicUrlToken, staging ? sourceSiteUrl : targetSiteUrl);
     if (staging && file.endsWith(".html")) content = addNoindex(content);
     if (!staging && path.basename(file) === "index.html" && path.dirname(file) === outputDirectory) {
@@ -209,7 +217,9 @@ for (const file of htmlFiles) {
     errors.push(`Old root-relative base path remains in ${path.relative(outputDirectory, file)}`);
   }
   if (staging && !/<meta name="robots"[^>]*noindex/i.test(html)) errors.push(`Staging noindex missing in ${path.relative(outputDirectory, file)}`);
-  if (!staging && html.includes(sourceSiteUrl)) errors.push(`Old public URL remains in ${path.relative(outputDirectory, file)}`);
+  if (!staging && sourceSiteUrl !== targetSiteUrl && html.includes(sourceSiteUrl)) {
+    errors.push(`Source public URL remains in ${path.relative(outputDirectory, file)}`);
+  }
 }
 
 const sitemap = fs.readFileSync(path.join(outputDirectory, "sitemap.xml"), "utf8");

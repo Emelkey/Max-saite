@@ -8,7 +8,7 @@ const getOption = (name) => {
 };
 
 const root = path.resolve(getOption("--root") || path.resolve(__dirname, ".."));
-const publicBase = (getOption("--site-url") || "https://emelkey.github.io/Max-saite").replace(/\/$/, "");
+const publicBase = (getOption("--site-url") || "https://maxsite.com.ua").replace(/\/$/, "");
 const configuredPublicPath = getOption("--public-path");
 const repoBasePath = configuredPublicPath
   ? configuredPublicPath === "/"
@@ -106,7 +106,10 @@ if (!robots.includes(`${publicBase}/sitemap.xml`)) errors.push("robots.txt has a
 
 const telegramConfig = fs.readFileSync(path.join(root, "assets/telegram-config.js"), "utf8");
 const mainScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
-if (!/endpoint:\s*""/.test(telegramConfig)) errors.push("Telegram endpoint is not empty; review production delivery separately");
+const telegramEndpoint = telegramConfig.match(/endpoint:\s*"([^"]*)"/)?.[1] || "";
+if (telegramEndpoint && !/^https:\/\//i.test(telegramEndpoint)) {
+  errors.push("Telegram endpoint must use HTTPS");
+}
 if (!mainScript.includes('telegramConfig.username || "MaxMytt"')) errors.push("Telegram fallback username is missing");
 
 console.log(`Sitemap URLs: ${urls.length}`);

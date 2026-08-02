@@ -536,8 +536,17 @@ textarea {
 }
 
 .founder-preview-media {
+  min-width: 0;
   min-height: 430px;
   max-height: 560px;
+}
+
+.founder-preview-copy {
+  min-width: 0;
+}
+
+.founder-preview-media img {
+  max-width: 100%;
 }
 
 .founder-preview-copy .btn {
