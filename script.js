@@ -24,6 +24,15 @@ const loadAnalytics = () => {
   }
 
   if (isValidGa4Id(analyticsConfig.measurementId)) {
+    const googleTagUrl = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
+      analyticsConfig.measurementId
+    )}`;
+    const existingGoogleTag = document.querySelector(
+      `script[src="${googleTagUrl}"]`
+    );
+
+    if (existingGoogleTag && typeof window.gtag === "function") return;
+
     window.dataLayer = window.dataLayer || [];
     window.gtag = (...args) => window.dataLayer.push(args);
     window.gtag("js", new Date());
@@ -33,9 +42,7 @@ const loadAnalytics = () => {
 
     const script = document.createElement("script");
     script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
-      analyticsConfig.measurementId
-    )}`;
+    script.src = googleTagUrl;
     document.head.appendChild(script);
   }
 };
@@ -84,22 +91,28 @@ document.addEventListener("click", (event) => {
   if (!link) return;
 
   const href = link.getAttribute("href") || "";
-  const label = (link.textContent || link.getAttribute("aria-label") || "")
-    .trim()
-    .slice(0, 80);
 
   if (href.startsWith("tel:")) {
-    trackEvent("contact_click", { contact_method: "phone", link_label: label });
+    trackEvent("click_phone");
   } else if (href.startsWith("viber:")) {
-    trackEvent("contact_click", { contact_method: "viber", link_label: label });
+    trackEvent("click_viber");
   } else if (href.includes("t.me/")) {
-    trackEvent("contact_click", { contact_method: "telegram", link_label: label });
+    trackEvent("click_telegram");
   } else if (href.includes("instagram.com/")) {
-    trackEvent("contact_click", { contact_method: "instagram", link_label: label });
+    trackEvent("click_instagram");
+  } else if (link.closest(".price-card, .shop-card")) {
+    const planCard = link.closest(".price-card, .shop-card");
+    const planName = planCard?.querySelector("h3")?.textContent?.trim().slice(0, 60) || "unknown";
+    trackEvent("select_plan", { plan_name: planName });
+  } else if (
+    link.closest(".work-card, .case-study") &&
+    /^https?:\/\//i.test(href)
+  ) {
+    const caseCard = link.closest(".work-card, .case-study");
+    const caseName = caseCard?.querySelector("h2, h3")?.textContent?.trim().slice(0, 80) || "case";
+    trackEvent("outbound_case_click", { case_name: caseName });
   } else if (link.matches('[href="#lead"], [href$="#lead"]')) {
-    trackEvent("lead_cta_click", { link_label: label });
-  } else if (link.matches(".work-actions a, .case-actions a")) {
-    trackEvent("portfolio_click", { link_label: label });
+    trackEvent("lead_cta_click");
   }
 });
 
@@ -116,6 +129,29 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+const observeAnalyticsView = (selector, eventName, parameterBuilder = () => ({})) => {
+  const elements = document.querySelectorAll(selector);
+  if (!elements.length || !("IntersectionObserver" in window)) return;
+
+  const analyticsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        trackEvent(eventName, parameterBuilder(entry.target));
+        analyticsObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  elements.forEach((element) => analyticsObserver.observe(element));
+};
+
+observeAnalyticsView("#pricing", "view_pricing");
+observeAnalyticsView(".work-card, .case-study", "view_case", (card) => ({
+  case_name: card.querySelector("h2, h3")?.textContent?.trim().slice(0, 80) || "case",
+}));
 
 document.querySelectorAll(".faq-list details").forEach((item) => {
   item.addEventListener("toggle", () => {
@@ -171,6 +207,12 @@ const setButtonState = (button, text, disabled = false) => {
   button.disabled = disabled;
 };
 
+const setFormStatus = (statusElement, message, state = "") => {
+  if (!statusElement) return;
+  statusElement.textContent = message;
+  statusElement.dataset.state = state;
+};
+
 const openTelegramFallback = async (text) => {
   try {
     await navigator.clipboard?.writeText(text);
@@ -203,6 +245,13 @@ const sendLead = async (payload) => {
 
 document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
   form.dataset.formStartedAt = String(Date.now());
+  const formType = form.classList.contains("compact-form") ? "compact" : "main";
+
+  const statusElement = document.createElement("p");
+  statusElement.className = "form-status";
+  statusElement.setAttribute("role", "status");
+  statusElement.setAttribute("aria-live", "polite");
+  form.appendChild(statusElement);
 
   if (!form.elements.website) {
     const honeypot = document.createElement("input");
@@ -215,6 +264,15 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
     form.appendChild(honeypot);
   }
 
+  const trackFormStart = () => {
+    if (form.dataset.analyticsStarted === "true") return;
+    form.dataset.analyticsStarted = "true";
+    trackEvent("form_start", { form_type: formType });
+  };
+
+  form.addEventListener("input", trackFormStart);
+  form.addEventListener("focusin", trackFormStart);
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -224,28 +282,29 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
     const defaultText = button?.textContent || "Отримати консультацію";
     const payload = buildLeadPayload(form);
 
-    trackEvent("lead_submit", {
-      form_type: form.classList.contains("compact-form") ? "compact" : "main",
-    });
+    trackEvent("form_submit", { form_type: formType });
 
     setButtonState(button, "Відправляємо...", true);
+    setFormStatus(statusElement, "Надсилаємо заявку…", "sending");
 
     try {
       const result = await sendLead(payload);
-      trackEvent("lead_result", {
-        delivery_method: result.fallback ? "telegram_fallback" : "endpoint",
-        result: "success",
-      });
-      setButtonState(button, result.fallback ? "Відкрито Telegram" : "Заявку відправлено", true);
+      if (result.fallback) {
+        trackEvent("lead_fallback_open", { form_type: formType });
+        setButtonState(button, "Відкрито Telegram", true);
+        setFormStatus(statusElement, "Надішліть підготовлений текст у Telegram.", "fallback");
+      } else {
+        trackEvent("generate_lead", { form_type: formType, delivery_method: "endpoint" });
+        setButtonState(button, "Заявку відправлено", true);
+        setFormStatus(statusElement, "Дякуємо! Заявку успішно відправлено.", "success");
+      }
       form.reset();
     } catch (error) {
       console.error(error);
-      trackEvent("lead_result", {
-        delivery_method: "telegram_fallback",
-        result: "endpoint_error",
-      });
+      trackEvent("lead_delivery_error", { form_type: formType });
       await openTelegramFallback(buildTelegramText(payload));
       setButtonState(button, "Відкрито Telegram", true);
+      setFormStatus(statusElement, "Автоматична відправка недоступна. Надішліть заявку у Telegram.", "error");
     }
 
     setTimeout(() => {

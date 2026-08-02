@@ -80,6 +80,31 @@ textarea {
   pointer-events: none !important;
 }
 
+.form-status {
+  min-height: 1.35em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.form-status[data-state="success"] {
+  color: var(--green);
+}
+
+.form-status[data-state="error"],
+.form-status[data-state="fallback"] {
+  color: #ffd166;
+}
+
+.compact-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -336,6 +361,16 @@ textarea {
   margin-top: 28px;
 }
 
+.seo-content > *,
+.seo-columns > *,
+.seo-lead > * {
+  min-width: 0;
+}
+
+.seo-lead a {
+  overflow-wrap: anywhere;
+}
+
 .seo-band,
 .seo-links,
 .seo-lead,
@@ -407,6 +442,111 @@ textarea {
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   align-items: start;
+}
+
+.about-hero,
+.founder-preview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
+  gap: clamp(24px, 4vw, 52px);
+  align-items: center;
+}
+
+.about-hero {
+  padding: clamp(24px, 4vw, 46px);
+  border: 1px solid rgba(24, 244, 91, 0.25);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(24, 244, 91, 0.14), transparent 34%),
+    linear-gradient(180deg, rgba(39, 53, 70, 0.94), rgba(24, 34, 47, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.about-hero h1 {
+  max-width: 880px;
+  margin-bottom: 18px;
+  font-size: clamp(38px, 5.5vw, 66px);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.founder-portrait,
+.founder-preview-media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(24, 244, 91, 0.32);
+  border-radius: 8px;
+  background: var(--block);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36), 0 0 48px rgba(24, 244, 91, 0.12);
+}
+
+.founder-portrait img,
+.founder-preview-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 34%;
+}
+
+.founder-portrait {
+  min-height: 520px;
+}
+
+.founder-portrait img {
+  position: absolute;
+  inset: 0;
+}
+
+.founder-portrait figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 5px;
+  padding: 20px;
+  background: linear-gradient(180deg, transparent, rgba(5, 7, 10, 0.96));
+}
+
+.founder-portrait figcaption strong {
+  color: var(--green);
+  font-size: 1.1rem;
+}
+
+.founder-portrait figcaption span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.about-principles {
+  display: grid;
+  gap: 18px;
+}
+
+.about-principles .section-head {
+  margin-bottom: 0;
+}
+
+.founder-preview {
+  padding: clamp(26px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(35, 48, 64, 0.92), rgba(24, 34, 47, 0.9));
+  box-shadow: var(--shadow);
+}
+
+.founder-preview-media {
+  min-height: 430px;
+  max-height: 560px;
+}
+
+.founder-preview-copy .btn {
+  margin-top: 22px;
+}
+
+.text-link {
+  color: var(--green);
+  font-weight: 850;
 }
 
 .compact-form {
@@ -1931,6 +2071,8 @@ p {
   .seo-section,
   .seo-hero,
   .seo-lead,
+  .about-hero,
+  .founder-preview,
   .portfolio-hero,
   .portfolio-case,
   .portfolio-cta,
@@ -1985,6 +2127,15 @@ p {
   .section {
     width: min(100% - 28px, 1180px);
     padding: 64px 0;
+  }
+
+  .founder-portrait,
+  .founder-preview-media {
+    min-height: 440px;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(32px, 10vw, 40px);
   }
 
   .site-header {

@@ -2,6 +2,10 @@ const DEFAULT_ALLOWED_ORIGINS = [
   "https://emelkey.github.io",
 ];
 
+const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const rateLimitBuckets = new Map();
+
 const json = (data, status, headers) =>
   Response.json(data, {
     status,
@@ -32,6 +36,32 @@ const getCorsHeaders = (request, env) => {
 };
 
 const clean = (value) => String(value || "").trim().slice(0, 1000);
+
+const isRateLimited = (request) => {
+  const clientAddress = request.headers.get("CF-Connecting-IP") || "unknown";
+  const now = Date.now();
+  const recentRequests = (rateLimitBuckets.get(clientAddress) || []).filter(
+    (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS
+  );
+
+  if (recentRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
+    rateLimitBuckets.set(clientAddress, recentRequests);
+    return true;
+  }
+
+  recentRequests.push(now);
+  rateLimitBuckets.set(clientAddress, recentRequests);
+
+  if (rateLimitBuckets.size > 1000) {
+    for (const [address, timestamps] of rateLimitBuckets) {
+      if (!timestamps.some((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS)) {
+        rateLimitBuckets.delete(address);
+      }
+    }
+  }
+
+  return false;
+};
 
 const buildTelegramText = (payload) => {
   const fields = payload.fields || {};
@@ -87,6 +117,14 @@ export default {
     const formStartedAt = Number(payload.formStartedAt || 0);
     if (formStartedAt && Date.now() - formStartedAt < 800) {
       return json({ ok: true }, 200, headers);
+    }
+
+    if (isRateLimited(request)) {
+      return json(
+        { ok: false, error: "rate_limited" },
+        429,
+        { ...headers, "Retry-After": String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)) }
+      );
     }
 
     const response = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
