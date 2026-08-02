@@ -17,21 +17,22 @@ function collectHtml(dir) {
 let changed = 0;
 
 const googleTag = `  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TS8DMMKK34"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YBWT9NNR1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-TS8DMMKK34');
+    gtag('config', 'G-1YBWT9NNR1');
   </script>`;
 
 for (const file of collectHtml(root)) {
-  if (path.basename(file) === "404.html") continue;
   let html = fs.readFileSync(file, "utf8");
   const original = html;
 
-  if (!html.includes("googletagmanager.com/gtag/js?id=G-TS8DMMKK34")) {
+  html = html.replaceAll("G-TS8DMMKK34", "G-1YBWT9NNR1");
+
+  if (!html.includes("googletagmanager.com/gtag/js?id=G-1YBWT9NNR1")) {
     html = html.replace(/<head>(\s*)/i, `<head>\n${googleTag}$1`);
   }
 
@@ -49,7 +50,7 @@ for (const file of collectHtml(root)) {
 
   html = html
     .replace(/styles\.css\?v=[^"']+/g, "styles.css?v=20260802-trust-v2")
-    .replace(/assets\/analytics-config\.js\?v=[^"']+/g, "assets/analytics-config.js?v=20260802-ga4-inline")
+    .replace(/assets\/analytics-config\.js\?v=[^"']+/g, "assets/analytics-config.js?v=20260802-ga4-property")
     .replace(/script\.js\?v=[^"']+/g, "script.js?v=20260802-p0-final");
 
   if (html !== original) {
