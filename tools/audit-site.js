@@ -16,6 +16,9 @@ const repoBasePath = configuredPublicPath
     : `/${configuredPublicPath.replace(/^\/+|\/+$/g, "")}`
   : new URL(publicBase).pathname.replace(/\/$/, "");
 const errors = [];
+const titleOwners = new Map();
+const descriptionOwners = new Map();
+const auditedFiles = new Set();
 
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
@@ -47,17 +50,35 @@ for (const url of urls) {
   }
 
   const html = fs.readFileSync(file, "utf8");
+  auditedFiles.add(path.resolve(file));
   const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1]?.trim();
   const descriptionTag = html.match(/<meta\s+[^>]*name="description"[^>]*>/i)?.[0];
   const description = descriptionTag?.match(/content="([^"]+)"/)?.[1]?.trim();
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1]?.trim();
+  const robotsTag = html.match(/<meta\s+[^>]*name="robots"[^>]*>/i)?.[0];
+  const robots = robotsTag?.match(/content="([^"]+)"/)?.[1]?.trim().toLowerCase();
+  const openGraphUrl = html.match(/<meta\s+[^>]*property="og:url"[^>]*content="([^"]+)"[^>]*>/i)?.[1]?.trim();
   const h1Count = (html.match(/<h1\b/gi) || []).length;
+  const googleTagCount = (html.match(/googletagmanager\.com\/gtag\/js\?id=/g) || []).length;
 
   if (!title) errors.push(`Missing title: ${fileRoute(file)}`);
   if (!description) errors.push(`Missing description: ${fileRoute(file)}`);
   if (!canonical) errors.push(`Missing canonical: ${fileRoute(file)}`);
   if (canonical && canonical !== url) errors.push(`Canonical mismatch: ${fileRoute(file)} -> ${canonical}`);
+  if (!robots || !robots.includes("index") || robots.includes("noindex")) errors.push(`Indexed sitemap page must use index robots: ${fileRoute(file)}`);
+  if (!openGraphUrl) errors.push(`Missing og:url: ${fileRoute(file)}`);
+  if (openGraphUrl && openGraphUrl !== url) errors.push(`og:url mismatch: ${fileRoute(file)} -> ${openGraphUrl}`);
   if (h1Count !== 1) errors.push(`Expected one H1, found ${h1Count}: ${fileRoute(file)}`);
+  if (googleTagCount !== 1) errors.push(`Expected one Google tag, found ${googleTagCount}: ${fileRoute(file)}`);
+
+  if (title) {
+    if (titleOwners.has(title)) errors.push(`Duplicate title: ${fileRoute(file)} and ${titleOwners.get(title)}`);
+    else titleOwners.set(title, fileRoute(file));
+  }
+  if (description) {
+    if (descriptionOwners.has(description)) errors.push(`Duplicate description: ${fileRoute(file)} and ${descriptionOwners.get(description)}`);
+    else descriptionOwners.set(description, fileRoute(file));
+  }
 
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try {
@@ -88,6 +109,38 @@ for (const url of urls) {
       const currentDirectory = path.dirname(file);
       const cleanHref = href.replace(/[?#].*$/, "");
       target = path.resolve(currentDirectory, cleanHref);
+      if (!path.extname(target) || cleanHref.endsWith("/")) target = path.join(target, "index.html");
+    }
+
+    internalLinks.push([fileRoute(file), href]);
+    if (!fs.existsSync(target)) errors.push(`Broken internal link: ${fileRoute(file)} -> ${href}`);
+  }
+}
+
+const collectHtml = (directory) => {
+  const files = [];
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    if ([".git", "release", "node_modules"].includes(entry.name)) continue;
+    const file = path.join(directory, entry.name);
+    if (entry.isDirectory()) files.push(...collectHtml(file));
+    else if (entry.name.endsWith(".html")) files.push(file);
+  }
+  return files;
+};
+
+for (const file of collectHtml(root)) {
+  if (auditedFiles.has(path.resolve(file))) continue;
+  const html = fs.readFileSync(file, "utf8");
+  for (const match of html.matchAll(/\shref="([^"]+)"/g)) {
+    const href = match[1];
+    if (/^(?:https?:|mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
+
+    let target;
+    if (href.startsWith("/")) {
+      target = routeToFile(href);
+    } else {
+      const cleanHref = href.replace(/[?#].*$/, "");
+      target = path.resolve(path.dirname(file), cleanHref);
       if (!path.extname(target) || cleanHref.endsWith("/")) target = path.join(target, "index.html");
     }
 
