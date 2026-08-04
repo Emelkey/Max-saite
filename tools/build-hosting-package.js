@@ -78,6 +78,7 @@ const excludedDirectories = new Set([
   ".git",
   ".github",
   ".wrangler",
+  "docs",
   "release",
   "tools",
 ]);
