@@ -944,6 +944,16 @@ p {
   gap: 18px;
 }
 
+/* Service cards must stay visible even when Safari restores the page mid-scroll. */
+.site-types .type-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.site-types .type-card:hover {
+  transform: translateY(-4px);
+}
+
 .service-photo {
   display: block;
   width: 100%;
