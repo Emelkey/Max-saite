@@ -957,6 +957,7 @@ p {
 .service-photo {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 10;
   margin-bottom: 20px;
   object-fit: cover;
