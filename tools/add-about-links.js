@@ -17,22 +17,20 @@ function collectHtml(dir) {
 let changed = 0;
 
 const googleTag = `  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YBWT9NNR1"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TS8DMMKK34"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-1YBWT9NNR1');
+    gtag('config', 'G-TS8DMMKK34');
   </script>`;
 
 for (const file of collectHtml(root)) {
   let html = fs.readFileSync(file, "utf8");
   const original = html;
 
-  html = html.replaceAll("G-TS8DMMKK34", "G-1YBWT9NNR1");
-
-  if (!html.includes("googletagmanager.com/gtag/js?id=G-1YBWT9NNR1")) {
+  if (!html.includes("googletagmanager.com/gtag/js?id=G-TS8DMMKK34")) {
     html = html.replace(/<head>(\s*)/i, `<head>\n${googleTag}$1`);
   }
 

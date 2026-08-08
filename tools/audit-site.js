@@ -69,6 +69,12 @@ for (const url of urls) {
   if (!openGraphUrl) errors.push(`Missing og:url: ${fileRoute(file)}`);
   if (openGraphUrl && openGraphUrl !== url) errors.push(`og:url mismatch: ${fileRoute(file)} -> ${openGraphUrl}`);
   if (h1Count !== 1) errors.push(`Expected one H1, found ${h1Count}: ${fileRoute(file)}`);
+  if (!html.includes('class="mobile-nav-phone"') || !html.includes('href="tel:+380972692322"')) {
+    errors.push(`Missing mobile navigation phone link: ${fileRoute(file)}`);
+  }
+  if (!html.includes('class="floating-contact"')) {
+    errors.push(`Missing persistent mobile contact panel: ${fileRoute(file)}`);
+  }
   if (googleTagCount !== 1) errors.push(`Expected one Google tag, found ${googleTagCount}: ${fileRoute(file)}`);
 
   if (title) {
@@ -156,6 +162,10 @@ if (!/<meta name="robots" content="noindex(?:,\s*nofollow)?"/i.test(notFound)) {
 
 const robots = fs.readFileSync(path.join(root, "robots.txt"), "utf8");
 if (!robots.includes(`${publicBase}/sitemap.xml`)) errors.push("robots.txt has an incorrect sitemap URL");
+
+const siteScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
+if (!siteScript.includes('trackEvent("click_phone"')) errors.push("Missing GA4 click_phone event");
+if (!siteScript.includes('trackEvent("generate_lead"')) errors.push("Missing GA4 generate_lead event");
 
 const telegramConfig = fs.readFileSync(path.join(root, "assets/telegram-config.js"), "utf8");
 const mainScript = fs.readFileSync(path.join(root, "script.js"), "utf8");

@@ -41,7 +41,7 @@ DNS: чотири GitHub Pages A-записи для apex; `www` CNAME → `emel
 - Basic SEO: 39/39 сторінок пройшли title, description, один H1, self-canonical, robots та JSON-LD parsing.
 - Внутрішні посилання: 1891, помилок 0.
 - Старі функціональні GitHub Pages URL у вихідному коді: 0.
-- GA4: один тег `G-1YBWT9NNR1` на кожній HTML-сторінці, дублів 0.
+- GA4: один тег ресурсу MAX SITE `G-TS8DMMKK34` на кожній HTML-сторінці, дублів 0.
 - JavaScript syntax: пройдено для основних і службових скриптів.
 - Production build: 61 HTML-файл, 39 sitemap URL, успішно.
 - `git diff --check`: успішно.

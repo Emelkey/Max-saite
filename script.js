@@ -93,7 +93,16 @@ document.addEventListener("click", (event) => {
   const href = link.getAttribute("href") || "";
 
   if (href.startsWith("tel:")) {
-    trackEvent("click_phone");
+    trackEvent("click_phone", {
+      link_location: link.closest(".floating-contact")
+        ? "mobile_sticky_bar"
+        : link.closest(".main-nav")
+          ? "mobile_navigation"
+          : link.closest("header")
+            ? "header"
+            : "page",
+      phone_number: "+380972692322",
+    });
   } else if (href.startsWith("viber:")) {
     trackEvent("click_viber");
   } else if (href.includes("t.me/")) {
@@ -294,7 +303,11 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
         setButtonState(button, "Відкрито Telegram", true);
         setFormStatus(statusElement, "Надішліть підготовлений текст у Telegram.", "fallback");
       } else {
-        trackEvent("generate_lead", { form_type: formType, delivery_method: "endpoint" });
+        trackEvent("generate_lead", {
+          form_type: formType,
+          delivery_method: "endpoint",
+          lead_source: "website",
+        });
         setButtonState(button, "Заявку відправлено", true);
         setFormStatus(statusElement, "Дякуємо! Заявку успішно відправлено.", "success");
       }

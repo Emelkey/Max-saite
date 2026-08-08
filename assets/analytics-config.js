@@ -6,6 +6,6 @@
  */
 window.MAX_SITE_ANALYTICS = {
   enabled: true,
-  measurementId: "G-1YBWT9NNR1",
+  measurementId: "G-TS8DMMKK34",
   tagManagerId: "",
 };

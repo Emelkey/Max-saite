@@ -3,7 +3,7 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const base = "https://maxsite.com.ua";
-const ga4 = "G-1YBWT9NNR1";
+const ga4 = "G-TS8DMMKK34";
 const today = "2026-08-02";
 
 const escapeHtml = (value) =>

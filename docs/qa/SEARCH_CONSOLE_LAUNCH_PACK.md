@@ -19,13 +19,13 @@
 | Нові основні SEO-сторінки | 5/5 повертають HTTP 200 |
 | SEO-аудит | 40/40 сторінок без базових помилок |
 | Внутрішні посилання | 3540 перевірено, битих 0 |
-| Google Analytics 4 | `G-1YBWT9NNR1` |
+| Google Analytics 4 | `G-TS8DMMKK34` |
 | DNS nameservers | `ns10.uadns.com`, `ns11.uadns.com`, `ns12.uadns.com` |
 | Search Console TXT | Ще не доданий |
 
 ## 2. Швидке підключення: 5 дій
 
-Щоб підключити Search Console без ручної роботи з DNS, використати вже встановлений на сайті Google Analytics 4 (`G-1YBWT9NNR1`).
+Щоб підключити Search Console без ручної роботи з DNS, використати Google Analytics 4 ресурсу MAX SITE `548154976` (`G-TS8DMMKK34`).
 
 Обов’язкова умова: відкрити Search Console у тому самому Google-акаунті, який має право **Редактор** на ресурс Google Analytics MAX SITE.
 
