@@ -47,7 +47,7 @@ for (const file of collectHtml(root)) {
   html = html.replace(/<a href="index\.html">Про нас<\/a>/g, '<a href="/pro-nas/">Про нас</a>');
 
   html = html
-    .replace(/styles\.css\?v=[^"']+/g, "styles.css?v=20260802-trust-v2")
+    .replace(/styles\.css\?v=[^"']+/g, "styles.css?v=20260809-cards-v3")
     .replace(/assets\/analytics-config\.js\?v=[^"']+/g, "assets/analytics-config.js?v=20260802-ga4-property")
     .replace(/script\.js\?v=[^"']+/g, "script.js?v=20260802-p0-final");
 
