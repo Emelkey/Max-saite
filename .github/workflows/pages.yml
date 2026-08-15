@@ -29,6 +29,9 @@ jobs:
         with:
           enablement: true
 
+      - name: Audit source SEO and internal links
+        run: node tools/audit-site.js
+
       - name: Build production site
         run: >-
           node tools/build-hosting-package.js
@@ -36,6 +39,12 @@ jobs:
           --form-endpoint https://max-site-leads.emelkey777.workers.dev
           --ga4 "${{ vars.GA4_ID }}"
           --search-console-token "${{ vars.SEARCH_CONSOLE_TOKEN }}"
+
+      - name: Audit production package
+        run: >-
+          node tools/audit-site.js
+          --root release/max-site-production
+          --site-url https://maxsite.com.ua
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

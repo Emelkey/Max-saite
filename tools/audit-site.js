@@ -19,9 +19,20 @@ const errors = [];
 const titleOwners = new Map();
 const descriptionOwners = new Map();
 const auditedFiles = new Set();
+const articleFaqOwners = new Map();
 
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapUrlSet = new Set(urls);
+
+if (sitemapUrlSet.size !== urls.length) errors.push("Sitemap contains duplicate URLs");
+for (const match of sitemap.matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<lastmod>([^<]+)<\/lastmod>[\s\S]*?<\/url>/g)) {
+  const [, url, lastmod] = match;
+  if (!url.startsWith(`${publicBase}/`)) errors.push(`Sitemap URL uses an unexpected domain: ${url}`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lastmod)) errors.push(`Invalid sitemap lastmod: ${url} -> ${lastmod}`);
+  const todayInKyiv = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/Kyiv" });
+  if (lastmod > todayInKyiv) errors.push(`Future sitemap lastmod: ${url} -> ${lastmod}`);
+}
 
 const routeToFile = (route) => {
   let clean = route.replace(/[?#].*$/, "");
@@ -88,7 +99,35 @@ for (const url of urls) {
 
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try {
-      JSON.parse(match[1]);
+      const schema = JSON.parse(match[1]);
+      const graph = schema["@graph"] || [schema];
+      const article = graph.find((item) => item["@type"] === "Article");
+      if (article) {
+        if (!article.datePublished) errors.push(`Article schema missing datePublished: ${fileRoute(file)}`);
+        if (!article.dateModified) errors.push(`Article schema missing dateModified: ${fileRoute(file)}`);
+        if (!article.author) errors.push(`Article schema missing author: ${fileRoute(file)}`);
+        if (!article.image) errors.push(`Article schema missing image: ${fileRoute(file)}`);
+        if (!article.mainEntityOfPage) errors.push(`Article schema missing mainEntityOfPage: ${fileRoute(file)}`);
+
+        const articleBody = html.match(/<article\b[^>]*class="[^"]*article-body[^"]*"[^>]*>([\s\S]*?)<\/article>/)?.[1] || "";
+        const articleText = articleBody
+          .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/&[a-z#0-9]+;/gi, " ")
+          .trim();
+        const wordCount = articleText.split(/\s+/).filter(Boolean).length;
+        if (wordCount < 180) errors.push(`Thin article (${wordCount} words): ${fileRoute(file)}`);
+
+        const faq = graph.find((item) => item["@type"] === "FAQPage");
+        if (faq?.mainEntity?.length) {
+          const signature = JSON.stringify(faq.mainEntity);
+          if (articleFaqOwners.has(signature)) {
+            errors.push(`Duplicate article FAQ: ${fileRoute(file)} and ${articleFaqOwners.get(signature)}`);
+          } else {
+            articleFaqOwners.set(signature, fileRoute(file));
+          }
+        }
+      }
     } catch (error) {
       errors.push(`Invalid JSON-LD: ${fileRoute(file)} (${error.message})`);
     }
@@ -135,8 +174,31 @@ const collectHtml = (directory) => {
 };
 
 for (const file of collectHtml(root)) {
-  if (auditedFiles.has(path.resolve(file))) continue;
   const html = fs.readFileSync(file, "utf8");
+  const route = fileRoute(file);
+  const robotsTag = html.match(/<meta\s+[^>]*name="robots"[^>]*>/i)?.[0] || "";
+  const robots = robotsTag.match(/content="([^"]+)"/i)?.[1]?.toLowerCase() || "";
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1]?.trim();
+  const googleTagCount = (html.match(/googletagmanager\.com\/gtag\/js\?id=/g) || []).length;
+  const routeUrl = `${publicBase}${fileRoute(file)}`;
+
+  if (/https:\/\/emelkey\.github\.io\/Max-saite|https:\/\/maxsite\.ua|\/Max-saite\//.test(html)) {
+    errors.push(`Legacy domain or GitHub Pages base found: ${route}`);
+  }
+  if (googleTagCount !== 1) errors.push(`Expected one Google tag, found ${googleTagCount}: ${route}`);
+
+  if (!auditedFiles.has(path.resolve(file))) {
+    if (robots.includes("noindex")) {
+      if (sitemapUrlSet.has(routeUrl)) errors.push(`Noindex page must not be in sitemap: ${route}`);
+      if (route !== "/404.html" && (!canonical || !canonical.startsWith(publicBase))) {
+        errors.push(`Noindex page has no valid production canonical: ${route}`);
+      }
+    } else if (route !== "/404.html") {
+      errors.push(`Indexable HTML page is missing from sitemap: ${route}`);
+    }
+  }
+
+  if (auditedFiles.has(path.resolve(file))) continue;
   for (const match of html.matchAll(/\shref="([^"]+)"/g)) {
     const href = match[1];
     if (/^(?:https?:|mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
@@ -166,6 +228,7 @@ if (!robots.includes(`${publicBase}/sitemap.xml`)) errors.push("robots.txt has a
 const siteScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
 if (!siteScript.includes('trackEvent("click_phone"')) errors.push("Missing GA4 click_phone event");
 if (!siteScript.includes('trackEvent("generate_lead"')) errors.push("Missing GA4 generate_lead event");
+if (!siteScript.includes('trackEvent("lead_delivery_error"')) errors.push("Missing lead delivery error event");
 
 const telegramConfig = fs.readFileSync(path.join(root, "assets/telegram-config.js"), "utf8");
 const mainScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
