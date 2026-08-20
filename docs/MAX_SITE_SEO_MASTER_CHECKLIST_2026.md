@@ -50,4 +50,4 @@
 - [x] Sitemap/robots/canonical.
 - [x] 404 noindex.
 - [x] Візуальний browser QA 360 / 390 / 430 / tablet / desktop; горизонтальний overflow сторінки засновника виправлено.
-- [ ] Live smoke test після GitHub Pages deployment — заповнюється після deploy.
+- [x] Live smoke test після GitHub Pages deployment: головна й репрезентативні URL — 200, canonical/H1 коректні, sitemap — 78 URL, 404 — `noindex`.
