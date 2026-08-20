@@ -103,16 +103,28 @@ document.addEventListener("click", (event) => {
             : "page",
       phone_number: "+380972692322",
     });
+    trackEvent("phone_click", {
+      link_location: link.closest(".floating-contact")
+        ? "mobile_sticky_bar"
+        : link.closest(".main-nav")
+          ? "mobile_navigation"
+          : link.closest("header")
+            ? "header"
+            : "page",
+    });
   } else if (href.startsWith("viber:")) {
     trackEvent("click_viber");
+    trackEvent("messenger_click", { messenger: "viber" });
   } else if (href.includes("t.me/")) {
     trackEvent("click_telegram");
+    trackEvent("messenger_click", { messenger: "telegram" });
   } else if (href.includes("instagram.com/")) {
     trackEvent("click_instagram");
   } else if (link.closest(".price-card, .shop-card")) {
     const planCard = link.closest(".price-card, .shop-card");
     const planName = planCard?.querySelector("h3")?.textContent?.trim().slice(0, 60) || "unknown";
     trackEvent("select_plan", { plan_name: planName });
+    trackEvent("price_cta", { plan_name: planName });
   } else if (
     link.closest(".work-card, .case-study") &&
     /^https?:\/\//i.test(href)
@@ -120,8 +132,10 @@ document.addEventListener("click", (event) => {
     const caseCard = link.closest(".work-card, .case-study");
     const caseName = caseCard?.querySelector("h2, h3")?.textContent?.trim().slice(0, 80) || "case";
     trackEvent("outbound_case_click", { case_name: caseName });
+    trackEvent("portfolio_click", { case_name: caseName });
   } else if (link.matches('[href="#lead"], [href$="#lead"]')) {
     trackEvent("lead_cta_click");
+    trackEvent("consultation_click", { link_text: link.textContent.trim().slice(0, 80) });
   }
 });
 
@@ -277,6 +291,7 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
     if (form.dataset.analyticsStarted === "true") return;
     form.dataset.analyticsStarted = "true";
     trackEvent("form_start", { form_type: formType });
+    trackEvent("brief_start", { form_type: formType });
   };
 
   form.addEventListener("input", trackFormStart);
@@ -307,6 +322,10 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
           form_type: formType,
           delivery_method: "endpoint",
           lead_source: "website",
+        });
+        trackEvent("brief_complete", {
+          form_type: formType,
+          delivery_method: "endpoint",
         });
         setButtonState(button, "Заявку відправлено", true);
         setFormStatus(statusElement, "Дякуємо! Заявку успішно відправлено.", "success");

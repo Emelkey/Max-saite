@@ -501,6 +501,10 @@ textarea {
   box-shadow: var(--shadow);
 }
 
+.about-hero > * {
+  min-width: 0;
+}
+
 .about-hero h1 {
   max-width: 880px;
   margin-bottom: 18px;
@@ -2265,6 +2269,9 @@ p {
 
   .founder-portrait,
   .founder-preview-media {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 440px;
   }
 

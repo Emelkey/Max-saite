@@ -227,6 +227,20 @@ if (!robots.includes(`${publicBase}/sitemap.xml`)) errors.push("robots.txt has a
 
 const siteScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
 if (!siteScript.includes('trackEvent("click_phone"')) errors.push("Missing GA4 click_phone event");
+for (const eventName of [
+  "phone_click",
+  "messenger_click",
+  "consultation_click",
+  "portfolio_click",
+  "price_cta",
+  "brief_start",
+  "brief_complete",
+  "form_submit",
+]) {
+  if (!siteScript.includes(`trackEvent("${eventName}"`)) {
+    errors.push(`Missing required GA4 event: ${eventName}`);
+  }
+}
 if (!siteScript.includes('trackEvent("generate_lead"')) errors.push("Missing GA4 generate_lead event");
 if (!siteScript.includes('trackEvent("lead_delivery_error"')) errors.push("Missing lead delivery error event");
 
