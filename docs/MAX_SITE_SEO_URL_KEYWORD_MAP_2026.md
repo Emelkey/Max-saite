@@ -4,7 +4,9 @@
 
 | Намір | Канонічний URL | Рішення |
 |---|---|---|
+| бренд MAX SITE, сайти + SEO + Google Ads | `/` | брендова сторінка-хаб; не дублює money page створення сайтів |
 | створення сайтів під ключ | `/stvorennya-saytiv/` | чинний власник наміру |
+| сайт для бізнесу | `/stvorennya-saytu-dlya-biznesu/` | багатосторінкова структура для малого та середнього бізнесу |
 | SEO-сайт під Google | `/seo-sajt-pid-google/` | збережено замість дубля `/seo-sayt/` |
 | лендінг під ключ | `/stvorennya-landing-page/` | збережено замість дубля `/landing-page/` |
 | корпоративний сайт | `/stvorennya-korporatyvnoho-saytu/` | збережено замість дубля `/korporatyvni-sayty/` |
@@ -20,6 +22,20 @@
 | редизайн сайту | `/redesign-saytu/` | новий окремий намір |
 | технічне SEO | `/tehnichne-seo/` | новий окремий намір |
 | підтримка сайтів | `/pidtrymka-saytiv/` | новий окремий намір |
+
+## Пріоритетні геокластери
+
+| Намір | Канонічний URL | Статус |
+|---|---|---|
+| створення сайтів Київ | `/mista/stvorennya-sajtiv-kyiv/` | index; дистанційна робота без вигаданого офісу |
+| створення сайтів Черкаси | `/mista/stvorennya-sajtiv-cherkasy/` | index; локальний кейс і самостійний контент |
+| створення сайтів Україна | `/mista/stvorennya-sajtiv-ukrayina/` | index; загальнонаціональна географія |
+
+## Пріоритетний галузевий quick win
+
+| Намір | Канонічний URL | Підтримка |
+|---|---|---|
+| лендінг / сайт для клінінгової компанії | `/nishi/sajt-dlya-kliningovoyi-kompaniyi/` | кейс `/portfolio/formula-chystoty/` і стаття `/blog/sajt-dlya-kliningovoyi-kompaniyi/` |
 
 ## Галузевий кластер
 

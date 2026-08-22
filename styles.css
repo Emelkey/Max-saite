@@ -2124,6 +2124,43 @@ p {
   transform: translateX(0);
 }
 
+.comparison-table-wrap {
+  margin: 24px 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(5, 7, 10, 0.34);
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 15px 17px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.comparison-table th {
+  color: var(--green);
+  background: rgba(24, 244, 91, 0.06);
+  font-size: 14px;
+}
+
+.comparison-table td:first-child {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(22px);

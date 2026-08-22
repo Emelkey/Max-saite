@@ -101,7 +101,6 @@ document.addEventListener("click", (event) => {
           : link.closest("header")
             ? "header"
             : "page",
-      phone_number: "+380972692322",
     });
     trackEvent("phone_click", {
       link_location: link.closest(".floating-contact")
@@ -115,6 +114,9 @@ document.addEventListener("click", (event) => {
   } else if (href.startsWith("viber:")) {
     trackEvent("click_viber");
     trackEvent("messenger_click", { messenger: "viber" });
+  } else if (href.includes("wa.me/") || href.includes("api.whatsapp.com/")) {
+    trackEvent("click_whatsapp");
+    trackEvent("messenger_click", { messenger: "whatsapp" });
   } else if (href.includes("t.me/")) {
     trackEvent("click_telegram");
     trackEvent("messenger_click", { messenger: "telegram" });
