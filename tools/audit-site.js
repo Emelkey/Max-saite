@@ -227,6 +227,7 @@ if (!robots.includes(`${publicBase}/sitemap.xml`)) errors.push("robots.txt has a
 
 const siteScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
 if (!siteScript.includes('trackEvent("click_phone"')) errors.push("Missing GA4 click_phone event");
+if (!siteScript.includes('trackEvent("click_whatsapp"')) errors.push("Missing GA4 click_whatsapp event");
 for (const eventName of [
   "phone_click",
   "messenger_click",
@@ -243,6 +244,7 @@ for (const eventName of [
 }
 if (!siteScript.includes('trackEvent("generate_lead"')) errors.push("Missing GA4 generate_lead event");
 if (!siteScript.includes('trackEvent("lead_delivery_error"')) errors.push("Missing lead delivery error event");
+if (/phone_number\s*:/.test(siteScript)) errors.push("Do not send phone numbers as GA4 event parameters");
 
 const telegramConfig = fs.readFileSync(path.join(root, "assets/telegram-config.js"), "utf8");
 const mainScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
