@@ -1493,6 +1493,24 @@ p {
   font-weight: 750;
 }
 
+.portfolio-gallery-card figcaption {
+  display: block;
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.case-evidence-gallery {
+  margin-top: 20px;
+}
+
+.case-evidence-note {
+  padding: 16px;
+  border-left: 3px solid var(--green);
+  background: rgba(24, 244, 91, 0.06);
+}
+
 .portfolio-links {
   margin-top: 30px;
 }
