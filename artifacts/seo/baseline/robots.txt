@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+
+Sitemap: https://maxsite.com.ua/sitemap.xml

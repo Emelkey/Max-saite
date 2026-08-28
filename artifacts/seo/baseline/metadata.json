@@ -1,0 +1,834 @@
+[
+  {
+    "url": "https://maxsite.com.ua/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/",
+    "title": "MAX SITE — сайти, SEO та Google Ads для бізнесу",
+    "description": "MAX SITE створює сайти, налаштовує SEO, аналітику та Google Ads для бізнесу в Україні. Один відповідальний за структуру, запуск і розвиток.",
+    "h1": "Сайти, SEO та Google Ads для росту бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/404.html",
+    "indexable": false,
+    "canonical": "",
+    "title": "Сторінку не знайдено | MAX SITE",
+    "description": "Сторінку не знайдено. Перейдіть на головну, послуги, блог або контакти MAX SITE.",
+    "h1": "Сторінку не знайдено"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/",
+    "title": "Блог про створення сайтів для бізнесу | MAX SITE",
+    "description": "SEO-блог MAX SITE про створення сайтів, лендінги, корпоративні сайти, Google Ads, аналітику та просування бізнесу в Google.",
+    "h1": "Блог про створення сайтів"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/canonical-url-prostymy-slovamy/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/canonical-url-prostymy-slovamy/",
+    "title": "Canonical URL простими словами | MAX SITE",
+    "description": "Коли потрібен self-canonical, чому дублікати шкодять і як перевірити канонічні сторінки.",
+    "h1": "Canonical URL простими словами"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/",
+    "title": "Чому сайт без SEO не дає результату | MAX SITE",
+    "description": "Чому красивого дизайну недостатньо і як SEO-структура допомагає сайту працювати в Google.",
+    "h1": "Чому сайт без SEO не дає результату"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/ga4-konversiyi-dlya-sajtu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/ga4-konversiyi-dlya-sajtu/",
+    "title": "GA4-конверсії для сайту бізнесу | MAX SITE",
+    "description": "Які події налаштувати для форм, телефону, месенджерів, цін і портфоліо.",
+    "h1": "GA4-конверсії для сайту бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/google-ads-dlya-biznesu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/google-ads-dlya-biznesu/",
+    "title": "Google Ads для бізнесу: коли запускати рекламу | MAX SITE",
+    "description": "Коли бізнесу варто запускати Google Ads, що потрібно для старту та як контролювати заявки.",
+    "h1": "Google Ads для бізнесу: коли варто запускати рекламу"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/google-analytics-search-console/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/google-analytics-search-console/",
+    "title": "Навіщо бізнесу Google Analytics і Search Console | MAX SITE",
+    "description": "Навіщо підключати Google Analytics і Search Console: контроль трафіку, заявок, індексації та помилок сайту.",
+    "h1": "Навіщо бізнесу Google Analytics і Search Console"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/landing-dlya-google-ads/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/landing-dlya-google-ads/",
+    "title": "Лендінг для Google Ads: що впливає на заявки | MAX SITE",
+    "description": "Структура рекламної сторінки, відповідність запиту, швидкість, довіра та вимірювання.",
+    "h1": "Лендінг для Google Ads: що впливає на заявки"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/lending-abo-korporatyvnyj-sajt/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/lending-abo-korporatyvnyj-sajt/",
+    "title": "Landing Page чи багатосторінковий сайт: що обрати | MAX SITE",
+    "description": "Порівнюємо Landing Page і багатосторінковий сайт: задачі, реклама, SEO, масштабування, строки та актуальні ціни MAX SITE.",
+    "h1": "Landing Page чи багатосторінковий сайт: що обрати"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/nextjs-chy-wordpress/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/nextjs-chy-wordpress/",
+    "title": "Next.js чи WordPress: що обрати бізнесу | MAX SITE",
+    "description": "Порівняння Next.js і WordPress за керованістю, швидкістю, інтеграціями та бюджетом.",
+    "h1": "Next.js чи WordPress: що обрати бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/pidtrymka-saytu-pislya-zapusku/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/pidtrymka-saytu-pislya-zapusku/",
+    "title": "Підтримка сайту після запуску: план робіт | MAX SITE",
+    "description": "Що перевіряти щотижня й щомісяця, щоб сайт залишався швидким, безпечним та вимірюваним.",
+    "h1": "Підтримка сайту після запуску: план робіт"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/redesign-saytu-bez-vtraty-seo/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/redesign-saytu-bez-vtraty-seo/",
+    "title": "Редизайн сайту без втрати SEO | MAX SITE",
+    "description": "Як оновити дизайн і структуру, зберігши URL, контент, аналітику та пошукові сигнали.",
+    "h1": "Редизайн сайту без втрати SEO"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/sajt-dlya-kliningovoyi-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/sajt-dlya-kliningovoyi-kompaniyi/",
+    "title": "Сайт для клінінгової компанії: що має бути | MAX SITE",
+    "description": "Що має бути на сайті клінінгової компанії: послуги, ціни, фото, FAQ, заявки, SEO та Google Ads.",
+    "h1": "Сайт для клінінгової компанії: що має бути"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/seo-first-pidhid/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/seo-first-pidhid/",
+    "title": "SEO-FIRST: чому структура створюється до дизайну | MAX SITE",
+    "description": "Практичний порядок проєктування сайту під Google, рекламу та заявки.",
+    "h1": "SEO-FIRST: чому структура створюється до дизайну"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+    "title": "Що входить у створення інтернет-магазину під ключ | MAX SITE",
+    "description": "Повний склад розробки інтернет-магазину: аналітика, каталог, UX, дизайн, оплата, доставка, SEO, аналітика й тестування.",
+    "h1": "Що входить у створення інтернет-магазину під ключ"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+    "title": "Скільки коштує створення інтернет-магазину у 2026 році | MAX SITE",
+    "description": "Розбираємо вартість інтернет-магазину у 2026 році: каталог, фільтри, імпорт, оплата, доставка, CRM, SEO та підтримка.",
+    "h1": "Скільки коштує створення інтернет-магазину"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-sajtu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-sajtu/",
+    "title": "Скільки коштує створення сайту в Україні у 2026 році | MAX SITE",
+    "description": "Актуальні ціни на створення сайту в Україні у 2026 році: лендінг від 10 500 грн, бізнес-сайт від 19 700 грн, SEO Pro від 29 000 грн.",
+    "h1": "Скільки коштує створення сайту в Україні у 2026 році"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/struktura-sajtu-dlya-seo/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/struktura-sajtu-dlya-seo/",
+    "title": "Структура сайту для SEO: як розподілити запити | MAX SITE",
+    "description": "Як створити карту URL, уникнути канібалізації та побудувати зрозумілу перелінковку.",
+    "h1": "Структура сайту для SEO: як розподілити запити"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/tehnichne-seo-cheklist/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/tehnichne-seo-cheklist/",
+    "title": "Технічне SEO: чекліст перед запуском | MAX SITE",
+    "description": "Canonical, sitemap, robots, schema, 404, швидкість і мобільна перевірка сайту.",
+    "h1": "Технічне SEO: чекліст перед запуском"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/vnutrishnya-perelinkovka/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/vnutrishnya-perelinkovka/",
+    "title": "Внутрішня перелінковка для SEO | MAX SITE",
+    "description": "Як пов’язати послуги, ніші, міста, кейси та статті без спаму ключовими словами.",
+    "h1": "Внутрішня перелінковка для SEO"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+    "title": "Як підготувати бізнес до запуску сайту | MAX SITE",
+    "description": "Що підготувати перед створенням сайту: послуги, тексти, фото, переваги, ціни, FAQ і цілі.",
+    "h1": "Як підготувати бізнес до запуску сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/yak-pidgotuvaty-bryf-na-sajt/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/yak-pidgotuvaty-bryf-na-sajt/",
+    "title": "Як підготувати бриф на створення сайту | MAX SITE",
+    "description": "Питання про цілі, аудиторію, послуги, докази, інтеграції та відповідальних.",
+    "h1": "Як підготувати бриф на створення сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+    "title": "Як сайт допомагає бізнесу отримувати заявки | MAX SITE",
+    "description": "Як правильний сайт перетворює трафік із Google, реклами та соцмереж у заявки для бізнесу.",
+    "h1": "Як сайт допомагає бізнесу отримувати заявки"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/yak-vybraty-rozrobnyka-sajtu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/yak-vybraty-rozrobnyka-sajtu/",
+    "title": "Як вибрати розробника сайту для бізнесу | MAX SITE",
+    "description": "Критерії вибору розробника сайту: портфоліо, процес, SEO, аналітика, доступи, кошторис, підтримка й питання перед стартом.",
+    "h1": "Як вибрати розробника сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
+    "title": "Як замовити сайт і не втратити гроші: чекліст | MAX SITE",
+    "description": "Як безпечно замовити сайт: цілі, структура, кошторис, права доступу, етапи оплати, SEO, аналітика, приймання та підтримка.",
+    "h1": "Як замовити сайт і не втратити гроші"
+  },
+  {
+    "url": "https://maxsite.com.ua/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+    "title": "Який сайт потрібен локальному бізнесу | MAX SITE",
+    "description": "Який сайт допоможе локальному бізнесу отримувати заявки у своєму місті через Google і рекламу.",
+    "h1": "Який сайт потрібен локальному бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/google-ads/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/google-ads/",
+    "title": "Google Ads для бізнесу — налаштування та ведення | MAX SITE",
+    "description": "Налаштування й ведення Google Ads для бізнесу: пошукові кампанії, ключові слова, конверсії, оптимізація та звіти. Від 6 800 грн на місяць.",
+    "h1": "Google Ads для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/google-analytics-search-console/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/google-analytics-search-console/",
+    "title": "Google Analytics і Search Console для бізнесу | MAX SITE",
+    "description": "Підключення та супровід Google Analytics 4 і Search Console: події, джерела звернень, індексація, помилки та звіти. Від 2 900 грн разово.",
+    "h1": "Google Analytics і Search Console"
+  },
+  {
+    "url": "https://maxsite.com.ua/internet-magazyn-pid-klyuch/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/stvorennya-internet-mahazynu/",
+    "title": "Інтернет-магазин під ключ | MAX SITE",
+    "description": "Розробляємо інтернет-магазини під ключ: каталог, категорії, картки товарів, замовлення, адаптивність, базове SEO та аналітика.",
+    "h1": "Інтернет-магазин під ключ"
+  },
+  {
+    "url": "https://maxsite.com.ua/kontakty/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/kontakty/",
+    "title": "Контакти MAX SITE | Створення сайтів для бізнесу",
+    "description": "Контакти MAX SITE: телефон, Telegram, WhatsApp, Viber і форма заявки для створення сайту під ключ, SEO-сайту або Google Ads.",
+    "h1": "Контакти MAX SITE"
+  },
+  {
+    "url": "https://maxsite.com.ua/korporatyvni-sajty/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/stvorennya-korporatyvnoho-saytu/",
+    "title": "Корпоративний сайт під ключ | MAX SITE",
+    "description": "Розробляємо корпоративні сайти для компаній: послуги, команда, кейси, довіра, SEO-структура та заявки з інтернету.",
+    "h1": "Корпоративний сайт під ключ"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/mista/",
+    "title": "Створення сайтів по містах України | MAX SITE",
+    "description": "Створення сайтів для бізнесу по містах України: Київ, Львів, Дніпро, Одеса, Харків, Черкаси та інші регіони з SEO-структурою.",
+    "h1": "Створення сайтів по містах України"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/",
+    "title": "Створення сайтів у Черкасах для бізнесу | MAX SITE",
+    "description": "Створення сайтів для бізнесу в Черкасах: лендінги, сайти послуг, локальна SEO-структура, форми, аналітика й підготовка до Google Ads.",
+    "h1": "Створення сайтів у Черкасах для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-chernihiv/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-chernihiv/",
+    "title": "Створення сайтів у Чернігові для бізнесу | MAX SITE",
+    "description": "Створюємо сайти для бізнесу в Чернігові: лендінги, сайти послуг, магазини, SEO-структура, аналітика та підготовка до Google Ads.",
+    "h1": "Створення сайтів у Чернігові для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-chernivtsi/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-chernivtsi/",
+    "title": "Створення сайтів у Чернівцях під ключ | MAX SITE",
+    "description": "Розробка сайтів у Чернівцях для послуг, готельно-ресторанного бізнесу, магазинів і експертів: дизайн, SEO, форми та аналітика.",
+    "h1": "Створення сайтів у Чернівцях для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/",
+    "title": "Створення сайтів у Дніпрі для компаній | MAX SITE",
+    "description": "Створюємо сайти в Дніпрі для B2B, виробництва, логістики та послуг: прототип, сучасний дизайн, SEO-архітектура, аналітика й заявки.",
+    "h1": "Створення сайтів у Дніпрі для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-ivano-frankivsk/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-ivano-frankivsk/",
+    "title": "Створення сайтів в Івано-Франківську | MAX SITE",
+    "description": "Сайти під ключ в Івано-Франківську для будівництва, туризму, медицини й послуг: адаптивний дизайн, SEO, аналітика та заявки.",
+    "h1": "Створення сайтів у Івано-Франківську для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/",
+    "title": "Створення сайтів у Харкові для бізнесу | MAX SITE",
+    "description": "Розробляємо сайти для бізнесу в Харкові: освіта, IT, медицина, виробництво й послуги. SEO-структура, швидкість, аналітика та заявки.",
+    "h1": "Створення сайтів у Харкові для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kherson/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kherson/",
+    "title": "Створення сайтів у Херсоні під ключ | MAX SITE",
+    "description": "Дистанційне створення сайтів для бізнесу в Херсоні: послуги, каталоги, B2B, SEO-підготовка, аналітика, форми та зручне оновлення.",
+    "h1": "Створення сайтів у Херсоні для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-khmelnytskyi/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-khmelnytskyi/",
+    "title": "Створення сайтів у Хмельницькому | MAX SITE",
+    "description": "Сайти для бізнесу в Хмельницькому: торгівля, виробництво, медицина й послуги. Дизайн, SEO-архітектура, аналітика та запуск під ключ.",
+    "h1": "Створення сайтів у Хмельницькому для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kropyvnytskyi/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kropyvnytskyi/",
+    "title": "Створення сайтів у Кропивницькому | MAX SITE",
+    "description": "Створюємо сайти в Кропивницькому для послуг, агро-B2B, ремонту, освіти й торгівлі: SEO, мобільна версія, аналітика та заявки.",
+    "h1": "Створення сайтів у Кропивницькому для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/",
+    "title": "Створення сайтів у Києві під ключ | MAX SITE",
+    "description": "Створення сайтів у Києві під ключ: лендінги, бізнес-сайти, інтернет-магазини, SEO-структура, аналітика й підготовка до Google Ads.",
+    "h1": "Створення сайтів у Києві"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-lutsk/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-lutsk/",
+    "title": "Створення сайтів у Луцьку для бізнесу | MAX SITE",
+    "description": "Розробка сайтів у Луцьку для авто, будівництва, торгівлі та послуг: прототип, адаптивний дизайн, SEO, аналітика й підготовка реклами.",
+    "h1": "Створення сайтів у Луцьку для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/",
+    "title": "Створення сайтів у Львові для бізнесу | MAX SITE",
+    "description": "Сучасні сайти у Львові для готелів, закладів, освіти, медицини та брендів: UX, SEO-структура, мультимовність, аналітика й заявки.",
+    "h1": "Створення сайтів у Львові для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-mykolaiv/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-mykolaiv/",
+    "title": "Створення сайтів у Миколаєві | MAX SITE",
+    "description": "Розробляємо сайти для компаній у Миколаєві: інженерні, логістичні, освітні та локальні послуги. SEO, дизайн, аналітика й форми.",
+    "h1": "Створення сайтів у Миколаєві для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/",
+    "title": "Створення сайтів в Одесі для бізнесу | MAX SITE",
+    "description": "Створюємо сайти в Одесі для послуг, логістики, hospitality, медицини й торгівлі: дизайн, SEO, мультимовність, аналітика та заявки.",
+    "h1": "Створення сайтів у Одесі для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-poltava/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-poltava/",
+    "title": "Створення сайтів у Полтаві під ключ | MAX SITE",
+    "description": "Сайти для бізнесу в Полтаві: медицина, авто, будівництво, B2B і локальні послуги. Адаптивний дизайн, SEO, аналітика та запуск.",
+    "h1": "Створення сайтів у Полтаві для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-rivne/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-rivne/",
+    "title": "Створення сайтів у Рівному для бізнесу | MAX SITE",
+    "description": "Розробка сайтів у Рівному для будівництва, меблів, торгівлі та послуг: сучасний дизайн, каталог, SEO-структура, аналітика й заявки.",
+    "h1": "Створення сайтів у Рівному для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-sumy/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-sumy/",
+    "title": "Створення сайтів у Сумах для компаній | MAX SITE",
+    "description": "Створюємо сайти в Сумах для освіти, виробництва, медицини, ремонту й B2B: SEO-архітектура, адаптивність, аналітика та форми.",
+    "h1": "Створення сайтів у Сумах для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-ternopil/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-ternopil/",
+    "title": "Створення сайтів у Тернополі | MAX SITE",
+    "description": "Сайти під ключ у Тернополі для медицини, освіти, будівництва й послуг: прототип, адаптивний дизайн, SEO, аналітика та заявки.",
+    "h1": "Створення сайтів у Тернополі для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-ukrayina/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-ukrayina/",
+    "title": "Створення сайтів для бізнесу по Україні | MAX SITE",
+    "description": "Створення сайтів для бізнесу по Україні: дистанційна розробка, сторінки послуг, національна й локальна SEO-архітектура, аналітика та реклама.",
+    "h1": "Створення сайтів для бізнесу по Україні"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-uzhhorod/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-uzhhorod/",
+    "title": "Створення сайтів в Ужгороді для бізнесу | MAX SITE",
+    "description": "Розробляємо сайти в Ужгороді для туризму, послуг, нерухомості та брендів: мультимовність, SEO, адаптивний дизайн, аналітика й заявки.",
+    "h1": "Створення сайтів у Ужгороді для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-vinnytsya/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-vinnytsya/",
+    "title": "Створення сайтів у Вінниці для бізнесу | MAX SITE",
+    "description": "Створення сайтів у Вінниці для медицини, виробництва, торгівлі й послуг: UX, SEO-структура, швидкість, аналітика та підготовка реклами.",
+    "h1": "Створення сайтів у Вінниці для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-zaporizhzhya/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-zaporizhzhya/",
+    "title": "Створення сайтів у Запоріжжі | MAX SITE",
+    "description": "Сайти для компаній у Запоріжжі: виробництво, авто, логістика, освіта й послуги. SEO-структура, адаптивний дизайн, аналітика та заявки.",
+    "h1": "Створення сайтів у Запоріжжі для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-zhytomyr/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/mista/stvorennya-sajtiv-zhytomyr/",
+    "title": "Створення сайтів у Житомирі для бізнесу | MAX SITE",
+    "description": "Розробляємо сайти в Житомирі для виробництва, будівництва, торгівлі та послуг: каталог, SEO, адаптивність, аналітика й форми заявок.",
+    "h1": "Створення сайтів у Житомирі для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/",
+    "title": "Сайти для різних ніш бізнесу | MAX SITE",
+    "description": "Створюємо сайти для клінінгу, будівництва, beauty, авто, медицини, ремонтних послуг, магазинів, експертів і локального бізнесу.",
+    "h1": "Сайти для ніш бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-avtoservisu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-avtoservisu/",
+    "title": "Сайт для автосервісу під ключ | MAX SITE",
+    "description": "Розробляємо сайти для автосервісів: ремонт, діагностика, ціни, заявки, Google Ads і SEO під локальний пошук.",
+    "h1": "Сайт для автосервісу"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-b2b-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-b2b-kompaniyi/",
+    "title": "B2B-сайт для компанії під ключ | MAX SITE",
+    "description": "Створюємо b2b-сайт для компанії: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "B2B-сайт для компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-budivelnoyi-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-budivelnoyi-kompaniyi/",
+    "title": "Сайт для будівельної компанії під ключ | MAX SITE",
+    "description": "Розробляємо сайти для будівельних компаній: напрями робіт, портфоліо об’єктів, кваліфікація заявок, SEO-структура та підготовка до реклами.",
+    "h1": "Сайт для будівельної компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-dezinfekciyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-dezinfekciyi/",
+    "title": "Сайт для дезінфекції під ключ | MAX SITE",
+    "description": "Створюємо сайт для дезінфекції: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для дезінфекції"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-eksperta/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-eksperta/",
+    "title": "Сайт для експерта під ключ | MAX SITE",
+    "description": "Створюємо сайти для експертів, консультантів і фахівців: послуги, кейси, довіра, заявки та SEO.",
+    "h1": "Сайт для експерта"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-horeca/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-horeca/",
+    "title": "Сайт для HoReCa та готелів під ключ | MAX SITE",
+    "description": "Створюємо сайт для horeca та готелів: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для HoReCa та готелів"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+    "title": "Лендінг і сайт для клінінгової компанії | MAX SITE",
+    "description": "Лендінг або багатосторінковий сайт для клінінгової компанії від 10 500 грн: послуги, ціни, фото робіт, заявки, SEO та Google Ads. Дивіться реальний кейс.",
+    "h1": "Лендінг і сайт для клінінгової компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-kursiv/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-kursiv/",
+    "title": "Сайт для онлайн-курсів під ключ | MAX SITE",
+    "description": "Сайти для онлайн-курсів: програма, спікери, тарифи, заявки, оплати, реклама та аналітика.",
+    "h1": "Сайт для онлайн-курсів"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-landshaftnoyi-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-landshaftnoyi-kompaniyi/",
+    "title": "Сайт для ландшафтної компанії під ключ | MAX SITE",
+    "description": "Створюємо сайт для ландшафтної компанії: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для ландшафтної компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-logistychnoyi-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-logistychnoyi-kompaniyi/",
+    "title": "Сайт для логістичної компанії під ключ | MAX SITE",
+    "description": "Створюємо сайт для логістичної компанії: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для логістичної компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-lokalnogo-biznesu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-lokalnogo-biznesu/",
+    "title": "Сайт для локального бізнесу під ключ | MAX SITE",
+    "description": "Створюємо сайти для локального бізнесу: сторінки послуг, географія роботи, дзвінки, месенджери, заявки, локальна SEO-структура й аналітика.",
+    "h1": "Сайт для локального бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-magazynu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-magazynu/",
+    "title": "Сайт для магазину під ключ | MAX SITE",
+    "description": "Створюємо сайти для магазинів і продажу товарів онлайн: каталог, категорії, заявки, SEO та аналітика.",
+    "h1": "Сайт для магазину"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-meblevoyi-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-meblevoyi-kompaniyi/",
+    "title": "Сайт для меблевої компанії під ключ | MAX SITE",
+    "description": "Створюємо сайт для меблевої компанії: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для меблевої компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/",
+    "title": "Сайт для медичних послуг під ключ | MAX SITE",
+    "description": "Створюємо сайти для медичних центрів, лікарів і клінік: послуги, онлайн-запис, довіра, FAQ та SEO.",
+    "h1": "Сайт для медичних послуг"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-neruhomosti/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-neruhomosti/",
+    "title": "Сайт для нерухомості під ключ | MAX SITE",
+    "description": "Створюємо сайт для нерухомості: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для нерухомості"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-remontnyh-poslug/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-remontnyh-poslug/",
+    "title": "Сайт для ремонтних послуг під ключ | MAX SITE",
+    "description": "Сайт для ремонтних послуг: напрямки робіт, ціни, приклади, заявки, SEO-структура та просування в Google.",
+    "h1": "Сайт для ремонтних послуг"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/",
+    "title": "Сайт для салону краси під ключ | MAX SITE",
+    "description": "Створюємо сайти для салонів краси: послуги, ціни, майстри, онлайн-запис, SEO та реклама.",
+    "h1": "Сайт для салону краси"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/",
+    "title": "Сайт для стоматології під ключ | MAX SITE",
+    "description": "Створюємо сайт для стоматології: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для стоматології"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-vyrobnytstva/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-vyrobnytstva/",
+    "title": "Сайт для виробничої компанії під ключ | MAX SITE",
+    "description": "Створюємо сайт для виробничої компанії: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для виробничої компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/nishi/sajt-dlya-yurydychnoyi-kompaniyi/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/nishi/sajt-dlya-yurydychnoyi-kompaniyi/",
+    "title": "Сайт для юридичної компанії під ключ | MAX SITE",
+    "description": "Створюємо сайт для юридичної компанії: SEO-структура, адаптивний дизайн, заявки, аналітика та підготовка до Google Ads.",
+    "h1": "Сайт для юридичної компанії"
+  },
+  {
+    "url": "https://maxsite.com.ua/pidtrymka-saytiv/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/pidtrymka-saytiv/",
+    "title": "Технічна підтримка сайтів для бізнесу | MAX SITE",
+    "description": "Підтримка сайтів: виправлення, оновлення, резервні копії, контроль форм, аналітики, SEO та швидкості.",
+    "h1": "Підтримка та розвиток сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/polityka-konfidentsijnosti/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/polityka-konfidentsijnosti/",
+    "title": "Політика конфіденційності | MAX SITE",
+    "description": "Політика конфіденційності MAX SITE щодо обробки контактних даних із форм заявки на сайті.",
+    "h1": "Політика конфіденційності"
+  },
+  {
+    "url": "https://maxsite.com.ua/portfolio/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/portfolio/",
+    "title": "Портфоліо сайтів для бізнесу | MAX SITE",
+    "description": "Приклади сайтів для бізнесу від MAX SITE: клінінгові компанії, дезінфекційні послуги, локальний бізнес, сайти з SEO-структурою та заявками.",
+    "h1": "Портфоліо сайтів для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/portfolio/fo-dez/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/portfolio/fo-dez/",
+    "title": "FO-DEZ — кейс сайту спеціалізованих послуг | MAX SITE",
+    "description": "Кейс FO-DEZ: темний адаптивний дизайн, структура клінінгових і дезінфекційних послуг, CTA та SEO-підготовка.",
+    "h1": "FO-DEZ"
+  },
+  {
+    "url": "https://maxsite.com.ua/portfolio/formula-chystoty/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/portfolio/formula-chystoty/",
+    "title": "Формула Чистоти — кейс сайту клінінгу | MAX SITE",
+    "description": "Кейс сайту клінінгової компанії: структура послуг, мобільні звернення, SEO-основа, аналітика та реальні скріншоти.",
+    "h1": "Формула Чистоти"
+  },
+  {
+    "url": "https://maxsite.com.ua/poslugy/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/poslugy/",
+    "title": "Розробка сайтів і програм для бізнесу | MAX SITE",
+    "description": "Послуги MAX SITE: створення сайтів і програм під ключ, лендінгів, CRM, вебзастосунків, SEO-сайтів, магазинів, Google Ads та аналітики.",
+    "h1": "Розробка сайтів і програм для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/privacy.html",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/polityka-konfidentsijnosti/",
+    "title": "Політика конфіденційності | MAX SITE",
+    "description": "Політика конфіденційності MAX SITE.",
+    "h1": "Політика конфіденційності"
+  },
+  {
+    "url": "https://maxsite.com.ua/pro-nas/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/pro-nas/",
+    "title": "Про MAX SITE | Сайти під ключ для бізнесу",
+    "description": "Про MAX SITE: хто відповідає за створення сайтів, принципи роботи, комунікація, захист клієнта та робота з бізнесом по всій Україні.",
+    "h1": "Сайти для бізнесу з відповідальністю за результат роботи"
+  },
+  {
+    "url": "https://maxsite.com.ua/qa-checklist/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/qa-checklist/",
+    "title": "Чекліст запуску сайту | MAX SITE",
+    "description": "Публічний чекліст MAX SITE: SEO, мобільна версія, форми, аналітика, безпека й production-перевірка.",
+    "h1": "Чекліст контролю якості сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/redesign-saytu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/redesign-saytu/",
+    "title": "Редизайн сайту для бізнесу | MAX SITE",
+    "description": "Оновлюємо дизайн, структуру й конверсію сайту зі збереженням важливих URL, аналітики та SEO-сигналів.",
+    "h1": "Редизайн сайту без втрати SEO"
+  },
+  {
+    "url": "https://maxsite.com.ua/rozrobka-nextjs/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/rozrobka-nextjs/",
+    "title": "Розробка сайтів на Next.js для бізнесу | MAX SITE",
+    "description": "Розробляємо швидкі сайти та вебзастосунки на Next.js з SEO, аналітикою, інтеграціями й контрольованим запуском.",
+    "h1": "Розробка сайтів на Next.js"
+  },
+  {
+    "url": "https://maxsite.com.ua/rozrobka-wordpress/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/rozrobka-wordpress/",
+    "title": "Розробка сайтів на WordPress під ключ | MAX SITE",
+    "description": "Створюємо керовані WordPress-сайти для бізнесу: безпечна структура, адаптивний дизайн, SEO та зручне редагування.",
+    "h1": "Розробка сайтів на WordPress"
+  },
+  {
+    "url": "https://maxsite.com.ua/sajty-dlya-poslug/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/sajty-dlya-poslug/",
+    "title": "Сайт для послуг під ключ | MAX SITE",
+    "description": "Створюємо сайти для бізнес-послуг з окремими сторінками, SEO-структурою, формами заявок, FAQ та аналітикою.",
+    "h1": "Сайт для послуг"
+  },
+  {
+    "url": "https://maxsite.com.ua/sayt-vizytka/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/sayt-vizytka/",
+    "title": "Сайт-візитка для бізнесу під ключ | MAX SITE",
+    "description": "Компактний сайт-візитка з чіткою пропозицією, контактами, мобільною версією, базовим SEO та аналітикою.",
+    "h1": "Сайт-візитка для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/seo-first/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/seo-first/",
+    "title": "Методологія MAX SITE SEO-FIRST™",
+    "description": "Як MAX SITE проєктує сайти під Google, рекламу, заявки й аналітику ще до початку дизайну.",
+    "h1": "MAX SITE SEO-FIRST™"
+  },
+  {
+    "url": "https://maxsite.com.ua/seo-prosuvannya/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/seo-prosuvannya/",
+    "title": "SEO-просування сайтів для бізнесу | MAX SITE",
+    "description": "SEO-просування для бізнесу: семантика, технічний аудит, контент, внутрішні посилання, Search Console і прозорий план робіт.",
+    "h1": "SEO-просування сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/seo-sajt-pid-google/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/seo-sajt-pid-google/",
+    "title": "SEO-сайт під Google для бізнесу | MAX SITE",
+    "description": "Створюємо SEO-сайти під Google: структура сторінок, мета-теги, FAQ, Schema.org, швидкість, мобільна версія та Search Console.",
+    "h1": "SEO-сайт під Google"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-internet-mahazynu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/stvorennya-internet-mahazynu/",
+    "title": "Створення інтернет-магазину під ключ | MAX SITE",
+    "description": "Розробляємо інтернет-магазини з каталогом, фільтрами, оплатою, доставкою, аналітикою та SEO-структурою.",
+    "h1": "Створення інтернет-магазину під ключ"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-korporatyvnoho-saytu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/stvorennya-korporatyvnoho-saytu/",
+    "title": "Створення корпоративного сайту під ключ | MAX SITE",
+    "description": "Розробка корпоративних сайтів для компаній: послуги, команда, кейси, інтеграції, SEO та зручне керування контентом.",
+    "h1": "Створення корпоративного сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-landing-page/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/stvorennya-landing-page/",
+    "title": "Створення Landing Page під ключ | MAX SITE",
+    "description": "Розробка Landing Page для реклами, продажу послуг і залучення заявок. Адаптивний дизайн, швидке завантаження та SEO-основа.",
+    "h1": "Створення Landing Page під ключ"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-lendingiv/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/stvorennya-landing-page/",
+    "title": "Створення лендінгів для реклами | MAX SITE",
+    "description": "Створення лендінгу під ключ для послуг, продуктів і реклами: структура продажів, адаптивний дизайн, форма заявки та аналітика.",
+    "h1": "Створення лендінгів"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-program/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/stvorennya-program/",
+    "title": "Створення програм для бізнесу під ключ | MAX SITE",
+    "description": "Розробляємо програми, вебзастосунки, CRM, особисті кабінети та системи автоматизації для бізнесу в Україні — від прототипу до запуску.",
+    "h1": "Створення програм для бізнесу під ключ"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-sajtiv-pid-klyuch/",
+    "indexable": false,
+    "canonical": "https://maxsite.com.ua/stvorennya-saytiv/",
+    "title": "Створення сайтів під ключ для бізнесу | MAX SITE",
+    "description": "Створюємо сайти під ключ для бізнесу: лендінги, корпоративні сайти, сайти послуг, інтернет-магазини та SEO-структуру для Google.",
+    "h1": "Створення сайтів під ключ для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-saytiv/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/stvorennya-saytiv/",
+    "title": "Замовити сайт під ключ в Україні | MAX SITE",
+    "description": "Професійне створення сайтів під ключ для бізнесу в Україні. Структура, дизайн, розробка, SEO-основа, аналітика та запуск.",
+    "h1": "Створення сайтів під ключ в Україні"
+  },
+  {
+    "url": "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/",
+    "title": "Створення сайту для бізнесу під ключ | MAX SITE",
+    "description": "Створюємо багатосторінкові сайти для малого та середнього бізнесу: структура, дизайн, SEO, аналітика та запуск під ключ.",
+    "h1": "Створення сайту для бізнесу"
+  },
+  {
+    "url": "https://maxsite.com.ua/tehnichne-seo/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/tehnichne-seo/",
+    "title": "Технічне SEO та аудит сайту | MAX SITE",
+    "description": "Перевіряємо індексацію, canonical, sitemap, robots, schema, швидкість, дублікати й внутрішні посилання.",
+    "h1": "Технічне SEO сайту"
+  },
+  {
+    "url": "https://maxsite.com.ua/zasnovnyk/",
+    "indexable": true,
+    "canonical": "https://maxsite.com.ua/zasnovnyk/",
+    "title": "Засновник MAX SITE | Відповідальність за проєкт",
+    "description": "Хто координує проєкти MAX SITE: комунікація, структура сайту, SEO-підготовка, QA і контроль запуску.",
+    "h1": "Засновник MAX SITE"
+  }
+]
