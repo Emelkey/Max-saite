@@ -1,0 +1,28 @@
+{
+  "organization": {
+    "@type": "Organization",
+    "@id": "https://maxsite.com.ua/#organization",
+    "name": "MAX SITE",
+    "url": "https://maxsite.com.ua/",
+    "telephone": "+380972692322",
+    "areaServed": "UA",
+    "sameAs": [
+      "https://t.me/MaxMytt",
+      "https://www.instagram.com/maxlab.ai/"
+    ]
+  },
+  "website": {
+    "@type": "WebSite",
+    "@id": "https://maxsite.com.ua/#website",
+    "url": "https://maxsite.com.ua/",
+    "name": "MAX SITE",
+    "publisher": {
+      "@id": "https://maxsite.com.ua/#organization"
+    }
+  },
+  "constraints": {
+    "localBusinessWithoutVerifiedOffice": false,
+    "defaultLanguage": "uk-UA",
+    "piiInAnalytics": false
+  }
+}

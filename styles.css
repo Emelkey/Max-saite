@@ -639,7 +639,8 @@ textarea {
   background: rgba(23, 33, 46, 0.9);
 }
 
-.compact-form .form-consent {
+.compact-form .form-consent,
+.lead-form .form-consent {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -647,7 +648,8 @@ textarea {
   font-weight: 600;
 }
 
-.compact-form .form-consent input {
+.compact-form .form-consent input,
+.lead-form .form-consent input {
   width: 18px;
   min-width: 18px;
   height: 18px;
@@ -657,7 +659,8 @@ textarea {
   accent-color: var(--green);
 }
 
-.compact-form .form-consent a {
+.compact-form .form-consent a,
+.lead-form .form-consent a {
   color: var(--green);
   text-decoration: underline;
 }
