@@ -52,7 +52,7 @@
 - `city-pages.csv` — статус усіх city pages;
 - `summary.json` — машинозчитуваний підсумок.
 
-Desktop/mobile screenshots, Lighthouse JSON і Search Console export додаються окремими файлами до цього baseline, бо залежать від browser/runtime та доступу до GSC.
+Desktop/mobile baseline відтворено з pre-change commit `f22f2e02fa77f520d37d75b28ba7dbf51b288daf` і збережено у `artifacts/seo/baseline/home-desktop.png` та `home-mobile.png`. Manifest фіксує commit і час знімка. GSC export обмежений фактично доступною історією молодого ресурсу; дані не домальовувалися.
 
 ## 4. Сильні сторони
 

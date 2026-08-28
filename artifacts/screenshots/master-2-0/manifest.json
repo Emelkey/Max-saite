@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-08-28T15:22:20.656Z",
+  "pages": [
+    {
+      "name": "home",
+      "route": "/",
+      "mode": "desktop",
+      "file": "home-desktop.jpg"
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "mode": "mobile",
+      "file": "home-mobile.jpg"
+    },
+    {
+      "name": "service",
+      "route": "/stvorennya-saytiv/",
+      "mode": "desktop",
+      "file": "service-desktop.jpg"
+    },
+    {
+      "name": "service",
+      "route": "/stvorennya-saytiv/",
+      "mode": "mobile",
+      "file": "service-mobile.jpg"
+    },
+    {
+      "name": "city",
+      "route": "/mista/stvorennya-sajtiv-kyiv/",
+      "mode": "desktop",
+      "file": "city-desktop.jpg"
+    },
+    {
+      "name": "city",
+      "route": "/mista/stvorennya-sajtiv-kyiv/",
+      "mode": "mobile",
+      "file": "city-mobile.jpg"
+    },
+    {
+      "name": "case",
+      "route": "/portfolio/formula-chystoty/",
+      "mode": "desktop",
+      "file": "case-desktop.jpg"
+    },
+    {
+      "name": "case",
+      "route": "/portfolio/formula-chystoty/",
+      "mode": "mobile",
+      "file": "case-mobile.jpg"
+    },
+    {
+      "name": "blog",
+      "route": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "mode": "desktop",
+      "file": "blog-desktop.jpg"
+    },
+    {
+      "name": "blog",
+      "route": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "mode": "mobile",
+      "file": "blog-mobile.jpg"
+    }
+  ]
+}

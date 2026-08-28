@@ -48,7 +48,7 @@ Slugs і canonical збережені. Львів, Одеса, Дніпро й �
 
 ## Screenshots
 
-Відтворювані desktop/mobile screenshots усіх Wave 1 templates додаються у PR 06 після browser QA.
+Відтворювані desktop/mobile screenshots Wave 1 template: `artifacts/screenshots/master-2-0/city-desktop.jpg` і `city-mobile.jpg`. П’ять hubs проходять однакові Playwright і Lighthouse gates; повний HTML перевіряється automated schema/link/content checks.
 
 ## Rollback
 

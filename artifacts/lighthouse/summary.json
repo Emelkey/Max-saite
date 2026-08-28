@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-08-28T16:41:01.676Z",
+  "thresholds": {
+    "performance": 0.85,
+    "accessibility": 0.9,
+    "best-practices": 0.9,
+    "seo": 0.95
+  },
+  "results": [
+    {
+      "route": "/",
+      "scores": {
+        "performance": 0.88,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      }
+    },
+    {
+      "route": "/stvorennya-saytiv/",
+      "scores": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      }
+    },
+    {
+      "route": "/stvorennya-saytu-dlya-biznesu/",
+      "scores": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      }
+    },
+    {
+      "route": "/stvorennya-program/",
+      "scores": {
+        "performance": 0.99,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      }
+    },
+    {
+      "route": "/mista/",
+      "scores": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      }
+    },
+    {
+      "route": "/mista/stvorennya-sajtiv-kyiv/",
+      "scores": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      }
+    },
+    {
+      "route": "/portfolio/formula-chystoty/",
+      "scores": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      }
+    },
+    {
+      "route": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "scores": {
+        "performance": 1,
+        "accessibility": 0.92,
+        "best-practices": 1,
+        "seo": 1
+      }
+    }
+  ],
+  "failures": []
+}

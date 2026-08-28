@@ -1,0 +1,10 @@
+{
+  "check": "content-quality",
+  "generatedAt": "2026-08-28T16:39:04.854Z",
+  "pages": 109,
+  "indexable": 87,
+  "errors": [],
+  "warnings": [
+    "External lead endpoint rate limiting and server validation require production-owner verification."
+  ]
+}
