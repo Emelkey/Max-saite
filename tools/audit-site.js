@@ -165,7 +165,7 @@ for (const url of urls) {
 const collectHtml = (directory) => {
   const files = [];
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if ([".git", "release", "node_modules"].includes(entry.name)) continue;
+    if ([".git", "artifacts", "release", "node_modules"].includes(entry.name)) continue;
     const file = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...collectHtml(file));
     else if (entry.name.endsWith(".html")) files.push(file);
