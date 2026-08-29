@@ -1,0 +1,14 @@
+query_cluster,representative_query,existing_owner,serp_pattern,observed_competitors,sample_overlap_percent,decision,review_date,notes
+national-websites,замовити сайт під ключ,https://maxsite.com.ua/stvorennya-saytiv/,national-commercial,"maxweb.com.ua; webatom.com.ua; webpc.com.ua",not-applicable,keep-owner,2026-08-28,"No new national duplicate URL"
+business-website,створення сайту для бізнесу,https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/,national-commercial,"veb-dev.com; maxweb.com.ua",not-applicable,keep-owner,2026-08-28,"Distinct multi-page business intent; link from national owner"
+ecommerce,інтернет магазин під ключ,https://maxsite.com.ua/stvorennya-internet-mahazynu/,specialized-commercial,"planeta-web.com.ua; webui.com.ua; turboshop.ua; webatom.com.ua; soft.ua; webpc.com.ua",not-applicable,keep-owner,2026-08-28,"GSC confirms demand; strengthen existing URL"
+landing,створення landing page під ключ,https://maxsite.com.ua/stvorennya-landing-page/,specialized-commercial,"bluebook.com.ua; landing.dp.ua; webatom.com.ua; landpage.com.ua",not-applicable,keep-owner,2026-08-28,"Legacy /stvorennya-lendingiv/ remains noindex alias"
+kyiv,створення сайтів Київ,https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/,local-commercial,"webmestudio.com; maxweb.com.ua",20,keep-city-hub,2026-08-28,"Local pack/studio intent differs from national owner; GSC confirms 326 page impressions"
+lviv,створення сайтів Львів,https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/,local-commercial,"webstudio.lviv.ua; art-web.com.ua; seolviv.com.ua",20,keep-city-hub,2026-08-28,"Separate local result set; index only after content gate"
+odesa,створення сайтів Одеса,https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/,local-commercial,"veb-dev.com; inpreza.ua; od-web.com; nat.od.ua; msn.od.ua",20,keep-city-hub,2026-08-28,"Separate local result set; index only after content gate"
+dnipro,створення сайтів Дніпро,https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/,local-commercial,"webstudioscs.com; web-art.dp.ua; landing.dp.ua",20,keep-city-hub,2026-08-28,"Separate local result set; index only after content gate"
+kharkiv,створення сайтів Харків,https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/,local-commercial,"axis.com.ua",20,keep-city-hub,2026-08-28,"Separate local result set; index only after content gate"
+city-x-landing,landing page Київ,,mixed-local-service,"insufficient stable sample",41-59,manual-no-new-url,2026-08-28,"Use city hub + landing money page internal links; do not create URL"
+city-x-ecommerce,інтернет магазин Київ,,mixed-local-service,"insufficient stable sample",41-59,manual-no-new-url,2026-08-28,"Use city hub + ecommerce money page internal links; do not create URL"
+city-x-software,розробка CRM Київ,,mixed-local-service,"insufficient stable sample",41-59,manual-no-new-url,2026-08-28,"Use city hub + custom software money page; do not create URL"
+

@@ -16,7 +16,7 @@
 | Sitemap / robots | Статичні `/sitemap.xml` та `/robots.txt` |
 | Schema | JSON-LD у HTML; на сторінках використовуються Organization, WebSite, WebPage, Service, FAQPage, BreadcrumbList, Article, Person та інші релевантні типи |
 | Redirects | Server-side 301 у GitHub Pages відсутні. Старі URL збережені як `noindex` canonical aliases; зміна slug без зовнішнього redirect layer заборонена |
-| Analytics | GA4 `G-TS8DMMKK34`, централізований loader у `script.js` + `assets/analytics-config.js`; на головній знайдено історичний inline tag, що створює ризик дублювання |
+| Analytics | GA4 `G-TS8DMMKK34`: один inline Google tag на сторінку; loader у `script.js` виявляє його й не завантажує другий екземпляр |
 | Forms | Client-side форми, honeypot, native validation; production endpoint `https://max-site-leads.emelkey777.workers.dev`; Telegram fallback |
 | Lead delivery | POST JSON до Cloudflare Worker; у репозиторії немає server-side коду Worker, тому rate limit/server validation треба перевіряти окремо на стороні Worker |
 | Deployment | GitHub Pages через `.github/workflows/pages.yml`, автоматично після push у `main` |
@@ -67,16 +67,15 @@ Desktop/mobile screenshots, Lighthouse JSON і Search Console export додаю�
 
 ## 5. Виявлені ризики та P0/P1
 
-1. **P0 — дублювання Google tag:** головна містить inline GA4 і одночасно централізований loader. Треба залишити один механізм.
-2. **P0 — redirects:** GitHub Pages не дає керованих server-side 301. Slug/canonical не змінювати без Cloudflare redirect layer.
-3. **P0 — city scaling:** лише 3 з 23 міських URL indexable. П’ять Wave 1 hubs можна відкрити лише після унікалізації та SERP Decision Gate.
-4. **P1 — шаблонність city pages:** структура, тарифи, процес і FAQ повторюються; потрібен similarity gate.
-5. **P1 — analytics taxonomy:** існують `form_start`, `form_submit`, `generate_lead`, але бракує точних подій MASTER 2.0 (`lead_form_*`, `pricing_cta_click`, `case_live_site_click`, `city_service_click`, `scroll_75`).
-6. **P1 — form attribution:** payload не містить повного набору hidden fields UTM/gclid/referrer/page_type/city/service/consent/timestamp.
-7. **P1 — spam protection boundary:** server validation/rate limit не підтверджені кодом цього репозиторію.
-8. **P1 — proof/E-E-A-T:** двох основних клієнтських кейсів недостатньо для конкурентних міських запитів; вигадані кейси, цифри й відгуки заборонені.
-9. **P1 — automation:** немає єдиної команди `npm run seo:check`, similarity/content-quality gates і browser tests.
-10. **P1 — CWV/Lighthouse:** немає versioned Lighthouse baseline для ключових шаблонів.
+1. **P0 — redirects:** GitHub Pages не дає керованих server-side 301. Slug/canonical не змінювати без Cloudflare redirect layer.
+2. **P0 — city scaling:** лише 3 з 23 міських URL indexable. П’ять Wave 1 hubs можна відкрити лише після унікалізації та SERP Decision Gate.
+3. **P1 — шаблонність city pages:** структура, тарифи, процес і FAQ повторюються; потрібен similarity gate.
+4. **P1 — analytics taxonomy:** існують `form_start`, `form_submit`, `generate_lead`, але бракує точних подій MASTER 2.0 (`lead_form_*`, `pricing_cta_click`, `case_live_site_click`, `city_service_click`, `scroll_75`).
+5. **P1 — form attribution:** payload не містить повного набору hidden fields UTM/gclid/referrer/page_type/city/service/consent/timestamp.
+6. **P1 — spam protection boundary:** server validation/rate limit не підтверджені кодом цього репозиторію.
+7. **P1 — proof/E-E-A-T:** двох основних клієнтських кейсів недостатньо для конкурентних міських запитів; вигадані кейси, цифри й відгуки заборонені.
+8. **P1 — automation:** немає єдиної команди `npm run seo:check`, similarity/content-quality gates і browser tests.
+9. **P1 — CWV/Lighthouse:** немає versioned Lighthouse baseline для ключових шаблонів.
 
 Детальний контроль ризиків: [`master-2-0-risk-register.md`](./master-2-0-risk-register.md).
 
@@ -88,4 +87,3 @@ Desktop/mobile screenshots, Lighthouse JSON і Search Console export додаю�
 - Не публікувати непідтверджені рейтинги, відгуки, клієнтів чи бізнес-метрики.
 - Не передавати PII у GA4.
 - Нові indexable сторінки додаються у sitemap лише після проходження SEO gates.
-
