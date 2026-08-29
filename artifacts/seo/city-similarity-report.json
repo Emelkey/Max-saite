@@ -1,0 +1,110 @@
+{
+  "generatedAt": "2026-08-28T14:54:00.022Z",
+  "method": "5-gram Jaccard after header/footer/form/standard process-pricing-proof removal",
+  "threshold": 0.55,
+  "pages": {
+    "kyiv": {
+      "words": 625,
+      "grams": 616
+    },
+    "lviv": {
+      "words": 395,
+      "grams": 391
+    },
+    "odesa": {
+      "words": 399,
+      "grams": 395
+    },
+    "dnipro": {
+      "words": 400,
+      "grams": 396
+    },
+    "kharkiv": {
+      "words": 379,
+      "grams": 375
+    }
+  },
+  "pairs": [
+    {
+      "a": "kyiv",
+      "b": "lviv",
+      "similarity": 0.0203,
+      "intersection": 20,
+      "union": 987,
+      "pass": true
+    },
+    {
+      "a": "kyiv",
+      "b": "odesa",
+      "similarity": 0.0222,
+      "intersection": 22,
+      "union": 989,
+      "pass": true
+    },
+    {
+      "a": "kyiv",
+      "b": "dnipro",
+      "similarity": 0.0202,
+      "intersection": 20,
+      "union": 992,
+      "pass": true
+    },
+    {
+      "a": "kyiv",
+      "b": "kharkiv",
+      "similarity": 0.0227,
+      "intersection": 22,
+      "union": 969,
+      "pass": true
+    },
+    {
+      "a": "lviv",
+      "b": "odesa",
+      "similarity": 0.1714,
+      "intersection": 115,
+      "union": 671,
+      "pass": true
+    },
+    {
+      "a": "lviv",
+      "b": "dnipro",
+      "similarity": 0.1817,
+      "intersection": 121,
+      "union": 666,
+      "pass": true
+    },
+    {
+      "a": "lviv",
+      "b": "kharkiv",
+      "similarity": 0.1839,
+      "intersection": 119,
+      "union": 647,
+      "pass": true
+    },
+    {
+      "a": "odesa",
+      "b": "dnipro",
+      "similarity": 0.1649,
+      "intersection": 112,
+      "union": 679,
+      "pass": true
+    },
+    {
+      "a": "odesa",
+      "b": "kharkiv",
+      "similarity": 0.1756,
+      "intersection": 115,
+      "union": 655,
+      "pass": true
+    },
+    {
+      "a": "dnipro",
+      "b": "kharkiv",
+      "similarity": 0.188,
+      "intersection": 122,
+      "union": 649,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

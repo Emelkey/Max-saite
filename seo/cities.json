@@ -1,0 +1,339 @@
+[
+  {
+    "slug": "kyiv",
+    "nominative": "Київ",
+    "locative": "Києві",
+    "preposition": "у",
+    "adjective": "київського",
+    "priority": 1,
+    "state": "published",
+    "index": true,
+    "title": "Створення сайтів у Києві під ключ | MAX SITE",
+    "description": "Створення сайтів у Києві під ключ для B2B, нерухомості, медицини, ecommerce і послуг. SEO-структура, аналітика, дистанційний процес і заявки.",
+    "h1": "Створення сайтів у Києві під ключ",
+    "relatedCitySlugs": [
+      "cherkasy",
+      "lviv",
+      "dnipro"
+    ],
+    "relatedServiceSlugs": [
+      "stvorennya-saytiv",
+      "stvorennya-saytu-dlya-biznesu",
+      "stvorennya-korporatyvnoho-saytu",
+      "stvorennya-landing-page",
+      "stvorennya-internet-mahazynu",
+      "stvorennya-program"
+    ],
+    "proofMode": "national-case",
+    "publishedAt": "2026-08-02",
+    "updatedAt": "2026-08-28"
+  },
+  {
+    "slug": "lviv",
+    "nominative": "Львів",
+    "locative": "Львові",
+    "preposition": "у",
+    "adjective": "львівського",
+    "priority": 1,
+    "state": "published",
+    "index": true,
+    "title": "Створення сайтів у Львові для бізнесу | MAX SITE",
+    "description": "Створення сайтів у Львові для готелів, освіти, медицини й локальних брендів. Мультимовні сценарії, мобільний UX, SEO, аналітика й заявки.",
+    "h1": "Створення сайтів у Львові для бізнесу",
+    "relatedCitySlugs": [
+      "kyiv",
+      "odesa",
+      "cherkasy"
+    ],
+    "relatedServiceSlugs": [
+      "stvorennya-saytiv",
+      "stvorennya-saytu-dlya-biznesu",
+      "stvorennya-korporatyvnoho-saytu",
+      "stvorennya-landing-page",
+      "stvorennya-internet-mahazynu",
+      "stvorennya-program"
+    ],
+    "proofMode": "national-case",
+    "publishedAt": "2026-08-28",
+    "updatedAt": "2026-08-28"
+  },
+  {
+    "slug": "odesa",
+    "nominative": "Одеса",
+    "locative": "Одесі",
+    "preposition": "в",
+    "adjective": "одеського",
+    "priority": 1,
+    "state": "published",
+    "index": true,
+    "title": "Створення сайтів в Одесі під ключ | MAX SITE",
+    "description": "Створення сайтів в Одесі для hospitality, логістики, нерухомості, медицини й послуг. Сезонні офери, мультимовність, SEO та заявки без дублів.",
+    "h1": "Створення сайтів в Одесі під ключ",
+    "relatedCitySlugs": [
+      "kyiv",
+      "dnipro",
+      "lviv"
+    ],
+    "relatedServiceSlugs": [
+      "stvorennya-saytiv",
+      "stvorennya-saytu-dlya-biznesu",
+      "stvorennya-korporatyvnoho-saytu",
+      "stvorennya-landing-page",
+      "stvorennya-internet-mahazynu",
+      "stvorennya-program"
+    ],
+    "proofMode": "national-case",
+    "publishedAt": "2026-08-28",
+    "updatedAt": "2026-08-28"
+  },
+  {
+    "slug": "dnipro",
+    "nominative": "Дніпро",
+    "locative": "Дніпрі",
+    "preposition": "у",
+    "adjective": "дніпровського",
+    "priority": 1,
+    "state": "published",
+    "index": true,
+    "title": "Створення сайтів у Дніпрі для бізнесу | MAX SITE",
+    "description": "Створення сайтів у Дніпрі для виробництва, інженерії, логістики, авто й B2B. Каталоги, запити кошторису, SEO, аналітика й online-заявки.",
+    "h1": "Створення сайтів у Дніпрі для бізнесу",
+    "relatedCitySlugs": [
+      "kharkiv",
+      "kyiv",
+      "cherkasy"
+    ],
+    "relatedServiceSlugs": [
+      "stvorennya-saytiv",
+      "stvorennya-saytu-dlya-biznesu",
+      "stvorennya-korporatyvnoho-saytu",
+      "stvorennya-landing-page",
+      "stvorennya-internet-mahazynu",
+      "stvorennya-program"
+    ],
+    "proofMode": "national-case",
+    "publishedAt": "2026-08-28",
+    "updatedAt": "2026-08-28"
+  },
+  {
+    "slug": "kharkiv",
+    "nominative": "Харків",
+    "locative": "Харкові",
+    "preposition": "у",
+    "adjective": "харківського",
+    "priority": 1,
+    "state": "published",
+    "index": true,
+    "title": "Створення сайтів у Харкові під ключ | MAX SITE",
+    "description": "Створення сайтів у Харкові для IT, освіти, виробництва, медицини й ecommerce. Експертний контент, online-процес, SEO, аналітика та заявки.",
+    "h1": "Створення сайтів у Харкові під ключ",
+    "relatedCitySlugs": [
+      "dnipro",
+      "kyiv",
+      "cherkasy"
+    ],
+    "relatedServiceSlugs": [
+      "stvorennya-saytiv",
+      "stvorennya-saytu-dlya-biznesu",
+      "stvorennya-korporatyvnoho-saytu",
+      "stvorennya-landing-page",
+      "stvorennya-internet-mahazynu",
+      "stvorennya-program"
+    ],
+    "proofMode": "national-case",
+    "publishedAt": "2026-08-28",
+    "updatedAt": "2026-08-28"
+  },
+  {
+    "slug": "cherkasy",
+    "nominative": "Черкаси",
+    "locative": "Черкасах",
+    "preposition": "у",
+    "priority": 2,
+    "state": "published",
+    "index": true,
+    "title": "Створення сайтів у Черкасах для бізнесу | MAX SITE",
+    "description": "Створення сайтів для бізнесу в Черкасах: лендінги, сайти послуг, локальна SEO-структура, форми, аналітика й підготовка до Google Ads.",
+    "h1": "Створення сайтів у Черкасах для бізнесу",
+    "relatedCitySlugs": [
+      "kyiv",
+      "poltava",
+      "kropyvnytskyi"
+    ],
+    "relatedServiceSlugs": [
+      "stvorennya-saytiv",
+      "stvorennya-saytu-dlya-biznesu"
+    ],
+    "proofMode": "local-case",
+    "publishedAt": "2026-08-22",
+    "updatedAt": "2026-08-22"
+  },
+  {
+    "slug": "ukrayina",
+    "nominative": "Україна",
+    "locative": "Україні",
+    "preposition": "в",
+    "priority": 2,
+    "state": "published",
+    "index": true,
+    "title": "Створення сайтів для бізнесу по Україні | MAX SITE",
+    "description": "Створення сайтів для бізнесу по Україні: дистанційна розробка, сторінки послуг, національна й локальна SEO-архітектура, аналітика та реклама.",
+    "h1": "Створення сайтів для бізнесу по Україні",
+    "relatedCitySlugs": [
+      "kyiv",
+      "lviv",
+      "odesa"
+    ],
+    "relatedServiceSlugs": [
+      "stvorennya-saytiv",
+      "stvorennya-saytu-dlya-biznesu"
+    ],
+    "proofMode": "national-case",
+    "publishedAt": "2026-08-20",
+    "updatedAt": "2026-08-20"
+  },
+  {
+    "slug": "vinnytsya",
+    "nominative": "Вінниця",
+    "locative": "Вінниці",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "ivano-frankivsk",
+    "nominative": "Івано-Франківськ",
+    "locative": "Івано-Франківську",
+    "preposition": "в",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "ternopil",
+    "nominative": "Тернопіль",
+    "locative": "Тернополі",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "khmelnytskyi",
+    "nominative": "Хмельницький",
+    "locative": "Хмельницькому",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "rivne",
+    "nominative": "Рівне",
+    "locative": "Рівному",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "lutsk",
+    "nominative": "Луцьк",
+    "locative": "Луцьку",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "poltava",
+    "nominative": "Полтава",
+    "locative": "Полтаві",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "chernivtsi",
+    "nominative": "Чернівці",
+    "locative": "Чернівцях",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "zhytomyr",
+    "nominative": "Житомир",
+    "locative": "Житомирі",
+    "preposition": "у",
+    "priority": 2,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "chernihiv",
+    "nominative": "Чернігів",
+    "locative": "Чернігові",
+    "preposition": "у",
+    "priority": 3,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "kherson",
+    "nominative": "Херсон",
+    "locative": "Херсоні",
+    "preposition": "у",
+    "priority": 3,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "kropyvnytskyi",
+    "nominative": "Кропивницький",
+    "locative": "Кропивницькому",
+    "preposition": "у",
+    "priority": 3,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "mykolaiv",
+    "nominative": "Миколаїв",
+    "locative": "Миколаєві",
+    "preposition": "у",
+    "priority": 3,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "sumy",
+    "nominative": "Суми",
+    "locative": "Сумах",
+    "preposition": "у",
+    "priority": 3,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "uzhhorod",
+    "nominative": "Ужгород",
+    "locative": "Ужгороді",
+    "preposition": "в",
+    "priority": 3,
+    "state": "noindex",
+    "index": false
+  },
+  {
+    "slug": "zaporizhzhya",
+    "nominative": "Запоріжжя",
+    "locative": "Запоріжжі",
+    "preposition": "у",
+    "priority": 3,
+    "state": "noindex",
+    "index": false
+  }
+]
