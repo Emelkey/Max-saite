@@ -24,27 +24,47 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          enablement: true
+          node-version: 22
+          cache: npm
 
-      - name: Audit source SEO and internal links
-        run: node tools/audit-site.js
+      - name: Install locked dependencies
+        run: npm ci
 
-      - name: Build production site
-        run: >-
-          node tools/build-hosting-package.js
-          --site-url https://maxsite.com.ua
-          --form-endpoint https://max-site-leads.emelkey777.workers.dev
-          --ga4 "${{ vars.GA4_ID }}"
-          --search-console-token "${{ vars.SEARCH_CONSOLE_TOKEN }}"
+      - name: Install Chromium for browser QA
+        run: npx playwright install --with-deps chromium
+
+      - name: Run full SEO, unit and build gate
+        run: npm run seo:check
+
+      - name: Run desktop and mobile browser QA
+        run: npm run test:browser
+
+      - name: Run Lighthouse mobile budgets
+        run: npm run lighthouse
 
       - name: Audit production package
         run: >-
           node tools/audit-site.js
           --root release/max-site-production
           --site-url https://maxsite.com.ua
+
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-qa-artifacts
+          path: |
+            artifacts/seo
+            artifacts/playwright
+            artifacts/lighthouse
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

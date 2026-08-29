@@ -64,8 +64,13 @@ const getMeta = (html, name, attribute = "name") => {
   return target?.match(/content=["']([^"']*)["']/i)?.[1]?.trim() || "";
 };
 
-const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
-const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapIndex = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
+const childSitemaps = [...sitemapIndex.matchAll(/<sitemap>[\s\S]*?<loc>[^<]*\/([^/<>]+\.xml)<\/loc>[\s\S]*?<\/sitemap>/g)].map((match) => match[1]);
+const sitemapDocuments = childSitemaps.length
+  ? childSitemaps.map((name) => fs.readFileSync(path.join(root, name), "utf8"))
+  : [sitemapIndex];
+const sitemap = sitemapDocuments.join("\n");
+const sitemapUrls = [...sitemap.matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)].map((match) => match[1]);
 const sitemapRoutes = new Set(sitemapUrls.map((url) => new URL(url).pathname));
 const htmlFiles = collectHtml(root);
 const routeRecords = [];
@@ -190,7 +195,8 @@ for (const route of keyRoutes) {
 const metadataSnapshot = routeRecords.map(({ url, indexable, canonical, title, description, h1 }) => ({ url, indexable, canonical, title, description, h1 }));
 fs.writeFileSync(path.join(artifactRoot, "metadata.json"), `${JSON.stringify(metadataSnapshot, null, 2)}\n`);
 fs.writeFileSync(path.join(artifactRoot, "link-graph.json"), `${JSON.stringify(Object.fromEntries([...linksByRoute].sort()), null, 2)}\n`);
-fs.writeFileSync(path.join(artifactRoot, "sitemap.xml"), sitemap);
+fs.writeFileSync(path.join(artifactRoot, "sitemap.xml"), sitemapIndex);
+for (const name of childSitemaps) fs.copyFileSync(path.join(root, name), path.join(artifactRoot, name));
 fs.copyFileSync(path.join(root, "robots.txt"), path.join(artifactRoot, "robots.txt"));
 
 const cityRows = routeRecords

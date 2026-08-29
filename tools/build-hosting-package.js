@@ -78,8 +78,12 @@ const excludedDirectories = new Set([
   ".git",
   ".github",
   ".wrangler",
+  "artifacts",
   "docs",
+  "node_modules",
   "release",
+  "seo",
+  "tests",
   "tools",
 ]);
 
@@ -138,7 +142,7 @@ for (const name of fs.readdirSync(root)) {
 
   if (stat.isDirectory()) {
     if (!excludedDirectories.has(name)) copyEntry(source, path.join(outputDirectory, name));
-  } else if (publicRootFiles.has(name)) {
+  } else if (publicRootFiles.has(name) || /^sitemap-[a-z-]+\.xml$/i.test(name)) {
     copyEntry(source, path.join(outputDirectory, name));
   }
 }
@@ -223,8 +227,12 @@ for (const file of htmlFiles) {
   }
 }
 
-const sitemap = fs.readFileSync(path.join(outputDirectory, "sitemap.xml"), "utf8");
-const sitemapCount = [...sitemap.matchAll(/<loc>/g)].length;
+const sitemapIndex = fs.readFileSync(path.join(outputDirectory, "sitemap.xml"), "utf8");
+const childSitemaps = [...sitemapIndex.matchAll(/<sitemap>[\s\S]*?<loc>[^<]*\/([^/<>]+\.xml)<\/loc>[\s\S]*?<\/sitemap>/g)].map((match) => match[1]);
+const sitemapCount = (childSitemaps.length ? childSitemaps : ["sitemap.xml"]).reduce((count, name) => {
+  const xml = fs.readFileSync(path.join(outputDirectory, name), "utf8");
+  return count + [...xml.matchAll(/<url>/g)].length;
+}, 0);
 if (sitemapCount < 20) errors.push(`Expected a meaningful sitemap, found only ${sitemapCount} URLs`);
 
 if (errors.length) {

@@ -35,3 +35,8 @@ None. This PR intentionally changes only tooling, documentation and non-public a
 
 Revert this documentation/tooling commit. No application files or production URL behavior need restoration.
 
+## Screenshots
+
+- Desktop before: `artifacts/seo/baseline/home-desktop.png`
+- Mobile before: `artifacts/seo/baseline/home-mobile.png`
+- Final comparison: `artifacts/screenshots/master-2-0/home-desktop.jpg`, `home-mobile.jpg`

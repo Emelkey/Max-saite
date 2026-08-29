@@ -36,7 +36,13 @@
 
 ## Screenshots
 
-До/після desktop і mobile для форми додаються в automation/QA PR, де браузерна перевірка відтворювана.
+Відтворювані desktop/mobile screenshots сервісної сторінки з формою: `artifacts/screenshots/master-2-0/service-desktop.jpg` і `service-mobile.jpg`. Browser QA перевіряє required validation, consent і keyboard focus.
+
+## Final test evidence
+
+- Final repository has 0 form-accessibility errors.
+- GA4 contract verifies all 13 events and rejects contact PII keys.
+- Playwright verifies native validation, required consent and keyboard movement between fields.
 
 ## Rollback
 

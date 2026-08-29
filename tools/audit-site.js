@@ -21,8 +21,13 @@ const descriptionOwners = new Map();
 const auditedFiles = new Set();
 const articleFaqOwners = new Map();
 
-const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
-const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapIndex = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
+const childSitemaps = [...sitemapIndex.matchAll(/<sitemap>[\s\S]*?<loc>[^<]*\/([^/<>]+\.xml)<\/loc>[\s\S]*?<\/sitemap>/g)].map((match) => match[1]);
+const sitemapDocuments = childSitemaps.length
+  ? childSitemaps.map((name) => fs.readFileSync(path.join(root, name), "utf8"))
+  : [sitemapIndex];
+const sitemap = sitemapDocuments.join("\n");
+const urls = [...sitemap.matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)].map((match) => match[1]);
 const sitemapUrlSet = new Set(urls);
 
 if (sitemapUrlSet.size !== urls.length) errors.push("Sitemap contains duplicate URLs");

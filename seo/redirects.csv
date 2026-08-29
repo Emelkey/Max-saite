@@ -1,3 +1,3 @@
-source_url,target_url,status,implementation,reason,notes
-https://maxsite.com.ua/stvorennya-sajtiv-pid-klyuch/,https://maxsite.com.ua/stvorennya-saytiv/,preserve-alias,noindex+self-canonical-target,Legacy transliteration alias,"True 301 requires Cloudflare/server redirect layer; do not delete before redirect exists"
-https://maxsite.com.ua/stvorennya-lendingiv/,https://maxsite.com.ua/stvorennya-landing-page/,preserve-alias,noindex+self-canonical-target,Duplicate landing intent,"True 301 requires Cloudflare/server redirect layer; do not delete before redirect exists"
+from,to,type,reason,date,owner,status,notes
+https://maxsite.com.ua/stvorennya-sajtiv-pid-klyuch/,https://maxsite.com.ua/stvorennya-saytiv/,301,Legacy transliteration alias,2026-08-28,MAX SITE,pending-edge-layer,"URL is preserved as noindex alias until a true Cloudflare/server redirect is configured"
+https://maxsite.com.ua/stvorennya-lendingiv/,https://maxsite.com.ua/stvorennya-landing-page/,301,Duplicate landing intent,2026-08-28,MAX SITE,pending-edge-layer,"URL is preserved as noindex alias until a true Cloudflare/server redirect is configured"

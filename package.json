@@ -1,0 +1,29 @@
+{
+  "name": "max-site-seo-quality",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "seo:routes": "node tools/seo-check.js routes",
+    "seo:metadata": "node tools/seo-check.js metadata",
+    "seo:canonicals": "node tools/seo-check.js canonicals",
+    "seo:sitemap": "node tools/generate-sitemaps.js --check && node tools/seo-check.js sitemap",
+    "seo:robots": "node tools/seo-check.js robots",
+    "seo:schema": "node tools/seo-check.js schema",
+    "seo:schema:normalize": "node tools/normalize-schema-graph.js",
+    "seo:links": "node tools/seo-check.js links",
+    "seo:similarity": "node tools/check-city-similarity.js",
+    "seo:content-quality": "node tools/seo-check.js content-quality",
+    "test": "node --test tests/unit/*.test.js",
+    "test:browser": "playwright test",
+    "screenshots": "node tools/capture-screenshots.js",
+    "screenshots:baseline": "node tools/capture-baseline-screenshots.js",
+    "lighthouse": "node tools/run-lighthouse.js",
+    "build": "node tools/build-hosting-package.js --site-url https://maxsite.com.ua --form-endpoint https://max-site-leads.emelkey777.workers.dev --ga4 G-TS8DMMKK34",
+    "seo:check": "npm run seo:routes && npm run seo:metadata && npm run seo:canonicals && npm run seo:sitemap && npm run seo:robots && npm run seo:schema && npm run seo:links && npm run seo:similarity && npm run seo:content-quality && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "http-server": "^14.1.1",
+    "lighthouse": "^13.4.1"
+  }
+}
