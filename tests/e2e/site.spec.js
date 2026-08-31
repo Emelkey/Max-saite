@@ -21,8 +21,31 @@ for (const route of keyRoutes) {
     expect(response.status()).toBe(200);
     await expect(page.locator('h1')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href',`https://maxsite.com.ua${route}`);
-    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
-    expect(overflow).toBeLessThanOrEqual(1);
+    const layout=await page.evaluate(()=>{
+      const viewportWidth=window.innerWidth;
+      const scrollWidth=Math.max(document.documentElement.scrollWidth,document.body.scrollWidth);
+      const offenders=[...document.body.querySelectorAll('*')]
+        .map(element=>{
+          const rect=element.getBoundingClientRect();
+          return {
+            selector:`${element.tagName.toLowerCase()}${element.id?`#${element.id}`:''}${[...element.classList].map(name=>`.${name}`).join('')}`,
+            left:Math.round(rect.left*100)/100,
+            right:Math.round(rect.right*100)/100,
+            width:Math.round(rect.width*100)/100
+          };
+        })
+        .filter(rect=>rect.left < -1 || rect.right > viewportWidth+1)
+        .slice(0,10);
+
+      return {
+        overflow:Math.max(0,scrollWidth-viewportWidth),
+        viewportWidth,
+        scrollWidth,
+        scrollbarWidth:Math.max(0,window.innerWidth-document.documentElement.clientWidth),
+        offenders
+      };
+    });
+    expect(layout.overflow,JSON.stringify(layout,null,2)).toBeLessThanOrEqual(1);
     expect(consoleErrors).toEqual([]);
   });
 }
