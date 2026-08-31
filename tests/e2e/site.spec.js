@@ -59,6 +59,41 @@ test('mobile navigation exposes phone contact',async({page,isMobile})=>{
   await expect(page.locator('.mobile-nav-phone')).toHaveAttribute('href','tel:+380972692322');
 });
 
+test('desktop header labels remain readable',async({page,isMobile})=>{
+  test.skip(isMobile,'desktop-only layout');
+  await page.goto('/');
+  const callButton=page.locator('.call-button');
+  const aboutLink=page.locator('.main-nav > a',{hasText:'Про нас'});
+  await expect(callButton).toBeVisible();
+  await expect(aboutLink).toBeVisible();
+
+  const layout=await page.evaluate(()=>{
+    const call=document.querySelector('.call-button');
+    const label=call.querySelector('span');
+    const about=[...document.querySelectorAll('.main-nav > a')].find(link=>link.textContent.trim()==='Про нас');
+    const callRect=call.getBoundingClientRect();
+    const labelRect=label.getBoundingClientRect();
+    return {
+      callOverflow:call.scrollWidth-call.clientWidth,
+      labelInside:labelRect.left>=callRect.left-1 && labelRect.right<=callRect.right+1,
+      aboutWhiteSpace:getComputedStyle(about).whiteSpace
+    };
+  });
+
+  expect(layout.callOverflow).toBeLessThanOrEqual(1);
+  expect(layout.labelInside).toBe(true);
+  expect(layout.aboutWhiteSpace).toBe('nowrap');
+});
+
+test('desktop wheel scrolling stays native and responsive',async({page,isMobile})=>{
+  test.skip(isMobile,'desktop mouse-wheel behavior');
+  await page.goto('/');
+  expect(await page.locator('html').evaluate(element=>getComputedStyle(element).scrollBehavior)).toBe('auto');
+  expect(await page.locator('.site-header').evaluate(element=>getComputedStyle(element).backdropFilter)).toBe('none');
+  await page.mouse.wheel(0,700);
+  await expect.poll(()=>page.evaluate(()=>window.scrollY),{timeout:1000}).toBeGreaterThan(300);
+});
+
 test('lead form validates required fields and consent',async({page})=>{
   await page.goto('/stvorennya-saytiv/');
   const form=page.locator('form').first();
