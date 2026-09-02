@@ -1,5 +1,9 @@
 const {test,expect}=require('@playwright/test');
 
+test.beforeEach(async({page})=>{
+  await page.addInitScript(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()})));
+});
+
 const keyRoutes=[
   '/',
   '/stvorennya-saytiv/',
@@ -126,4 +130,39 @@ test('404 document is useful and noindex',async({page})=>{
   await page.goto('/404.html');
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',/noindex/i);
   expect(await page.locator('a[href="/"]').count()).toBeGreaterThan(0);
+});
+
+for (const ok of [true,false]) test(`lead response ok:${ok} is reflected honestly and without PII in analytics`,async({page})=>{
+  const requests=[];
+  await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
+  await page.route('https://max-site-leads.emelkey777.workers.dev/**',async route=>{
+    requests.push(route.request().postDataJSON());
+    await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok})});
+  });
+  await page.goto('/stvorennya-saytiv/?gclid=do-not-send&email=private@example.test');
+  const form=page.locator('form').first();
+  await form.locator('[name=name]').fill('Private test person');
+  await form.locator('[name=phone]').fill('+380000000000');
+  await form.locator('[name=consent]').check();
+  await form.locator('button[type=submit]').click();
+  await expect(form.locator('.form-status')).toHaveAttribute('data-state',ok?'success':'error');
+  expect(requests).toHaveLength(1);
+  expect(requests[0].context.gclid).toBe('');
+  expect(requests[0].pageUrl).not.toContain('?');
+  expect(requests[0].requestId).toMatch(/^[a-f0-9-]{36}$/);
+  const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>Array.from(item)));
+  const successes=events.filter(item=>item[1]==='lead_form_success');
+  expect(successes).toHaveLength(ok?1:0);
+  expect(JSON.stringify(events)).not.toMatch(/Private test person|380000000000|private@example/);
+});
+
+test('consent choices are independent from form consent and revocable',async({page})=>{
+  await page.goto('/');
+  await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+  await page.getByRole('button',{name:'Дозволити всі',exact:true}).click();
+  expect(await page.evaluate(()=>window.MAX_SITE_CONSENT.ad_storage)).toBe('granted');
+  await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+  await page.getByRole('button',{name:'Лише необхідні',exact:true}).click();
+  expect(await page.evaluate(()=>window.MAX_SITE_CONSENT.ad_storage)).toBe('denied');
+  await expect(page.locator('.consent-panel')).toBeHidden();
 });

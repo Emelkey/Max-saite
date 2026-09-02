@@ -56,7 +56,7 @@ for (const file of collect(root)) {
   const description = meta(html,'description');
   const h1s = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map(match=>text(match[1]));
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
-  const links = [...html.matchAll(/\shref=["']([^"']+)["']/gi)].map(match=>match[1]);
+  const links = [...html.matchAll(/<a\b[^>]*\shref=["']([^"']+)["']/gi)].map(match=>match[1]);
   const schemas = [];
   for (const match of html.matchAll(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
     try { schemas.push(JSON.parse(match[1])); } catch (error) { errors.push(`${route}: invalid JSON-LD (${error.message})`); }
@@ -149,7 +149,11 @@ if (check === 'schema') {
       const types=[].concat(node['@type']||[]);
       if (types.includes('Article')) for (const field of ['headline','datePublished','dateModified','author','publisher','image','mainEntityOfPage']) if (!node[field]) errors.push(`${row.route}: Article missing ${field}`);
       if (types.includes('Service') && !node.name) errors.push(`${row.route}: Service missing name`);
-      if (types.includes('FAQPage')) for (const question of node.mainEntity||[]) if (question.name && !text(row.main).includes(question.name)) errors.push(`${row.route}: schema FAQ is not visible: ${question.name}`);
+      if (types.includes('FAQPage')) for (const question of node.mainEntity||[]) {
+        if (!question.name || !text(row.main).includes(text(question.name))) errors.push(`${row.route}: schema FAQ question is not visible: ${question.name}`);
+        const answer=question.acceptedAnswer?.text;
+        if (!answer || !text(row.main).includes(text(answer))) errors.push(`${row.route}: schema FAQ answer is not visible: ${question.name}`);
+      }
       if (row.route.startsWith('/mista/') && row.route !== '/mista/' && types.includes('LocalBusiness')) errors.push(`${row.route}: city page must not claim LocalBusiness`);
       if ((types.includes('Review') || types.includes('AggregateRating')) && !text(row.main).match(/відгук|рейтинг/i)) errors.push(`${row.route}: rating schema lacks visible evidence`);
     });
@@ -158,12 +162,27 @@ if (check === 'schema') {
 }
 
 if (check === 'links') {
-  const inlinks=new Map(); const anchors=new Map();
+  const inlinks=new Map();
   for (const row of rows) for (const href of row.links) {
-    if (/^(?:https?:|mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
-    const target=targetFile(row.file,href);
+    if (/^(?:mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
+    let resolved;
+    try { resolved=new URL(href,origin+row.route); } catch { errors.push(`${row.route}: invalid link ${href}`); continue; }
+    if (resolved.origin!==origin) continue;
+    const target=targetFile(row.file,resolved.pathname);
     if (!fs.existsSync(target)) errors.push(`${row.route}: broken link ${href}`);
-    else { const targetRoute=routeFromFile(target); inlinks.set(targetRoute,(inlinks.get(targetRoute)||0)+1); }
+    else {
+      const targetRoute=routeFromFile(target);
+      const targetRow=rows.find(item=>item.route===targetRoute);
+      if (targetRow && row.indexable && targetRow.indexable && targetRoute!==row.route) inlinks.set(targetRoute,(inlinks.get(targetRoute)||0)+1);
+      if (row.indexable && targetRow && !targetRow.indexable && !/privacy|polityka|404|thank|dyaku/i.test(targetRoute)) warnings.push(`${row.route}: link to noindex ${targetRoute}`);
+      if (targetRow && /http-equiv=["']refresh/i.test(targetRow.html)) errors.push(`${row.route}: link through client redirect ${targetRoute}`);
+      if (resolved.hash && targetRow) {
+        let fragment;
+        try { fragment=decodeURIComponent(resolved.hash.slice(1)); } catch { fragment=resolved.hash.slice(1); }
+        const ids=[...targetRow.html.matchAll(/\b(?:id|name)=["']([^"']+)["']/gi)].map(match=>match[1]);
+        if (fragment && !ids.includes(fragment)) errors.push(`${row.route}: missing fragment ${href}`);
+      }
+    }
   }
   for (const row of indexable) {
     if (row.route !== '/' && !inlinks.get(row.route)) errors.push(`${row.route}: orphan page`);
@@ -213,7 +232,7 @@ if (check === 'content-quality') {
   const script=fs.readFileSync(path.join(root,'script.js'),'utf8');
   for (const event of ['lead_form_start','lead_form_submit','lead_form_success','lead_form_error','click_phone','click_telegram','click_viber','click_email','pricing_cta_click','portfolio_open','case_live_site_click','city_service_click','scroll_75']) if (!script.includes(`"${event}"`)) errors.push(`script.js missing event ${event}`);
   if (!/honeypot/i.test(script)) errors.push('script.js missing honeypot handling');
-  warnings.push('External lead endpoint rate limiting and server validation require production-owner verification.');
+  warnings.push('Worker production delivery and distributed rate limiting require separate live verification; local tests do not prove deployment.');
 }
 
 const output={check,generatedAt:new Date().toISOString(),pages:rows.length,indexable:indexable.length,errors,warnings};

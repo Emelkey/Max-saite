@@ -2556,3 +2556,13 @@ p {
     font-weight: 900;
   }
 }
+/* Consent stays clear of the persistent mobile contact bar. */
+.consent-panel { position: fixed; z-index: 1000; left: 16px; bottom: 24px; max-width: 430px; padding: 18px; color: #f6f8fb; background: #13212e; border: 1px solid #506471; border-radius: 12px; box-shadow: 0 4px 24px #0006; font-size: 14px; line-height: 1.5; }
+.consent-panel[hidden] { display: none; }
+.consent-panel p { margin: 8px 0 12px; font-size: 14px; }
+.consent-panel a { text-decoration: underline; }
+.consent-panel > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.consent-panel button, .consent-settings { min-height: 44px; padding: 8px 12px; border: 1px solid #8aa0b1; border-radius: 6px; background: #13212e; color: #fff; cursor: pointer; font: inherit; }
+.consent-panel button:focus-visible, .consent-settings:focus-visible { outline: 3px solid #00ec55; outline-offset: 3px; }
+.consent-settings { margin: 12px; font-size: 13px; }
+@media (max-width: 600px) { .consent-panel { left: 12px; right: 12px; bottom: calc(84px + env(safe-area-inset-bottom)); max-width: none; max-height: 55vh; overflow-y: auto; } }

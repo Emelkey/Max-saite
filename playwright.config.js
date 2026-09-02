@@ -11,9 +11,9 @@ module.exports=defineConfig({
     video:'retain-on-failure'
   },
   webServer:{
-    command:'npx http-server . -p 4173 -c-1 --silent',
+    command:'npx http-server release/max-site-production -a 127.0.0.1 -p 4173 -c-1 --silent',
     url:'http://127.0.0.1:4173/',
-    reuseExistingServer:true,
+    reuseExistingServer:false,
     timeout:30000
   },
   projects:[

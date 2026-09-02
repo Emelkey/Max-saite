@@ -105,7 +105,7 @@ const copyEntry = (source, destination) => {
 };
 
 const addNoindex = (html) => {
-  if (/<meta name="robots"[^>]*noindex/i.test(html)) return html;
+  if (/<meta\b[^>]*name=["']robots["']/i.test(html)) return html.replace(/<meta\b[^>]*name=["']robots["'][^>]*>/gi, '<meta name="robots" content="noindex, nofollow" />');
   return html.replace(/(<meta name="viewport"[^>]*>)/i, '$1<meta name="robots" content="noindex, nofollow" />');
 };
 

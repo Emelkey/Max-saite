@@ -38,6 +38,7 @@ const loadAnalytics = () => {
     window.gtag("js", new Date());
     window.gtag("config", analyticsConfig.measurementId, {
       anonymize_ip: true,
+      ...window.MAX_SITE_GOOGLE_PAGE,
     });
 
     const script = document.createElement("script");
@@ -50,9 +51,11 @@ const loadAnalytics = () => {
 const trackEvent = (eventName, parameters = {}) => {
   if (!analyticsEnabled) return;
 
+  // Explicit schema prevents future callers from leaking form fields or arbitrary URLs.
+  const allowedParameters = new Set(["page_type", "city", "service", "form_type", "error_type", "delivery_method", "lead_source", "link_location", "messenger", "plan_name", "case_name", "destination_path"]);
   const safeParameters = {
     page_path: window.location.pathname,
-    ...parameters,
+    ...Object.fromEntries(Object.entries(parameters).filter(([key]) => allowedParameters.has(key)).map(([key, value]) => [key, String(value).split(/[?#]/)[0].slice(0, 100)])),
   };
 
   if (typeof window.gtag === "function") {
@@ -83,6 +86,9 @@ const PAGE_CONTEXT = (() => {
   return {
     page_type: cityMatch
       ? "city_hub"
+      : path === "/portfolio/" ? "portfolio_index"
+      : path === "/blog/" ? "blog_index"
+      : path.startsWith("/nishi/") ? (path === "/nishi/" ? "niche_index" : "niche")
       : path.startsWith("/portfolio/")
         ? "case"
         : path.startsWith("/blog/")
@@ -104,9 +110,19 @@ const getAttribution = () => {
   const attribution = {};
 
   ATTRIBUTION_KEYS.forEach((key) => {
+    const advertisingAllowed = window.MAX_SITE_CONSENT?.ad_storage === "granted" && window.MAX_SITE_CONSENT?.ad_user_data === "granted";
+    if (key === "gclid" && !advertisingAllowed) {
+      try { sessionStorage.removeItem(`max_site_${key}`); } catch {}
+      attribution[key] = "";
+      return;
+    }
     const currentValue = params.get(key);
-    if (currentValue) sessionStorage.setItem(`max_site_${key}`, currentValue.slice(0, 180));
-    attribution[key] = (currentValue || sessionStorage.getItem(`max_site_${key}`) || "").slice(0, 180);
+    let stored = "";
+    try {
+      if (currentValue) sessionStorage.setItem(`max_site_${key}`, currentValue.slice(0, 180));
+      stored = sessionStorage.getItem(`max_site_${key}`) || "";
+    } catch { /* Storage denial must never break navigation or lead delivery. */ }
+    attribution[key] = (currentValue || stored).slice(0, 180);
   });
 
   return attribution;
@@ -264,6 +280,10 @@ document.querySelectorAll(".faq-list details").forEach((item) => {
 
 const telegramConfig = window.MAX_SITE_TELEGRAM || {};
 
+const sanitizedUrl = (value) => {
+  try { const url = new URL(value); return `${url.origin}${url.pathname}`; } catch { return ""; }
+};
+
 const getFormValue = (form, name) => {
   const field = form.elements[name];
   return field && "value" in field ? field.value.trim() : "";
@@ -283,7 +303,8 @@ const buildLeadPayload = (form) => {
   return {
     source: "MAX SITE",
     pageTitle: document.title,
-    pageUrl: window.location.href,
+    pageUrl: sanitizedUrl(window.location.href),
+    requestId: form.dataset.requestId,
     website: getFormValue(form, "website"),
     formStartedAt: Number(form.dataset.formStartedAt || 0),
     fields,
@@ -292,10 +313,11 @@ const buildLeadPayload = (form) => {
       page_type: PAGE_CONTEXT.page_type,
       city: PAGE_CONTEXT.city,
       service: PAGE_CONTEXT.service,
-      referrer: document.referrer.slice(0, 500),
+      referrer: sanitizedUrl(document.referrer).slice(0, 500),
       ...attribution,
       timestamp: new Date().toISOString(),
       consent,
+      consent_state: window.MAX_SITE_CONSENT?.ad_storage === "granted" && window.MAX_SITE_CONSENT?.ad_user_data === "granted" ? "ads_granted" : "ads_denied",
     },
   };
 };
@@ -347,13 +369,16 @@ const sendLead = async (payload) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(15000),
   });
 
   if (!response.ok) {
     throw new Error(`Telegram endpoint error: ${response.status}`);
   }
 
-  return response.json().catch(() => ({}));
+  const result = await response.json().catch(() => null);
+  if (result?.ok !== true) throw new Error("Lead delivery was not acknowledged");
+  return result;
 };
 
 document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
@@ -372,9 +397,10 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
     page_type: PAGE_CONTEXT.page_type,
     city: PAGE_CONTEXT.city,
     service: PAGE_CONTEXT.service,
-    referrer: document.referrer.slice(0, 500),
+    referrer: sanitizedUrl(document.referrer).slice(0, 500),
     ...attribution,
     timestamp: new Date().toISOString(),
+    consent_state: window.MAX_SITE_CONSENT?.ad_storage === "granted" && window.MAX_SITE_CONSENT?.ad_user_data === "granted" ? "ads_granted" : "ads_denied",
   };
 
   Object.entries(hiddenValues).forEach(([name, value]) => {
@@ -412,6 +438,7 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (form.dataset.submitting === "true") return;
 
     if (getFormValue(form, "website")) {
       trackEvent("lead_form_error", {
@@ -434,7 +461,9 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
 
     const button = form.querySelector("button");
     const defaultText = button?.textContent || "Отримати консультацію";
+    form.dataset.requestId ||= crypto.randomUUID();
     const payload = buildLeadPayload(form);
+    form.dataset.submitting = "true";
     form.dataset.leadSuccessTracked = "false";
 
     trackEvent("form_submit", { form_type: formType });
@@ -471,6 +500,7 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
         setFormStatus(statusElement, "Дякуємо! Заявку успішно відправлено.", "success");
       }
       form.reset();
+      delete form.dataset.requestId;
     } catch (error) {
       console.error(error);
       trackEvent("lead_delivery_error", { form_type: formType });
@@ -479,10 +509,10 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
         page_type: PAGE_CONTEXT.page_type,
         error_type: "delivery",
       });
-      await openTelegramFallback(buildTelegramText(payload));
-      setButtonState(button, "Відкрито Telegram", true);
-      setFormStatus(statusElement, "Автоматична відправка недоступна. Надішліть заявку у Telegram.", "error");
+      setButtonState(button, "Спробувати ще раз", false);
+      setFormStatus(statusElement, "Заявку не підтверджено. Спробуйте ще раз або скористайтеся посиланням Telegram поруч із формою.", "error");
     }
+    form.dataset.submitting = "false";
 
     setTimeout(() => {
       setButtonState(button, defaultText, false);
