@@ -194,11 +194,11 @@ document.addEventListener("click", (event) => {
     trackEvent("price_cta", { plan_name: planName });
     trackEvent("pricing_cta_click", { plan_name: planName });
   } else if (
-    link.closest(".work-card, .case-study") &&
+    link.closest(".work-card, .case-study, .portfolio-case") &&
     /^https?:\/\//i.test(href)
   ) {
-    const caseCard = link.closest(".work-card, .case-study");
-    const caseName = caseCard?.querySelector("h2, h3")?.textContent?.trim().slice(0, 80) || "case";
+    const caseCard = link.closest(".work-card, .case-study, .portfolio-case");
+    const caseName = caseCard?.querySelector("h1, h2, h3")?.textContent?.trim().slice(0, 80) || "case";
     trackEvent("outbound_case_click", { case_name: caseName });
     trackEvent("portfolio_click", { case_name: caseName });
     trackEvent("case_live_site_click", { case_name: caseName });

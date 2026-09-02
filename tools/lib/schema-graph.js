@@ -8,6 +8,15 @@ function buildGraph({nodes, canonical, title, description, main}) {
     '@type': 'Question', name: text(match[1]), acceptedAnswer: {'@type': 'Answer', text: text(match[2])}
   })).filter(question => question.name && question.acceptedAnswer.text);
   for (const node of retained) {
+    if (/\/portfolio\/[^/]+\/$/.test(canonical) && types(node).some(type => ['CreativeWork','Article'].includes(type))) {
+      node['@type'] = 'Article';
+      node['@id'] = `${canonical}#article`;
+      node.headline = text(main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || title);
+      node.mainEntityOfPage = {'@id': `${canonical}#webpage`};
+      node.author = {'@id': entity.organization['@id']};
+      node.publisher = {'@id': entity.organization['@id']};
+      node.dateModified = '2026-09-02';
+    }
     if (types(node).includes('Service')) {
       node['@id'] ||= `${canonical}#service`;
       node.url = canonical;
