@@ -16,7 +16,7 @@ Date: 2026-09-02. Branch: `seo/master-3-0-cases-eeat`.
 
 Local SEO/schema/link/unit/build checks run after content generation. Real self-case desktop and mobile captures visually inspected. Full responsive and Lighthouse suite belongs to the final QA lane.
 
-The requested five completed cases are **not complete**: only three existing projects are documented. B2B CLEAN URL/scope/permission and a fifth project remain DATA REQUIRED. Founder full public name, legal registration, launch dates, client reviews and business metrics are also gated in `evidence-register.md`. No fabricated case was used to satisfy a count.
+The portfolio-growth target is **not complete**: only three existing projects are documented. MASTER 3.0 §12.3 names Benish Group, conditional on real launch and client permission; these are DATA REQUIRED, along with any additional completed project. Founder full public name, legal registration, launch dates, client reviews and business metrics are also gated in `evidence-register.md`. No fabricated case was used to satisfy a count.
 
 ## Risk / rollback
 

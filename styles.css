@@ -2573,3 +2573,10 @@ p {
 .seo-decision-table thead { background: #13212e; }
 .seo-decision-table th { color: #f6f8fb; font-weight: 650; }
 .seo-table-scroll:focus-visible { outline: 3px solid #00ec55; outline-offset: 3px; }
+
+[data-budget-tool] { display: grid; gap: 14px; max-width: 720px; }
+[data-budget-tool] select { width: 100%; min-height: 48px; padding: 10px 14px; color: #fff; background: #17232e; border: 1px solid #667884; border-radius: 8px; font: inherit; }
+[data-budget-tool] fieldset { display: grid; gap: 8px; border: 1px solid #667884; border-radius: 8px; padding: 16px; }
+[data-budget-tool] label { display: flex; gap: 10px; align-items: center; min-height: 44px; cursor: pointer; }
+[data-budget-tool] input { width: 20px; height: 20px; flex: 0 0 20px; accent-color: #00ed53; }
+[data-budget-tool] output { padding: 18px; background: #113c2d; border-radius: 8px; color: #fff; line-height: 1.65; }

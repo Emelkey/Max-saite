@@ -6,9 +6,8 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const checkOnly = process.argv.includes('--check');
 const origin = 'https://maxsite.com.ua';
-const today = new Date().toLocaleDateString('en-CA', {timeZone:'Europe/Kyiv'});
 const groups = {services:[], cities:[], niches:[], cases:[], blog:[]};
-const ignored = new Set(['.git','node_modules','release','artifacts']);
+const ignored = new Set(['.git','.github','node_modules','release','artifacts','docs','tools','tests','seo']);
 
 function collect(directory) {
   const result = [];
@@ -45,11 +44,14 @@ for (const file of collect(root)) {
   const canonical = html.match(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
   const expected = `${origin}${urlPath}`;
   if (canonical !== expected) throw new Error(`Cannot sitemap non-canonical page: ${urlPath} -> ${canonical || 'MISSING'}`);
-  groups[groupFor(urlPath)].push({loc:expected,lastmod:today});
+  // Do not stamp every URL with the build date. An optional lastmod is emitted
+  // only from a visible editorial <time>, never from filesystem copy times.
+  const editorialDate = html.match(/<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})"/i)?.[1];
+  groups[groupFor(urlPath)].push({loc:expected,lastmod:editorialDate});
 }
 
-const urlset = rows => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.sort((a,b)=>a.loc.localeCompare(b.loc)).map(row=>`  <url><loc>${row.loc}</loc><lastmod>${row.lastmod}</lastmod></url>`).join('\n')}\n</urlset>\n`;
-const index = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Object.keys(groups).map(name=>`  <sitemap><loc>${origin}/sitemap-${name}.xml</loc><lastmod>${today}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`;
+const urlset = rows => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.sort((a,b)=>a.loc.localeCompare(b.loc)).map(row=>`  <url><loc>${row.loc}</loc>${row.lastmod?`<lastmod>${row.lastmod}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`;
+const index = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Object.keys(groups).map(name=>`  <sitemap><loc>${origin}/sitemap-${name}.xml</loc></sitemap>`).join('\n')}\n</sitemapindex>\n`;
 
 const expectedFiles = new Map([['sitemap.xml',index], ...Object.entries(groups).map(([name,rows])=>[`sitemap-${name}.xml`,urlset(rows)])]);
 const changes = [];
