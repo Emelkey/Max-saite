@@ -7,8 +7,10 @@ const {spawn,spawnSync}=require('child_process');
 const {chromium}=require('@playwright/test');
 
 const root=path.resolve(__dirname,'..');
-const baselineCommit='f22f2e02fa77f520d37d75b28ba7dbf51b288daf';
-const outDir=path.join(root,'artifacts','seo','baseline');
+const baselineCommit='d1fe955b0492af9bb80b20e15d12194177e1b757';
+const outDir=path.join(root,'artifacts','screenshots','master-3-0-before');
+if(fs.existsSync(path.join(outDir,'screenshot-manifest.json'))) throw Error('Immutable baseline capture already exists');
+fs.mkdirSync(outDir,{recursive:true});
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'max-site-baseline-'));
 const archive=path.join(temp,'site.tar');
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));

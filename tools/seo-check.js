@@ -12,7 +12,7 @@ if (!allowed.has(check)) {
 }
 
 const origin = 'https://maxsite.com.ua';
-const ignored = new Set(['.git','node_modules','release','artifacts']);
+const ignored = new Set(['.git','.github','node_modules','release','artifacts','docs','tools','tests','seo']);
 const errors = [];
 const warnings = [];
 const rows = [];
@@ -87,6 +87,7 @@ if (check === 'metadata') {
   ownerCheck('title','title'); ownerCheck('description','description');
   for (const row of indexable) {
     if (row.h1s.length !== 1) errors.push(`${row.route}: expected one H1`);
+    if (!row.canonical) errors.push(`${row.route}: missing canonical`);
     if (/\{\{|\}\}|undefined|null/i.test(`${row.title} ${row.description}`)) errors.push(`${row.route}: unresolved metadata token`);
   }
 }
@@ -148,7 +149,16 @@ if (check === 'schema') {
       for (const [key,value] of Object.entries(node)) if (value === null || value === undefined) errors.push(`${row.route}: schema ${key} is null`);
       const types=[].concat(node['@type']||[]);
       if (types.includes('Article')) for (const field of ['headline','datePublished','dateModified','author','publisher','image','mainEntityOfPage']) if (!node[field]) errors.push(`${row.route}: Article missing ${field}`);
-      if (types.includes('Service') && !node.name) errors.push(`${row.route}: Service missing name`);
+      if (types.includes('Service')) {
+        if (!node.name) errors.push(`${row.route}: Service missing name`);
+        if (node.provider?.['@id'] !== `${origin}/#organization`) errors.push(`${row.route}: Service provider differs from canonical entity`);
+        if (node.url !== row.canonical) errors.push(`${row.route}: Service URL mismatch`);
+      }
+      if (types.includes('Offer') || types.includes('AggregateOffer')) {
+        const price=node.price ?? node.lowPrice;
+        if (price!==undefined && !text(row.main).replace(/\s/g,'').includes(String(price).replace(/\s/g,''))) errors.push(`${row.route}: schema price not visible: ${price}`);
+        if (!node.priceCurrency) errors.push(`${row.route}: schema offer missing currency`);
+      }
       if (types.includes('FAQPage')) for (const question of node.mainEntity||[]) {
         if (!question.name || !text(row.main).includes(text(question.name))) errors.push(`${row.route}: schema FAQ question is not visible: ${question.name}`);
         const answer=question.acceptedAnswer?.text;
@@ -210,6 +220,9 @@ if (check === 'content-quality') {
   }
   for (const row of indexable) {
     const mainText=text(row.main);
+    const contentWords=mainText.split(/\s+/).filter(Boolean).length;
+    if (/^\/blog\/[^/]+\/$/.test(row.route) && contentWords<500) warnings.push(`${row.route}: ${contentWords} main words; editorial expansion/value review needed`);
+    if (!/#lead|tel:|mailto:|t\.me\//.test(row.main) && !/polityka|privacy/.test(row.route)) warnings.push(`${row.route}: no direct contact CTA in main`);
     if (fakeLocation.test(mainText)) errors.push(`${row.route}: possible fake local-presence claim`);
     if (row.route.startsWith('/mista/') && row.route !== '/mista/') {
       if (!/case|кейс|proof|доказ/i.test(row.main)) errors.push(`${row.route}: city page lacks proof block`);

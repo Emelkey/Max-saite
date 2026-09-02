@@ -2580,3 +2580,7 @@ p {
 [data-budget-tool] label { display: flex; gap: 10px; align-items: center; min-height: 44px; cursor: pointer; }
 [data-budget-tool] input { width: 20px; height: 20px; flex: 0 0 20px; accent-color: #00ed53; }
 [data-budget-tool] output { padding: 18px; background: #113c2d; border-radius: 8px; color: #fff; line-height: 1.65; }
+
+/* Native fragment navigation must leave the destination clear of the sticky header. */
+main [id] { scroll-margin-top: 110px; }
+#budget-estimator > h2, #project-resources > h2 { font-size: clamp(24px, 3vw, 36px); line-height: 1.25; text-transform: none; letter-spacing: -0.02em; }

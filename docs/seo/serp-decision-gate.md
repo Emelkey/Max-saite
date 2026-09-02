@@ -12,5 +12,4 @@ Current local SERPs surface city-specific studios and local service pages (for e
 
 No new city × service URL is approved in this release. `landing + city`, `ecommerce + city` and `software + city` are handled through deliberate internal linking between the city hub and the existing national money page until GSC and a stable manual top-10 comparison prove a separate intent.
 
-The sampled overlap values in `serp-intent-map.csv` are qualitative research aids, not search-volume or ranking guarantees. They must be refreshed before Wave 2.
-
+MASTER 3.0 correction (2026-09-02): unverified numerical overlaps have been replaced with `UNKNOWN` in both intent and keyword maps. No current measured top-10 overlap sample is available in this repository. These blanks are evidence gaps, not zero overlap. Record the query pair, country, language, device, date, two organic top-10 lists and intersection method before applying the thresholds above. Existing hubs remain the owners without creating new city × service URLs; this is not a claim that a fresh quantitative gate has passed.

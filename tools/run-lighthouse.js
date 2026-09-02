@@ -6,7 +6,10 @@ const {spawn}=require('child_process');
 const {chromium}=require('@playwright/test');
 
 const root=path.resolve(__dirname,'..');
-const outDir=path.join(root,'artifacts','lighthouse');
+const version=process.argv.find(arg=>arg.startsWith('--version='))?.split('=')[1];
+if (version && !/^[a-z0-9-]+$/.test(version)) throw Error('Invalid report version');
+const outDir=path.join(root,'artifacts','lighthouse',version||'');
+if (version && fs.existsSync(path.join(outDir,'summary.json'))) throw Error('Report exists; use a fresh version.');
 fs.mkdirSync(outDir,{recursive:true});
 const routes=['/','/stvorennya-saytiv/','/stvorennya-saytu-dlya-biznesu/','/stvorennya-program/','/mista/','/mista/stvorennya-sajtiv-kyiv/','/portfolio/formula-chystoty/','/blog/skilky-koshtuye-stvorennya-sajtu/'];
 const thresholds={performance:0.85,accessibility:0.90,'best-practices':0.90,seo:0.95};
@@ -14,7 +17,7 @@ const thresholds={performance:0.85,accessibility:0.90,'best-practices':0.90,seo:
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 
 (async()=>{
-  const server=spawn(process.execPath,[require.resolve('http-server/bin/http-server'),'.','-p','4174','-c-1','--silent'],{cwd:root,stdio:'ignore'});
+  const server=spawn(process.execPath,[require.resolve('http-server/bin/http-server'),'release/max-site-production','-p','4174','-c-1','--silent','-a','127.0.0.1'],{cwd:root,stdio:'ignore'});
   try {
     await wait(1500);
     const [{default:lighthouse},{launch}]=await Promise.all([import('lighthouse'),import('chrome-launcher')]);
@@ -31,7 +34,7 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
         console.log(`${route}: ${Object.entries(scores).map(([name,value])=>`${name} ${Math.round(value*100)}`).join(', ')}`);
       }
     } finally { await chrome.kill(); }
-    fs.writeFileSync(path.join(outDir,'summary.json'),`${JSON.stringify({generatedAt:new Date().toISOString(),thresholds,results:summary,failures},null,2)}\n`);
+    fs.writeFileSync(path.join(outDir,'summary.json'),`${JSON.stringify({generatedAt:new Date().toISOString(),source:'local production build',method:'Lighthouse mobile simulated throttling; lab, not field CWV',thresholds,results:summary,failures},null,2)}\n`);
     if (failures.length) { failures.forEach(failure=>console.error(`Lighthouse budget failed: ${failure}`)); process.exitCode=1; }
   } finally { server.kill('SIGTERM'); }
 })().catch(error=>{console.error(error);process.exit(1);});

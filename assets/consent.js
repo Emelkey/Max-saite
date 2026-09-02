@@ -5,7 +5,7 @@
   let saved = null;
   try {
     const value = JSON.parse(localStorage.getItem(key));
-    if (value && Date.now() - value.timestamp < 180 * 86400000 && ["necessary", "analytics", "all"].includes(value.choice)) saved = value;
+    if (value && Number.isFinite(value.timestamp) && value.timestamp <= Date.now() && Date.now() - value.timestamp < 180 * 86400000 && ["necessary", "analytics", "all"].includes(value.choice)) saved = value;
   } catch {}
   const states = choice => ({...denied, analytics_storage: choice === "analytics" || choice === "all" ? "granted" : "denied", ...(choice === "all" ? {ad_storage: "granted", ad_user_data: "granted", ad_personalization: "granted"} : {})});
   window.MAX_SITE_CONSENT = states(saved?.choice);

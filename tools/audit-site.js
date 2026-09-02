@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { editorialBody } = require('./lib/editorial-body');
 
 const args = process.argv.slice(2);
 const getOption = (name) => {
@@ -114,7 +115,7 @@ for (const url of urls) {
         if (!article.image) errors.push(`Article schema missing image: ${fileRoute(file)}`);
         if (!article.mainEntityOfPage) errors.push(`Article schema missing mainEntityOfPage: ${fileRoute(file)}`);
 
-        const articleBody = html.match(/<article\b[^>]*class="[^"]*article-body[^"]*"[^>]*>([\s\S]*?)<\/article>/)?.[1] || "";
+        const articleBody = editorialBody(html, fileRoute(file));
         const articleText = articleBody
           .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
           .replace(/<[^>]+>/g, " ")

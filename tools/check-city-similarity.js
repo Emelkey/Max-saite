@@ -11,6 +11,7 @@ const threshold = 0.55;
 const pages = Object.fromEntries(published.map((city) => {
   const file = path.join(root, `mista/stvorennya-sajtiv-${city.slug}/index.html`);
   const text = normalize(fs.readFileSync(file, "utf8"));
+  if (text.split(/\s+/).filter(Boolean).length < 100) throw new Error(`Substantive city extraction too short: ${city.slug}`);
   return [city.slug, { words: text.split(" ").filter(Boolean).length, grams: ngrams(text) }];
 }));
 

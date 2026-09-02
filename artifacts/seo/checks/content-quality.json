@@ -1,10 +1,31 @@
 {
   "check": "content-quality",
-  "generatedAt": "2026-08-28T16:39:04.854Z",
+  "generatedAt": "2026-09-02T20:30:30.370Z",
   "pages": 109,
   "indexable": 87,
   "errors": [],
   "warnings": [
-    "External lead endpoint rate limiting and server validation require production-owner verification."
+    "/blog/canonical-url-prostymy-slovamy/: 338 main words; editorial expansion/value review needed",
+    "/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/: 463 main words; editorial expansion/value review needed",
+    "/blog/chomu-tsiny-na-sajty-vidriznyayutsya/: 456 main words; editorial expansion/value review needed",
+    "/blog/google-ads-dlya-biznesu/: 405 main words; editorial expansion/value review needed",
+    "/blog/google-analytics-search-console/: 409 main words; editorial expansion/value review needed",
+    "/blog/lending-abo-korporatyvnyj-sajt/: 391 main words; editorial expansion/value review needed",
+    "/blog/redesign-saytu-bez-vtraty-seo/: 345 main words; editorial expansion/value review needed",
+    "/blog/sajt-dlya-kliningovoyi-kompaniyi/: 418 main words; editorial expansion/value review needed",
+    "/blog/seo-first-pidhid/: 343 main words; editorial expansion/value review needed",
+    "/blog/shcho-vhodyt-u-sajt-pid-klyuch/: 456 main words; editorial expansion/value review needed",
+    "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/: 324 main words; editorial expansion/value review needed",
+    "/blog/skilky-koshtuye-stvorennya-internet-magazynu/: 403 main words; editorial expansion/value review needed",
+    "/blog/skilky-tryvaye-rozrobka-sajtu/: 425 main words; editorial expansion/value review needed",
+    "/blog/vnutrishnya-perelinkovka/: 344 main words; editorial expansion/value review needed",
+    "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/: 382 main words; editorial expansion/value review needed",
+    "/blog/yak-pidgotuvaty-bryf-na-sajt/: 467 main words; editorial expansion/value review needed",
+    "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/: 401 main words; editorial expansion/value review needed",
+    "/blog/yak-vybraty-rozrobnyka-sajtu/: 289 main words; editorial expansion/value review needed",
+    "/blog/yak-vybraty-vebstudiyu-v-ukrayini/: 459 main words; editorial expansion/value review needed",
+    "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/: 286 main words; editorial expansion/value review needed",
+    "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/: 418 main words; editorial expansion/value review needed",
+    "Worker production delivery and distributed rate limiting require separate live verification; local tests do not prove deployment."
   ]
 }

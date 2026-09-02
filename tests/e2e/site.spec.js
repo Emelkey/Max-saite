@@ -13,6 +13,18 @@ const keyRoutes=[
   '/mista/stvorennya-sajtiv-kyiv/',
   '/portfolio/formula-chystoty/',
   '/blog/skilky-koshtuye-stvorennya-sajtu/'
+  ,'/mista/stvorennya-sajtiv-lviv/'
+  ,'/mista/stvorennya-sajtiv-odesa/'
+  ,'/mista/stvorennya-sajtiv-dnipro/'
+  ,'/mista/stvorennya-sajtiv-kharkiv/'
+  ,'/nishi/sajt-dlya-magazynu/'
+  ,'/nishi/sajt-dlya-medychnyh-poslug/'
+  ,'/nishi/sajt-dlya-vyrobnytstva/'
+  ,'/nishi/sajt-dlya-neruhomosti/'
+  ,'/nishi/sajt-dlya-kursiv/'
+  ,'/portfolio/max-site/'
+  ,'/qa-checklist/'
+  ,'/blog/ga4-konversiyi-dlya-sajtu/'
 ];
 
 for (const route of keyRoutes) {
@@ -165,4 +177,56 @@ test('consent choices are independent from form consent and revocable',async({pa
   await page.getByRole('button',{name:'Лише необхідні',exact:true}).click();
   expect(await page.evaluate(()=>window.MAX_SITE_CONSENT.ad_storage)).toBe('denied');
   await expect(page.locator('.consent-panel')).toBeHidden();
+});
+
+test('budget estimator and editable resources work without sending personal data',async({page})=>{
+  await page.goto('/qa-checklist/');
+  await page.locator('#budget-format').selectOption('store');
+  await expect(page.locator('[data-budget-tool] output')).toContainText(/34\s*300/);
+  await page.getByLabel('CRM та синхронізація',{exact:true}).check();
+  await expect(page.locator('[data-budget-tool] output')).toContainText('Окрема оцінка: CRM');
+  for (const link of await page.locator('#project-resources a[download]').all()) {
+    const response=await page.request.get(await link.getAttribute('href'));
+    expect(response.status()).toBe(200);
+    expect((await response.text()).length).toBeGreaterThan(500);
+  }
+});
+
+test('fragment navigation exposes the calculator heading below the sticky header',async({page})=>{
+  await page.goto('/qa-checklist/#budget-estimator');
+  const heading=page.locator('#budget-estimator > h2');
+  await expect(heading).toBeVisible();
+  await expect.poll(async()=>{
+    const box=await heading.boundingBox();
+    const header=await page.locator('header').first().boundingBox();
+    return box.y-(header.y+header.height);
+  }).toBeGreaterThanOrEqual(8);
+  const fontSize=await heading.evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+  expect(fontSize).toBeLessThanOrEqual(36);
+});
+
+test('case link records the actual project name',async({page})=>{
+  await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
+  await page.goto('/portfolio/max-site/');
+  // Prevent opening a live external page while testing the delegated click handler.
+  await page.locator('.case-actions a').first().evaluate(link=>link.addEventListener('click',event=>event.preventDefault()));
+  await page.locator('.case-actions a').first().click();
+  const names=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event' && item[1]==='case_live_site_click').map(item=>item[2].case_name));
+  expect(names).toEqual(['MAX SITE']);
+});
+
+for (const width of [360,390,430,768]) test(`contact controls fit ${width}px`,async({page})=>{
+  await page.setViewportSize({width,height:844});
+  await page.goto('/nishi/sajt-dlya-magazynu/');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth)).toBeLessThanOrEqual(1);
+  const bar=page.locator('.floating-contact');
+  await expect(bar).toBeVisible();
+  if (await bar.isVisible()) {
+    for (const link of await bar.locator('a:visible').all()) {
+      const box=await link.boundingBox();
+      expect(box.height).toBeGreaterThanOrEqual(44);
+      expect(box.x).toBeGreaterThanOrEqual(0);
+      expect(box.x+box.width).toBeLessThanOrEqual(width+1);
+    }
+  }
 });
