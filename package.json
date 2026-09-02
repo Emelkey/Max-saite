@@ -12,7 +12,7 @@
     "seo:schema:normalize": "node tools/normalize-schema-graph.js",
     "seo:links": "node tools/seo-check.js links",
     "seo:similarity": "node tools/check-city-similarity.js",
-    "seo:content-quality": "node tools/seo-check.js content-quality",
+    "seo:content-quality": "node tools/validate-cities.js && node tools/seo-check.js content-quality",
     "test": "node --test tests/unit/*.test.js",
     "test:browser": "npm run build && playwright test",
     "screenshots": "node tools/capture-screenshots.js",

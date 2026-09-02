@@ -8,6 +8,7 @@ const slugs = new Set();
 const titles = new Set();
 const h1s = new Set();
 const errors = [];
+const content = require('../seo/city-wave1-content.json');
 
 for (const city of cities) {
   if (!city.slug || slugs.has(city.slug)) errors.push(`Duplicate/missing slug: ${city.slug}`);
@@ -33,6 +34,20 @@ for (const city of cities) {
   const faqCount = (html.match(/<details>/g) || []).length;
   const minimumFaq = city.priority === 1 ? 5 : 3;
   if (faqCount < minimumFaq) errors.push(`Too few FAQ: ${city.slug} (${faqCount})`);
+  if (city.priority === 1) {
+    const data = content[city.contentKey];
+    if (!data) { errors.push(`Missing content record: ${city.slug}`); continue; }
+    for (const field of ['intro','aside','marketHeading','decisionHeading','cta']) if (!data[field]?.trim()) errors.push(`Missing content.${field}: ${city.slug}`);
+    if (data.segments?.length < 4 || data.segments?.length > 6) errors.push(`Need 4–6 scenario segments: ${city.slug}`);
+    if (data.sections?.length < 2 || new Set(data.sections?.map(section=>section.heading)).size !== data.sections?.length) errors.push(`Need distinct city sections: ${city.slug}`);
+    if (data.faq?.length < 5 || data.faq?.length > 7 || faqCount !== data.faq?.length) errors.push(`Need 5–7 rendered FAQs: ${city.slug}`);
+    if (!Array.isArray(data.decisions) || data.decisions.length < 3) errors.push(`Missing decision table: ${city.slug}`);
+    if ((city.relatedServiceSlugs||[]).length < 6) errors.push(`Need six related services: ${city.slug}`);
+    if (city.relatedCitySlugs.length < 2 || city.relatedCitySlugs.length > 4) errors.push(`Need 2–4 related cities: ${city.slug}`);
+    for (const related of city.relatedCitySlugs) if (!cities.find(item=>item.slug===related)?.index) errors.push(`Related city is noindex: ${city.slug} -> ${related}`);
+    for (const slug of ['formula-chystoty','fo-dez']) if (!html.includes(`/portfolio/${slug}/`)) errors.push(`Missing proof link: ${city.slug} -> ${slug}`);
+    if (!html.includes('<table class="seo-decision-table">')) errors.push(`Missing rendered decision table: ${city.slug}`);
+  }
 }
 
 if (errors.length) {

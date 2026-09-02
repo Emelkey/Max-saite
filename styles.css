@@ -2566,3 +2566,10 @@ p {
 .consent-panel button:focus-visible, .consent-settings:focus-visible { outline: 3px solid #00ec55; outline-offset: 3px; }
 .consent-settings { margin: 12px; font-size: 13px; }
 @media (max-width: 600px) { .consent-panel { left: 12px; right: 12px; bottom: calc(84px + env(safe-area-inset-bottom)); max-width: none; max-height: 55vh; overflow-y: auto; } }
+.seo-table-scroll { max-width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 10px; border: 1px solid #40505f; }
+.seo-decision-table { width: 100%; min-width: 540px; border-collapse: collapse; font-size: 16px; line-height: 1.6; }
+.seo-decision-table caption { text-align: left; padding: 14px 18px; color: #bdc9d5; }
+.seo-decision-table th, .seo-decision-table td { padding: 16px 18px; text-align: left; vertical-align: top; border-top: 1px solid #40505f; }
+.seo-decision-table thead { background: #13212e; }
+.seo-decision-table th { color: #f6f8fb; font-weight: 650; }
+.seo-table-scroll:focus-visible { outline: 3px solid #00ec55; outline-offset: 3px; }
