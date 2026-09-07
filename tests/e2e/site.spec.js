@@ -28,7 +28,7 @@ const keyRoutes=[
 ];
 
 for (const route of keyRoutes) {
-  test(`${route} renders without console errors or horizontal overflow`,async({page})=>{
+  test(`${route} renders without console errors or horizontal overflow`,async({page,isMobile})=>{
     const consoleErrors=[];
     page.on('console',message=>{if(message.type()==='error') consoleErrors.push(message.text());});
     await page.route('https://www.googletagmanager.com/**',request=>request.fulfill({status:200,contentType:'application/javascript',body:''}));
@@ -37,7 +37,8 @@ for (const route of keyRoutes) {
     expect(response.status()).toBe(200);
     await expect(page.locator('h1')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href',`https://maxsite.com.ua${route}`);
-    const layout=await page.evaluate(()=>{
+    const configuredWidth=page.viewportSize().width;
+    const layout=await page.evaluate(configuredWidth=>{
       const viewportWidth=window.innerWidth;
       const scrollWidth=Math.max(document.documentElement.scrollWidth,document.body.scrollWidth);
       const offenders=[...document.body.querySelectorAll('*')]
@@ -50,17 +51,25 @@ for (const route of keyRoutes) {
             width:Math.round(rect.width*100)/100
           };
         })
-        .filter(rect=>rect.left < -1 || rect.right > viewportWidth+1)
+        .filter(rect=>rect.left < -1 || rect.right > configuredWidth+1)
         .slice(0,10);
 
       return {
         overflow:Math.max(0,scrollWidth-viewportWidth),
         viewportWidth,
+        clientWidth:document.documentElement.clientWidth,
+        configuredWidth,
         scrollWidth,
         scrollbarWidth:Math.max(0,window.innerWidth-document.documentElement.clientWidth),
         offenders
       };
-    });
+    },configuredWidth);
+    // Mobile browsers can silently widen/scale the layout viewport to fit an
+    // overflowing grid. scrollWidth === innerWidth alone misses that failure.
+    if(isMobile){
+      expect(Math.abs(layout.viewportWidth-configuredWidth),JSON.stringify(layout,null,2)).toBeLessThanOrEqual(1);
+      expect(Math.abs(layout.clientWidth-configuredWidth),JSON.stringify(layout,null,2)).toBeLessThanOrEqual(1);
+    }
     expect(layout.overflow,JSON.stringify(layout,null,2)).toBeLessThanOrEqual(1);
     expect(consoleErrors).toEqual([]);
   });
@@ -73,6 +82,25 @@ test('mobile navigation exposes phone contact',async({page,isMobile})=>{
   await page.keyboard.press('Enter');
   await expect(page.locator('.main-nav')).toBeVisible();
   await expect(page.locator('.mobile-nav-phone')).toHaveAttribute('href','tel:+380972692322');
+});
+
+test('mobile footer privacy settings stay reachable above the contact bar',async({page,isMobile})=>{
+  test.skip(!isMobile,'mobile-only viewport and fixed contact bar');
+  for(const width of [320,360,412]){
+    await page.setViewportSize({width,height:839});
+    await page.goto('/');
+    const viewport=await page.evaluate(()=>({
+      inner:innerWidth,client:document.documentElement.clientWidth,
+      scroll:document.documentElement.scrollWidth
+    }));
+    expect(viewport,`mobile width ${width}`).toEqual({inner:width,client:width,scroll:width});
+    const settings=page.getByRole('button',{name:'Налаштування cookies',exact:true});
+    await settings.click();
+    await expect(page.locator('.consent-panel')).toBeVisible();
+    await page.getByRole('button',{name:'Лише необхідні',exact:true}).click();
+    await expect(page.locator('.consent-panel')).toBeHidden();
+    await expect(settings).toBeFocused();
+  }
 });
 
 test('desktop header labels remain readable',async({page,isMobile})=>{

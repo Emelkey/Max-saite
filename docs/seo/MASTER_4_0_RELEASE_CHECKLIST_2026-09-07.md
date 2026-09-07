@@ -9,9 +9,12 @@
 програми**: зовнішні дані, нові клієнтські кейси, PR-публікації, польові CWV та
 позиції Google не можна замінити змінами коду.
 
-Push / merge / production deployment: статус і точні посилання будуть внесені
-нижче після завершення GitHub Actions і live-перевірки. Локальні тести не є
-доказом публікації.
+Зміни відправлено в [PR #14](https://github.com/Emelkey/Max-saite/pull/14).
+Merge і production deployment ще не виконані: перший CI виявив недоступний
+клік на мобільних налаштуваннях cookies. Виправлено обмеження ширини grid/form/
+footer та відступи прокручування; додано реальні кліки на 320/360/412 px і
+контроль розміру layout viewport. Локальні тести успішні, очікується повторний
+Linux CI. Локальні тести не є доказом публікації.
 
 ## Виконано в релізі
 
@@ -43,6 +46,9 @@ Push / merge / production deployment: статус і точні посилан�
   оцінка повноти відповіді або ранжування.
 - [x] Дата перегляду і `Article.dateModified` синхронізовані лише у 16 реально
   переглянутих статтях; sitemap lastmod не оновлюється масово датою build.
+- [x] Чотири практичні приклади перенесено в основне редакційне тіло статей;
+  наступні кроки конкретизовано, застарілі видимі дати перегляду узгоджено.
+  Аудит пакета не підміняє редакційну оцінку довільною квотою слів.
 - [x] Додано `/kalkulyator-vartosti-saytu/`: чотири опубліковані стартові тарифи,
   уточнення обсягу, копіювання, Telegram/email export без обов'язкової заявки.
   Точні строки та надбавки не вигадані: потрібна оцінка обсягу.
@@ -68,8 +74,9 @@ Push / merge / production deployment: статус і точні посилан�
 | Перевірка | Зафіксований локальний результат |
 |---|---|
 | SEO / sitemap / metadata / links / schema | 0 помилок |
+| Unit tests | 59 passed, 0 failed |
 | Content-quality | 0 помилок; 1 попередження про окрему live-перевірку Worker |
-| Browser | 81 passed, 3 platform-specific skipped, 0 failed |
+| Browser | 82 passed, 4 platform-specific skipped, 0 failed |
 | Lighthouse mobile | 6 сторінок × 3 прогони = 18; Performance 99–100, Accessibility 93–96, Best Practices 100, SEO 100 |
 | Production package audit | 88/88 базових SEO-перевірок, понад 5200 внутрішніх посилань, 0 помилок |
 | Image audit | 0 помилок |
@@ -101,12 +108,23 @@ Push / merge / production deployment: статус і точні посилан�
 ## Rollback
 
 Попередня remote-main база: `d1fe955b0492af9bb80b20e15d12194177e1b757`.
-У разі істотної регресії створити revert PR релізного merge commit, пройти CI
-та окремо запустити production workflow. Не застосовувати force push/reset.
+У разі істотної регресії підготувати rollback PR релізного merge commit і
+перевірити його workflow окремо: у попередній базі `d1fe955` був автоматичний
+деплой на push у main. Сліпий повний revert поверне цю поведінку. До merge
+rollback PR потрібно зберегти ручне керування публікацією та сумісну перевірку
+пакета/production-версії, пройти CI, а потім окремо запустити production
+workflow. Не застосовувати force push/reset.
 DNS у цьому релізі не змінюється. Worker/Durable Objects має окремий rollback
 план; після migration не видаляти namespaces або migration history.
 
 ## Публікація та live-докази
 
-Очікується завершення push, PR, CI, merge, explicit deployment і перевірки
-`tools/verify-production-release.js` для точного production SHA.
+- Push початкового релізу: `c79a068ceaed69e6178e43e91c5a938d3dd53e9d`.
+- PR: https://github.com/Emelkey/Max-saite/pull/14.
+- Перший CI: https://github.com/Emelkey/Max-saite/actions/runs/34153756297 —
+  80 browser passed, 3 skipped, 1 failed (mobile consent settings pointer
+  interception). Це реальна причина затримки релізу; перевірку не вимкнено.
+- Pre-release HTTP evidence: `artifacts/seo/live/master4-20260907-before.json`.
+  Це стан попередньої production-версії: новий калькулятор ще повертає 404.
+- Очікуються повторний CI, merge, explicit deployment і перевірка
+  `tools/verify-production-release.js` для точного production SHA.
