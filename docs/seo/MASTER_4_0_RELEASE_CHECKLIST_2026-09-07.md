@@ -1,22 +1,27 @@
 # MAX SITE — MASTER 4.0: чекліст релізу та відкриті умови
 
-Дата: 7 вересня 2026. Джерело: конкурентне ТЗ від 6 вересня 2026.
+Підготовлено: 7 вересня 2026. Фінальна перевірка публікації: 8 вересня 2026.
+Джерело: конкурентне ТЗ від 6 вересня 2026.
 
 ## Результат поточного етапу
 
-Підготовлено технічний та редакційний реліз MASTER 4.0 разом із попередніми
+Опубліковано технічний та редакційний реліз MASTER 4.0 разом із попередніми
 неопублікованими змінами MASTER 3.0. Це **не означає виконання всієї 90-денної
 програми**: зовнішні дані, нові клієнтські кейси, PR-публікації, польові CWV та
 позиції Google не можна замінити змінами коду.
 
-Зміни відправлено в [PR #14](https://github.com/Emelkey/Max-saite/pull/14).
-Merge і production deployment ще не виконані. Два CI виявили мобільне
-переповнення та недоступний клік на налаштуваннях cookies. Відтворено точну
-причину з ширшим fallback-шрифтом: довге слово в заголовку засновника та
-min-content ширина FAQ grid. Виправлено ці правила, мобільне розширення кнопки
-при фокусі, ширину form/footer і відступи прокручування. Реальні кліки на
-320/360/412 px та перевірка layout viewport проходять локально; наступний
-Linux CI має підтвердити результат. Локальні тести не є доказом публікації.
+[PR #14](https://github.com/Emelkey/Max-saite/pull/14) об'єднано після успішного
+CI; окремий production workflow завершився успішно. На
+[maxsite.com.ua](https://maxsite.com.ua/) підтверджено точний merge SHA
+`196ac040635d82714f9fbe7cd72f4c6c6f139930`, контрольні суми 26 файлів
+і receipt (27 HTTP-ресурсів). Усі 88 URL із sitemap віддають прямий HTTP 200,
+self-canonical і не мають meta noindex. Це перевірка публічного сайту,
+а не лише локального build.
+
+Перші два CI виявили мобільне переповнення й недоступний клік на cookies.
+Причини відтворено з ширшим fallback-шрифтом і виправлено; третій PR CI та
+production CI пройшли без вимкнення перевірок. Тепер заголовок засновника,
+FAQ grid, form/footer і contact bar не розширюють мобільний viewport.
 
 ## Виконано в релізі
 
@@ -86,10 +91,13 @@ Linux CI має підтвердити результат. Локальні те
 | Content-quality | 0 помилок; 1 попередження про окрему live-перевірку Worker |
 | Browser | 84 passed, 6 platform-specific skipped, 0 failed |
 | Lighthouse mobile | 6 сторінок × 3 прогони = 18; Performance 99–100, Accessibility 93–96, Best Practices 100, SEO 100 |
+| Lighthouse у фінальному production CI | 6 сторінок × 3 прогони; медіани Performance 97–98, Accessibility 93–96, Best Practices 100, SEO 100 |
 | Production package audit | 88/88 базових SEO-перевірок, понад 5200 внутрішніх посилань, 0 помилок |
 | Image audit | 0 помилок |
 | Edge config | 6 redirect rules; конфігурація проходить; live edge не активований |
 | git diff --check | без помилок |
+| Незалежна live-перевірка після deploy | точний SHA, 27/27 HTTP-ресурсів, 88/88 canonical URL, 0 помилок |
+| HTTP / www / справжня 404 | HTTP і www: один 301 → 200; відсутня сторінка: HTTP 404 |
 
 Артефакти: `artifacts/seo/checks/`, `artifacts/seo/responsive-images.json`,
 `artifacts/lighthouse/master4-20260907/`, `artifacts/playwright/report/`,
@@ -138,5 +146,22 @@ DNS у цьому релізі не змінюється. Worker/Durable Objects
   перевірки не послаблені й кліки не виконуються через force.
 - Pre-release HTTP evidence: `artifacts/seo/live/master4-20260907-before.json`.
   Це стан попередньої production-версії: новий калькулятор ще повертає 404.
-- Очікуються повторний CI, merge, explicit deployment і перевірка
-  `tools/verify-production-release.js` для точного production SHA.
+- Фінальний PR head: `6f9eb6ecbd5590d89118a7719584931a4e1fca15`.
+- Третій PR CI: https://github.com/Emelkey/Max-saite/actions/runs/34157537175 —
+  success, browser/SEO/unit/Lighthouse/package audit пройдено.
+- Merge / production SHA: `196ac040635d82714f9fbe7cd72f4c6c6f139930`.
+- Explicit production deployment:
+  https://github.com/Emelkey/Max-saite/actions/runs/34163771789 — success.
+  Опубліковано 8 вересня о 00:40–00:41 за Києвом (7 вересня 21:40–21:41 UTC).
+- Незалежний post-deploy receipt/hash check:
+  `artifacts/seo/master4-production-20260908.json` — `ok: true`, 27 ресурсів.
+- Повний read-only HTTP audit:
+  `artifacts/seo/live/master4-20260908-after.json` — 96 спостережень;
+  додаткове зіставлення всіх 88 sitemap URL підтвердило прямий 200,
+  self-canonical і відсутність meta noindex.
+- Новий калькулятор: https://maxsite.com.ua/kalkulyator-vartosti-saytu/ — HTTP 200.
+- Мобільна головна в production: inner/client/scroll width = 412/412/412 px;
+  заголовок засновника відображається звичайним регістром без розриву слова.
+- Цей фінальний звіт і post-deploy докази додаються окремим documentation-only
+  commit після релізу. Публічний пакет залишається на зазначеному production SHA;
+  docs/artifacts не входять у website bundle і повторного деплою не потребують.

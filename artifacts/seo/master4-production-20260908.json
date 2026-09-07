@@ -1,0 +1,173 @@
+{
+  "ok": true,
+  "observations": [],
+  "revision": "196ac040635d82714f9fbe7cd72f4c6c6f139930",
+  "site": "https://maxsite.com.ua",
+  "sitemapUrlCount": 88,
+  "checkedAt": "2026-09-07T21:54:02.635Z",
+  "method": "Read-only HTTP GET; no JavaScript, analytics or lead submission",
+  "rows": [
+    {
+      "route": "/.well-known/max-site-release.json",
+      "status": 200,
+      "bytes": 3423,
+      "sha256": "90ca2dd95193b56f4515a99a06cc5efcf2276df08503f5ce74d8c517b87bdbad"
+    },
+    {
+      "route": "/stvorennya-saytu-dlya-biznesu/",
+      "status": 200,
+      "bytes": 31830,
+      "sha256": "fd66e94d150fa3df25aeadbb8705e278c90ff6c9d41f937c28416df0f77264d7"
+    },
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 64400,
+      "sha256": "f63de70284d6cdcc5d537d4ae05c7181f956b278405927fbdd9a1c7a14ae7b56"
+    },
+    {
+      "route": "/stvorennya-program/",
+      "status": 200,
+      "bytes": 24564,
+      "sha256": "2184760aeea8f4b044dc232fd3ff4a47c0fb23dbb82d55c352ef5ab882ab5ed7"
+    },
+    {
+      "route": "/stvorennya-saytiv/",
+      "status": 200,
+      "bytes": 31570,
+      "sha256": "9d41a5fd9e4c88fd83d0eb9d173a9ae554fd5923fdef4c067dc297341604b6ec"
+    },
+    {
+      "route": "/stvorennya-internet-mahazynu/",
+      "status": 200,
+      "bytes": 39005,
+      "sha256": "fc975f45334236ab6caa85e77f496556f6c207f314e4235ecd34966366306e7f"
+    },
+    {
+      "route": "/seo-prosuvannya/",
+      "status": 200,
+      "bytes": 18593,
+      "sha256": "f83716b582baec345e80de84d154c41d78d3616abbd45303f34080bedfee8ef8"
+    },
+    {
+      "route": "/stvorennya-korporatyvnoho-saytu/",
+      "status": 200,
+      "bytes": 30240,
+      "sha256": "aa1796c771667c9210e7cc155147b401b0aa1f8a2deafd5154373c7d6da0ae71"
+    },
+    {
+      "route": "/stvorennya-landing-page/",
+      "status": 200,
+      "bytes": 31245,
+      "sha256": "f8a34bcf6180d1bdbd71587abdc7cd64af42fc5f9937215946b42d2e4c3f7d67"
+    },
+    {
+      "route": "/robots.txt",
+      "status": 200,
+      "bytes": 121,
+      "sha256": "4a9a4eef773d79b6e847a29e6a01040cecdc45d1b3a0b80999908cec6e79bfdd"
+    },
+    {
+      "route": "/sitemap.xml",
+      "status": 200,
+      "bytes": 491,
+      "sha256": "ae1f033f1d70c78b4ad26d6379ee806f4b80bce9b634bcaf967ba48a66f8b3c2"
+    },
+    {
+      "route": "/seo-sajt-pid-google/",
+      "status": 200,
+      "bytes": 19033,
+      "sha256": "21d57f64fef142fef840782f1a22769043150f0e89f7c3b827175d5c9d02964f"
+    },
+    {
+      "route": "/kalkulyator-vartosti-saytu/",
+      "status": 200,
+      "bytes": 16354,
+      "sha256": "8110fe6905bf6f1b18054b55207c32b509928d63c67b99cdcd4cb8ee19bf0594"
+    },
+    {
+      "route": "/sitemap-cities.xml",
+      "status": 200,
+      "bytes": 717,
+      "sha256": "a53b372606fff8318aee31cbbcb2a848ab23e3209b9b00e649da16f1aa5816d4"
+    },
+    {
+      "route": "/sitemap-niches.xml",
+      "status": 200,
+      "bytes": 1755,
+      "sha256": "290d9371bb76ca069c5b182c01170558f09f2f88a1ce4719dbebc0abd216692a"
+    },
+    {
+      "route": "/sitemap-services.xml",
+      "status": 200,
+      "bytes": 1813,
+      "sha256": "0c275f78a0ec9936fbf3f90164437148216c5d8cdc78e66bf0b72bcd21441f81"
+    },
+    {
+      "route": "/sitemap-cases.xml",
+      "status": 200,
+      "bytes": 462,
+      "sha256": "44676adfacc19c4fc229547f42d45376aa538bf54aeee730aa3ca4b33a206f37"
+    },
+    {
+      "route": "/sitemap-blog.xml",
+      "status": 200,
+      "bytes": 3174,
+      "sha256": "ebf5feda50ecaf0c9e8518d2cc55d24b878bcb3fa1327f5cb2fa399a5d6c371e"
+    },
+    {
+      "route": "/styles.css",
+      "status": 200,
+      "bytes": 51032,
+      "sha256": "400fd9de6ffd3516598a96ce716615fef93869dcd0ec5692536199a25857a27e"
+    },
+    {
+      "route": "/assets/consent.js",
+      "status": 200,
+      "bytes": 3658,
+      "sha256": "fd8eea1dee696dd427403d3d052d8a38db2736c1d9a5ecf44364f17addf7f947"
+    },
+    {
+      "route": "/script.js",
+      "status": 200,
+      "bytes": 21987,
+      "sha256": "14926af523f1b1e47a627a2762a018d246dc4ad403bbd26f8175581d21c82984"
+    },
+    {
+      "route": "/assets/site-cost-calculator.js",
+      "status": 200,
+      "bytes": 3635,
+      "sha256": "72cfc67fb51faf4444b03c2d48026ae1b4c32ddf30d18635369648f7a819e092"
+    },
+    {
+      "route": "/assets/telegram-config.js",
+      "status": 200,
+      "bytes": 116,
+      "sha256": "c7edf039e2875bba6ed53a7640314c41cb47868f19a1334b0c886b1ac79df00f"
+    },
+    {
+      "route": "/assets/analytics-config.js",
+      "status": 200,
+      "bytes": 273,
+      "sha256": "b51fa2adc826cd98e2131b27839b53d34a1a54e8f50ad3cd3eec2ad89a5ae1c2"
+    },
+    {
+      "route": "/assets/logo-full-dark.svg",
+      "status": 200,
+      "bytes": 1130,
+      "sha256": "3e914e001d25d8f601183ac62083f40a8d4e08ff66964267773e4ecff377539d"
+    },
+    {
+      "route": "/assets/responsive/service-program-development-480.webp",
+      "status": 200,
+      "bytes": 11194,
+      "sha256": "53b17e1b64a5dbaa7d46e862d497c6f2eb3e60d2546ee3add9cf2966cd4cc586"
+    },
+    {
+      "route": "/assets/responsive/founder-max-site-v2-480.avif",
+      "status": 200,
+      "bytes": 14286,
+      "sha256": "2146e6d1e580ef9edd32b8f6a28ed2a5acf4d4472b61d8d2647d4244f8d413cf"
+    }
+  ]
+}
