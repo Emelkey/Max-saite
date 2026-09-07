@@ -146,6 +146,7 @@ test('404 document is useful and noindex',async({page})=>{
 
 for (const ok of [true,false]) test(`lead response ok:${ok} is reflected honestly and without PII in analytics`,async({page})=>{
   const requests=[];
+  await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__copiedLead=text;}}}));
   await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
   await page.route('https://max-site-leads.emelkey777.workers.dev/**',async route=>{
     requests.push(route.request().postDataJSON());
@@ -165,7 +166,56 @@ for (const ok of [true,false]) test(`lead response ok:${ok} is reflected honestl
   const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>Array.from(item)));
   const successes=events.filter(item=>item[1]==='lead_form_success');
   expect(successes).toHaveLength(ok?1:0);
+  const conversions=events.filter(item=>item[1]==='generate_lead');
+  expect(conversions).toHaveLength(ok?1:0);
+  if(ok){
+    expect(successes[0][2].lead_id).toBe(requests[0].requestId);
+    expect(conversions[0][2].lead_id).toBe(requests[0].requestId);
+    expect(conversions[0][2].page_type).toBe('service');
+    expect(conversions[0][2].service).toBe('website_development');
+  }else{
+    const fallback=form.locator('.form-status a',{hasText:'Відкрити Telegram'});
+    await expect(fallback).toBeVisible();
+    await expect(fallback).toHaveAttribute('href','https://t.me/MaxMytt');
+    expect(await page.evaluate(()=>window.__copiedLead)).toBeUndefined();
+    await form.getByRole('button',{name:'Скопіювати текст заявки',exact:true}).click();
+    await expect(form.locator('.lead-fallback-feedback')).toContainText('Текст скопійовано');
+    expect(await page.evaluate(()=>window.__copiedLead)).toContain('Private test person');
+    expect(await page.evaluate(()=>window.__copiedLead)).toContain('+380000000000');
+    expect(await form.locator('a').evaluateAll(links=>links.every(link=>!link.href.includes('text=')&&!link.href.includes('380000000000')))).toBe(true);
+    await fallback.evaluate(link=>link.addEventListener('click',event=>event.preventDefault()));
+    await fallback.click();
+    const afterFallback=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>Array.from(item)));
+    expect(afterFallback.filter(item=>item[1]==='generate_lead')).toHaveLength(0);
+    expect(afterFallback.filter(item=>item[1]==='lead_fallback_open')).toHaveLength(1);
+    expect(JSON.stringify(afterFallback)).not.toMatch(/Private test person|380000000000|private@example/);
+  }
   expect(JSON.stringify(events)).not.toMatch(/Private test person|380000000000|private@example/);
+});
+
+test('missing endpoint offers manual fallback without PII URLs or false delivery',async({page})=>{
+  await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('Clipboard unavailable');}}}));
+  await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
+  let endpointRequests=0;
+  await page.route('https://max-site-leads.emelkey777.workers.dev/**',route=>{endpointRequests++;return route.abort();});
+  await page.goto('/stvorennya-saytiv/');
+  await page.evaluate(()=>{window.MAX_SITE_TELEGRAM.endpoint='';});
+  const form=page.locator('form').first();
+  await form.locator('[name=name]').fill('Private fallback person');
+  await form.locator('[name=phone]').fill('+380000000000');
+  await form.locator('[name=consent]').check();
+  await form.locator('button[type=submit]').click();
+  await expect(form.locator('.form-status')).toHaveAttribute('data-state','fallback');
+  await expect(form.locator('[name=phone]')).toHaveValue('+380000000000');
+  await form.getByRole('button',{name:'Скопіювати текст заявки',exact:true}).click();
+  await expect(form.getByLabel('Текст заявки для копіювання',{exact:true})).toHaveValue(/Private fallback person/);
+  await expect(form.getByLabel('Текст заявки для копіювання',{exact:true})).toHaveAttribute('readonly','');
+  await expect(form.locator('.lead-fallback-feedback')).toContainText('Автоматичне копіювання недоступне');
+  await expect(form.getByRole('link',{name:'Відкрити Telegram',exact:true})).toHaveAttribute('href','https://t.me/MaxMytt');
+  const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>Array.from(item)));
+  expect(events.filter(item=>['generate_lead','lead_form_success','lead_fallback_open'].includes(item[1]))).toHaveLength(0);
+  expect(JSON.stringify(events)).not.toMatch(/Private fallback person|380000000000/);
+  expect(endpointRequests).toBe(0);
 });
 
 test('consent choices are independent from form consent and revocable',async({page})=>{
@@ -173,9 +223,15 @@ test('consent choices are independent from form consent and revocable',async({pa
   await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
   await page.getByRole('button',{name:'Дозволити всі',exact:true}).click();
   expect(await page.evaluate(()=>window.MAX_SITE_CONSENT.ad_storage)).toBe('granted');
+  await page.evaluate(()=>{
+    sessionStorage.setItem('max_site_gclid','test-click-id');
+    sessionStorage.setItem('max_site_utm_source','test-source');
+  });
   await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
   await page.getByRole('button',{name:'Лише необхідні',exact:true}).click();
   expect(await page.evaluate(()=>window.MAX_SITE_CONSENT.ad_storage)).toBe('denied');
+  expect(await page.evaluate(()=>sessionStorage.getItem('max_site_gclid'))).toBeNull();
+  expect(await page.evaluate(()=>sessionStorage.getItem('max_site_utm_source'))).toBeNull();
   await expect(page.locator('.consent-panel')).toBeHidden();
 });
 

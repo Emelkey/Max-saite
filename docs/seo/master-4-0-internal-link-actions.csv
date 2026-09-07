@@ -1,0 +1,35 @@
+source_url,target_url,suggested_anchor,relationship,priority,current_state,evidence_rule
+/,/portfolio/formula-chystoty/,Кейс сервісного сайту «Формула Чистоти»,brand-to-proof,P1,missing,Relevant client implementation
+/,/portfolio/fo-dez/,Як побудовано сайт послуг FO-DEZ,brand-to-proof,P1,missing,Relevant client implementation
+/,/portfolio/max-site/,Self-case архітектури MAX SITE,brand-to-proof,P2,missing,Keep the self-case label visible
+/stvorennya-saytiv/,/portfolio/formula-chystoty/,Структура та мобільні звернення у «Формулі Чистоти»,service-to-case,P1,missing,Relevant website build
+/stvorennya-saytiv/,/portfolio/fo-dez/,Архітектура послуг і CTA у FO-DEZ,service-to-case,P1,missing,Relevant website build
+/stvorennya-saytiv/,/portfolio/max-site/,Як MAX SITE перевіряє власну SEO-архітектуру,service-to-case,P2,missing,Self-case; no ranking claim
+/stvorennya-saytu-dlya-biznesu/,/portfolio/formula-chystoty/,Бізнес-сайт «Формули Чистоти»,service-to-case,P1,missing,Relevant service-business case
+/stvorennya-saytu-dlya-biznesu/,/portfolio/fo-dez/,Бізнес-сайт FO-DEZ,service-to-case,P1,missing,Relevant service-business case
+/stvorennya-saytu-dlya-biznesu/,/portfolio/max-site/,Self-case бізнес-платформи MAX SITE,service-to-case,P2,missing,Self-case; qualitative only
+/stvorennya-program/,/portfolio/max-site/,Сценарії аналітики й контролю заявок у MAX SITE,adjacent-process-proof,P2,missing,Not a software client case
+/stvorennya-program/,/portfolio/formula-chystoty/,Форми та мобільні сценарії у «Формулі Чистоти»,adjacent-process-proof,P2,missing,Not a software client case
+/stvorennya-program/,/portfolio/fo-dez/,Сценарії звернення у FO-DEZ,adjacent-process-proof,P2,missing,Not a software client case
+/stvorennya-landing-page/,/portfolio/formula-chystoty/,Конверсійні сценарії «Формули Чистоти»,service-to-case,P2,missing,Do not call it a one-page project unless verified
+/stvorennya-landing-page/,/portfolio/fo-dez/,Мобільні CTA та контактний сценарій FO-DEZ,service-to-case,P2,missing,Relevant landing-pattern proof
+/stvorennya-landing-page/,/portfolio/max-site/,CTA та адаптивні сценарії у self-case MAX SITE,adjacent-self-case,P3,missing,Self-case only
+/stvorennya-korporatyvnoho-saytu/,/portfolio/formula-chystoty/,Структура послуг компанії «Формула Чистоти»,adjacent-multipage-proof,P2,missing,Do not label corporate unless verified
+/stvorennya-korporatyvnoho-saytu/,/portfolio/fo-dez/,Представлення напрямів компанії FO-DEZ,adjacent-multipage-proof,P2,missing,Do not label corporate unless verified
+/stvorennya-korporatyvnoho-saytu/,/portfolio/max-site/,Архітектура напрямів у self-case MAX SITE,adjacent-self-case,P3,missing,Self-case only
+/stvorennya-internet-mahazynu/,/portfolio/max-site/,Технічна SEO-архітектура у self-case MAX SITE,adjacent-process-proof,P3,missing,Not ecommerce evidence
+/stvorennya-internet-mahazynu/,/portfolio/formula-chystoty/,Мобільний шлях до заявки у «Формулі Чистоти»,adjacent-process-proof,P3,missing,Not ecommerce evidence
+/stvorennya-internet-mahazynu/,/portfolio/fo-dez/,Адаптивні CTA у FO-DEZ,adjacent-process-proof,P3,missing,Not ecommerce evidence
+/seo-sajt-pid-google/,/portfolio/max-site/,Self-case SEO-архітектури та QA MAX SITE,service-to-case,P1,missing,Relevant technical self-case
+/seo-sajt-pid-google/,/portfolio/formula-chystoty/,SEO-структура послуг «Формули Чистоти»,service-to-case,P2,missing,No ranking or traffic claim
+/seo-sajt-pid-google/,/portfolio/fo-dez/,Тематичні URL і внутрішні переходи FO-DEZ,service-to-case,P2,missing,No ranking or traffic claim
+/portfolio/formula-chystoty/,/nishi/sajt-dlya-kliningovoyi-kompaniyi/,Рішення для клінінгової компанії,case-to-niche,P1,present,Keep and monitor
+/portfolio/formula-chystoty/,/mista/stvorennya-sajtiv-cherkasy/,Створення сайтів для бізнесу в Черкасах,case-to-city,P1,evidence-gate,Add only if project geography and relationship are confirmed
+/portfolio/fo-dez/,/nishi/sajt-dlya-dezinfekciyi/,Рішення для дезінфекції,case-to-niche,P1,present,Keep and monitor
+/portfolio/max-site/,/stvorennya-saytiv/,Створення сайтів під ключ,self-case-to-service,P1,present,Keep contextual; do not repeat sitewide
+/blog/,/blog/canonical-url-prostymy-slovamy/,Canonical URL без помилок,hub-to-article,P2,present,Add a further contextual inlink from technical SEO
+/blog/,/blog/google-ads-dlya-biznesu/,Коли бізнесу запускати Google Ads,hub-to-article,P2,present,Add a further contextual inlink from Ads service
+/blog/,/blog/google-analytics-search-console/,Контроль аналітики та індексації,hub-to-article,P2,present,Add a further contextual inlink from analytics service
+/blog/,/blog/nextjs-chy-wordpress/,Next.js чи WordPress для бізнесу,hub-to-article,P2,present,Add contextual links from both technology owners
+/blog/,/blog/struktura-sajtu-dlya-seo/,Як розподілити запити між URL,hub-to-article,P2,present,Add contextual links from city directory and SEO build page
+shared-navigation-and-footer,/stvorennya-saytiv/,MAX SITE: створення та розвиток сайтів,sitewide-anchor,P1,over-optimized-pattern,Replace repeated exact-match wording with branded/descriptive variations

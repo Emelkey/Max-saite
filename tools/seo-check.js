@@ -16,6 +16,7 @@ const ignored = new Set(['.git','.github','node_modules','release','artifacts','
 const errors = [];
 const warnings = [];
 const rows = [];
+const editorialReview = [];
 
 function collect(directory) {
   const result = [];
@@ -88,6 +89,8 @@ if (check === 'metadata') {
   for (const row of indexable) {
     if (row.h1s.length !== 1) errors.push(`${row.route}: expected one H1`);
     if (!row.canonical) errors.push(`${row.route}: missing canonical`);
+    if (row.description.length < 110) errors.push(`${row.route}: description is only ${row.description.length} characters`);
+    if (row.description.length > 170) warnings.push(`${row.route}: description is ${row.description.length} characters; review SERP truncation`);
     if (/\{\{|\}\}|undefined|null/i.test(`${row.title} ${row.description}`)) errors.push(`${row.route}: unresolved metadata token`);
   }
 }
@@ -164,6 +167,7 @@ if (check === 'schema') {
         const answer=question.acceptedAnswer?.text;
         if (!answer || !text(row.main).includes(text(answer))) errors.push(`${row.route}: schema FAQ answer is not visible: ${question.name}`);
       }
+      if (types.includes('ProfessionalService')) errors.push(`${row.route}: ProfessionalService requires a verified public office; use Organization + Service for remote delivery`);
       if (row.route.startsWith('/mista/') && row.route !== '/mista/' && types.includes('LocalBusiness')) errors.push(`${row.route}: city page must not claim LocalBusiness`);
       if ((types.includes('Review') || types.includes('AggregateRating')) && !text(row.main).match(/відгук|рейтинг/i)) errors.push(`${row.route}: rating schema lacks visible evidence`);
     });
@@ -174,6 +178,7 @@ if (check === 'schema') {
 if (check === 'links') {
   const inlinks=new Map();
   for (const row of rows) for (const href of row.links) {
+    if (/(?:^|\/)index\.html(?:[?#]|$)/i.test(href)) errors.push(`${row.route}: internal home link exposes index.html: ${href}`);
     if (/^(?:mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
     let resolved;
     try { resolved=new URL(href,origin+row.route); } catch { errors.push(`${row.route}: invalid link ${href}`); continue; }
@@ -197,6 +202,26 @@ if (check === 'links') {
   for (const row of indexable) {
     if (row.route !== '/' && !inlinks.get(row.route)) errors.push(`${row.route}: orphan page`);
     if (row.links.length > 150) warnings.push(`${row.route}: ${row.links.length} links; review navigation density`);
+    const headerActions=row.html.match(/<div class=["']header-actions["']>([\s\S]*?)<\/div>/i)?.[1] || '';
+    if (headerActions && (headerActions.match(/<a\b/gi)||[]).length !== 2) errors.push(`${row.route}: header actions must contain exactly call and lead CTAs`);
+  }
+
+  const caseRoutes=new Set(['/portfolio/formula-chystoty/','/portfolio/fo-dez/','/portfolio/max-site/']);
+  const moneyRoutes=['/','/stvorennya-saytiv/','/stvorennya-saytu-dlya-biznesu/','/stvorennya-program/','/stvorennya-landing-page/','/stvorennya-korporatyvnoho-saytu/','/stvorennya-internet-mahazynu/','/seo-sajt-pid-google/'];
+  const resolvedPaths=row=>new Set(row.links.map(href=>{try{return new URL(href,origin+row.route).pathname;}catch{return '';}}));
+  for (const route of moneyRoutes) {
+    const row=rows.find(item=>item.route===route);
+    if (!row) { errors.push(`${route}: MASTER 4.0 money page missing`); continue; }
+    const directCases=[...resolvedPaths(row)].filter(target=>caseRoutes.has(target));
+    if (directCases.length !== caseRoutes.size) errors.push(`${route}: expected direct links to all ${caseRoutes.size} verified cases, found ${directCases.length}`);
+  }
+  for (const route of caseRoutes) {
+    const row=rows.find(item=>item.route===route);
+    if (!row) { errors.push(`${route}: verified case page missing`); continue; }
+    const paths=resolvedPaths(row);
+    if (![...paths].some(target=>target.startsWith('/nishi/') && target !== '/nishi/')) errors.push(`${route}: case lacks a contextual niche link`);
+    if (![...paths].some(target=>target.startsWith('/mista/') && target !== '/mista/')) errors.push(`${route}: case lacks a contextual geography link`);
+    if (![...paths].some(target=>target.startsWith('/stvorennya-') || target==='/sajty-dlya-poslug/' || target==='/seo-sajt-pid-google/')) errors.push(`${route}: case lacks a contextual service link`);
   }
 }
 
@@ -220,8 +245,31 @@ if (check === 'content-quality') {
   }
   for (const row of indexable) {
     const mainText=text(row.main);
-    const contentWords=mainText.split(/\s+/).filter(Boolean).length;
-    if (/^\/blog\/[^/]+\/$/.test(row.route) && contentWords<500) warnings.push(`${row.route}: ${contentWords} main words; editorial expansion/value review needed`);
+    if (/^\/blog\/[^/]+\/$/.test(row.route)) {
+      // These are observable editorial signals, not a ranking score or a word quota.
+      // Intent completeness, original evidence and source quality require human review.
+      const findings=[];
+      const hasAuthor=/article-author|Про автора|Автор[:\s]|Редакці[яї]|підготовлено засновником/i.test(row.main);
+      const hasVisibleDate=/<time\b[^>]*datetime=["']\d{4}-\d{2}-\d{2}/i.test(row.main) || /(?:оновлено|опубліковано|перевірено)\s*:?\s*\d{1,2}\.\d{1,2}\.\d{4}/i.test(mainText);
+      const hasSourceLabel=/article-sources|(?:Джерела|Офіційна документація|На що спирається матеріал)/i.test(row.main);
+      const hasReferenceLink=[...row.main.matchAll(/<a\b[^>]*\shref=["'](https?:\/\/[^"']+)["']/gi)].some(match=>{
+        try { const url=new URL(match[1]); return url.origin!==origin && !/(?:^|\.)(?:t\.me|instagram\.com|facebook\.com|wa\.me)$/.test(url.hostname); } catch { return false; }
+      });
+      const paragraphs=[...row.main.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)].map(match=>text(match[1]));
+      const seenParagraphs=new Set();
+      const duplicateParagraphs=paragraphs.filter(paragraph=>{
+        if (paragraph.length<100) return false;
+        if (seenParagraphs.has(paragraph)) return true;
+        seenParagraphs.add(paragraph); return false;
+      });
+      if (!hasAuthor) findings.push('missing visible author/editor attribution');
+      if (!hasVisibleDate) findings.push('missing visible publication/review date; verify before adding one');
+      if (!hasSourceLabel || !hasReferenceLink) findings.push('no identifiable references section with an external citation; review factual claims and add relevant sources');
+      if (duplicateParagraphs.length) findings.push(`${duplicateParagraphs.length} repeated paragraph(s) within the article`);
+      if (!/<h2\b/i.test(row.main)) findings.push('no section headings; review answer structure');
+      editorialReview.push({route:row.route,hasAuthor,hasVisibleDate,hasReferences:hasSourceLabel&&hasReferenceLink,duplicateParagraphs:duplicateParagraphs.length,findings});
+      for (const finding of findings) warnings.push(`${row.route}: ${finding}`);
+    }
     if (!/#lead|tel:|mailto:|t\.me\//.test(row.main) && !/polityka|privacy/.test(row.route)) warnings.push(`${row.route}: no direct contact CTA in main`);
     if (fakeLocation.test(mainText)) errors.push(`${row.route}: possible fake local-presence claim`);
     if (row.route.startsWith('/mista/') && row.route !== '/mista/') {
@@ -245,10 +293,10 @@ if (check === 'content-quality') {
   const script=fs.readFileSync(path.join(root,'script.js'),'utf8');
   for (const event of ['lead_form_start','lead_form_submit','lead_form_success','lead_form_error','click_phone','click_telegram','click_viber','click_email','pricing_cta_click','portfolio_open','case_live_site_click','city_service_click','scroll_75']) if (!script.includes(`"${event}"`)) errors.push(`script.js missing event ${event}`);
   if (!/honeypot/i.test(script)) errors.push('script.js missing honeypot handling');
-  warnings.push('Worker production delivery and distributed rate limiting require separate live verification; local tests do not prove deployment.');
+  warnings.push('Worker Durable Object rate limiting/idempotency are configured and unit-tested; production bindings and real Telegram delivery still require separate live verification.');
 }
 
-const output={check,generatedAt:new Date().toISOString(),pages:rows.length,indexable:indexable.length,errors,warnings};
+const output={check,generatedAt:new Date().toISOString(),pages:rows.length,indexable:indexable.length,errors,warnings,...(check==='content-quality'?{editorialReview}: {})};
 const outDir=path.join(root,'artifacts','seo','checks'); fs.mkdirSync(outDir,{recursive:true});
 fs.writeFileSync(path.join(outDir,`${check}.json`),`${JSON.stringify(output,null,2)}\n`);
 console.log(`${check}: ${rows.length} pages, ${errors.length} errors, ${warnings.length} warnings.`);

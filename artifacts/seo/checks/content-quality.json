@@ -1,31 +1,236 @@
 {
   "check": "content-quality",
-  "generatedAt": "2026-09-02T20:30:30.370Z",
-  "pages": 109,
-  "indexable": 87,
+  "generatedAt": "2026-09-07T18:54:35.866Z",
+  "pages": 110,
+  "indexable": 88,
   "errors": [],
   "warnings": [
-    "/blog/canonical-url-prostymy-slovamy/: 338 main words; editorial expansion/value review needed",
-    "/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/: 463 main words; editorial expansion/value review needed",
-    "/blog/chomu-tsiny-na-sajty-vidriznyayutsya/: 456 main words; editorial expansion/value review needed",
-    "/blog/google-ads-dlya-biznesu/: 405 main words; editorial expansion/value review needed",
-    "/blog/google-analytics-search-console/: 409 main words; editorial expansion/value review needed",
-    "/blog/lending-abo-korporatyvnyj-sajt/: 391 main words; editorial expansion/value review needed",
-    "/blog/redesign-saytu-bez-vtraty-seo/: 345 main words; editorial expansion/value review needed",
-    "/blog/sajt-dlya-kliningovoyi-kompaniyi/: 418 main words; editorial expansion/value review needed",
-    "/blog/seo-first-pidhid/: 343 main words; editorial expansion/value review needed",
-    "/blog/shcho-vhodyt-u-sajt-pid-klyuch/: 456 main words; editorial expansion/value review needed",
-    "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/: 324 main words; editorial expansion/value review needed",
-    "/blog/skilky-koshtuye-stvorennya-internet-magazynu/: 403 main words; editorial expansion/value review needed",
-    "/blog/skilky-tryvaye-rozrobka-sajtu/: 425 main words; editorial expansion/value review needed",
-    "/blog/vnutrishnya-perelinkovka/: 344 main words; editorial expansion/value review needed",
-    "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/: 382 main words; editorial expansion/value review needed",
-    "/blog/yak-pidgotuvaty-bryf-na-sajt/: 467 main words; editorial expansion/value review needed",
-    "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/: 401 main words; editorial expansion/value review needed",
-    "/blog/yak-vybraty-rozrobnyka-sajtu/: 289 main words; editorial expansion/value review needed",
-    "/blog/yak-vybraty-vebstudiyu-v-ukrayini/: 459 main words; editorial expansion/value review needed",
-    "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/: 286 main words; editorial expansion/value review needed",
-    "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/: 418 main words; editorial expansion/value review needed",
-    "Worker production delivery and distributed rate limiting require separate live verification; local tests do not prove deployment."
+    "Worker Durable Object rate limiting/idempotency are configured and unit-tested; production bindings and real Telegram delivery still require separate live verification."
+  ],
+  "editorialReview": [
+    {
+      "route": "/blog/canonical-url-prostymy-slovamy/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/chomu-tsiny-na-sajty-vidriznyayutsya/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/ga4-konversiyi-dlya-sajtu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/google-ads-dlya-biznesu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/google-analytics-search-console/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/landing-dlya-google-ads/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/lending-abo-korporatyvnyj-sajt/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/nextjs-chy-wordpress/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/pidtrymka-saytu-pislya-zapusku/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/redesign-saytu-bez-vtraty-seo/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/sajt-dlya-kliningovoyi-kompaniyi/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/seo-first-pidhid/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/skilky-tryvaye-rozrobka-sajtu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/struktura-sajtu-dlya-seo/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/tehnichne-seo-cheklist/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/vnutrishnya-perelinkovka/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yak-vybraty-rozrobnyka-sajtu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yak-vybraty-vebstudiyu-v-ukrayini/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    }
   ]
 }

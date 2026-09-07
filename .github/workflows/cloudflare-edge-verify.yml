@@ -1,0 +1,41 @@
+name: Cloudflare Pages post-deploy edge contract
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: HTTPS URL of the separately approved Cloudflare Pages deployment
+        required: true
+        default: https://maxsite.com.ua
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify repository edge contract
+        run: node tools/verify-edge-contract.js --config-only
+
+      - name: Verify deployed redirects and security headers
+        env:
+          EDGE_BASE_URL: ${{ inputs.base_url }}
+          EDGE_REPORT_VERSION: edge-${{ github.run_id }}-${{ github.run_attempt }}
+        run: node tools/verify-edge-contract.js --base-url="$EDGE_BASE_URL" --version="$EDGE_REPORT_VERSION"
+
+      - name: Upload immutable HTTP evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-edge-live-evidence
+          path: artifacts/seo/edge-live

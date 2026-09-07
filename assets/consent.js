@@ -19,8 +19,15 @@
     page_referrer: (() => { try { const url = new URL(document.referrer); return `${url.origin}${url.pathname}`; } catch { return ""; } })()
   };
   const purgeAttribution = () => {
-    if (window.MAX_SITE_CONSENT.ad_storage === "granted") return;
-    try { sessionStorage.removeItem("max_site_gclid"); } catch {}
+    try {
+      if (window.MAX_SITE_CONSENT.ad_storage !== "granted") {
+        sessionStorage.removeItem("max_site_gclid");
+      }
+      if (window.MAX_SITE_CONSENT.analytics_storage !== "granted") {
+        ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+          .forEach(key => sessionStorage.removeItem(`max_site_${key}`));
+      }
+    } catch {}
   };
   purgeAttribution();
 

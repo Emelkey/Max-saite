@@ -36,6 +36,9 @@ jobs:
       - name: Run full SEO, unit and build gate
         run: npm run seo:check
 
+      - name: Validate future Cloudflare edge contract
+        run: node tools/verify-edge-contract.js --config-only
+
       - name: Run desktop and mobile browser QA
         run: npm run test:browser
 
@@ -69,6 +72,7 @@ jobs:
     needs: quality
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     concurrency:
@@ -78,6 +82,29 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout release verification tools
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Verify exact production revision and essential routes
+        run: >-
+          node tools/verify-production-release.js
+          --base-url https://maxsite.com.ua
+          --expected-revision "$GITHUB_SHA"
+          --attempts 8 --delay-ms 15000
+
+      - name: Upload production verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-release-smoke
+          path: artifacts/seo/production-release-smoke.json
+          if-no-files-found: warn

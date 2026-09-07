@@ -52,7 +52,7 @@ const trackEvent = (eventName, parameters = {}) => {
   if (!analyticsEnabled) return;
 
   // Explicit schema prevents future callers from leaking form fields or arbitrary URLs.
-  const allowedParameters = new Set(["page_type", "city", "service", "form_type", "error_type", "delivery_method", "lead_source", "link_location", "messenger", "plan_name", "case_name", "destination_path"]);
+  const allowedParameters = new Set(["page_type", "city", "service", "form_type", "error_type", "delivery_method", "lead_source", "link_location", "messenger", "plan_name", "case_name", "destination_path", "lead_id"]);
   const safeParameters = {
     page_path: window.location.pathname,
     ...Object.fromEntries(Object.entries(parameters).filter(([key]) => allowedParameters.has(key)).map(([key, value]) => [key, String(value).split(/[?#]/)[0].slice(0, 100)])),
@@ -111,12 +111,18 @@ const getAttribution = () => {
 
   ATTRIBUTION_KEYS.forEach((key) => {
     const advertisingAllowed = window.MAX_SITE_CONSENT?.ad_storage === "granted" && window.MAX_SITE_CONSENT?.ad_user_data === "granted";
-    if (key === "gclid" && !advertisingAllowed) {
+    const analyticsAllowed = window.MAX_SITE_CONSENT?.analytics_storage === "granted";
+    const storageAllowed = key === "gclid" ? advertisingAllowed : analyticsAllowed;
+    const currentValue = params.get(key);
+
+    if (!storageAllowed) {
       try { sessionStorage.removeItem(`max_site_${key}`); } catch {}
-      attribution[key] = "";
+      // The current landing-page value can accompany a consented form submission,
+      // but it is not persisted across pages before the matching storage consent.
+      attribution[key] = key === "gclid" ? "" : (currentValue || "").slice(0, 180);
       return;
     }
-    const currentValue = params.get(key);
+
     let stored = "";
     try {
       if (currentValue) sessionStorage.setItem(`max_site_${key}`, currentValue.slice(0, 180));
@@ -157,6 +163,9 @@ document.addEventListener("click", (event) => {
 
   if (href.startsWith("tel:")) {
     trackEvent("click_phone", {
+      page_type: PAGE_CONTEXT.page_type,
+      city: PAGE_CONTEXT.city,
+      service: PAGE_CONTEXT.service,
       link_location: link.closest(".floating-contact")
         ? "mobile_sticky_bar"
         : link.closest(".main-nav")
@@ -348,37 +357,93 @@ const setFormStatus = (statusElement, message, state = "") => {
   statusElement.dataset.state = state;
 };
 
-const openTelegramFallback = async (text) => {
-  try {
-    await navigator.clipboard?.writeText(text);
-  } catch (error) {
-    console.warn("Could not copy Telegram lead text", error);
-  }
-
+const appendTelegramFallback = (statusElement, payload, formType) => {
+  if (!statusElement) return;
+  const text = buildTelegramText(payload);
   const username = telegramConfig.username || "MaxMytt";
-  window.location.href = `https://t.me/${username}?text=${encodeURIComponent(text)}`;
+  const feedback = document.createElement("span");
+  feedback.className = "lead-fallback-feedback";
+  feedback.setAttribute("role", "status");
+  feedback.setAttribute("aria-live", "polite");
+  const copyButton = document.createElement("button");
+  copyButton.type = "button";
+  copyButton.className = "btn btn-ghost";
+  copyButton.textContent = "Скопіювати текст заявки";
+  copyButton.addEventListener("click", async () => {
+    try {
+      if (typeof navigator.clipboard?.writeText !== "function") throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(text);
+      feedback.textContent = " Текст скопійовано. Відкрийте Telegram, вставте його та надішліть повідомлення.";
+    } catch {
+      feedback.textContent = " Автоматичне копіювання недоступне. Скопіюйте текст із поля нижче та надішліть його в Telegram.";
+      let manualText = statusElement.querySelector("textarea[data-lead-fallback-text]");
+      if (!manualText) {
+        manualText = document.createElement("textarea");
+        manualText.readOnly = true;
+        manualText.rows = 6;
+        manualText.dataset.leadFallbackText = "true";
+        manualText.setAttribute("aria-label", "Текст заявки для копіювання");
+        manualText.value = text;
+        statusElement.append(manualText);
+      }
+      manualText.focus();
+      manualText.select();
+    }
+  });
+  const link = document.createElement("a");
+  // Keep personal lead details out of URLs, referrers and GA4 outbound link_url.
+  // Copying is a separate explicit action; opening Telegram is not a delivery.
+  link.href = `https://t.me/${username}`;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Відкрити Telegram";
+  link.addEventListener("click", () => {
+    trackEvent("lead_fallback_open", {
+      form_type: formType,
+      page_type: PAGE_CONTEXT.page_type,
+    });
+  });
+  statusElement.append(" ", copyButton, " ", link, feedback);
 };
 
 const sendLead = async (payload) => {
   if (!telegramConfig.endpoint) {
-    await openTelegramFallback(buildTelegramText(payload));
     return { fallback: true };
   }
 
-  const response = await fetch(telegramConfig.endpoint, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    signal: AbortSignal.timeout(15000),
-  });
+  let response;
+  try {
+    response = await fetch(telegramConfig.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(15000),
+    });
+  } catch (error) {
+    const deliveryError = new Error("Lead endpoint request failed");
+    deliveryError.code = ["AbortError", "TimeoutError"].includes(error?.name)
+      ? "endpoint_timeout"
+      : "endpoint_network";
+    throw deliveryError;
+  }
 
   if (!response.ok) {
-    throw new Error(`Telegram endpoint error: ${response.status}`);
+    const deliveryError = new Error(`Telegram endpoint error: ${response.status}`);
+    deliveryError.code = response.status >= 500 ? "endpoint_5xx" : "endpoint_4xx";
+    throw deliveryError;
   }
 
   const result = await response.json().catch(() => null);
-  if (result?.ok !== true) throw new Error("Lead delivery was not acknowledged");
-  return result;
+  if (result?.ok !== true) {
+    const deliveryError = new Error("Lead delivery was not acknowledged");
+    deliveryError.code = "endpoint_unacknowledged";
+    throw deliveryError;
+  }
+  return {
+    ...result,
+    // Backward-compatible while the strengthened Worker is being deployed.
+    lead_id: result.lead_id || payload.requestId,
+  };
 };
 
 document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
@@ -475,21 +540,28 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
     try {
       const result = await sendLead(payload);
       if (result.fallback) {
-        trackEvent("lead_fallback_open", { form_type: formType });
-        setButtonState(button, "Відкрито Telegram", true);
-        setFormStatus(statusElement, "Надішліть підготовлений текст у Telegram.", "fallback");
+        setButtonState(button, "Надіслати напряму", false);
+        setFormStatus(statusElement, "Автоматичне надсилання недоступне. Скопіюйте текст заявки та надішліть його в Telegram.", "fallback");
+        appendTelegramFallback(statusElement, payload, formType);
       } else {
         if (form.dataset.leadSuccessTracked !== "true") {
           form.dataset.leadSuccessTracked = "true";
           trackEvent("lead_form_success", {
             form_type: formType,
             page_type: PAGE_CONTEXT.page_type,
+            city: PAGE_CONTEXT.city,
+            service: PAGE_CONTEXT.service,
             delivery_method: "endpoint",
+            lead_id: result.lead_id,
           });
           trackEvent("generate_lead", {
             form_type: formType,
+            page_type: PAGE_CONTEXT.page_type,
+            city: PAGE_CONTEXT.city,
+            service: PAGE_CONTEXT.service,
             delivery_method: "endpoint",
             lead_source: "website",
+            lead_id: result.lead_id,
           });
           trackEvent("brief_complete", {
             form_type: formType,
@@ -498,19 +570,20 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
         }
         setButtonState(button, "Заявку відправлено", true);
         setFormStatus(statusElement, "Дякуємо! Заявку успішно відправлено.", "success");
+        form.reset();
+        delete form.dataset.requestId;
       }
-      form.reset();
-      delete form.dataset.requestId;
     } catch (error) {
       console.error(error);
       trackEvent("lead_delivery_error", { form_type: formType });
       trackEvent("lead_form_error", {
         form_type: formType,
         page_type: PAGE_CONTEXT.page_type,
-        error_type: "delivery",
+        error_type: error?.code || "delivery",
       });
       setButtonState(button, "Спробувати ще раз", false);
-      setFormStatus(statusElement, "Заявку не підтверджено. Спробуйте ще раз або скористайтеся посиланням Telegram поруч із формою.", "error");
+      setFormStatus(statusElement, "Заявку не підтверджено. Спробуйте ще раз або надішліть її напряму.", "error");
+      appendTelegramFallback(statusElement, payload, formType);
     }
     form.dataset.submitting = "false";
 

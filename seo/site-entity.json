@@ -5,6 +5,15 @@
     "name": "MAX SITE",
     "url": "https://maxsite.com.ua/",
     "telephone": "+380972692322",
+    "logo": "https://maxsite.com.ua/assets/logo-full-dark.svg",
+    "image": "https://maxsite.com.ua/assets/logo-social.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+380972692322",
+      "contactType": "customer service",
+      "areaServed": "UA",
+      "availableLanguage": "uk"
+    },
     "areaServed": "UA",
     "sameAs": [
       "https://t.me/MaxMytt",

@@ -1,0 +1,457 @@
+[
+  {
+    "source": "assets/founder-max-site-v2.jpg",
+    "sourceSha256": "4459738053253ce1f97ab9f9345935a124474423506e142546dce55a068b4c17",
+    "width": 1023,
+    "height": 1537,
+    "candidates": [
+      480,
+      768,
+      1023
+    ],
+    "variantSha256": {
+      "assets/responsive/founder-max-site-v2-480.avif": "2146e6d1e580ef9edd32b8f6a28ed2a5acf4d4472b61d8d2647d4244f8d413cf",
+      "assets/responsive/founder-max-site-v2-480.webp": "a13b5b27ec01c59191c29b1bdd37dc3df23dc67b7e25515c697782fdf40803a9",
+      "assets/responsive/founder-max-site-v2-768.avif": "22074bf1270ced270c70467ab02db2eb46f5e711458fb9f3efe4d4a457fb4d41",
+      "assets/responsive/founder-max-site-v2-768.webp": "a9ad7796bc797be51f026df8b059251f4f2d5992d52d1d1346acfebb2a75ff7e",
+      "assets/responsive/founder-max-site-v2-1023.avif": "0edf898a53939038a6899bf2bb9af2b0ddb8f8b8ca49f3897a65b3cae4f3a86a",
+      "assets/responsive/founder-max-site-v2-1023.webp": "efabeca7fed4828c4c16150b76850a97815c10ecab60238d81f78ba58daaae0d"
+    }
+  },
+  {
+    "source": "assets/hero-websites-ukraine-760.webp",
+    "sourceSha256": "0e5fa80d2363854b7f8ea12a80a0c2c3077e9eacfddacdefd2fe1085befaeb03",
+    "width": 760,
+    "height": 475,
+    "candidates": [
+      480,
+      760
+    ],
+    "variantSha256": {
+      "assets/responsive/hero-websites-ukraine-760-480.avif": "c0906a5025b9c69345f9cbe3659ba47466e5d53adff4b0c3c6ad40e36ad00815",
+      "assets/responsive/hero-websites-ukraine-760-480.webp": "1dabf72d240e439f3d42bf01a26654444f47a197306833b5441461931b01d5c7",
+      "assets/responsive/hero-websites-ukraine-760-760.avif": "6e119626d69845a0c7dc098ea47104acf7882f99af247623aae4993ab0e37123",
+      "assets/responsive/hero-websites-ukraine-760-760.webp": "caa820d18b5dbc46d872fb954bb6882c9388098dd83e6cc7996704a5ceb13536"
+    }
+  },
+  {
+    "source": "assets/og-max-site.webp",
+    "sourceSha256": "fad5e3b516962d640e9cb993787ab7c95037881b9922d7fb71272301a968d8d6",
+    "width": 1200,
+    "height": 630,
+    "candidates": [
+      480,
+      768,
+      1200
+    ],
+    "variantSha256": {
+      "assets/responsive/og-max-site-480.avif": "2a984c75b174cc3eaa1dd187615f289b86b04858d5045b15b0e2cc159d649506",
+      "assets/responsive/og-max-site-480.webp": "a74654ed32e7cc9ec328f79ff0ebb734dcc688b7dfbb3167ee8152fb733cba31",
+      "assets/responsive/og-max-site-768.avif": "322dcbe7567f8d2c77e4e543e2de11a43bebb4d1902a52382d053637a9b7696f",
+      "assets/responsive/og-max-site-768.webp": "cb4bf296db0bb13ba0637a2a94f82bbfff95888f596c1e3255ae7fa97ddfb84e",
+      "assets/responsive/og-max-site-1200.avif": "a9be83b2062ad62af577d5723b73737da042c99262f7e465ea37eaa925ff377b",
+      "assets/responsive/og-max-site-1200.webp": "733470407143b1886c7c20e00b611554cb081db606a02cfd826b2bc65060d31e"
+    }
+  },
+  {
+    "source": "assets/portfolio/fodez-cta.webp",
+    "sourceSha256": "78d2f8a4610711bfe08c787d7c5af1c7c20afc08f3a8dc8cf74a4dfff9f4144d",
+    "width": 1200,
+    "height": 760,
+    "candidates": [
+      480,
+      768,
+      1200
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/fodez-cta-480.avif": "23430174a4c8d8cbee7cafef03a121777b910a46688742dd760bead5dfe62645",
+      "assets/responsive/portfolio/fodez-cta-480.webp": "8c938f7105fd7d376ad397f1085733e88e1c8486341ec68a835e39ac30da8d2b",
+      "assets/responsive/portfolio/fodez-cta-768.avif": "eeb3eb76eed8c6c813361ccc516727c43666b6ec1a3863c7e588cde0a0158f98",
+      "assets/responsive/portfolio/fodez-cta-768.webp": "655aabce5aff4c8334959217fee645d0be3df94aa26ae5b8948541e895f10bcd",
+      "assets/responsive/portfolio/fodez-cta-1200.avif": "910705f1635be3df6e4afd837d04c2658b31802cab5774bc9a32b6dde64d9224",
+      "assets/responsive/portfolio/fodez-cta-1200.webp": "fd484e828953c0ade40de83d86dc1ee8e1873d09322e6ccc1d1f0eee94e18eea"
+    }
+  },
+  {
+    "source": "assets/portfolio/fodez-home.webp",
+    "sourceSha256": "23cdbb4bb1ad2edb139153a056d55243b843e6ee1e8b39d067c940efe93f1504",
+    "width": 1200,
+    "height": 760,
+    "candidates": [
+      480,
+      768,
+      1200
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/fodez-home-480.avif": "e1280fa10e89da9fd12bfbd80205f5082ed7356f606181add7d909414b998bc7",
+      "assets/responsive/portfolio/fodez-home-480.webp": "671f77eff40ad147f4bf5cab64f09338ea003c20cc20832691daa16b5156fa70",
+      "assets/responsive/portfolio/fodez-home-768.avif": "afe56e28cb7e1a54fd0eca697c04b01b8ae7647c53886ac75c5a9de9a2aec7b5",
+      "assets/responsive/portfolio/fodez-home-768.webp": "dee212aa2969f90358c5012c94e12c804a8c2aba4c0ffa007c544fc8ff54440c",
+      "assets/responsive/portfolio/fodez-home-1200.avif": "7fb456e3c6d52a9e26d7e8e9cc5577aead72985f7c0262d7f5d3c51bdd45aa38",
+      "assets/responsive/portfolio/fodez-home-1200.webp": "6d433614f4f3812380745d7ad44bc89158bc2448260fcb1267240ec1a55a7637"
+    }
+  },
+  {
+    "source": "assets/portfolio/fodez-homepage-photo.webp",
+    "sourceSha256": "9cda72314b37cc74ea8c432060ad3973f69c3efca0601bd68e7c882d9652eaa1",
+    "width": 1672,
+    "height": 941,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1600,
+      1672
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/fodez-homepage-photo-480.avif": "cf5b40302444b8f2e443bd7ab85fb57dd863a804b24b0565a9ebc0ffcfd62103",
+      "assets/responsive/portfolio/fodez-homepage-photo-480.webp": "b9dd73948dbb686ea18073b574be984516d0c3bf60121dc622d1b4de86ebac71",
+      "assets/responsive/portfolio/fodez-homepage-photo-768.avif": "1630cb308e5f2a3ac8d03ceaaf726cb187072248b4b143754ae6b2cce7b9c9d5",
+      "assets/responsive/portfolio/fodez-homepage-photo-768.webp": "5216f1e66b7952bcd20331d75e08ecb0579878fef8df98f046b14e38ea29dded",
+      "assets/responsive/portfolio/fodez-homepage-photo-1200.avif": "c2ac6ae71ea33c735b3ad23d513ca7f361d2b786c415065696dace0d2dc677c1",
+      "assets/responsive/portfolio/fodez-homepage-photo-1200.webp": "5f9c2d95d92d6e9b1e472db4d21e82190bb1b45be8ea5f571cf4f5e10d09b906",
+      "assets/responsive/portfolio/fodez-homepage-photo-1600.avif": "a2ba8cafcde637e5ff50e9dbbe7f524cb9bcc66ddd868caa676646124c799428",
+      "assets/responsive/portfolio/fodez-homepage-photo-1600.webp": "6b98378ef0c4af56e58cce2c8cadf1f5cd52bbc1936c865feea4afc819e52f42",
+      "assets/responsive/portfolio/fodez-homepage-photo-1672.avif": "6f0c85d9a764d42edf05d0bbf31747e8dd062747be9b32ce400384b13d08c353",
+      "assets/responsive/portfolio/fodez-homepage-photo-1672.webp": "b7b99c979a2f1750e279a38d79d75f09bf55e94f6c1d192a896b6a24193660b5"
+    }
+  },
+  {
+    "source": "assets/portfolio/fodez-mobile.webp",
+    "sourceSha256": "fbcfaa765010863a8bac7601adb6a69b616de423f8510ba0a16e01c3aba714c0",
+    "width": 620,
+    "height": 900,
+    "candidates": [
+      480,
+      620
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/fodez-mobile-480.avif": "666b60534ef25a407e995b460a47bb8b91daa8188ad264ca41a61c29d5cff3b4",
+      "assets/responsive/portfolio/fodez-mobile-480.webp": "c66d8d9bea2a4164d2b474296be30a38f6117c461f113254b0be17cf626430b8",
+      "assets/responsive/portfolio/fodez-mobile-620.avif": "3eb3fa1650e532d9757293e02e439c1a043277264ab51a7c70f084f92900ad2a",
+      "assets/responsive/portfolio/fodez-mobile-620.webp": "4f321da0d1b5e1860a6bca3a4362381ecf248ea64c26e4508549a7d9e3dc0017"
+    }
+  },
+  {
+    "source": "assets/portfolio/fodez-services.webp",
+    "sourceSha256": "56891c3ac2e15aa3a5d50d887c565fd6cf2668108afebbdb47a052ac7e343ac7",
+    "width": 1200,
+    "height": 760,
+    "candidates": [
+      480,
+      768,
+      1200
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/fodez-services-480.avif": "4011874a2a5672d180ac22ef8b62678524d542ce692ca8d228d30053525bb2a9",
+      "assets/responsive/portfolio/fodez-services-480.webp": "1bb6f43f1f60586163b39540ba113614c050ed1ccf1a903fa0f03755d049d98a",
+      "assets/responsive/portfolio/fodez-services-768.avif": "e89e5b1de1311bf5e041591af807e048d8c0675c15f21830374920d87ca4c6d0",
+      "assets/responsive/portfolio/fodez-services-768.webp": "e23d7fe97b71ef8262b1898c893f750dc925ae5f4e100295cb9c9e6a37a42994",
+      "assets/responsive/portfolio/fodez-services-1200.avif": "714f05904b801fe000e318e585e4fb9af90d707653ada3c55efadd008323df8e",
+      "assets/responsive/portfolio/fodez-services-1200.webp": "51f48f0b50513fc8cfdcc158bc721030171e00a1ee85dff874df04c7ff14dd8d"
+    }
+  },
+  {
+    "source": "assets/portfolio/formula-home.webp",
+    "sourceSha256": "0e673fec841e88000cedad508b00d2b2bd27f38add3a6063628f20c1c1f31ee7",
+    "width": 1200,
+    "height": 760,
+    "candidates": [
+      480,
+      768,
+      1200
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/formula-home-480.avif": "795ad16080129c6773b9646e504a1594fddade0d59dbcb2ab52408a59bd4ffc5",
+      "assets/responsive/portfolio/formula-home-480.webp": "c22cc82cdf8e87446cfcdc82110630de347c665b1e90d07ee2f6d42fe29121f3",
+      "assets/responsive/portfolio/formula-home-768.avif": "cc9e73a897f7fd2f725b62ceab11056c3cd8c62c31a47f76cef4565719f5f41c",
+      "assets/responsive/portfolio/formula-home-768.webp": "0f71b22eb3962e4f7bc8e2388d8d972f851e4b02dfb605a29b362ffb5f197b5c",
+      "assets/responsive/portfolio/formula-home-1200.avif": "51042662446dbddb9e55ca5785d523e2bc3922c8c04abf038336b7ae5d07616e",
+      "assets/responsive/portfolio/formula-home-1200.webp": "a182653ff4d83bca38aa2aaeb98c08764d32367168565db5b865b3957b3684aa"
+    }
+  },
+  {
+    "source": "assets/portfolio/formula-homepage-photo.webp",
+    "sourceSha256": "1abe4df7c098bae4b1f3ea3d2fe6b75bcc66e630b0d495a8e20f1ce28d26bc05",
+    "width": 1448,
+    "height": 1086,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1448
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/formula-homepage-photo-480.avif": "63bd1925c8600fca9658bc5aef5332fd67a6a92f9731acaca77f1bd56e16e94f",
+      "assets/responsive/portfolio/formula-homepage-photo-480.webp": "d721902b303580b5320a40254fa2bba0bd2866817139b8d2f7c5d5df6b0049ae",
+      "assets/responsive/portfolio/formula-homepage-photo-768.avif": "cefc6dc32fceb845fd73486645fb64bb933f08ef09b24540b053842bec7644ba",
+      "assets/responsive/portfolio/formula-homepage-photo-768.webp": "f3fbb68d7a7452c648b30a425480dcfe2f9fe23eb682abb1c2bb490de4772c2e",
+      "assets/responsive/portfolio/formula-homepage-photo-1200.avif": "af5bc32f0e8a521cc48ccfd798227b41190d9c5708e58e87263395a62ff58db3",
+      "assets/responsive/portfolio/formula-homepage-photo-1200.webp": "ce5915e379d33a6987418d3989e297c74fdc0a97d24e2bfd9e90c0e61942e69c",
+      "assets/responsive/portfolio/formula-homepage-photo-1448.avif": "4c211c23af0a5ad591a45acd937680c7c5d65b1906bd0f9a23b4e01c6eca699c",
+      "assets/responsive/portfolio/formula-homepage-photo-1448.webp": "e8989d94b248c28080ffa047dd19e30243c70c84e003dd73f11ce9adbdb70a22"
+    }
+  },
+  {
+    "source": "assets/portfolio/formula-mobile.webp",
+    "sourceSha256": "ad9750132d0173891052ae110f403aec2723c70d93667c211efa24c0d35e068b",
+    "width": 620,
+    "height": 900,
+    "candidates": [
+      480,
+      620
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/formula-mobile-480.avif": "6e5faaffbfd94d2cf94f2028949cd398db83a01a8a100d31f6818a13eec3a340",
+      "assets/responsive/portfolio/formula-mobile-480.webp": "db179dc3fef614d3388a881844d07b2b8030e961d46a06364937d2fa4b2098a9",
+      "assets/responsive/portfolio/formula-mobile-620.avif": "99440ab15b77f458aab95488c287a22623105e3d5666e009830313aacc3c2e89",
+      "assets/responsive/portfolio/formula-mobile-620.webp": "7e1a3bc01d1f37d8c715859ab63fc25946be5fe3fa2ff900a36f848bfacae47c"
+    }
+  },
+  {
+    "source": "assets/portfolio/formula-services.webp",
+    "sourceSha256": "d592a94d8b8e8e5bf0dc62f2f48b72d82e81dfa1f1202a64e34d9bd1eeef67e3",
+    "width": 1200,
+    "height": 760,
+    "candidates": [
+      480,
+      768,
+      1200
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/formula-services-480.avif": "6b62bffa10713d765de4837d7b1c8bc59403057267bca20c854314b3ad163434",
+      "assets/responsive/portfolio/formula-services-480.webp": "cfb5129ac921f6eb441634810dde65f7122e215d51377c3eeac3649b7935bf68",
+      "assets/responsive/portfolio/formula-services-768.avif": "0a8b16d557aacca1a1099e079d3c766428794aa0e083c6ee16b8e8251aa5bb88",
+      "assets/responsive/portfolio/formula-services-768.webp": "fa0fa463fefd2648a14e27fd20cdfd68a36689deed35740abf5cc11306250f6d",
+      "assets/responsive/portfolio/formula-services-1200.avif": "9bf89f2fcbb6d5fc02f4b030d8c38cd6c7775a7e3f59685155f73ad1b2f407a2",
+      "assets/responsive/portfolio/formula-services-1200.webp": "f48118320fc6644b05c6255fb4aa87bf423975bf650fdfbd34298688a85941bf"
+    }
+  },
+  {
+    "source": "assets/portfolio/formula-works.webp",
+    "sourceSha256": "f0790dcaecb8c3bce9ee00137f031ef5c9cf68ece665fd9ae19945f0ee29d1de",
+    "width": 1200,
+    "height": 760,
+    "candidates": [
+      480,
+      768,
+      1200
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/formula-works-480.avif": "b96b302ce0a4ba0957eec3ab73f93d8f238d088ade95596a111ba4e3fb3a7481",
+      "assets/responsive/portfolio/formula-works-480.webp": "959210b230f0779744b6c534c3346de2d54674636a86f9ddf2952b8f74e9e404",
+      "assets/responsive/portfolio/formula-works-768.avif": "bf8869955153dff2f54582fc3b76af1900e88572607f18cb1ab3d9a66eae8533",
+      "assets/responsive/portfolio/formula-works-768.webp": "5aef988b9c2964ded5341eb9a92f37c43cfd53fe61f0aed5074afe4f9e306d81",
+      "assets/responsive/portfolio/formula-works-1200.avif": "6457159d958069eebd2d176ea43e8fc4bade9b57dd0da53133962fe30abecb49",
+      "assets/responsive/portfolio/formula-works-1200.webp": "e9e2a0bd1aa1421026a8deb63ef90ad8f07b0e9d14fa44d1fc3d18766c642fd9"
+    }
+  },
+  {
+    "source": "assets/portfolio/max-site-city-desktop-20260902.jpg",
+    "sourceSha256": "e53c24beeacbff3d4de67142dbb2b9893114f47c93543ab0b276e1d33e14e020",
+    "width": 1440,
+    "height": 1000,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1440
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-480.avif": "0f18d22833f26582e22a8523be135c8a76780b2add8c10763310c3127a203885",
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-480.webp": "7a8976c18c39a5c260021783bd74108dd05f9a141875bba16b00089e1e41002e",
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-768.avif": "2194ee0cb7e4ec1c5617a7ae8a62ccec130ec031c20be4c8a44be33a24bc4a47",
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-768.webp": "bacc106d5b2bbfd864b36e98e10de1a6bed44159f3d865ea9e128416bbdb0536",
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-1200.avif": "d731386fe001479947ac0c4bbe750f5df45fff778a3e94f7f44ab9edc170bf18",
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-1200.webp": "b13af3d8e4c84190034c0b443454ceb5a3e1d6b83628472d0afc0f34e36b3b3e",
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-1440.avif": "e6dee4f36b252e1879283cfd8bb3808ffb407148f63302ebba5109ab7176c7ab",
+      "assets/responsive/portfolio/max-site-city-desktop-20260902-1440.webp": "2bef7cabcffec7dda96ef85f46cb5d90c84c971fdf982f1e6ac23d264f9d60dd"
+    }
+  },
+  {
+    "source": "assets/portfolio/max-site-city-mobile-20260902.jpg",
+    "sourceSha256": "e11179f34a8907bfe1a51b800e1bdb81df156ec8c6e07d80c58565c8320a184a",
+    "width": 390,
+    "height": 844,
+    "candidates": [
+      390
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/max-site-city-mobile-20260902-390.avif": "5a3436349ae628e32894db822473dcc2b9e59caf8d79b96e3821711a60b20fbd",
+      "assets/responsive/portfolio/max-site-city-mobile-20260902-390.webp": "8785571c05cda02827e477d1ab9689d363d70d05365d8179f5f1e05b2a15880b"
+    }
+  },
+  {
+    "source": "assets/portfolio/max-site-home-desktop-20260902.jpg",
+    "sourceSha256": "3702d1881acd2582860936070ed4bf69c48485ff7e59585e8c37d32aa303cc60",
+    "width": 1440,
+    "height": 1000,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1440
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-480.avif": "d21fecc1936edc15966cac692ab3a38985e0337d07fc5b4b6a230f8cc84bcca9",
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-480.webp": "ff9ddb3c8bc23ba9ff920d2c0d4e318fc2cf8f027b68ff2ddadbcd799aa42e50",
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-768.avif": "3eb931d51aa5df5107b2acd35afe761f8a9a3d1720714a5dbbdd33bd70410db9",
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-768.webp": "1e4e232f24aa4e01e1f115735119163214fcde2fa3acdac1b65e3923288485c3",
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-1200.avif": "d29208c1cda33bc86e382cb7f750c6302db6f94526598f1f5c866677691a3ed5",
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-1200.webp": "2141c6667d35a60bcc40d549856682b51db26a234d59f210a5ba4475b1338f3d",
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-1440.avif": "c10d15a4954eb44d80bbe0cf7060474a13b05322a95b59f27d73a22717207639",
+      "assets/responsive/portfolio/max-site-home-desktop-20260902-1440.webp": "5e9c032464272a055dea77a98e326af53308cbc215df3c47cb3d2124c8060386"
+    }
+  },
+  {
+    "source": "assets/portfolio/max-site-home-mobile-20260902.jpg",
+    "sourceSha256": "4e58a5c3c9e56ef8974312346aa0e4243fb53d5eaa3e5d908484e61b9145ed92",
+    "width": 390,
+    "height": 844,
+    "candidates": [
+      390
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/max-site-home-mobile-20260902-390.avif": "e2f1cde0c76c6af490df2010b0d6342db7bd3049488f9c1f6ea462df26bdc99a",
+      "assets/responsive/portfolio/max-site-home-mobile-20260902-390.webp": "f4e6716c395e9d7a548bce4ee16b0b09ebf71a503b607d305f3db47db3825d4e"
+    }
+  },
+  {
+    "source": "assets/service-corporate.webp",
+    "sourceSha256": "1a03208eaea147a19e3c236349dec41638c1d3a5e30107c1904fbdf33f39dd43",
+    "width": 1536,
+    "height": 1024,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1536
+    ],
+    "variantSha256": {
+      "assets/responsive/service-corporate-480.avif": "8001258cef9d7221b84595e3dc16cc56116b68be22382fbd987bd7c98f57f84d",
+      "assets/responsive/service-corporate-480.webp": "c47a3eaf8fc41f0912cf0d5bbeb4c572a86d9ab96bcb836c34f324c4c73b61ed",
+      "assets/responsive/service-corporate-768.avif": "394a1381b50b0358416e0e3d43a9647070076e202f21168f35f3cb279d036874",
+      "assets/responsive/service-corporate-768.webp": "79557552d40fa71662a2a56ebffce8756d1681c67e7715df9ca913896e83c82a",
+      "assets/responsive/service-corporate-1200.avif": "8d3a82a3f406ed2fa6c2a7072cfb58164e73760100687b3ea09fdd5617084e0f",
+      "assets/responsive/service-corporate-1200.webp": "b2b211c5da7e5062c4328c81b13ee77686ed87b3fdab5f4b50da184268c7f6ab",
+      "assets/responsive/service-corporate-1536.avif": "258a807d59662939b2e2d74cf61d579b1d548494c3d5d7c4011a5d555925e898",
+      "assets/responsive/service-corporate-1536.webp": "3d8a02fa6f9f8267e7c185685b7b9b2805d3c71912475d3e5b9b140c92eaae8e"
+    }
+  },
+  {
+    "source": "assets/service-landing.webp",
+    "sourceSha256": "c073b33cbd8a51cc77aa0408e2e202fcc00a327c0f68230ad71886fdaf24c310",
+    "width": 1536,
+    "height": 1024,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1536
+    ],
+    "variantSha256": {
+      "assets/responsive/service-landing-480.avif": "bb8156137a764042f7aad28d2d786db2b607a81bde7fa7dbd6281378fd1e377c",
+      "assets/responsive/service-landing-480.webp": "2d5737de4457b4cee4f79e6903582d2dc323d64989154297d0e93581842265c1",
+      "assets/responsive/service-landing-768.avif": "8b8401ad90b6c4c5908d79ccc7db22712ba0787f4062e160bac2f203d37c4583",
+      "assets/responsive/service-landing-768.webp": "9a36eeec1d40a47d4fbe64780d95040516cbae4d6ddabdc9bfd8c7abba271af0",
+      "assets/responsive/service-landing-1200.avif": "04fae59422ecd8bbfb0b6a056814dd537d10bdb90c68159c72f2de84f51f5276",
+      "assets/responsive/service-landing-1200.webp": "2daef75cfa966e8d825f35cd0e885f9d165bca4a212e5ea13a273a9de9ec5449",
+      "assets/responsive/service-landing-1536.avif": "edea73ee51f11a7f780ec3052d3553a1a07765025e8411d021d99b4db7a08b8f",
+      "assets/responsive/service-landing-1536.webp": "2115df9b1740cfe4fe8b87445ba760ac69bdcf0c126e4d5a0d1c9007785865d6"
+    }
+  },
+  {
+    "source": "assets/service-program-development.webp",
+    "sourceSha256": "15c920c87e9ad816872e52f42642c1bc65370c79a41980d8ee92e5f9428634dd",
+    "width": 1672,
+    "height": 941,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1600,
+      1672
+    ],
+    "variantSha256": {
+      "assets/responsive/service-program-development-480.avif": "566da71e43f1d84abaafd1197f5c7f87666dc8976517c845b65c3b20b47db0d7",
+      "assets/responsive/service-program-development-480.webp": "53b17e1b64a5dbaa7d46e862d497c6f2eb3e60d2546ee3add9cf2966cd4cc586",
+      "assets/responsive/service-program-development-768.avif": "455f980f82fcb8a0828fa29cd20b7d72544e770bac787666ab1e91ef4a143993",
+      "assets/responsive/service-program-development-768.webp": "5a46f910a1bbc052dbdb4374783a9d53b17caa72d381456c831324ecf2914b7b",
+      "assets/responsive/service-program-development-1200.avif": "9b2f74e72bbd04c2e0c4bf7c51fc576269f997405aa50f992a1b419984bd66c9",
+      "assets/responsive/service-program-development-1200.webp": "01c1fc66db24a4a5e24ab1ac686f58d8cfa65050edd6c2d4df292a25273d3672",
+      "assets/responsive/service-program-development-1600.avif": "701e5eca82fb7760b97ec9cbf8e6342d0f97e9263e406b88c4d0e2a51f678cff",
+      "assets/responsive/service-program-development-1600.webp": "633e5d9ef017ebb7d9b3b35e9c518e812a1f1e8d21916cdceed0ded31d504348",
+      "assets/responsive/service-program-development-1672.avif": "39c6982c0e4a2aa001b6d0fbce79c0297fde6ce8ccc1b46eca345a4cf7d026be",
+      "assets/responsive/service-program-development-1672.webp": "153babde6d3ce97278fca36bf4860cb99e1e89ee34ea1da895852988e228a1af"
+    }
+  },
+  {
+    "source": "assets/service-seo.webp",
+    "sourceSha256": "ca831f96030a8642e8735ebe38ad0fed9dee12cc6ebcca821ae8228e63ca70df",
+    "width": 1672,
+    "height": 941,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1600,
+      1672
+    ],
+    "variantSha256": {
+      "assets/responsive/service-seo-480.avif": "7a3090cc0962b588fe19dca4e07714e9720e849264c0683f54f72046e1472469",
+      "assets/responsive/service-seo-480.webp": "c7aad5ca59357c33a23045d72756d5af3e04e28fe1bfda0df5a1efdad6c49f74",
+      "assets/responsive/service-seo-768.avif": "53f6abf7d63503b5dd9a47e71e691875ad642e2cc3285ffae0371f738e38f3a7",
+      "assets/responsive/service-seo-768.webp": "c30ac783bb2d2e203e8a9bab2cfdc9e97cf5c63b0a093a7c0d5dc073fd2e11b1",
+      "assets/responsive/service-seo-1200.avif": "abc1baa302f2dbd3ebf46dd464e38f1de088491b2fe22f14af6b453f14afe422",
+      "assets/responsive/service-seo-1200.webp": "ed3c6e9236106840be5c593e3d8232ea11387609ca78a644b8d4c3783007d8af",
+      "assets/responsive/service-seo-1600.avif": "93160dcd6eaf1811b1acf873bad85633551f8862bab873d99959cb051c820f95",
+      "assets/responsive/service-seo-1600.webp": "3b5d3f156345feb72fda17242c7be962c2b2a34e0819d5dbb672f68e36dd6d03",
+      "assets/responsive/service-seo-1672.avif": "3d064d45b00290131a8256fe8d73caec39cb54ba8c8a3f828e660c7834577453",
+      "assets/responsive/service-seo-1672.webp": "3f2a354f30147d3385e1ff240665acafeac396e00b2a3b48019d577b1972e2b6"
+    }
+  },
+  {
+    "source": "assets/service-services.webp",
+    "sourceSha256": "dd2be525641320b9f79cb76e255f120889b7c380954d59123eb2e288b91dfa42",
+    "width": 1536,
+    "height": 1024,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1536
+    ],
+    "variantSha256": {
+      "assets/responsive/service-services-480.avif": "230f6ad8d13d3053e530ba5501cce076187e7295dc863d5fc46ec67a1d3bbbe0",
+      "assets/responsive/service-services-480.webp": "f413db8b2d87f1b929067ef9536c6bddb4e5c57832fb423e7d62d688eb68ed2b",
+      "assets/responsive/service-services-768.avif": "f9ea1c653a7c8439b60a995916908b58421b5f3e1064a9c5c2419035c1b8a5ee",
+      "assets/responsive/service-services-768.webp": "7a6e217168e8122f9ffb9ecf07aece446a125d11f8b455b636894117a8e0ec0b",
+      "assets/responsive/service-services-1200.avif": "08d33b88d5cf30274b4111fa924bf8c61969c5a1047551076eec2cedcd57cdff",
+      "assets/responsive/service-services-1200.webp": "b299083aa3b7d60999e2f1d6ec891edf21177e0cded95b0afac67d1e21df4348",
+      "assets/responsive/service-services-1536.avif": "bbb698c4469df2b0c78524b61b300608df26619c27b8dfd2f266831c8c95792e",
+      "assets/responsive/service-services-1536.webp": "bc42baa668e0f76720cb76dac65ac712cfeaea6bb98779c559d1fb7c14b67564"
+    }
+  },
+  {
+    "source": "assets/service-shop.webp",
+    "sourceSha256": "46808ddf5b16cc28d5d304f43dcbb685c39bbaa4fdf19678e7296e71fc57fb56",
+    "width": 1536,
+    "height": 1024,
+    "candidates": [
+      480,
+      768,
+      1200,
+      1536
+    ],
+    "variantSha256": {
+      "assets/responsive/service-shop-480.avif": "be5f15b0131f0db96bf012aec2beb759e77b84b323eefc5787281e4202c3abae",
+      "assets/responsive/service-shop-480.webp": "509540ac25cdb2964a417f1a1a629bfe1087a7b1fc3e0304d21346c2b27e4f14",
+      "assets/responsive/service-shop-768.avif": "621b7200fa354cf6a7b24ce04792b13cc68485c78408efe9348ae334bc64aa7f",
+      "assets/responsive/service-shop-768.webp": "382624de03bd1eb0e3fa715cce2c840453e9e913839cc014c5af9af97cdbaa0e",
+      "assets/responsive/service-shop-1200.avif": "6a8d7314d87fca182fa8c0482c013cd2d5eee28fc0f26de69059792abe5ce42e",
+      "assets/responsive/service-shop-1200.webp": "10f885ed5076ff3fadba16e1c74cb259135a39140e62fcb91ff68490cead88f6",
+      "assets/responsive/service-shop-1536.avif": "bb726284ee1b7dd93ac38c8263de164ca92719670816263ba9d1a83eba26807a",
+      "assets/responsive/service-shop-1536.webp": "b13a2790d59a5dcf0a7e0bda5ddf2c0f58bdeeb5deb5b112c114b7818361551d"
+    }
+  }
+]

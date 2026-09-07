@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
+const { createHash } = require("crypto");
+const { RELEASE_FILES, RELEASE_MARKER } = require("./verify-production-release");
 
 const root = path.resolve(__dirname, "..");
 const releaseRoot = path.join(root, "release");
@@ -80,6 +82,7 @@ const excludedDirectories = new Set([
   ".wrangler",
   "artifacts",
   "docs",
+  "edge",
   "node_modules",
   "release",
   "seo",
@@ -239,6 +242,29 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
+
+// A public, non-secret deployment receipt ties the served bytes to the exact
+// workflow revision. It is generated after all production transformations.
+const gitRevision = process.env.GITHUB_SHA || spawnSync("git", ["rev-parse", "HEAD"], {
+  cwd: root,
+  encoding: "utf8",
+}).stdout?.trim();
+if (!/^[a-f0-9]{40}$/i.test(gitRevision || "")) {
+  throw new Error("Cannot identify the release Git revision.");
+}
+const releaseMarkerPath = path.join(outputDirectory, RELEASE_MARKER);
+fs.mkdirSync(path.dirname(releaseMarkerPath), { recursive: true });
+fs.writeFileSync(releaseMarkerPath, JSON.stringify({
+  schemaVersion: 1,
+  revision: gitRevision.toLowerCase(),
+  generatedAt: new Date().toISOString(),
+  mode: staging ? "staging" : "production",
+  site: staging ? sourceSiteUrl : targetSiteUrl,
+  sitemapUrlCount: sitemapCount,
+  files: Object.fromEntries(RELEASE_FILES.map(({ file, route }) => [route, {
+    sha256: createHash("sha256").update(fs.readFileSync(path.join(outputDirectory, file))).digest("hex"),
+  }])),
+}, null, 2) + "\n");
 
 const zip = spawnSync("zip", ["-qr", zipPath, packageName], {
   cwd: releaseRoot,

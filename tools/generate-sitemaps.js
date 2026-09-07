@@ -46,7 +46,13 @@ for (const file of collect(root)) {
   if (canonical !== expected) throw new Error(`Cannot sitemap non-canonical page: ${urlPath} -> ${canonical || 'MISSING'}`);
   // Do not stamp every URL with the build date. An optional lastmod is emitted
   // only from a visible editorial <time>, never from filesystem copy times.
-  const editorialDate = html.match(/<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})"/i)?.[1];
+  const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
+  // A substantive review can follow an older published/updated timestamp.
+  // For the explicitly reviewed MASTER 4 articles, use that visible review date.
+  const reviewDate = /data-master4-editorial/.test(main)
+    ? main.match(/data-master4-editorial[\s\S]*?<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})"/i)?.[1]
+    : undefined;
+  const editorialDate = reviewDate || main.match(/<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})"/i)?.[1];
   groups[groupFor(urlPath)].push({loc:expected,lastmod:editorialDate});
 }
 

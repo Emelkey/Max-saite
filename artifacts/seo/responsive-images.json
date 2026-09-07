@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-09-07T18:51:21.879Z",
+  "observations": {
+    "htmlFiles": 110,
+    "imageElements": 260,
+    "vectorImages": 218,
+    "rasterImages": 42,
+    "intentionalEmptyAlt": 6,
+    "srcsetCandidates": 414,
+    "manifestSources": 23
+  },
+  "errors": []
+}

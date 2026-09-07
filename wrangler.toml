@@ -4,3 +4,15 @@ compatibility_date = "2026-07-18"
 
 [vars]
 ALLOWED_ORIGINS = "https://emelkey.github.io,https://maxsite.com.ua,https://www.maxsite.com.ua"
+
+[[durable_objects.bindings]]
+name = "LEAD_DELIVERY_GATE"
+class_name = "LeadDeliveryGate"
+
+[[durable_objects.bindings]]
+name = "LEAD_RATE_GATE"
+class_name = "LeadRateGate"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["LeadDeliveryGate", "LeadRateGate"]

@@ -34,6 +34,10 @@ const getCorsHeaders = (request, env) => {
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
+    "Cache-Control": "no-store",
+    "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+    "Referrer-Policy": "no-referrer",
+    "X-Content-Type-Options": "nosniff",
     Vary: "Origin",
   };
 };
@@ -72,6 +76,7 @@ const buildTelegramText = (payload) => {
   const safeUrl = value => { try { const url = new URL(value); return `${url.origin}${url.pathname}`; } catch { return ""; } };
   const rows = [
     "Нова заявка з сайту MAX SITE",
+    payload.requestId ? `lead_id: ${clean(payload.requestId)}` : "",
     `Сторінка: ${clean(payload.pageTitle)}`,
     `URL: ${safeUrl(payload.pageUrl)}`,
     fields.name ? `Ім'я: ${clean(fields.name)}` : "",
@@ -85,6 +90,137 @@ const buildTelegramText = (payload) => {
 
   return rows.filter(Boolean).join("\n");
 };
+
+const telegramDelivery = async (payload, env) => {
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: env.TELEGRAM_CHAT_ID,
+        text: buildTelegramText(payload),
+        disable_web_page_preview: true,
+      }),
+      signal: AbortSignal.timeout(10000),
+    });
+
+    const result = await response.json().catch(() => null);
+    if (!response.ok || result?.ok !== true) {
+      console.error("Lead delivery failed", { status: response.status });
+      return { body: { ok: false, error: "telegram_request_failed" }, status: 502 };
+    }
+
+    return {
+      body: { ok: true, lead_id: payload.requestId },
+      status: 200,
+    };
+  } catch {
+    console.error("Lead delivery transport failed");
+    return { body: { ok: false, error: "telegram_transport_failed" }, status: 502 };
+  }
+};
+
+const sha256 = async (value) =>
+  Array.from(
+    new Uint8Array(
+      await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value))
+    )
+  )
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+
+export class LeadRateGate {
+  constructor(state) {
+    this.state = state;
+  }
+
+  async fetch() {
+    return this.state.blockConcurrencyWhile(async () => {
+      const now = Date.now();
+      const recentRequests = (
+        (await this.state.storage.get("timestamps")) || []
+      ).filter((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS);
+
+      if (recentRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
+        const retryAfter = Math.max(
+          1,
+          Math.ceil(
+            (RATE_LIMIT_WINDOW_MS - (now - recentRequests[0])) / 1000
+          )
+        );
+        return Response.json(
+          { ok: false, error: "rate_limited", retry_after: retryAfter },
+          { status: 429, headers: { "Retry-After": String(retryAfter) } }
+        );
+      }
+
+      recentRequests.push(now);
+      await this.state.storage.put("timestamps", recentRequests);
+      await this.state.storage.setAlarm?.(now + RATE_LIMIT_WINDOW_MS);
+      return Response.json({ ok: true });
+    });
+  }
+
+  async alarm() {
+    await this.state.storage.delete("timestamps");
+  }
+}
+
+export class LeadDeliveryGate {
+  constructor(state, env) {
+    this.state = state;
+    this.env = env;
+  }
+
+  async fetch(request) {
+    return this.state.blockConcurrencyWhile(async () => {
+      let input;
+      try {
+        input = await request.json();
+      } catch {
+        return Response.json(
+          { ok: false, error: "invalid_internal_request" },
+          { status: 400 }
+        );
+      }
+
+      const { payload, digest, clientKey } = input || {};
+      const previous = await this.state.storage.get("delivery");
+      if (previous && Date.now() - previous.created <= DELIVERY_TTL_MS) {
+        if (previous.digest !== digest) {
+          return Response.json(
+            { ok: false, error: "idempotency_conflict" },
+            { status: 409 }
+          );
+        }
+        return Response.json(previous.body, { status: previous.status });
+      }
+      if (previous) await this.state.storage.delete("delivery");
+
+      const rateId = this.env.LEAD_RATE_GATE.idFromName(clientKey);
+      const rateResponse = await this.env.LEAD_RATE_GATE
+        .get(rateId)
+        .fetch("https://lead-rate.internal/check", { method: "POST" });
+      if (!rateResponse.ok) return rateResponse;
+
+      const result = await telegramDelivery(payload, this.env);
+      if (result.status === 200) {
+        await this.state.storage.put("delivery", {
+          created: Date.now(),
+          digest,
+          status: result.status,
+          body: result.body,
+        });
+        await this.state.storage.setAlarm?.(Date.now() + DELIVERY_TTL_MS);
+      }
+      return Response.json(result.body, { status: result.status });
+    });
+  }
+
+  async alarm() {
+    await this.state.storage.delete("delivery");
+  }
+}
 
 export default {
   async fetch(request, env) {
@@ -133,7 +269,12 @@ export default {
     const contact = typeof payload?.fields?.phone === "string" ? payload.fields.phone.trim() : "";
     const validPhone = /^\+?[\d\s().-]{9,25}$/.test(contact) && contact.replace(/\D/g, "").length >= 9 && contact.replace(/\D/g, "").length <= 15;
     const validMessenger = /^@[a-z][a-z0-9_]{4,31}$/i.test(contact);
-    if (!payload || !payload.fields || (!validPhone && !validMessenger) || payload.context?.consent !== true) {
+    const requestId = typeof payload?.requestId === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(payload.requestId) ? payload.requestId : "";
+    const validFieldLengths =
+      String(payload?.fields?.name || "").trim().length <= 120 &&
+      String(payload?.fields?.business || "").trim().length <= 160 &&
+      String(payload?.fields?.comment || "").trim().length <= 2000;
+    if (!payload || !payload.fields || !requestId || !validFieldLengths || (!validPhone && !validMessenger) || payload.context?.consent !== true) {
       return json({ ok: false, error: "invalid_lead" }, 400, headers);
     }
 
@@ -146,11 +287,34 @@ export default {
       return json({ ok: false, error: "form_too_fast" }, 422, headers);
     }
 
-    const requestId = typeof payload.requestId === "string" && /^[a-z0-9-]{16,64}$/i.test(payload.requestId) ? payload.requestId : "";
     const now = Date.now();
     for (const [key, delivery] of deliveries) if (now - delivery.created > DELIVERY_TTL_MS) deliveries.delete(key);
-    const digest = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(JSON.stringify({fields: payload.fields, pageUrl: payload.pageUrl}))))).map(byte => byte.toString(16).padStart(2, "0")).join("");
-    if (requestId && deliveries.has(requestId)) {
+    const digest = await sha256(JSON.stringify({fields: payload.fields, pageUrl: payload.pageUrl}));
+
+    if (env.LEAD_DELIVERY_GATE && env.LEAD_RATE_GATE) {
+      const clientAddress = request.headers.get("CF-Connecting-IP") || "unknown";
+      const clientKey = await sha256(clientAddress);
+      const deliveryId = env.LEAD_DELIVERY_GATE.idFromName(requestId);
+      const durableResponse = await env.LEAD_DELIVERY_GATE
+        .get(deliveryId)
+        .fetch("https://lead-delivery.internal/deliver", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ payload, digest, clientKey }),
+        });
+      const durableBody = await durableResponse.json().catch(() => ({
+        ok: false,
+        error: "durable_delivery_failed",
+      }));
+      return json(durableBody, durableResponse.status, {
+        ...headers,
+        ...(durableResponse.headers.get("Retry-After")
+          ? { "Retry-After": durableResponse.headers.get("Retry-After") }
+          : {}),
+      });
+    }
+
+    if (deliveries.has(requestId)) {
       const previous = deliveries.get(requestId);
       if (previous.digest !== digest) return json({ok: false, error: "idempotency_conflict"}, 409, headers);
       const result = await previous.promise;
@@ -164,37 +328,11 @@ export default {
       );
     }
 
-    const deliver = async () => {
-    try {
-    const response = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: env.TELEGRAM_CHAT_ID,
-        text: buildTelegramText(payload),
-        disable_web_page_preview: true,
-      }),
-      signal: AbortSignal.timeout(10000),
-    });
-
-    const result = await response.json().catch(() => null);
-    if (!response.ok || result?.ok !== true) {
-      console.error("Lead delivery failed", {status: response.status});
-      return {body: {ok: false, error: "telegram_request_failed"}, status: 502};
-    }
-    return {body: {ok: true}, status: 200};
-    } catch {
-      console.error("Lead delivery transport failed");
-      return {body: {ok: false, error: "telegram_transport_failed"}, status: 502};
-    }
-    };
-    const promise = deliver();
-    if (requestId) {
-      if (deliveries.size >= 1000) deliveries.delete(deliveries.keys().next().value);
-      deliveries.set(requestId, {created: now, digest, promise});
-    }
+    const promise = telegramDelivery(payload, env);
+    if (deliveries.size >= 1000) deliveries.delete(deliveries.keys().next().value);
+    deliveries.set(requestId, {created: now, digest, promise});
     const result = await promise;
-    if (requestId && result.status !== 200) deliveries.delete(requestId);
+    if (result.status !== 200) deliveries.delete(requestId);
     return json(result.body, result.status, headers);
   },
 };
