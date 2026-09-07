@@ -2005,6 +2005,7 @@ p {
 
 .faq-list {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
   max-width: 900px;
 }
@@ -2189,8 +2190,14 @@ p {
 
 .floating-action:hover,
 .floating-action:focus-visible {
-  width: 178px;
   border-color: rgba(24, 244, 91, 0.65);
+}
+
+@media (min-width: 681px) {
+  .floating-action:hover,
+  .floating-action:focus-visible {
+    width: 178px;
+  }
 }
 
 .floating-action-light:hover,
@@ -2440,8 +2447,10 @@ p {
 
   .founder-preview-copy h2 {
     max-width: 19ch;
-    font-size: clamp(30px, 9vw, 40px);
+    font-size: clamp(26px, 7vw, 36px);
     line-height: 1.08;
+    text-transform: none;
+    overflow-wrap: anywhere;
   }
 
   .about-hero h1 {

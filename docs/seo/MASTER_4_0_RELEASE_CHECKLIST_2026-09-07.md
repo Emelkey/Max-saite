@@ -10,11 +10,13 @@
 позиції Google не можна замінити змінами коду.
 
 Зміни відправлено в [PR #14](https://github.com/Emelkey/Max-saite/pull/14).
-Merge і production deployment ще не виконані: перший CI виявив недоступний
-клік на мобільних налаштуваннях cookies. Виправлено обмеження ширини grid/form/
-footer та відступи прокручування; додано реальні кліки на 320/360/412 px і
-контроль розміру layout viewport. Локальні тести успішні, очікується повторний
-Linux CI. Локальні тести не є доказом публікації.
+Merge і production deployment ще не виконані. Два CI виявили мобільне
+переповнення та недоступний клік на налаштуваннях cookies. Відтворено точну
+причину з ширшим fallback-шрифтом: довге слово в заголовку засновника та
+min-content ширина FAQ grid. Виправлено ці правила, мобільне розширення кнопки
+при фокусі, ширину form/footer і відступи прокручування. Реальні кліки на
+320/360/412 px та перевірка layout viewport проходять локально; наступний
+Linux CI має підтвердити результат. Локальні тести не є доказом публікації.
 
 ## Виконано в релізі
 
@@ -65,6 +67,12 @@ Linux CI. Локальні тести не є доказом публікаці�
   публікація Worker є окремою умовою нижче.
 - [x] CI блокує SEO/тестові помилки. Release receipt з Git SHA і SHA-256 дозволяє
   перевірити, що production віддає саме опубліковані HTML/CSS/JS/assets.
+- [x] 546 локальних CSS/JS-посилань отримують детермінований content hash
+  під час build. Це оновлює кеш після зміни файлів; вихідні HTML, зовнішні
+  Google URL, canonical, інші query-параметри та fragments збережені.
+- [x] Мобільні заголовки й FAQ перевірені також із ширшим fallback-шрифтом;
+  contact bar не розширює кнопку поверх сусідньої при фокусі. Браузерні
+  синтетичні перевірки блокують відправлення тестових подій у реальну GA4.
 - [x] Підготовлено шість точних edge-301, security headers, preview noindex,
   перевірки кінцевого 200/canonical, план DNS/rollback. Ці правила **не активні**
   на GitHub Pages і не потрапляють у його публічний пакет.
@@ -74,9 +82,9 @@ Linux CI. Локальні тести не є доказом публікаці�
 | Перевірка | Зафіксований локальний результат |
 |---|---|
 | SEO / sitemap / metadata / links / schema | 0 помилок |
-| Unit tests | 59 passed, 0 failed |
+| Unit tests | 66 passed, 0 failed |
 | Content-quality | 0 помилок; 1 попередження про окрему live-перевірку Worker |
-| Browser | 82 passed, 4 platform-specific skipped, 0 failed |
+| Browser | 84 passed, 6 platform-specific skipped, 0 failed |
 | Lighthouse mobile | 6 сторінок × 3 прогони = 18; Performance 99–100, Accessibility 93–96, Best Practices 100, SEO 100 |
 | Production package audit | 88/88 базових SEO-перевірок, понад 5200 внутрішніх посилань, 0 помилок |
 | Image audit | 0 помилок |
@@ -124,6 +132,10 @@ DNS у цьому релізі не змінюється. Worker/Durable Objects
 - Перший CI: https://github.com/Emelkey/Max-saite/actions/runs/34153756297 —
   80 browser passed, 3 skipped, 1 failed (mobile consent settings pointer
   interception). Це реальна причина затримки релізу; перевірку не вимкнено.
+- Другий CI: https://github.com/Emelkey/Max-saite/actions/runs/34156079758 —
+  74 browser passed, 4 skipped, 8 failed. Посилена перевірка виявила справжню
+  різницю layout viewport у Linux. Причини відтворено локально і виправлено;
+  перевірки не послаблені й кліки не виконуються через force.
 - Pre-release HTTP evidence: `artifacts/seo/live/master4-20260907-before.json`.
   Це стан попередньої production-версії: новий калькулятор ще повертає 404.
 - Очікуються повторний CI, merge, explicit deployment і перевірка

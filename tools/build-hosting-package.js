@@ -3,6 +3,7 @@ const path = require("path");
 const { spawnSync } = require("child_process");
 const { createHash } = require("crypto");
 const { RELEASE_FILES, RELEASE_MARKER } = require("./verify-production-release");
+const { versionBuiltHtmlAssets } = require("./lib/version-local-assets");
 
 const root = path.resolve(__dirname, "..");
 const releaseRoot = path.join(root, "release");
@@ -186,6 +187,12 @@ const transformDirectory = (directory) => {
 };
 
 transformDirectory(outputDirectory);
+// Fingerprint the final configured bytes, not source files: config/base-path
+// substitutions above can change JS/CSS. Only generated HTML is rewritten.
+const versionedAssetReferences = versionBuiltHtmlAssets(outputDirectory, {
+  siteUrl: staging ? sourceSiteUrl : targetSiteUrl,
+  publicBasePath: targetBasePath,
+});
 
 if (!staging && targetHostname) {
   fs.writeFileSync(path.join(outputDirectory, "CNAME"), `${targetHostname}\n`);
@@ -280,5 +287,6 @@ console.log(`Mode: ${staging ? "staging (noindex)" : "production"}`);
 console.log(`Public path: ${targetBasePath}`);
 console.log(`HTML files: ${htmlFiles.length}`);
 console.log(`Sitemap URLs: ${sitemapCount}`);
+console.log(`Versioned local CSS/JS references: ${versionedAssetReferences}`);
 console.log(`Folder: ${outputDirectory}`);
 console.log(`Archive: ${zipPath}`);

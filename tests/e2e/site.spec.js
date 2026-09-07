@@ -1,6 +1,9 @@
 const {test,expect}=require('@playwright/test');
 
 test.beforeEach(async({page})=>{
+  // Keep synthetic QA interactions out of the real Analytics/Ads property.
+  await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
+  await page.route(/https:\/\/(?:[a-z0-9-]+\.)?google-analytics\.com\//,route=>route.fulfill({status:204,body:''}));
   await page.addInitScript(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()})));
 });
 
@@ -41,7 +44,14 @@ for (const route of keyRoutes) {
     const layout=await page.evaluate(configuredWidth=>{
       const viewportWidth=window.innerWidth;
       const scrollWidth=Math.max(document.documentElement.scrollWidth,document.body.scrollWidth);
+      const hasClippingAncestor=element=>{
+        for(let parent=element.parentElement;parent&&parent!==document.body;parent=parent.parentElement){
+          if(/^(auto|scroll|hidden|clip)$/.test(getComputedStyle(parent).overflowX))return true;
+        }
+        return false;
+      };
       const offenders=[...document.body.querySelectorAll('*')]
+        .filter(element=>!element.closest('.form-honeypot')&&!hasClippingAncestor(element))
         .map(element=>{
           const rect=element.getBoundingClientRect();
           return {
@@ -53,6 +63,18 @@ for (const route of keyRoutes) {
         })
         .filter(rect=>rect.left < -1 || rect.right > configuredWidth+1)
         .slice(0,10);
+      const textOffenders=[];
+      const textNodes=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+      while(textNodes.nextNode()&&textOffenders.length<10){
+        const node=textNodes.currentNode;
+        const parent=node.parentElement;
+        if(!node.textContent.trim()||hasClippingAncestor(parent))continue;
+        const range=document.createRange();
+        range.selectNode(node);
+        if([...range.getClientRects()].some(rect=>rect.left<0||rect.right>configuredWidth+1)){
+          textOffenders.push({tag:parent.tagName,text:node.textContent.trim().slice(0,100),font:getComputedStyle(parent).font});
+        }
+      }
 
       return {
         overflow:Math.max(0,scrollWidth-viewportWidth),
@@ -61,7 +83,8 @@ for (const route of keyRoutes) {
         configuredWidth,
         scrollWidth,
         scrollbarWidth:Math.max(0,window.innerWidth-document.documentElement.clientWidth),
-        offenders
+        offenders,
+        textOffenders
       };
     },configuredWidth);
     // Mobile browsers can silently widen/scale the layout viewport to fit an
@@ -89,6 +112,8 @@ test('mobile footer privacy settings stay reachable above the contact bar',async
   for(const width of [320,360,412]){
     await page.setViewportSize({width,height:839});
     await page.goto('/');
+    // Wider fallback metrics reproduce the Linux-only long-heading overflow.
+    await page.addStyleTag({content:'body { font-family: Georgia, serif; }'});
     const viewport=await page.evaluate(()=>({
       inner:innerWidth,client:document.documentElement.clientWidth,
       scroll:document.documentElement.scrollWidth
@@ -101,6 +126,31 @@ test('mobile footer privacy settings stay reachable above the contact bar',async
     await expect(page.locator('.consent-panel')).toBeHidden();
     await expect(settings).toBeFocused();
   }
+});
+
+test('mobile city headings fit with a wider fallback font',async({page,isMobile})=>{
+  test.skip(!isMobile,'mobile fallback-font layout');
+  const width=page.viewportSize().width;
+  for(const city of ['kyiv','lviv','odesa','dnipro','kharkiv']){
+    await page.goto(`/mista/stvorennya-sajtiv-${city}/`);
+    await page.addStyleTag({content:'body { font-family: Georgia, serif; }'});
+    const viewport=await page.evaluate(()=>({inner:innerWidth,client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
+    expect(viewport,`${city} with Georgia fallback`).toEqual({inner:width,client:width,scroll:width});
+  }
+});
+
+test('mobile contact buttons do not expand into neighbouring actions on focus',async({page,isMobile})=>{
+  test.skip(!isMobile,'mobile fixed contact bar');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/');
+  const phone=page.locator('.floating-action[href^="tel:"]');
+  const telegram=page.locator('.floating-action[href*="t.me/"]');
+  const originalWidth=await phone.evaluate(element=>element.getBoundingClientRect().width);
+  await phone.focus();
+  await expect(phone).toBeFocused();
+  await expect.poll(()=>phone.evaluate(element=>element.getBoundingClientRect().width)).toBeLessThanOrEqual(originalWidth+1);
+  const boxes=await Promise.all([phone.boundingBox(),telegram.boundingBox()]);
+  expect(boxes[0].x+boxes[0].width).toBeLessThanOrEqual(boxes[1].x);
 });
 
 test('desktop header labels remain readable',async({page,isMobile})=>{
