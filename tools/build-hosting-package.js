@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
+const { createHash } = require("crypto");
+const { RELEASE_FILES, RELEASE_MARKER } = require("./verify-production-release");
+const { versionBuiltHtmlAssets } = require("./lib/version-local-assets");
 
 const root = path.resolve(__dirname, "..");
 const releaseRoot = path.join(root, "release");
@@ -80,6 +83,7 @@ const excludedDirectories = new Set([
   ".wrangler",
   "artifacts",
   "docs",
+  "edge",
   "node_modules",
   "release",
   "seo",
@@ -105,7 +109,7 @@ const copyEntry = (source, destination) => {
 };
 
 const addNoindex = (html) => {
-  if (/<meta name="robots"[^>]*noindex/i.test(html)) return html;
+  if (/<meta\b[^>]*name=["']robots["']/i.test(html)) return html.replace(/<meta\b[^>]*name=["']robots["'][^>]*>/gi, '<meta name="robots" content="noindex, nofollow" />');
   return html.replace(/(<meta name="viewport"[^>]*>)/i, '$1<meta name="robots" content="noindex, nofollow" />');
 };
 
@@ -183,6 +187,12 @@ const transformDirectory = (directory) => {
 };
 
 transformDirectory(outputDirectory);
+// Fingerprint the final configured bytes, not source files: config/base-path
+// substitutions above can change JS/CSS. Only generated HTML is rewritten.
+const versionedAssetReferences = versionBuiltHtmlAssets(outputDirectory, {
+  siteUrl: staging ? sourceSiteUrl : targetSiteUrl,
+  publicBasePath: targetBasePath,
+});
 
 if (!staging && targetHostname) {
   fs.writeFileSync(path.join(outputDirectory, "CNAME"), `${targetHostname}\n`);
@@ -240,6 +250,29 @@ if (errors.length) {
   process.exit(1);
 }
 
+// A public, non-secret deployment receipt ties the served bytes to the exact
+// workflow revision. It is generated after all production transformations.
+const gitRevision = process.env.GITHUB_SHA || spawnSync("git", ["rev-parse", "HEAD"], {
+  cwd: root,
+  encoding: "utf8",
+}).stdout?.trim();
+if (!/^[a-f0-9]{40}$/i.test(gitRevision || "")) {
+  throw new Error("Cannot identify the release Git revision.");
+}
+const releaseMarkerPath = path.join(outputDirectory, RELEASE_MARKER);
+fs.mkdirSync(path.dirname(releaseMarkerPath), { recursive: true });
+fs.writeFileSync(releaseMarkerPath, JSON.stringify({
+  schemaVersion: 1,
+  revision: gitRevision.toLowerCase(),
+  generatedAt: new Date().toISOString(),
+  mode: staging ? "staging" : "production",
+  site: staging ? sourceSiteUrl : targetSiteUrl,
+  sitemapUrlCount: sitemapCount,
+  files: Object.fromEntries(RELEASE_FILES.map(({ file, route }) => [route, {
+    sha256: createHash("sha256").update(fs.readFileSync(path.join(outputDirectory, file))).digest("hex"),
+  }])),
+}, null, 2) + "\n");
+
 const zip = spawnSync("zip", ["-qr", zipPath, packageName], {
   cwd: releaseRoot,
   encoding: "utf8",
@@ -254,5 +287,6 @@ console.log(`Mode: ${staging ? "staging (noindex)" : "production"}`);
 console.log(`Public path: ${targetBasePath}`);
 console.log(`HTML files: ${htmlFiles.length}`);
 console.log(`Sitemap URLs: ${sitemapCount}`);
+console.log(`Versioned local CSS/JS references: ${versionedAssetReferences}`);
 console.log(`Folder: ${outputDirectory}`);
 console.log(`Archive: ${zipPath}`);

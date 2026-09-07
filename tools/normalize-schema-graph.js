@@ -2,6 +2,7 @@
 
 const fs=require('fs');
 const path=require('path');
+const {buildGraph}=require('./lib/schema-graph');
 
 const root=path.resolve(__dirname,'..');
 const excluded=new Set(['.git','.github','artifacts','docs','node_modules','release','tools']);
@@ -46,7 +47,8 @@ for (const file of collect(root)) {
   });
   if (!has('BreadcrumbList')) throw new Error(`BreadcrumbList required: ${path.relative(root,file)}`);
 
-  const graph=`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':nodes})}</script>`;
+  const main=source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1]||'';
+  const graph=`<script type="application/ld+json">${JSON.stringify(buildGraph({nodes,canonical,title,description,main})).replace(/</g,'\\u003c')}</script>`;
   let index=0;
   const next=source.replace(/<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi,()=>index++===0?graph:'');
   if (next!==source) { fs.writeFileSync(file,next); changed+=1; }

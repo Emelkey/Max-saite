@@ -1,0 +1,12 @@
+{
+  "capturedAt": "2026-09-02T20:06:36.751Z",
+  "source": "local production build",
+  "routes": [
+    "/",
+    "/mista/stvorennya-sajtiv-kyiv/"
+  ],
+  "viewports": [
+    "1440x1000",
+    "390x844"
+  ]
+}

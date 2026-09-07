@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-09-02T20:17:38.105Z",
+  "source": "local production build; analytics network mocked",
+  "pages": [
+    {
+      "name": "home",
+      "route": "/",
+      "mode": "desktop",
+      "file": "home-desktop.jpg"
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "mode": "mobile",
+      "file": "home-mobile.jpg"
+    },
+    {
+      "name": "service",
+      "route": "/stvorennya-saytiv/",
+      "mode": "desktop",
+      "file": "service-desktop.jpg"
+    },
+    {
+      "name": "service",
+      "route": "/stvorennya-saytiv/",
+      "mode": "mobile",
+      "file": "service-mobile.jpg"
+    },
+    {
+      "name": "city",
+      "route": "/mista/stvorennya-sajtiv-kyiv/",
+      "mode": "desktop",
+      "file": "city-desktop.jpg"
+    },
+    {
+      "name": "city",
+      "route": "/mista/stvorennya-sajtiv-kyiv/",
+      "mode": "mobile",
+      "file": "city-mobile.jpg"
+    },
+    {
+      "name": "case",
+      "route": "/portfolio/formula-chystoty/",
+      "mode": "desktop",
+      "file": "case-desktop.jpg"
+    },
+    {
+      "name": "case",
+      "route": "/portfolio/formula-chystoty/",
+      "mode": "mobile",
+      "file": "case-mobile.jpg"
+    },
+    {
+      "name": "blog",
+      "route": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "mode": "desktop",
+      "file": "blog-desktop.jpg"
+    },
+    {
+      "name": "blog",
+      "route": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "mode": "mobile",
+      "file": "blog-mobile.jpg"
+    },
+    {
+      "name": "niche",
+      "route": "/nishi/sajt-dlya-magazynu/",
+      "mode": "desktop",
+      "file": "niche-desktop.jpg"
+    },
+    {
+      "name": "niche",
+      "route": "/nishi/sajt-dlya-magazynu/",
+      "mode": "mobile",
+      "file": "niche-mobile.jpg"
+    },
+    {
+      "name": "resources",
+      "route": "/qa-checklist/",
+      "mode": "desktop",
+      "file": "resources-desktop.jpg"
+    },
+    {
+      "name": "resources",
+      "route": "/qa-checklist/",
+      "mode": "mobile",
+      "file": "resources-mobile.jpg"
+    }
+  ]
+}

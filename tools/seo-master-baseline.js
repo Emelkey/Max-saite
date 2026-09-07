@@ -2,9 +2,14 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const docsRoot = path.join(root, "docs", "seo");
+const version = process.argv.find((arg) => arg.startsWith("--version="))?.slice(10);
+if (version && !/^[a-z0-9-]+$/.test(version)) throw new Error("Invalid baseline version");
+const docsRoot = path.join(root, "docs", "seo", ...(version ? [version] : []));
 const seoRoot = path.join(root, "seo");
-const artifactRoot = path.join(root, "artifacts", "seo", "baseline");
+const artifactRoot = path.join(root, "artifacts", "seo", version || "baseline");
+if (version && fs.existsSync(path.join(artifactRoot, "summary.json"))) {
+  throw new Error(`Immutable baseline already exists: ${artifactRoot}`);
+}
 const htmlSnapshotRoot = path.join(artifactRoot, "html");
 const productionOrigin = "https://maxsite.com.ua";
 
@@ -108,7 +113,7 @@ for (const file of htmlFiles) {
   }
 
   const outgoing = [];
-  for (const match of html.matchAll(/\shref=["']([^"']+)["']/gi)) {
+  for (const match of html.matchAll(/<a\b[^>]*\shref=["']([^"']+)["']/gi)) {
     const href = match[1];
     if (/^(?:mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
     let targetRoute = "";
@@ -125,8 +130,10 @@ for (const file of htmlFiles) {
       }
       if (targetRoute.endsWith("/index.html")) targetRoute = targetRoute.slice(0, -"index.html".length);
       if (targetRoute === "/index.html") targetRoute = "/";
-      outgoing.push(targetRoute);
-      inlinkCounts.set(targetRoute, (inlinkCounts.get(targetRoute) || 0) + 1);
+      if (htmlFiles.includes(fileFromRoute(targetRoute))) {
+        outgoing.push(targetRoute);
+        if (targetRoute !== route) inlinkCounts.set(targetRoute, (inlinkCounts.get(targetRoute) || 0) + 1);
+      }
     } catch {
       outgoing.push(`INVALID:${href}`);
     }
@@ -156,9 +163,9 @@ for (const file of htmlFiles) {
     internal_inlinks: 0,
     internal_outlinks: outgoing.length,
     sitemap: sitemapRoutes.has(route),
-    status_code: redirectTarget ? 301 : 200,
+    status_code: "NOT_FETCHED",
     redirect_target: redirectTarget,
-    notes: h1Matches.length !== 1 ? `H1_COUNT=${h1Matches.length}` : "",
+    notes: [h1Matches.length !== 1 ? `H1_COUNT=${h1Matches.length}` : "", redirectTarget ? "CLIENT_META_REFRESH_NOT_HTTP_301" : ""].filter(Boolean).join("|"),
   });
 }
 

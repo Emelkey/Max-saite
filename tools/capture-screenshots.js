@@ -6,20 +6,25 @@ const {spawn}=require('child_process');
 const {chromium}=require('@playwright/test');
 
 const root=path.resolve(__dirname,'..');
-const outDir=path.join(root,'artifacts','screenshots','master-2-0');
+const version=process.argv.find(arg=>arg.startsWith('--version='))?.split('=')[1] || 'master-3-0';
+if (!/^[a-z0-9-]+$/.test(version)) throw Error('Invalid capture version');
+const outDir=path.join(root,'artifacts','screenshots',version);
 const pages={
   home:'/',
   service:'/stvorennya-saytiv/',
   city:'/mista/stvorennya-sajtiv-kyiv/',
   case:'/portfolio/formula-chystoty/',
-  blog:'/blog/skilky-koshtuye-stvorennya-sajtu/'
+  blog:'/blog/skilky-koshtuye-stvorennya-sajtu/',
+  niche:'/nishi/sajt-dlya-magazynu/',
+  resources:'/qa-checklist/',
+  calculator:'/qa-checklist/#budget-estimator'
 };
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 
 (async()=>{
-  fs.rmSync(outDir,{recursive:true,force:true});
+  if (fs.existsSync(path.join(outDir,'manifest.json'))) throw Error('Capture exists; use a fresh --version instead of overwriting evidence.');
   fs.mkdirSync(outDir,{recursive:true});
-  const server=spawn(process.execPath,[require.resolve('http-server/bin/http-server'),'.','-p','4175','-c-1','--silent','-a','127.0.0.1'],{cwd:root,stdio:'ignore'});
+  const server=spawn(process.execPath,[require.resolve('http-server/bin/http-server'),'release/max-site-production','-p','4175','-c-1','--silent','-a','127.0.0.1'],{cwd:root,stdio:'ignore'});
   try {
     await wait(1200);
     const browser=await chromium.launch({headless:true});
@@ -31,6 +36,8 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
           await page.route('https://www.googletagmanager.com/**',request=>request.fulfill({status:200,contentType:'application/javascript',body:''}));
           await page.route('https://www.google-analytics.com/**',request=>request.fulfill({status:204,body:''}));
           await page.goto(`http://127.0.0.1:4175${route}`,{waitUntil:'domcontentloaded'});
+          const necessary=page.getByRole('button',{name:'Лише необхідні',exact:true});
+          if(await necessary.count()) await necessary.click();
           await page.waitForTimeout(1200);
           await page.screenshot({path:path.join(outDir,`${name}-${mode}.jpg`),type:'jpeg',quality:88,fullPage:false});
           await context.close();
@@ -38,7 +45,7 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
       }
     } finally { await browser.close(); }
   } finally { server.kill('SIGTERM'); }
-  const manifest={generatedAt:new Date().toISOString(),pages:Object.entries(pages).flatMap(([name,route])=>['desktop','mobile'].map(mode=>({name,route,mode,file:`${name}-${mode}.jpg`})))};
+  const manifest={generatedAt:new Date().toISOString(),source:'local production build; analytics network mocked',pages:Object.entries(pages).flatMap(([name,route])=>['desktop','mobile'].map(mode=>({name,route,mode,file:`${name}-${mode}.jpg`})))};
   fs.writeFileSync(path.join(outDir,'manifest.json'),`${JSON.stringify(manifest,null,2)}\n`);
   console.log(`Captured ${manifest.pages.length} screenshots in ${outDir}`);
 })().catch(error=>{console.error(error);process.exit(1);});

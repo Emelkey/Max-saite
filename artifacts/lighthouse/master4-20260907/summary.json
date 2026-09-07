@@ -1,0 +1,258 @@
+{
+  "generatedAt": "2026-09-07T18:41:10.633Z",
+  "source": "local production build",
+  "method": "Lighthouse mobile simulated throttling; median gate across independent lab runs; not field CWV",
+  "runsPerRoute": 3,
+  "routes": [
+    "/",
+    "/stvorennya-saytiv/",
+    "/stvorennya-saytu-dlya-biznesu/",
+    "/stvorennya-program/",
+    "/stvorennya-landing-page/",
+    "/stvorennya-internet-mahazynu/"
+  ],
+  "thresholds": {
+    "performance": 0.9,
+    "accessibility": 0.9,
+    "best-practices": 0.9,
+    "seo": 0.95
+  },
+  "results": [
+    {
+      "route": "/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.93,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.93,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.93,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 0.99,
+        "accessibility": 0.93,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    },
+    {
+      "route": "/stvorennya-saytiv/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    },
+    {
+      "route": "/stvorennya-saytu-dlya-biznesu/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    },
+    {
+      "route": "/stvorennya-program/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 0.99,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    },
+    {
+      "route": "/stvorennya-landing-page/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    },
+    {
+      "route": "/stvorennya-internet-mahazynu/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 1,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    }
+  ],
+  "failures": [],
+  "passed": true
+}

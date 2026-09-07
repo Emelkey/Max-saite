@@ -1,6 +1,6 @@
 # MAX SITE evidence register
 
-Updated: 2026-08-28
+Updated: 2026-09-02
 
 This register prevents unverified claims from reaching production. `DATA REQUIRED` is intentional and must not be replaced with assumptions.
 
@@ -14,6 +14,10 @@ This register prevents unverified claims from reaching production. `DATA REQUIRE
 | FO-DEZ client review | DATA REQUIRED | Written permission plus source URL/screenshot | Add verbatim approved text, author role and source |
 | Case traffic / leads / revenue | DATA REQUIRED | Read-only GA4/GSC/CRM export and owner permission | State period, source and measurement caveats |
 | Certificates or awards | DATA REQUIRED | Public verifiable certificate URL | Do not mention until verified |
+| Benish Group case (MASTER 3.0 §12.3) | DATA REQUIRED | Real launch, exact live URL, scope of MAX SITE work, permission, implementation screenshots | Publish only after launch and client permission; do not substitute a different business |
+| Fifth completed case | DATA REQUIRED | Owner-supplied project and publication permission | Remain at three verifiable cases until supplied |
+| Self-case screenshots | VERIFIED LOCAL BUILD | Four captures in `assets/portfolio/max-site-*-20260902.jpg` with manifest | Label local production build; do not imply business results |
+| Client live URLs | VERIFIED 2026-09-02 | `https://www.formula-chistoty.ck.ua/`, `https://www.fodez.com.ua/` | Availability/content only; older screenshot versions labeled |
 
 ## Verification rules
 

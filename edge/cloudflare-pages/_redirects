@@ -1,0 +1,7 @@
+# Exact canonical redirects for a future, separately approved Cloudflare Pages cutover.
+/index.html / 301
+/stvorennya-sajtiv-pid-klyuch/ /stvorennya-saytiv/ 301
+/stvorennya-lendingiv/ /stvorennya-landing-page/ 301
+/korporatyvni-sajty/ /stvorennya-korporatyvnoho-saytu/ 301
+/internet-magazyn-pid-klyuch/ /stvorennya-internet-mahazynu/ 301
+/privacy.html /polityka-konfidentsijnosti/ 301

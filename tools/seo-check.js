@@ -12,10 +12,11 @@ if (!allowed.has(check)) {
 }
 
 const origin = 'https://maxsite.com.ua';
-const ignored = new Set(['.git','node_modules','release','artifacts']);
+const ignored = new Set(['.git','.github','node_modules','release','artifacts','docs','tools','tests','seo']);
 const errors = [];
 const warnings = [];
 const rows = [];
+const editorialReview = [];
 
 function collect(directory) {
   const result = [];
@@ -56,7 +57,7 @@ for (const file of collect(root)) {
   const description = meta(html,'description');
   const h1s = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map(match=>text(match[1]));
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
-  const links = [...html.matchAll(/\shref=["']([^"']+)["']/gi)].map(match=>match[1]);
+  const links = [...html.matchAll(/<a\b[^>]*\shref=["']([^"']+)["']/gi)].map(match=>match[1]);
   const schemas = [];
   for (const match of html.matchAll(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
     try { schemas.push(JSON.parse(match[1])); } catch (error) { errors.push(`${route}: invalid JSON-LD (${error.message})`); }
@@ -87,6 +88,9 @@ if (check === 'metadata') {
   ownerCheck('title','title'); ownerCheck('description','description');
   for (const row of indexable) {
     if (row.h1s.length !== 1) errors.push(`${row.route}: expected one H1`);
+    if (!row.canonical) errors.push(`${row.route}: missing canonical`);
+    if (row.description.length < 110) errors.push(`${row.route}: description is only ${row.description.length} characters`);
+    if (row.description.length > 170) warnings.push(`${row.route}: description is ${row.description.length} characters; review SERP truncation`);
     if (/\{\{|\}\}|undefined|null/i.test(`${row.title} ${row.description}`)) errors.push(`${row.route}: unresolved metadata token`);
   }
 }
@@ -148,8 +152,22 @@ if (check === 'schema') {
       for (const [key,value] of Object.entries(node)) if (value === null || value === undefined) errors.push(`${row.route}: schema ${key} is null`);
       const types=[].concat(node['@type']||[]);
       if (types.includes('Article')) for (const field of ['headline','datePublished','dateModified','author','publisher','image','mainEntityOfPage']) if (!node[field]) errors.push(`${row.route}: Article missing ${field}`);
-      if (types.includes('Service') && !node.name) errors.push(`${row.route}: Service missing name`);
-      if (types.includes('FAQPage')) for (const question of node.mainEntity||[]) if (question.name && !text(row.main).includes(question.name)) errors.push(`${row.route}: schema FAQ is not visible: ${question.name}`);
+      if (types.includes('Service')) {
+        if (!node.name) errors.push(`${row.route}: Service missing name`);
+        if (node.provider?.['@id'] !== `${origin}/#organization`) errors.push(`${row.route}: Service provider differs from canonical entity`);
+        if (node.url !== row.canonical) errors.push(`${row.route}: Service URL mismatch`);
+      }
+      if (types.includes('Offer') || types.includes('AggregateOffer')) {
+        const price=node.price ?? node.lowPrice;
+        if (price!==undefined && !text(row.main).replace(/\s/g,'').includes(String(price).replace(/\s/g,''))) errors.push(`${row.route}: schema price not visible: ${price}`);
+        if (!node.priceCurrency) errors.push(`${row.route}: schema offer missing currency`);
+      }
+      if (types.includes('FAQPage')) for (const question of node.mainEntity||[]) {
+        if (!question.name || !text(row.main).includes(text(question.name))) errors.push(`${row.route}: schema FAQ question is not visible: ${question.name}`);
+        const answer=question.acceptedAnswer?.text;
+        if (!answer || !text(row.main).includes(text(answer))) errors.push(`${row.route}: schema FAQ answer is not visible: ${question.name}`);
+      }
+      if (types.includes('ProfessionalService')) errors.push(`${row.route}: ProfessionalService requires a verified public office; use Organization + Service for remote delivery`);
       if (row.route.startsWith('/mista/') && row.route !== '/mista/' && types.includes('LocalBusiness')) errors.push(`${row.route}: city page must not claim LocalBusiness`);
       if ((types.includes('Review') || types.includes('AggregateRating')) && !text(row.main).match(/відгук|рейтинг/i)) errors.push(`${row.route}: rating schema lacks visible evidence`);
     });
@@ -158,16 +176,52 @@ if (check === 'schema') {
 }
 
 if (check === 'links') {
-  const inlinks=new Map(); const anchors=new Map();
+  const inlinks=new Map();
   for (const row of rows) for (const href of row.links) {
-    if (/^(?:https?:|mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
-    const target=targetFile(row.file,href);
+    if (/(?:^|\/)index\.html(?:[?#]|$)/i.test(href)) errors.push(`${row.route}: internal home link exposes index.html: ${href}`);
+    if (/^(?:mailto:|tel:|viber:|javascript:|#)/i.test(href)) continue;
+    let resolved;
+    try { resolved=new URL(href,origin+row.route); } catch { errors.push(`${row.route}: invalid link ${href}`); continue; }
+    if (resolved.origin!==origin) continue;
+    const target=targetFile(row.file,resolved.pathname);
     if (!fs.existsSync(target)) errors.push(`${row.route}: broken link ${href}`);
-    else { const targetRoute=routeFromFile(target); inlinks.set(targetRoute,(inlinks.get(targetRoute)||0)+1); }
+    else {
+      const targetRoute=routeFromFile(target);
+      const targetRow=rows.find(item=>item.route===targetRoute);
+      if (targetRow && row.indexable && targetRow.indexable && targetRoute!==row.route) inlinks.set(targetRoute,(inlinks.get(targetRoute)||0)+1);
+      if (row.indexable && targetRow && !targetRow.indexable && !/privacy|polityka|404|thank|dyaku/i.test(targetRoute)) warnings.push(`${row.route}: link to noindex ${targetRoute}`);
+      if (targetRow && /http-equiv=["']refresh/i.test(targetRow.html)) errors.push(`${row.route}: link through client redirect ${targetRoute}`);
+      if (resolved.hash && targetRow) {
+        let fragment;
+        try { fragment=decodeURIComponent(resolved.hash.slice(1)); } catch { fragment=resolved.hash.slice(1); }
+        const ids=[...targetRow.html.matchAll(/\b(?:id|name)=["']([^"']+)["']/gi)].map(match=>match[1]);
+        if (fragment && !ids.includes(fragment)) errors.push(`${row.route}: missing fragment ${href}`);
+      }
+    }
   }
   for (const row of indexable) {
     if (row.route !== '/' && !inlinks.get(row.route)) errors.push(`${row.route}: orphan page`);
     if (row.links.length > 150) warnings.push(`${row.route}: ${row.links.length} links; review navigation density`);
+    const headerActions=row.html.match(/<div class=["']header-actions["']>([\s\S]*?)<\/div>/i)?.[1] || '';
+    if (headerActions && (headerActions.match(/<a\b/gi)||[]).length !== 2) errors.push(`${row.route}: header actions must contain exactly call and lead CTAs`);
+  }
+
+  const caseRoutes=new Set(['/portfolio/formula-chystoty/','/portfolio/fo-dez/','/portfolio/max-site/']);
+  const moneyRoutes=['/','/stvorennya-saytiv/','/stvorennya-saytu-dlya-biznesu/','/stvorennya-program/','/stvorennya-landing-page/','/stvorennya-korporatyvnoho-saytu/','/stvorennya-internet-mahazynu/','/seo-sajt-pid-google/'];
+  const resolvedPaths=row=>new Set(row.links.map(href=>{try{return new URL(href,origin+row.route).pathname;}catch{return '';}}));
+  for (const route of moneyRoutes) {
+    const row=rows.find(item=>item.route===route);
+    if (!row) { errors.push(`${route}: MASTER 4.0 money page missing`); continue; }
+    const directCases=[...resolvedPaths(row)].filter(target=>caseRoutes.has(target));
+    if (directCases.length !== caseRoutes.size) errors.push(`${route}: expected direct links to all ${caseRoutes.size} verified cases, found ${directCases.length}`);
+  }
+  for (const route of caseRoutes) {
+    const row=rows.find(item=>item.route===route);
+    if (!row) { errors.push(`${route}: verified case page missing`); continue; }
+    const paths=resolvedPaths(row);
+    if (![...paths].some(target=>target.startsWith('/nishi/') && target !== '/nishi/')) errors.push(`${route}: case lacks a contextual niche link`);
+    if (![...paths].some(target=>target.startsWith('/mista/') && target !== '/mista/')) errors.push(`${route}: case lacks a contextual geography link`);
+    if (![...paths].some(target=>target.startsWith('/stvorennya-') || target==='/sajty-dlya-poslug/' || target==='/seo-sajt-pid-google/')) errors.push(`${route}: case lacks a contextual service link`);
   }
 }
 
@@ -191,6 +245,32 @@ if (check === 'content-quality') {
   }
   for (const row of indexable) {
     const mainText=text(row.main);
+    if (/^\/blog\/[^/]+\/$/.test(row.route)) {
+      // These are observable editorial signals, not a ranking score or a word quota.
+      // Intent completeness, original evidence and source quality require human review.
+      const findings=[];
+      const hasAuthor=/article-author|Про автора|Автор[:\s]|Редакці[яї]|підготовлено засновником/i.test(row.main);
+      const hasVisibleDate=/<time\b[^>]*datetime=["']\d{4}-\d{2}-\d{2}/i.test(row.main) || /(?:оновлено|опубліковано|перевірено)\s*:?\s*\d{1,2}\.\d{1,2}\.\d{4}/i.test(mainText);
+      const hasSourceLabel=/article-sources|(?:Джерела|Офіційна документація|На що спирається матеріал)/i.test(row.main);
+      const hasReferenceLink=[...row.main.matchAll(/<a\b[^>]*\shref=["'](https?:\/\/[^"']+)["']/gi)].some(match=>{
+        try { const url=new URL(match[1]); return url.origin!==origin && !/(?:^|\.)(?:t\.me|instagram\.com|facebook\.com|wa\.me)$/.test(url.hostname); } catch { return false; }
+      });
+      const paragraphs=[...row.main.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)].map(match=>text(match[1]));
+      const seenParagraphs=new Set();
+      const duplicateParagraphs=paragraphs.filter(paragraph=>{
+        if (paragraph.length<100) return false;
+        if (seenParagraphs.has(paragraph)) return true;
+        seenParagraphs.add(paragraph); return false;
+      });
+      if (!hasAuthor) findings.push('missing visible author/editor attribution');
+      if (!hasVisibleDate) findings.push('missing visible publication/review date; verify before adding one');
+      if (!hasSourceLabel || !hasReferenceLink) findings.push('no identifiable references section with an external citation; review factual claims and add relevant sources');
+      if (duplicateParagraphs.length) findings.push(`${duplicateParagraphs.length} repeated paragraph(s) within the article`);
+      if (!/<h2\b/i.test(row.main)) findings.push('no section headings; review answer structure');
+      editorialReview.push({route:row.route,hasAuthor,hasVisibleDate,hasReferences:hasSourceLabel&&hasReferenceLink,duplicateParagraphs:duplicateParagraphs.length,findings});
+      for (const finding of findings) warnings.push(`${row.route}: ${finding}`);
+    }
+    if (!/#lead|tel:|mailto:|t\.me\//.test(row.main) && !/polityka|privacy/.test(row.route)) warnings.push(`${row.route}: no direct contact CTA in main`);
     if (fakeLocation.test(mainText)) errors.push(`${row.route}: possible fake local-presence claim`);
     if (row.route.startsWith('/mista/') && row.route !== '/mista/') {
       if (!/case|кейс|proof|доказ/i.test(row.main)) errors.push(`${row.route}: city page lacks proof block`);
@@ -213,10 +293,10 @@ if (check === 'content-quality') {
   const script=fs.readFileSync(path.join(root,'script.js'),'utf8');
   for (const event of ['lead_form_start','lead_form_submit','lead_form_success','lead_form_error','click_phone','click_telegram','click_viber','click_email','pricing_cta_click','portfolio_open','case_live_site_click','city_service_click','scroll_75']) if (!script.includes(`"${event}"`)) errors.push(`script.js missing event ${event}`);
   if (!/honeypot/i.test(script)) errors.push('script.js missing honeypot handling');
-  warnings.push('External lead endpoint rate limiting and server validation require production-owner verification.');
+  warnings.push('Worker Durable Object rate limiting/idempotency are configured and unit-tested; production bindings and real Telegram delivery still require separate live verification.');
 }
 
-const output={check,generatedAt:new Date().toISOString(),pages:rows.length,indexable:indexable.length,errors,warnings};
+const output={check,generatedAt:new Date().toISOString(),pages:rows.length,indexable:indexable.length,errors,warnings,...(check==='content-quality'?{editorialReview}: {})};
 const outDir=path.join(root,'artifacts','seo','checks'); fs.mkdirSync(outDir,{recursive:true});
 fs.writeFileSync(path.join(outDir,`${check}.json`),`${JSON.stringify(output,null,2)}\n`);
 console.log(`${check}: ${rows.length} pages, ${errors.length} errors, ${warnings.length} warnings.`);

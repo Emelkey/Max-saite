@@ -1,41 +1,17 @@
 const fs = require("fs");
 const path = require("path");
+const {normalize, ngrams} = require("./lib/city-similarity");
 
 const root = path.resolve(__dirname, "..");
 const cityData = JSON.parse(fs.readFileSync(path.join(root, "seo/cities.json"), "utf8"));
-const published = cityData.filter((city) => city.priority === 1 && city.index && city.state === "published");
+const published = cityData.filter((city) => city.index && city.state === "published");
 const outputFile = path.join(root, "artifacts/seo/city-similarity-report.json");
 const threshold = 0.55;
-
-const removeStandardSections = (html) => html
-  .replace(/<header\b[\s\S]*?<\/header>/gi, " ")
-  .replace(/<footer\b[\s\S]*?<\/footer>/gi, " ")
-  .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
-  .replace(/<form\b[\s\S]*?<\/form>/gi, " ")
-  .replace(/<section\b[^>]*class="[^"]*seo-lead[^"]*"[\s\S]*?<\/section>/gi, " ")
-  .replace(/<section\b[^>]*id="wave1-[^"]+-proof"[\s\S]*?<\/section>/gi, " ")
-  .replace(/<section\b[^>]*>[\s\S]*?<span class="eyebrow">(?:Процес|Вартість|Вартість і строки)<\/span>[\s\S]*?<\/section>/gi, " ");
-
-const normalize = (html) => removeStandardSections(html)
-  .replace(/<[^>]+>/g, " ")
-  .replace(/&[a-z0-9#]+;/gi, " ")
-  .toLowerCase()
-  .replace(/[^a-zа-яіїєґ0-9\s-]/gi, " ")
-  .replace(/\s+/g, " ")
-  .trim();
-
-const ngrams = (text, size = 5) => {
-  const words = text.split(" ").filter(Boolean);
-  const result = new Set();
-  for (let index = 0; index <= words.length - size; index += 1) {
-    result.add(words.slice(index, index + size).join(" "));
-  }
-  return result;
-};
 
 const pages = Object.fromEntries(published.map((city) => {
   const file = path.join(root, `mista/stvorennya-sajtiv-${city.slug}/index.html`);
   const text = normalize(fs.readFileSync(file, "utf8"));
+  if (text.split(/\s+/).filter(Boolean).length < 100) throw new Error(`Substantive city extraction too short: ${city.slug}`);
   return [city.slug, { words: text.split(" ").filter(Boolean).length, grams: ngrams(text) }];
 }));
 
@@ -58,7 +34,7 @@ for (let left = 0; left < published.length; left += 1) {
 
 const report = {
   generatedAt: new Date().toISOString(),
-  method: "5-gram Jaccard after header/footer/form/standard process-pricing-proof removal",
+  method: "All published city main bodies; 5-gram Jaccard; only complete shared pricing/process/CTA/navigation sections excluded; proof retained",
   threshold,
   pages: Object.fromEntries(Object.entries(pages).map(([slug, data]) => [slug, { words: data.words, grams: data.grams.size }])),
   pairs,

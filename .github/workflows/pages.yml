@@ -1,25 +1,22 @@
-name: Deploy MAX SITE to GitHub Pages
+name: MAX SITE quality gate and explicit production release
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: qa-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  quality:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,6 +35,9 @@ jobs:
 
       - name: Run full SEO, unit and build gate
         run: npm run seo:check
+
+      - name: Validate future Cloudflare edge contract
+        run: node tools/verify-edge-contract.js --config-only
 
       - name: Run desktop and mobile browser QA
         run: npm run test:browser
@@ -61,18 +61,50 @@ jobs:
             artifacts/playwright
             artifacts/lighthouse
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
       - name: Upload artifact
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: release/max-site-production
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: quality
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages-production
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout release verification tools
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
-# Triggered after repository visibility changed to public.
+      - name: Verify exact production revision and essential routes
+        run: >-
+          node tools/verify-production-release.js
+          --base-url https://maxsite.com.ua
+          --expected-revision "$GITHUB_SHA"
+          --attempts 8 --delay-ms 15000
+
+      - name: Upload production verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-release-smoke
+          path: artifacts/seo/production-release-smoke.json
+          if-no-files-found: warn

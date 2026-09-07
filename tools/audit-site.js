@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { editorialBody } = require('./lib/editorial-body');
 
 const args = process.argv.slice(2);
 const getOption = (name) => {
@@ -114,14 +115,24 @@ for (const url of urls) {
         if (!article.image) errors.push(`Article schema missing image: ${fileRoute(file)}`);
         if (!article.mainEntityOfPage) errors.push(`Article schema missing mainEntityOfPage: ${fileRoute(file)}`);
 
-        const articleBody = html.match(/<article\b[^>]*class="[^"]*article-body[^"]*"[^>]*>([\s\S]*?)<\/article>/)?.[1] || "";
-        const articleText = articleBody
-          .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+        const articleBody = editorialBody(html, fileRoute(file));
+        // Structural safeguards, not a word quota or a claim that content is useful.
+        // Intent coverage, original examples and source relevance need editorial review.
+        const editorial = articleBody
+          .replace(/<!--[^]*?-->/g, " ")
+          .replace(/<(script|style|nav|aside|form)\b[^>]*>[\s\S]*?<\/\1>/gi, " ")
+          .replace(/<p\b[^>]*class=["'][^"']*\barticle-author\b[^"']*["'][^>]*>[\s\S]*?<\/p>/gi, " ");
+        const visibleText = (value) => value
           .replace(/<[^>]+>/g, " ")
-          .replace(/&[a-z#0-9]+;/gi, " ")
+          .replace(/&(?:nbsp|#160);/gi, " ")
           .trim();
-        const wordCount = articleText.split(/\s+/).filter(Boolean).length;
-        if (wordCount < 180) errors.push(`Thin article (${wordCount} words): ${fileRoute(file)}`);
+        if (!visibleText(editorial)) errors.push(`Article missing editorial body: ${fileRoute(file)}`);
+        const hasSection = [...editorial.matchAll(/<h[23]\b[^>]*>([\s\S]*?)<\/h[23]>/gi)]
+          .some((match) => visibleText(match[1]));
+        if (!hasSection) errors.push(`Article missing a descriptive section heading: ${fileRoute(file)}`);
+        const hasProse = [...editorial.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)]
+          .some((match) => /\p{L}/u.test(visibleText(match[1].replace(/<a\b[^>]*>[\s\S]*?<\/a>/gi, " "))));
+        if (!hasProse) errors.push(`Article missing explanatory prose: ${fileRoute(file)}`);
 
         const faq = graph.find((item) => item["@type"] === "FAQPage");
         if (faq?.mainEntity?.length) {

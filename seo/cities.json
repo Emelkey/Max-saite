@@ -26,7 +26,9 @@
     ],
     "proofMode": "national-case",
     "publishedAt": "2026-08-02",
-    "updatedAt": "2026-08-28"
+    "updatedAt": "2026-09-02",
+    "contentKey": "kyiv",
+    "marketEvidence": "editorial-scenarios-not-market-statistics"
   },
   {
     "slug": "lviv",
@@ -55,7 +57,9 @@
     ],
     "proofMode": "national-case",
     "publishedAt": "2026-08-28",
-    "updatedAt": "2026-08-28"
+    "updatedAt": "2026-09-02",
+    "contentKey": "lviv",
+    "marketEvidence": "editorial-scenarios-not-market-statistics"
   },
   {
     "slug": "odesa",
@@ -84,7 +88,9 @@
     ],
     "proofMode": "national-case",
     "publishedAt": "2026-08-28",
-    "updatedAt": "2026-08-28"
+    "updatedAt": "2026-09-02",
+    "contentKey": "odesa",
+    "marketEvidence": "editorial-scenarios-not-market-statistics"
   },
   {
     "slug": "dnipro",
@@ -113,7 +119,9 @@
     ],
     "proofMode": "national-case",
     "publishedAt": "2026-08-28",
-    "updatedAt": "2026-08-28"
+    "updatedAt": "2026-09-02",
+    "contentKey": "dnipro",
+    "marketEvidence": "editorial-scenarios-not-market-statistics"
   },
   {
     "slug": "kharkiv",
@@ -142,7 +150,9 @@
     ],
     "proofMode": "national-case",
     "publishedAt": "2026-08-28",
-    "updatedAt": "2026-08-28"
+    "updatedAt": "2026-09-02",
+    "contentKey": "kharkiv",
+    "marketEvidence": "editorial-scenarios-not-market-statistics"
   },
   {
     "slug": "cherkasy",
