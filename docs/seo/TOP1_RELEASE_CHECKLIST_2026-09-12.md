@@ -27,7 +27,7 @@
 
 ## Приймання перед релізом
 
-- `npm run seo:check`: PASS; 75 unit tests, 112 HTML у production package, 90 sitemap URL.
+- `npm run seo:check`: PASS; 76 unit tests, 112 HTML у production package, 90 sitemap URL. Аудит production package включений у локальний gate. Виправлено хибне визначення GitHub Actions evidence URL як старого GitHub Pages base; реальні застарілі домени/локальні base paths залишаються помилкою.
 - `npm run test:browser`: 100 PASS, 6 платформних SKIP; desktop/mobile, переповнення, помилки console, форми з mock endpoint, consent, події без PII, контактні контролі 320–768 px. Реальні заявки не надсилались.
 - `npm run lighthouse`: шість маршрутів, по три mobile запуски; median performance 99, accessibility 93–97, best practices 100, SEO 100. Це лабораторні результати, не польові CWV.
 - Dashboard: збирання та перевірка authored contract PASS. Ручний перегляд у вбудованому браузері заблокований перевіркою адміністративної політики; коректний рендеринг графіків/візуальне приймання поки не підтверджені. Панель не включена в публічний hosting package.

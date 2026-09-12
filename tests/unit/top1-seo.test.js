@@ -5,6 +5,12 @@ const path=require('node:path');
 const {apply,validate}=require('../../tools/render-contextual-links');
 const {csv,route,grams,similarity}=require('../../tools/top1-route-audit');
 const root=path.resolve(__dirname,'../..');
+test('hosting audit permits GitHub evidence but rejects obsolete production bases',()=>{
+  const {hasLegacyHostingReference:legacy}=require('../../tools/lib/legacy-hosting');
+  assert.equal(legacy('<a href="https://github.com/Emelkey/Max-saite/actions/runs/34163771789">Evidence</a>'),false);
+  assert.equal(legacy('<a href="/stvorennya-saytiv/">Service</a>'),false);
+  for(const href of ['/Max-saite/styles.css','https://maxsite.com.ua/Max-saite/','https://emelkey.github.io/Max-saite/','https://maxsite.ua/'])assert.equal(legacy(`<a href="${href}">Old</a>`),true,href);
+});
 test('local and preview hosts disable production GA before automatic pageviews',()=>{
   const vm=require('node:vm'),source=fs.readFileSync(path.join(root,'assets/consent.js'),'utf8');
   for(const hostname of ['127.0.0.1','localhost','preview.example','maxsite.com.ua']){

@@ -23,7 +23,7 @@
     "screenshots:baseline": "node tools/capture-baseline-screenshots.js",
     "lighthouse": "node tools/run-lighthouse.js",
     "build": "node tools/build-hosting-package.js --site-url https://maxsite.com.ua --form-endpoint https://max-site-leads.emelkey777.workers.dev --ga4 G-TS8DMMKK34",
-    "seo:check": "npm run seo:routes && npm run seo:metadata && npm run seo:canonicals && npm run seo:sitemap && npm run seo:robots && npm run seo:schema && npm run seo:links && npm run seo:context && npm run seo:similarity && npm run seo:images && npm run seo:content-quality && npm run test && npm run build"
+    "seo:check": "npm run seo:routes && npm run seo:metadata && npm run seo:canonicals && npm run seo:sitemap && npm run seo:robots && npm run seo:schema && npm run seo:links && npm run seo:context && npm run seo:similarity && npm run seo:images && npm run seo:content-quality && npm run test && npm run build && node tools/audit-site.js --root release/max-site-production --site-url https://maxsite.com.ua"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
