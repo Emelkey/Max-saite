@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "reviewedAt": "2026-09-10",
+  "version": 2,
+  "reviewedAt": "2026-09-12",
   "intentMap": "seo/top1-intent-map.json",
   "delivery": "Static HTML. No client-side link injection; --check verifies generated blocks without rewriting pages.",
   "pages": [
@@ -17,8 +17,17 @@
         {
           "url": "/portfolio/max-site/",
           "label": "Як перевіряється власний сайт MAX SITE"
+        },
+        {
+          "url": "/blog/yak-vybraty-rozrobnyka-sajtu/",
+          "label": "Як вибрати розробника сайту"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+          "label": "Скільки коштує створення сайту у 2026 році"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
@@ -32,41 +41,56 @@
         },
         {
           "url": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
-          "label": "Бриф перед оцінкою"
+          "label": "Як підготувати бриф на створення сайту"
+        },
+        {
+          "url": "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
+          "label": "Як замовити сайт і не втратити гроші"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/chomu-tsiny-na-sajty-vidriznyayutsya/",
       "heading": "Від рекомендацій до вашого проєкту",
       "intro": "Для магазину порівнюйте не кількість екранів, а каталог, checkout та облік. Вартість інтеграцій відділяйте від базового запуску.",
-      "primary": "/stvorennya-internet-mahazynu/",
+      "primary": "/stvorennya-saytiv/",
       "links": [
         {
-          "url": "/stvorennya-internet-mahazynu/",
-          "label": "Розробка інтернет-магазину"
+          "url": "/stvorennya-saytiv/",
+          "label": "Обсяг розробки сайту для вашого проєкту"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+          "label": "Скільки коштує створення сайту у 2026 році"
         },
         {
           "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
-          "label": "З чого складається бюджет магазину"
+          "label": "Скільки коштує створення інтернет-магазину"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/skilky-tryvaye-rozrobka-sajtu/",
       "heading": "Від рекомендацій до вашого проєкту",
       "intro": "У магазині календар залежить від підготовки товарів, договорів із платіжними сервісами та тестування замовлення. Узгодьте ці залежності до розробки.",
-      "primary": "/stvorennya-internet-mahazynu/",
+      "primary": "/stvorennya-saytiv/",
       "links": [
         {
-          "url": "/stvorennya-internet-mahazynu/",
-          "label": "Розробка інтернет-магазину"
+          "url": "/stvorennya-saytiv/",
+          "label": "Обсяг розробки сайту для вашого проєкту"
+        },
+        {
+          "url": "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+          "label": "Як підготувати бізнес до запуску сайту"
         },
         {
           "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
-          "label": "Етапи приймання магазину"
+          "label": "Що входить у створення інтернет-магазину під ключ"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
@@ -81,8 +105,17 @@
         {
           "url": "/portfolio/formula-chystoty/",
           "label": "Приклад структури сервісної компанії"
+        },
+        {
+          "url": "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+          "label": "Як підготувати бізнес до запуску сайту"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
+          "label": "Що входить у сайт під ключ: етапи й межі робіт"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
@@ -97,8 +130,17 @@
         {
           "url": "/kalkulyator-vartosti-saytu/",
           "label": "Калькулятор обсягу й бюджету"
+        },
+        {
+          "url": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
+          "label": "Як підготувати бриф на створення сайту"
+        },
+        {
+          "url": "/blog/skilky-tryvaye-rozrobka-sajtu/",
+          "label": "Скільки триває розробка сайту: реалістичний план"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
@@ -112,9 +154,14 @@
         },
         {
           "url": "/blog/ga4-konversiyi-dlya-sajtu/",
-          "label": "Як відрізняти клік від підтвердженої заявки"
+          "label": "GA4-конверсії для сайту бізнесу"
+        },
+        {
+          "url": "/blog/landing-dlya-google-ads/",
+          "label": "Лендінг для Google Ads: що впливає на заявки"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
@@ -129,8 +176,17 @@
         {
           "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
           "label": "Приклад сценарію для клінінгу"
+        },
+        {
+          "url": "/blog/lending-abo-korporatyvnyj-sajt/",
+          "label": "Landing Page чи корпоративний сайт: що обрати"
+        },
+        {
+          "url": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+          "label": "Як сайт допомагає бізнесу отримувати заявки"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
@@ -145,8 +201,17 @@
         {
           "url": "/portfolio/",
           "label": "Відкрити реалізовані роботи"
+        },
+        {
+          "url": "/blog/yak-vybraty-rozrobnyka-sajtu/",
+          "label": "Як вибрати розробника сайту"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
+          "label": "Що входить у сайт під ключ: етапи й межі робіт"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/yak-vybraty-rozrobnyka-sajtu/",
@@ -161,8 +226,17 @@
         {
           "url": "/zasnovnyk/",
           "label": "Хто відповідає за проєкт"
+        },
+        {
+          "url": "/blog/yak-vybraty-vebstudiyu-v-ukrayini/",
+          "label": "Як вибрати вебстудію в Україні: практичний чек-лист"
+        },
+        {
+          "url": "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
+          "label": "Як замовити сайт і не втратити гроші"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/lending-abo-korporatyvnyj-sajt/",
@@ -177,8 +251,17 @@
         {
           "url": "/stvorennya-landing-page/",
           "label": "Коли достатньо лендінгу"
+        },
+        {
+          "url": "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+          "label": "Який сайт потрібен локальному бізнесу"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+          "label": "Скільки коштує створення сайту у 2026 році"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/skilky-koshtuye-stvorennya-sajtu/",
@@ -193,8 +276,17 @@
         {
           "url": "/kalkulyator-vartosti-saytu/",
           "label": "Порахувати орієнтир самостійно"
+        },
+        {
+          "url": "/blog/chomu-tsiny-na-sajty-vidriznyayutsya/",
+          "label": "Чому ціни на сайти відрізняються у 5–10 разів"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+          "label": "Скільки коштує створення інтернет-магазину"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
@@ -208,13 +300,14 @@
         },
         {
           "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
-          "label": "Що перевірити перед запуском магазину"
+          "label": "Що входить у створення інтернет-магазину під ключ"
         },
         {
           "url": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
-          "label": "Підготовка каталогу одягу: розміри, SKU та залишки"
+          "label": "Як підготувати каталог одягу для інтернет-магазину"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
@@ -228,61 +321,77 @@
         },
         {
           "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
-          "label": "Як рахувати обсяг і вартість"
+          "label": "Скільки коштує створення інтернет-магазину"
         },
         {
           "url": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
-          "label": "Підготовка каталогу одягу: розміри, SKU та залишки"
+          "label": "Як підготувати каталог одягу для інтернет-магазину"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/nextjs-chy-wordpress/",
       "heading": "Від рекомендацій до вашого проєкту",
       "intro": "Для магазину вибір платформи перевіряють на реальному каталозі, оновленні залишків та checkout. Саме назва технології не доводить кращу швидкість чи продажі.",
-      "primary": "/stvorennya-internet-mahazynu/",
+      "primary": "/stvorennya-saytiv/",
       "links": [
         {
-          "url": "/stvorennya-internet-mahazynu/",
-          "label": "Розробка інтернет-магазину"
+          "url": "/stvorennya-saytiv/",
+          "label": "Підібрати платформу під обсяг проєкту"
         },
         {
-          "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
-          "label": "Сценарії приймання ecommerce"
+          "url": "/blog/tehnichne-seo-cheklist/",
+          "label": "Технічне SEO: чекліст перед запуском"
+        },
+        {
+          "url": "/blog/pidtrymka-saytu-pislya-zapusku/",
+          "label": "Підтримка сайту після запуску: план робіт"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/pidtrymka-saytu-pislya-zapusku/",
       "heading": "Від рекомендацій до вашого проєкту",
       "intro": "У магазині супровід охоплює не тільки контент: контролюйте збої платежу, залишки, доставку та відновлення. Обсяг підтримки погоджується окремо від розробки.",
-      "primary": "/stvorennya-internet-mahazynu/",
+      "primary": "/pidtrymka-saytiv/",
       "links": [
         {
-          "url": "/stvorennya-internet-mahazynu/",
-          "label": "Розробка інтернет-магазину"
+          "url": "/pidtrymka-saytiv/",
+          "label": "Підтримка та розвиток після запуску"
         },
         {
-          "url": "/pidtrymka-saytiv/",
-          "label": "Окрема послуга підтримки"
+          "url": "/blog/tehnichne-seo-cheklist/",
+          "label": "Технічне SEO: чекліст перед запуском"
+        },
+        {
+          "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+          "label": "GA4-конверсії для сайту бізнесу"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/struktura-sajtu-dlya-seo/",
       "heading": "Від рекомендацій до вашого проєкту",
       "intro": "Для каталогу розділіть категорії попиту та допоміжні фільтри. Не кожна комбінація розміру, кольору й сортування повинна бути індексованою сторінкою.",
-      "primary": "/stvorennya-internet-mahazynu/",
+      "primary": "/seo-prosuvannya/",
       "links": [
         {
-          "url": "/stvorennya-internet-mahazynu/",
-          "label": "Розробка інтернет-магазину"
+          "url": "/seo-prosuvannya/",
+          "label": "Системна робота над органічним пошуком"
+        },
+        {
+          "url": "/blog/vnutrishnya-perelinkovka/",
+          "label": "Внутрішня перелінковка для SEO"
         },
         {
           "url": "/blog/canonical-url-prostymy-slovamy/",
-          "label": "Як працює canonical"
+          "label": "Canonical URL простими словами"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/sajt-dlya-kliningovoyi-kompaniyi/",
@@ -297,8 +406,17 @@
         {
           "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
           "label": "Замовити сайт для клінінгової компанії"
+        },
+        {
+          "url": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+          "label": "Як сайт допомагає бізнесу отримувати заявки"
+        },
+        {
+          "url": "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+          "label": "Який сайт потрібен локальному бізнесу"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/landing-dlya-google-ads/",
@@ -311,10 +429,15 @@
           "label": "Лендінг під одну пропозицію"
         },
         {
+          "url": "/blog/google-ads-dlya-biznesu/",
+          "label": "Google Ads для бізнесу: коли варто запускати рекламу"
+        },
+        {
           "url": "/blog/ga4-konversiyi-dlya-sajtu/",
-          "label": "Вимірювання звернення після реклами"
+          "label": "GA4-конверсії для сайту бізнесу"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/google-ads-dlya-biznesu/",
@@ -329,8 +452,17 @@
         {
           "url": "/google-ads/",
           "label": "Налаштування та ведення Google Ads"
+        },
+        {
+          "url": "/blog/landing-dlya-google-ads/",
+          "label": "Лендінг для Google Ads: що впливає на заявки"
+        },
+        {
+          "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+          "label": "GA4-конверсії для сайту бізнесу"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/tehnichne-seo-cheklist/",
@@ -345,8 +477,17 @@
         {
           "url": "/tehnichne-seo/",
           "label": "Окремий технічний SEO-аудит"
+        },
+        {
+          "url": "/blog/canonical-url-prostymy-slovamy/",
+          "label": "Canonical URL простими словами"
+        },
+        {
+          "url": "/blog/struktura-sajtu-dlya-seo/",
+          "label": "Структура сайту для SEO: як розподілити запити"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/seo-first-pidhid/",
@@ -361,8 +502,17 @@
         {
           "url": "/portfolio/max-site/",
           "label": "Власний SEO-кейс із відкритим baseline"
+        },
+        {
+          "url": "/blog/struktura-sajtu-dlya-seo/",
+          "label": "Структура сайту для SEO: як розподілити запити"
+        },
+        {
+          "url": "/blog/vnutrishnya-perelinkovka/",
+          "label": "Внутрішня перелінковка для SEO"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/",
@@ -375,10 +525,15 @@
           "label": "SEO-просування сайту"
         },
         {
-          "url": "/blog/tehnichne-seo-cheklist/",
-          "label": "Початкова технічна перевірка"
+          "url": "/blog/seo-first-pidhid/",
+          "label": "SEO-FIRST: чому структура створюється до дизайну"
+        },
+        {
+          "url": "/blog/google-analytics-search-console/",
+          "label": "Навіщо бізнесу Google Analytics і Search Console"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/canonical-url-prostymy-slovamy/",
@@ -391,10 +546,15 @@
           "label": "SEO-просування сайту"
         },
         {
-          "url": "/blog/struktura-sajtu-dlya-seo/",
-          "label": "Структура сторінок за наміром"
+          "url": "/blog/tehnichne-seo-cheklist/",
+          "label": "Технічне SEO: чекліст перед запуском"
+        },
+        {
+          "url": "/blog/redesign-saytu-bez-vtraty-seo/",
+          "label": "Редизайн сайту без втрати SEO"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/vnutrishnya-perelinkovka/",
@@ -409,8 +569,17 @@
         {
           "url": "/portfolio/max-site/",
           "label": "Архітектура MAX SITE на практиці"
+        },
+        {
+          "url": "/blog/struktura-sajtu-dlya-seo/",
+          "label": "Структура сайту для SEO: як розподілити запити"
+        },
+        {
+          "url": "/blog/canonical-url-prostymy-slovamy/",
+          "label": "Canonical URL простими словами"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/redesign-saytu-bez-vtraty-seo/",
@@ -425,8 +594,17 @@
         {
           "url": "/redesign-saytu/",
           "label": "Редизайн зі збереженням структури"
+        },
+        {
+          "url": "/blog/canonical-url-prostymy-slovamy/",
+          "label": "Canonical URL простими словами"
+        },
+        {
+          "url": "/blog/pidtrymka-saytu-pislya-zapusku/",
+          "label": "Підтримка сайту після запуску: план робіт"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/ga4-konversiyi-dlya-sajtu/",
@@ -441,8 +619,17 @@
         {
           "url": "/google-analytics-search-console/",
           "label": "Налаштування аналітики й Search Console"
+        },
+        {
+          "url": "/blog/google-analytics-search-console/",
+          "label": "Навіщо бізнесу Google Analytics і Search Console"
+        },
+        {
+          "url": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+          "label": "Як сайт допомагає бізнесу отримувати заявки"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/google-analytics-search-console/",
@@ -457,8 +644,17 @@
         {
           "url": "/google-analytics-search-console/",
           "label": "Підключення та перевірка вимірювання"
+        },
+        {
+          "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+          "label": "GA4-конверсії для сайту бізнесу"
+        },
+        {
+          "url": "/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/",
+          "label": "Чому сайт без SEO не дає результату"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
@@ -472,13 +668,14 @@
         },
         {
           "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
-          "label": "Що перевіряти в обсязі розробки"
+          "label": "Що входить у створення інтернет-магазину під ключ"
         },
         {
           "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
-          "label": "Як формується кошторис магазину"
+          "label": "Скільки коштує створення інтернет-магазину"
         }
-      ]
+      ],
+      "kind": "article"
     },
     {
       "source": "/blog/analiz-google-stvorennya-sajtiv-kyiv/",
@@ -491,12 +688,296 @@
           "label": "Розробка сайту для київської компанії"
         },
         {
-          "url": "/blog/struktura-sajtu-dlya-seo/",
-          "label": "Як розподіляти запити між сторінками"
+          "url": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+          "label": "Скільки коштує створення сайту у 2026 році"
         },
         {
           "url": "/blog/yak-vybraty-vebstudiyu-v-ukrayini/",
-          "label": "Що перевірити у пропозиції вебстудії"
+          "label": "Як вибрати вебстудію в Україні: практичний чек-лист"
+        }
+      ],
+      "kind": "article"
+    },
+    {
+      "source": "/stvorennya-saytiv/",
+      "kind": "money",
+      "heading": "Оберіть бізнес-сценарій і підготуйте обсяг",
+      "intro": "Для послуг, B2B та роздрібної торгівлі потрібні різні сценарії. Порівняйте галузеві рішення, склад робіт і приклад перевіреного запуску.",
+      "links": [
+        {
+          "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+          "label": "Лендінг і сайт для клінінгової компанії"
+        },
+        {
+          "url": "/nishi/sajt-dlya-b2b-kompaniyi/",
+          "label": "B2B-сайт для компанії"
+        },
+        {
+          "url": "/nishi/sajt-dlya-magazynu/",
+          "label": "Сайт для магазину"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+          "label": "Скільки коштує створення сайту у 2026 році"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
+          "label": "Що входить у сайт під ключ: етапи й межі робіт"
+        },
+        {
+          "url": "/blog/yak-vybraty-vebstudiyu-v-ukrayini/",
+          "label": "Як вибрати вебстудію в Україні: практичний чек-лист"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-kyiv/",
+          "label": "Створення сайтів у Києві під ключ"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-cherkasy/",
+          "label": "Створення сайтів у Черкасах для бізнесу"
+        },
+        {
+          "url": "/portfolio/max-site/",
+          "label": "MAX SITE"
+        }
+      ]
+    },
+    {
+      "source": "/stvorennya-saytu-dlya-biznesu/",
+      "kind": "money",
+      "heading": "Від бізнес-процесу до структури сайту",
+      "intro": "Виробнику, логістичній та B2B-компанії важливо пояснити компетенції й маршрут запиту. Ці приклади допоможуть сформувати бриф та відповідальність за звернення.",
+      "links": [
+        {
+          "url": "/nishi/sajt-dlya-b2b-kompaniyi/",
+          "label": "B2B-сайт для компанії"
+        },
+        {
+          "url": "/nishi/sajt-dlya-vyrobnytstva/",
+          "label": "Сайт для виробництва"
+        },
+        {
+          "url": "/nishi/sajt-dlya-logistychnoyi-kompaniyi/",
+          "label": "Сайт для логістичної компанії"
+        },
+        {
+          "url": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
+          "label": "Як підготувати бриф на створення сайту"
+        },
+        {
+          "url": "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+          "label": "Як підготувати бізнес до запуску сайту"
+        },
+        {
+          "url": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+          "label": "Як сайт допомагає бізнесу отримувати заявки"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-kyiv/",
+          "label": "Створення сайтів у Києві під ключ"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-cherkasy/",
+          "label": "Створення сайтів у Черкасах для бізнесу"
+        },
+        {
+          "url": "/portfolio/formula-chystoty/",
+          "label": "Формула Чистоти"
+        }
+      ]
+    },
+    {
+      "source": "/sajty-dlya-poslug/",
+      "kind": "money",
+      "heading": "Послуги, географія й шлях заявки",
+      "intro": "Перевірте, які докази та поля заявки потрібні саме вашій послузі. Нішеві приклади й вимірювання звернень допоможуть погодити критерії приймання.",
+      "links": [
+        {
+          "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+          "label": "Лендінг і сайт для клінінгової компанії"
+        },
+        {
+          "url": "/nishi/sajt-dlya-dezinfekciyi/",
+          "label": "Сайт для дезінфекції"
+        },
+        {
+          "url": "/nishi/sajt-dlya-remontnyh-poslug/",
+          "label": "Сайт для ремонтних послуг"
+        },
+        {
+          "url": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+          "label": "Як сайт допомагає бізнесу отримувати заявки"
+        },
+        {
+          "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+          "label": "GA4-конверсії для сайту бізнесу"
+        },
+        {
+          "url": "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+          "label": "Який сайт потрібен локальному бізнесу"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-kyiv/",
+          "label": "Створення сайтів у Києві під ключ"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-cherkasy/",
+          "label": "Створення сайтів у Черкасах для бізнесу"
+        },
+        {
+          "url": "/portfolio/fo-dez/",
+          "label": "FO-DEZ"
+        }
+      ]
+    },
+    {
+      "source": "/stvorennya-landing-page/",
+      "kind": "money",
+      "heading": "Підготуйте пропозицію для лендінгу",
+      "intro": "Навчальний продукт, експертна послуга та клінінг потребують різних доказів, але кожна рекламна сторінка має вести до зрозумілої дії.",
+      "links": [
+        {
+          "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+          "label": "Лендінг і сайт для клінінгової компанії"
+        },
+        {
+          "url": "/nishi/sajt-dlya-eksperta/",
+          "label": "Сайт для експерта"
+        },
+        {
+          "url": "/nishi/sajt-dlya-kursiv/",
+          "label": "Сайт для курсів"
+        },
+        {
+          "url": "/blog/landing-dlya-google-ads/",
+          "label": "Лендінг для Google Ads: що впливає на заявки"
+        },
+        {
+          "url": "/blog/lending-abo-korporatyvnyj-sajt/",
+          "label": "Landing Page чи корпоративний сайт: що обрати"
+        },
+        {
+          "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+          "label": "GA4-конверсії для сайту бізнесу"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-kyiv/",
+          "label": "Створення сайтів у Києві під ключ"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-lviv/",
+          "label": "Створення сайтів у Львові для бізнесу"
+        },
+        {
+          "url": "/portfolio/formula-chystoty/",
+          "label": "Формула Чистоти"
+        }
+      ]
+    },
+    {
+      "source": "/stvorennya-internet-mahazynu/",
+      "kind": "money",
+      "heading": "Каталог, операції й перевірка замовлення",
+      "intro": "Порівняйте роздрібний магазин, меблевий каталог і B2B-сценарій. Власний кейс MAX SITE показує процедуру QA, а не заявлений досвід запуску клієнтського ecommerce.",
+      "links": [
+        {
+          "url": "/nishi/sajt-dlya-magazynu/",
+          "label": "Сайт для магазину"
+        },
+        {
+          "url": "/nishi/sajt-dlya-meblevoyi-kompaniyi/",
+          "label": "Сайт для меблевої компанії"
+        },
+        {
+          "url": "/nishi/sajt-dlya-b2b-kompaniyi/",
+          "label": "B2B-сайт для компанії"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+          "label": "Скільки коштує створення інтернет-магазину"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+          "label": "Що входить у створення інтернет-магазину під ключ"
+        },
+        {
+          "url": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
+          "label": "Як підготувати каталог одягу для інтернет-магазину"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-kyiv/",
+          "label": "Створення сайтів у Києві під ключ"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-dnipro/",
+          "label": "Створення сайтів у Дніпрі для бізнесу"
+        },
+        {
+          "url": "/portfolio/max-site/",
+          "label": "MAX SITE"
+        }
+      ]
+    },
+    {
+      "source": "/portfolio/formula-chystoty/",
+      "kind": "case",
+      "primary": "/sajty-dlya-poslug/",
+      "heading": "Застосувати підхід у вашому проєкті",
+      "intro": "Відкрийте відповідний напрям, звірте галузеві вимоги й опишіть завдання для предметної оцінки.",
+      "links": [
+        {
+          "url": "/sajty-dlya-poslug/",
+          "label": "Сайт для послуг"
+        },
+        {
+          "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+          "label": "Лендінг і сайт для клінінгової компанії"
+        },
+        {
+          "url": "/kontakty/",
+          "label": "Контакти MAX SITE"
+        }
+      ]
+    },
+    {
+      "source": "/portfolio/fo-dez/",
+      "kind": "case",
+      "primary": "/sajty-dlya-poslug/",
+      "heading": "Застосувати підхід у вашому проєкті",
+      "intro": "Відкрийте відповідний напрям, звірте галузеві вимоги й опишіть завдання для предметної оцінки.",
+      "links": [
+        {
+          "url": "/sajty-dlya-poslug/",
+          "label": "Сайт для послуг"
+        },
+        {
+          "url": "/nishi/sajt-dlya-dezinfekciyi/",
+          "label": "Сайт для дезінфекції"
+        },
+        {
+          "url": "/kontakty/",
+          "label": "Контакти MAX SITE"
+        }
+      ]
+    },
+    {
+      "source": "/portfolio/max-site/",
+      "kind": "case",
+      "primary": "/stvorennya-saytiv/",
+      "heading": "Застосувати підхід у вашому проєкті",
+      "intro": "Відкрийте відповідний напрям, звірте галузеві вимоги й опишіть завдання для предметної оцінки.",
+      "links": [
+        {
+          "url": "/stvorennya-saytiv/",
+          "label": "Створення сайтів під ключ для бізнесу в Україні"
+        },
+        {
+          "url": "/nishi/sajt-dlya-b2b-kompaniyi/",
+          "label": "B2B-сайт для компанії"
+        },
+        {
+          "url": "/kontakty/",
+          "label": "Контакти MAX SITE"
         }
       ]
     }

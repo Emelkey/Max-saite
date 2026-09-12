@@ -15,6 +15,13 @@ const pages={
   city:'/mista/stvorennya-sajtiv-kyiv/',
   case:'/portfolio/formula-chystoty/',
   blog:'/blog/skilky-koshtuye-stvorennya-sajtu/',
+  priceTable:'/blog/skilky-koshtuye-stvorennya-sajtu/#studio-price-table',
+  nicheB2b:'/nishi/sajt-dlya-b2b-kompaniyi/',
+  nicheClinic:'/nishi/sajt-dlya-stomatologiyi/',
+  research:'/blog/skilky-koshtuye-stvorennya-sajtu/#doslidzhennya-50-studiy',
+  platforms:'/blog/nextjs-chy-wordpress/#vlasni-vymiry-platform',
+  experiment:'/blog/tehnichne-seo-cheklist/#maxsite-technical-experiment',
+  gsc:'/portfolio/max-site/#gsc-daily-chart',
   niche:'/nishi/sajt-dlya-magazynu/',
   resources:'/qa-checklist/',
   calculator:'/qa-checklist/#budget-estimator'
@@ -39,6 +46,8 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
           const necessary=page.getByRole('button',{name:'Лише необхідні',exact:true});
           if(await necessary.count()) await necessary.click();
           await page.waitForTimeout(1200);
+          const geometry=await page.evaluate(()=>({width:innerWidth,bodyWidth:document.documentElement.scrollWidth,h1:document.querySelectorAll('h1').length}));
+          if(geometry.bodyWidth>geometry.width+2||geometry.h1!==1)throw Error(`Layout/H1 failure ${name} ${mode}: ${JSON.stringify(geometry)}`);
           await page.screenshot({path:path.join(outDir,`${name}-${mode}.jpg`),type:'jpeg',quality:88,fullPage:false});
           await context.close();
         }

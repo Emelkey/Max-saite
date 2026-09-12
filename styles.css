@@ -1249,7 +1249,7 @@ p {
 }
 
 .shot-header span {
-  color: rgba(17, 24, 39, 0.55);
+  color: #505b69;
 }
 
 .shot-hero {
@@ -1269,7 +1269,7 @@ p {
 }
 
 .shot-copy small {
-  color: #0a8f3b;
+  color: #087332;
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -2683,3 +2683,10 @@ p {
 /* Native fragment navigation must leave the destination clear of the sticky header. */
 main [id] { scroll-margin-top: 110px; }
 #budget-estimator > h2, #project-resources > h2 { font-size: clamp(24px, 3vw, 36px); line-height: 1.25; text-transform: none; letter-spacing: -0.02em; }
+
+/* Long research tables remain readable and keyboard-scrollable on phones. */
+#doslidzhennya-50-studiy table, #kyiv-budget-evidence table { min-width: 680px; width: 100%; border-collapse: collapse; }
+#doslidzhennya-50-studiy th, #doslidzhennya-50-studiy td, #kyiv-budget-evidence th, #kyiv-budget-evidence td { padding: 14px; border-bottom: 1px solid rgba(255,255,255,.16); vertical-align: top; text-align: left; line-height: 1.55; }
+#doslidzhennya-50-studiy th:first-child { min-width: 145px; }
+
+@media (max-width: 480px) { .niche-scenario-hero h1 { font-size: clamp(26px,7vw,32px); overflow-wrap: normal; } }

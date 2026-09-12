@@ -83,7 +83,10 @@
       "cluster": "city-kyiv",
       "url": "/mista/stvorennya-sajtiv-kyiv/",
       "primary": "створення сайтів у Києві",
-      "secondary": [],
+      "secondary": [
+        "замовити сайт у Києві",
+        "розробка сайту у Києві"
+      ],
       "intent": "Remote project delivery for businesses in Києві; no fabricated local office",
       "newUrlAllowed": false
     },
@@ -91,7 +94,10 @@
       "cluster": "city-lviv",
       "url": "/mista/stvorennya-sajtiv-lviv/",
       "primary": "створення сайтів у Львові",
-      "secondary": [],
+      "secondary": [
+        "замовити сайт у Львові",
+        "розробка сайту у Львові"
+      ],
       "intent": "Remote project delivery for businesses in Львові; no fabricated local office",
       "newUrlAllowed": false
     },
@@ -99,7 +105,10 @@
       "cluster": "city-odesa",
       "url": "/mista/stvorennya-sajtiv-odesa/",
       "primary": "створення сайтів у Одесі",
-      "secondary": [],
+      "secondary": [
+        "замовити сайт у Одесі",
+        "розробка сайту у Одесі"
+      ],
       "intent": "Remote project delivery for businesses in Одесі; no fabricated local office",
       "newUrlAllowed": false
     },
@@ -107,7 +116,10 @@
       "cluster": "city-dnipro",
       "url": "/mista/stvorennya-sajtiv-dnipro/",
       "primary": "створення сайтів у Дніпрі",
-      "secondary": [],
+      "secondary": [
+        "замовити сайт у Дніпрі",
+        "розробка сайту у Дніпрі"
+      ],
       "intent": "Remote project delivery for businesses in Дніпрі; no fabricated local office",
       "newUrlAllowed": false
     },
@@ -115,7 +127,10 @@
       "cluster": "city-kharkiv",
       "url": "/mista/stvorennya-sajtiv-kharkiv/",
       "primary": "створення сайтів у Харкові",
-      "secondary": [],
+      "secondary": [
+        "замовити сайт у Харкові",
+        "розробка сайту у Харкові"
+      ],
       "intent": "Remote project delivery for businesses in Харкові; no fabricated local office",
       "newUrlAllowed": false
     },
@@ -123,7 +138,10 @@
       "cluster": "city-cherkasy",
       "url": "/mista/stvorennya-sajtiv-cherkasy/",
       "primary": "створення сайтів у Черкасах",
-      "secondary": [],
+      "secondary": [
+        "замовити сайт у Черкасах",
+        "розробка сайту у Черкасах"
+      ],
       "intent": "Remote project delivery for businesses in Черкасах; no fabricated local office",
       "newUrlAllowed": false
     },

@@ -12,7 +12,8 @@ test('substantively reviewed articles align visible date, schema and sitemap',()
     const html=fs.readFileSync(path.join(root,'blog',entry.name,'index.html'),'utf8');
     if(!html.includes('data-master4-editorial'))continue;
     reviewed++;
-    const date=html.match(/data-master4-editorial[\s\S]*?<time\b[^>]*datetime="([^"]+)"/)[1];
+    const date=require('../../tools/lib/editorial-date').editorialDate(html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1]);
+    assert.match(date,/^\d{4}-\d{2}-\d{2}$/);
     const graph=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     const article=graph['@graph'].find(node=>[].concat(node['@type']).includes('Article'));
     assert.equal(article.dateModified,date,entry.name);

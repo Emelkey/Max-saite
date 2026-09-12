@@ -15,6 +15,10 @@ const pageFiles = [
   'mista/stvorennya-sajtiv-dnipro/index.html', 'mista/stvorennya-sajtiv-kharkiv/index.html',
   'blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/index.html',
   'blog/analiz-google-stvorennya-sajtiv-kyiv/index.html', 'qa-checklist/index.html',
+  'blog/skilky-koshtuye-stvorennya-sajtu/index.html', 'blog/nextjs-chy-wordpress/index.html',
+  'blog/tehnichne-seo-cheklist/index.html', 'blog/redesign-saytu-bez-vtraty-seo/index.html',
+  'sajty-dlya-poslug/index.html', 'portfolio/max-site/index.html',
+  'portfolio/formula-chystoty/index.html', 'portfolio/fo-dez/index.html',
 ];
 const SITEMAPS = ['sitemap-services.xml', 'sitemap-cities.xml', 'sitemap-niches.xml', 'sitemap-cases.xml', 'sitemap-blog.xml'];
 const RELEASE_FILES = [
@@ -28,6 +32,13 @@ const RELEASE_FILES = [
     'assets/downloads/top1/city-page-evidence-gate.md',
     'assets/downloads/top1/seo-release-observation-log.md',
     'assets/downloads/top1/kyiv-organic-serp-2026-09-12.json',
+    'assets/downloads/top1/studios-pricing-2026-09-12.json',
+    'assets/downloads/top1/studios-pricing-2026-09-12.csv',
+    'assets/downloads/top1/platform-lab-2026-09-12.json',
+    'assets/downloads/top1/head-order-lab-2026-09-12.json',
+    'assets/downloads/top1/maxsite-remote-lab-2026-09-12.json',
+    'assets/downloads/top1/maxsite-gsc-baseline-2026-09-09.svg',
+    'assets/downloads/top1/maxsite-gsc-daily-2026-09-09.csv',
     'assets/responsive/founder-max-site-v2-480.avif',
     'assets/responsive/service-program-development-480.webp'].map(file => ({ file, route: '/' + file, page: false })),
 ];
