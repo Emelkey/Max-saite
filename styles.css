@@ -2690,3 +2690,9 @@ main [id] { scroll-margin-top: 110px; }
 #doslidzhennya-50-studiy th:first-child { min-width: 145px; }
 
 @media (max-width: 480px) { .niche-scenario-hero h1 { font-size: clamp(26px,7vw,32px); overflow-wrap: normal; } }
+@media (max-width: 480px) {
+  :is(#contract-acceptance, #kyiv-budget-evidence, #vlasni-vymiry-platform, #maxsite-technical-experiment, #doslidzhennya-50-studiy, #gsc-daily-chart, #measured-mobile-baseline) > h2 {
+    font-size: clamp(24px, 7vw, 32px);
+    overflow-wrap: normal;
+  }
+}
