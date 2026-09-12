@@ -10,6 +10,11 @@ const pageFiles = [
   'stvorennya-program/index.html', 'stvorennya-landing-page/index.html',
   'stvorennya-korporatyvnoho-saytu/index.html', 'stvorennya-internet-mahazynu/index.html',
   'seo-prosuvannya/index.html', 'seo-sajt-pid-google/index.html', 'kalkulyator-vartosti-saytu/index.html',
+  'mista/stvorennya-sajtiv-kyiv/index.html', 'mista/stvorennya-sajtiv-cherkasy/index.html',
+  'mista/stvorennya-sajtiv-lviv/index.html', 'mista/stvorennya-sajtiv-odesa/index.html',
+  'mista/stvorennya-sajtiv-dnipro/index.html', 'mista/stvorennya-sajtiv-kharkiv/index.html',
+  'blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/index.html',
+  'blog/analiz-google-stvorennya-sajtiv-kyiv/index.html', 'qa-checklist/index.html',
 ];
 const SITEMAPS = ['sitemap-services.xml', 'sitemap-cities.xml', 'sitemap-niches.xml', 'sitemap-cases.xml', 'sitemap-blog.xml'];
 const RELEASE_FILES = [
@@ -17,6 +22,12 @@ const RELEASE_FILES = [
   ...['robots.txt', 'sitemap.xml', ...SITEMAPS, 'styles.css', 'script.js',
     'assets/consent.js', 'assets/analytics-config.js', 'assets/telegram-config.js',
     'assets/site-cost-calculator.js', 'assets/logo-full-dark.svg',
+    'assets/downloads/top1/ecommerce-checkout-qa.md',
+    'assets/downloads/top1/service-lead-acceptance.md',
+    'assets/downloads/top1/seo-intent-owner-template.md',
+    'assets/downloads/top1/city-page-evidence-gate.md',
+    'assets/downloads/top1/seo-release-observation-log.md',
+    'assets/downloads/top1/kyiv-organic-serp-2026-09-12.json',
     'assets/responsive/founder-max-site-v2-480.avif',
     'assets/responsive/service-program-development-480.webp'].map(file => ({ file, route: '/' + file, page: false })),
 ];

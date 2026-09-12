@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { editorialBody } = require('./lib/editorial-body');
+const { hasLegacyHostingReference } = require('./lib/legacy-hosting');
 
 const args = process.argv.slice(2);
 const getOption = (name) => {
@@ -198,7 +199,7 @@ for (const file of collectHtml(root)) {
   const googleTagCount = (html.match(/googletagmanager\.com\/gtag\/js\?id=/g) || []).length;
   const routeUrl = `${publicBase}${fileRoute(file)}`;
 
-  if (/https:\/\/emelkey\.github\.io\/Max-saite|https:\/\/maxsite\.ua|\/Max-saite\//.test(html)) {
+  if (hasLegacyHostingReference(html)) {
     errors.push(`Legacy domain or GitHub Pages base found: ${route}`);
   }
   if (googleTagCount !== 1) errors.push(`Expected one Google tag, found ${googleTagCount}: ${route}`);

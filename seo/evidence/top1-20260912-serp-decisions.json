@@ -1,0 +1,136 @@
+{
+  "source": "top1-20260912-organic-serp.json",
+  "normalization": "Drop query/fragment, www and trailing slash. Do not collapse different paths on one domain.",
+  "overlap": "Shared normalized URLs divided by 10; absent results remain missing, not fabricated. Single snapshot is not proof of temporal stability.",
+  "decisions": [
+    {
+      "city": "київ",
+      "queries": [
+        "створення сайтів київ",
+        "замовити сайт київ"
+      ],
+      "counts": [
+        10,
+        9
+      ],
+      "sharedUrls": [
+        "https://barbarys.com.ua/blog/stvorennya-sajtiv-kyyiv",
+        "https://megasite.ua/ua/kiev",
+        "https://thedc.studio/rozrobka-saitiv-u-kyievi",
+        "https://webcase.com.ua/uk/sozdanie-sajtov-kiev",
+        "https://wezom.com.ua/ua/razrabotka_sajtov"
+      ],
+      "conservativeTop10Overlap": 0.5,
+      "decision": "RETAIN_EXISTING_OWNER_NO_NEW_SYNONYM_URL",
+      "reason": "Shared commercial intent; existing city page has distinct editorial value. Single country-level observation supports retaining current owners, not geographic expansion."
+    },
+    {
+      "city": "львів",
+      "queries": [
+        "створення сайтів львів",
+        "замовити сайт львів"
+      ],
+      "counts": [
+        10,
+        9
+      ],
+      "sharedUrls": [
+        "https://brainlab.com.ua/uk/stvorennya-sajtu-u-lvovi",
+        "https://krylovcompany.com.ua/service/rozrobka-saytiv",
+        "https://redstone.agency",
+        "https://webartix.com.ua/rozrobka-saitiv-lviv",
+        "https://webera.com.ua",
+        "https://webetalon.com.ua"
+      ],
+      "conservativeTop10Overlap": 0.6,
+      "decision": "RETAIN_EXISTING_OWNER_NO_NEW_SYNONYM_URL",
+      "reason": "Shared commercial intent; existing city page has distinct editorial value. Single country-level observation supports retaining current owners, not geographic expansion."
+    },
+    {
+      "city": "одеса",
+      "queries": [
+        "створення сайтів одеса",
+        "замовити сайт одеса"
+      ],
+      "counts": [
+        10,
+        9
+      ],
+      "sharedUrls": [
+        "https://g-one.com.ua/rozrobka-sajtiv-po-vsij-ukrayini/odesa",
+        "https://ifish.com.ua/ua/poslugi/sajt-odesa",
+        "https://mart.com.ua/uk",
+        "https://megasite.ua/ua/odessa",
+        "https://sprava.ua/sprava-in-odessa",
+        "https://thedc.studio/rozrobka-saitiv-odesa"
+      ],
+      "conservativeTop10Overlap": 0.6,
+      "decision": "RETAIN_EXISTING_OWNER_NO_NEW_SYNONYM_URL",
+      "reason": "Shared commercial intent; existing city page has distinct editorial value. Single country-level observation supports retaining current owners, not geographic expansion."
+    },
+    {
+      "city": "дніпро",
+      "queries": [
+        "створення сайтів дніпро",
+        "замовити сайт дніпро"
+      ],
+      "counts": [
+        10,
+        9
+      ],
+      "sharedUrls": [
+        "https://attico.dp.ua/ua",
+        "https://creative-power.in.ua/index.php/uk/website-development-dnipro",
+        "https://sprava.ua/sprava-in-dnipro",
+        "https://web-art.dp.ua",
+        "https://webosnova.com/rozrobka-saytiv-dnipro",
+        "https://xn----7sbbaqhlkm9ah9aiq.net/ua/sozdanie-saytov-ukraine/rozrobka-saytu-dnipro"
+      ],
+      "conservativeTop10Overlap": 0.6,
+      "decision": "RETAIN_EXISTING_OWNER_NO_NEW_SYNONYM_URL",
+      "reason": "Shared commercial intent; existing city page has distinct editorial value. Single country-level observation supports retaining current owners, not geographic expansion."
+    },
+    {
+      "city": "харків",
+      "queries": [
+        "створення сайтів харків",
+        "замовити сайт харків"
+      ],
+      "counts": [
+        10,
+        9
+      ],
+      "sharedUrls": [
+        "https://apsite.in.ua/ua/stvorennya-saytiv",
+        "https://brainlab.com.ua/uk/stvorennya-sajtu-u-harkovi",
+        "https://kabanchik.ua/ua/kharkiv/category/stvorennia-saitiv/page/4",
+        "https://webosnova.com/rozrobka-sayta-kharkiv",
+        "https://xn----7sbbaqhlkm9ah9aiq.net/ua/sozdanie-saytov-ukraine/rozrobka-saytu-kharkiv"
+      ],
+      "conservativeTop10Overlap": 0.5,
+      "decision": "RETAIN_EXISTING_OWNER_NO_NEW_SYNONYM_URL",
+      "reason": "Shared commercial intent; existing city page has distinct editorial value. Single country-level observation supports retaining current owners, not geographic expansion."
+    },
+    {
+      "city": "черкаси",
+      "queries": [
+        "створення сайтів черкаси",
+        "замовити сайт черкаси"
+      ],
+      "counts": [
+        9,
+        9
+      ],
+      "sharedUrls": [
+        "https://boinstudio.com/stvorennya-sajtiv-cherkasy",
+        "https://rubik.com.ua/cherkasy",
+        "https://seo-tiko.com/site-creation/cherk",
+        "https://webcase.com.ua/uk/sozdanie-sajtov-cherkassy",
+        "https://webmaestro.com.ua/ua/rozrobka-sajtiv-cherkasy"
+      ],
+      "conservativeTop10Overlap": 0.5,
+      "decision": "RETAIN_EXISTING_OWNER_NO_NEW_SYNONYM_URL",
+      "reason": "Shared commercial intent; existing city page has distinct editorial value. Single country-level observation supports retaining current owners, not geographic expansion."
+    }
+  ]
+}

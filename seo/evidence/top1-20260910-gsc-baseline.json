@@ -1,0 +1,4231 @@
+{
+  "capturedAt": "2026-09-10",
+  "siteUrl": "https://maxsite.com.ua/",
+  "source": "Authenticated Google Search Console API via GSC Wizard",
+  "sourceRevision": "0a1baa5a7b6d35e9ce8ac9ff59e3e9356300edcd",
+  "notes": [
+    "Fixed PDF comparison window is 2026-08-11 to 2026-09-07; freshest settled 28-day window is 2026-08-12 to 2026-09-08.",
+    "Connector ctr is percentage (0–100), not a fraction.",
+    "Daily/property grain is authoritative for totals. Page and query-page impression sums are not property totals; anonymized queries may be omitted.",
+    "A query with multiple URLs is an overlap signal, not proof of a penalty.",
+    "Search data is not leads, phone calls, or revenue. GA4 scope unavailable; conversions are unknown, not zero."
+  ],
+  "quality": {
+    "daily": {
+      "rows": 28,
+      "uniqueKeys": 28,
+      "clicks": 1,
+      "impressions": 2057,
+      "ctrPercent": 0.04861448711716091,
+      "impressionWeightedPosition": 65.311618862421,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    },
+    "pages": {
+      "rows": 62,
+      "uniqueKeys": 62,
+      "clicks": 1,
+      "impressions": 2476,
+      "ctrPercent": 0.04038772213247173,
+      "impressionWeightedPosition": 56.79402261712439,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    },
+    "query_pages": {
+      "rows": 104,
+      "uniqueKeys": 104,
+      "clicks": 0,
+      "impressions": 1700,
+      "ctrPercent": 0,
+      "impressionWeightedPosition": 69.95470588235294,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    },
+    "queries": {
+      "rows": 98,
+      "uniqueKeys": 98,
+      "clicks": 0,
+      "impressions": 1650,
+      "ctrPercent": 0,
+      "impressionWeightedPosition": 69.46848484848485,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    },
+    "fresh_daily": {
+      "rows": 28,
+      "uniqueKeys": 28,
+      "clicks": 1,
+      "impressions": 2113,
+      "ctrPercent": 0.047326076668244205,
+      "impressionWeightedPosition": 65.649787032655,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    },
+    "fresh_pages": {
+      "rows": 62,
+      "uniqueKeys": 62,
+      "clicks": 1,
+      "impressions": 2532,
+      "ctrPercent": 0.03949447077409163,
+      "impressionWeightedPosition": 57.26461295418641,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    },
+    "devices": {
+      "rows": 2,
+      "uniqueKeys": 2,
+      "clicks": 1,
+      "impressions": 2057,
+      "ctrPercent": 0.04861448711716091,
+      "impressionWeightedPosition": 65.311618862421,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    },
+    "countries": {
+      "rows": 32,
+      "uniqueKeys": 32,
+      "clicks": 1,
+      "impressions": 2057,
+      "ctrPercent": 0.04861448711716091,
+      "impressionWeightedPosition": 65.311618862421,
+      "completePagination": true,
+      "invalidRows": 0,
+      "ctrUnitErrors": 0
+    }
+  },
+  "availability": {
+    "ga4": {
+      "connected": false,
+      "reason": "Analytics OAuth scope is not available in this connector"
+    },
+    "crux": {
+      "available": false,
+      "reason": "CrUX API key is not configured"
+    },
+    "existingAnnotations": {
+      "annotations": []
+    }
+  },
+  "datasets": {
+    "daily": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-11",
+      "endDate": "2026-09-07",
+      "dimensions": [
+        "date"
+      ],
+      "searchType": "web",
+      "rowCount": 28,
+      "rows": [
+        {
+          "keys": [
+            "2026-08-11"
+          ],
+          "clicks": 0,
+          "impressions": 28,
+          "ctr": 0,
+          "position": 64.46428571428572
+        },
+        {
+          "keys": [
+            "2026-08-12"
+          ],
+          "clicks": 0,
+          "impressions": 119,
+          "ctr": 0,
+          "position": 64.30252100840336
+        },
+        {
+          "keys": [
+            "2026-08-13"
+          ],
+          "clicks": 0,
+          "impressions": 59,
+          "ctr": 0,
+          "position": 59.45762711864407
+        },
+        {
+          "keys": [
+            "2026-08-14"
+          ],
+          "clicks": 0,
+          "impressions": 60,
+          "ctr": 0,
+          "position": 65.85
+        },
+        {
+          "keys": [
+            "2026-08-15"
+          ],
+          "clicks": 0,
+          "impressions": 36,
+          "ctr": 0,
+          "position": 60.666666666666664
+        },
+        {
+          "keys": [
+            "2026-08-16"
+          ],
+          "clicks": 0,
+          "impressions": 52,
+          "ctr": 0,
+          "position": 64.01923076923077
+        },
+        {
+          "keys": [
+            "2026-08-17"
+          ],
+          "clicks": 0,
+          "impressions": 148,
+          "ctr": 0,
+          "position": 66.22297297297297
+        },
+        {
+          "keys": [
+            "2026-08-18"
+          ],
+          "clicks": 0,
+          "impressions": 49,
+          "ctr": 0,
+          "position": 71.9795918367347
+        },
+        {
+          "keys": [
+            "2026-08-19"
+          ],
+          "clicks": 0,
+          "impressions": 110,
+          "ctr": 0,
+          "position": 70.00909090909092
+        },
+        {
+          "keys": [
+            "2026-08-20"
+          ],
+          "clicks": 0,
+          "impressions": 38,
+          "ctr": 0,
+          "position": 68.8157894736842
+        },
+        {
+          "keys": [
+            "2026-08-21"
+          ],
+          "clicks": 1,
+          "impressions": 46,
+          "ctr": 2.1739130434782608,
+          "position": 63.69565217391305
+        },
+        {
+          "keys": [
+            "2026-08-22"
+          ],
+          "clicks": 0,
+          "impressions": 44,
+          "ctr": 0,
+          "position": 70.0909090909091
+        },
+        {
+          "keys": [
+            "2026-08-23"
+          ],
+          "clicks": 0,
+          "impressions": 58,
+          "ctr": 0,
+          "position": 67.62068965517241
+        },
+        {
+          "keys": [
+            "2026-08-24"
+          ],
+          "clicks": 0,
+          "impressions": 119,
+          "ctr": 0,
+          "position": 78.21008403361344
+        },
+        {
+          "keys": [
+            "2026-08-25"
+          ],
+          "clicks": 0,
+          "impressions": 80,
+          "ctr": 0,
+          "position": 80.5125
+        },
+        {
+          "keys": [
+            "2026-08-26"
+          ],
+          "clicks": 0,
+          "impressions": 110,
+          "ctr": 0,
+          "position": 72.10909090909091
+        },
+        {
+          "keys": [
+            "2026-08-27"
+          ],
+          "clicks": 0,
+          "impressions": 140,
+          "ctr": 0,
+          "position": 72.8
+        },
+        {
+          "keys": [
+            "2026-08-28"
+          ],
+          "clicks": 0,
+          "impressions": 112,
+          "ctr": 0,
+          "position": 40.69642857142857
+        },
+        {
+          "keys": [
+            "2026-08-29"
+          ],
+          "clicks": 0,
+          "impressions": 42,
+          "ctr": 0,
+          "position": 54.666666666666664
+        },
+        {
+          "keys": [
+            "2026-08-30"
+          ],
+          "clicks": 0,
+          "impressions": 44,
+          "ctr": 0,
+          "position": 67.02272727272727
+        },
+        {
+          "keys": [
+            "2026-08-31"
+          ],
+          "clicks": 0,
+          "impressions": 142,
+          "ctr": 0,
+          "position": 65.35211267605634
+        },
+        {
+          "keys": [
+            "2026-09-01"
+          ],
+          "clicks": 0,
+          "impressions": 90,
+          "ctr": 0,
+          "position": 37.766666666666666
+        },
+        {
+          "keys": [
+            "2026-09-02"
+          ],
+          "clicks": 0,
+          "impressions": 77,
+          "ctr": 0,
+          "position": 67.79220779220779
+        },
+        {
+          "keys": [
+            "2026-09-03"
+          ],
+          "clicks": 0,
+          "impressions": 55,
+          "ctr": 0,
+          "position": 75.38181818181818
+        },
+        {
+          "keys": [
+            "2026-09-04"
+          ],
+          "clicks": 0,
+          "impressions": 47,
+          "ctr": 0,
+          "position": 72.27659574468085
+        },
+        {
+          "keys": [
+            "2026-09-05"
+          ],
+          "clicks": 0,
+          "impressions": 20,
+          "ctr": 0,
+          "position": 70.15
+        },
+        {
+          "keys": [
+            "2026-09-06"
+          ],
+          "clicks": 0,
+          "impressions": 62,
+          "ctr": 0,
+          "position": 57.75806451612903
+        },
+        {
+          "keys": [
+            "2026-09-07"
+          ],
+          "clicks": 0,
+          "impressions": 70,
+          "ctr": 0,
+          "position": 60.51428571428571
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 28,
+        "hasMore": false,
+        "note": "Showing all 28 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    },
+    "pages": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-11",
+      "endDate": "2026-09-07",
+      "dimensions": [
+        "page"
+      ],
+      "searchType": "web",
+      "rowCount": 62,
+      "rows": [
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 1,
+          "impressions": 229,
+          "ctr": 0.43668122270742354,
+          "position": 57.19650655021834
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/"
+          ],
+          "clicks": 0,
+          "impressions": 236,
+          "ctr": 0,
+          "position": 46.88559322033898
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/"
+          ],
+          "clicks": 0,
+          "impressions": 15,
+          "ctr": 0,
+          "position": 5.733333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/canonical-url-prostymy-slovamy/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 10
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/ga4-konversiyi-dlya-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 4
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/landing-dlya-google-ads/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 6.666666666666667
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/lending-abo-korporatyvnyj-sajt/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 56.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/nextjs-chy-wordpress/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/pidtrymka-saytu-pislya-zapusku/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 7.2
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/redesign-saytu-bez-vtraty-seo/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/seo-first-pidhid/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 14.333333333333334
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 3.857142857142857
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 106,
+          "ctr": 0,
+          "position": 87.69811320754717
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 5.25
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/struktura-sajtu-dlya-seo/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 6.75
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/tehnichne-seo-cheklist/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 1.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/vnutrishnya-perelinkovka/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 16.583333333333336
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 7.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-pidgotuvaty-bryf-na-sajt/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-vybraty-rozrobnyka-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 1.6666666666666665
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/google-ads/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 38.6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/google-analytics-search-console/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 32
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/kontakty/"
+          ],
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 10.11111111111111
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/"
+          ],
+          "clicks": 0,
+          "impressions": 52,
+          "ctr": 0,
+          "position": 2.3269230769230766
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 151,
+          "ctr": 0,
+          "position": 46.89403973509934
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 595,
+          "ctr": 0,
+          "position": 74.39663865546218
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-ukrayina/"
+          ],
+          "clicks": 0,
+          "impressions": 24,
+          "ctr": 0,
+          "position": 4.708333333333334
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 16.083333333333336
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-avtoservisu/"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 20.181818181818183
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-budivelnoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 16,
+          "ctr": 0,
+          "position": 21.3125
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-dezinfekciyi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 8
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-eksperta/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 56,
+          "ctr": 0,
+          "position": 13.785714285714286
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-kursiv/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 8
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-lokalnogo-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 5.333333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 5.444444444444445
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 47,
+          "ctr": 0,
+          "position": 66.59574468085107
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/"
+          ],
+          "clicks": 0,
+          "impressions": 22,
+          "ctr": 0,
+          "position": 41.40909090909091
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 32.285714285714285
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-vyrobnytstva/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 5.833333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 81.33333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/polityka-konfidentsijnosti/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 6.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/portfolio/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 15
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/portfolio/fo-dez/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 2.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/portfolio/formula-chystoty/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 2.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/poslugy/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 8.333333333333332
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/pro-nas/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 5.333333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/qa-checklist/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 1.4285714285714286
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/rozrobka-nextjs/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/rozrobka-wordpress/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 24
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 24,
+          "ctr": 0,
+          "position": 58.375
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/sayt-vizytka/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 80.6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/seo-prosuvannya/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 54
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/seo-sajt-pid-google/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 81
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 577,
+          "ctr": 0,
+          "position": 71.578856152513
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-korporatyvnoho-saytu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 16.88888888888889
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 72,
+          "ctr": 0,
+          "position": 45.166666666666664
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-program/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 3.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 24,
+          "ctr": 0,
+          "position": 8.833333333333332
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/tehnichne-seo/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 5.5
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 62,
+        "hasMore": false,
+        "note": "Showing all 62 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    },
+    "query_pages": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-11",
+      "endDate": "2026-09-07",
+      "dimensions": [
+        "query",
+        "page"
+      ],
+      "searchType": "web",
+      "rowCount": 104,
+      "rows": [
+        {
+          "keys": [
+            "clean site services",
+            "https://maxsite.com.ua/portfolio/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 69
+        },
+        {
+          "keys": [
+            "google analytics під ключ",
+            "https://maxsite.com.ua/google-analytics-search-console/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 32
+        },
+        {
+          "keys": [
+            "landing page під ключ",
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 54,
+          "ctr": 0,
+          "position": 43.333333333333336
+        },
+        {
+          "keys": [
+            "landing site",
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 43
+        },
+        {
+          "keys": [
+            "max siti",
+            "https://maxsite.com.ua/nishi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 71
+        },
+        {
+          "keys": [
+            "max siti",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 78
+        },
+        {
+          "keys": [
+            "max websites",
+            "https://maxsite.com.ua/nishi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 77
+        },
+        {
+          "keys": [
+            "max websites",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 79
+        },
+        {
+          "keys": [
+            "max websites",
+            "https://maxsite.com.ua/stvorennya-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 75
+        },
+        {
+          "keys": [
+            "maxsite",
+            "https://maxsite.com.ua/nishi/sajt-dlya-avtoservisu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 85
+        },
+        {
+          "keys": [
+            "maxsite",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "seo first",
+            "https://maxsite.com.ua/blog/seo-first-pidhid/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "вартість створення інтернет магазину",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 14,
+          "ctr": 0,
+          "position": 95.21428571428571
+        },
+        {
+          "keys": [
+            "вартість інтернет магазину",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 94.5
+        },
+        {
+          "keys": [
+            "вартість інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 87.11111111111111
+        },
+        {
+          "keys": [
+            "заказать бизнес сайт",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 32.2
+        },
+        {
+          "keys": [
+            "заказать сайт в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 84
+        },
+        {
+          "keys": [
+            "заказать сайт интернет магазина под ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 89.875
+        },
+        {
+          "keys": [
+            "заказать сайт под ключ интернет магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 90.27272727272727
+        },
+        {
+          "keys": [
+            "заказать сайт черкассы",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "замовити seo просування корпоративного сайту",
+            "https://maxsite.com.ua/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 57
+        },
+        {
+          "keys": [
+            "замовити сайт",
+            "https://maxsite.com.ua/"
+          ],
+          "clicks": 0,
+          "impressions": 169,
+          "ctr": 0,
+          "position": 63.928994082840234
+        },
+        {
+          "keys": [
+            "замовити сайт",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 110,
+          "ctr": 0,
+          "position": 80.38181818181818
+        },
+        {
+          "keys": [
+            "замовити сайт в києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "замовити сайт київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 132,
+          "ctr": 0,
+          "position": 89.0909090909091
+        },
+        {
+          "keys": [
+            "замовити сайт стоматологія",
+            "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 73
+        },
+        {
+          "keys": [
+            "замовити сайт у києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 90.55555555555556
+        },
+        {
+          "keys": [
+            "замовити створення медичних сайтів",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 93
+        },
+        {
+          "keys": [
+            "замовити створення інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 98.8
+        },
+        {
+          "keys": [
+            "замовити інтернет магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 44,
+          "ctr": 0,
+          "position": 82.25
+        },
+        {
+          "keys": [
+            "замовити інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 41,
+          "ctr": 0,
+          "position": 97.70731707317073
+        },
+        {
+          "keys": [
+            "замовити інтернет-магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 81.77777777777777
+        },
+        {
+          "keys": [
+            "зробити сайт київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 59.857142857142854
+        },
+        {
+          "keys": [
+            "интернет магазин сайт под ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 99.5
+        },
+        {
+          "keys": [
+            "клінінг під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 71.6
+        },
+        {
+          "keys": [
+            "лендінг для клінінгової компанії",
+            "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 41,
+          "ctr": 0,
+          "position": 8.853658536585366
+        },
+        {
+          "keys": [
+            "медичний сайт під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 70.1
+        },
+        {
+          "keys": [
+            "онлайн магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 68
+        },
+        {
+          "keys": [
+            "послуги створення сайтів для медицини",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 88.14285714285714
+        },
+        {
+          "keys": [
+            "просування сайту в черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 85
+        },
+        {
+          "keys": [
+            "просування сайту у києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 78,
+          "ctr": 0,
+          "position": 76.78205128205128
+        },
+        {
+          "keys": [
+            "підтримка сайту",
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 79.28571428571429
+        },
+        {
+          "keys": [
+            "розкрутка сайтів у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 31.5
+        },
+        {
+          "keys": [
+            "розкрутка сайтів черкаси",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 52.2
+        },
+        {
+          "keys": [
+            "розробка медичних сайтів під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 89
+        },
+        {
+          "keys": [
+            "розробка сайту в черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 70.6
+        },
+        {
+          "keys": [
+            "розробка сайтів черкаси",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 46.888888888888886
+        },
+        {
+          "keys": [
+            "розробка інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 98.25
+        },
+        {
+          "keys": [
+            "розробка інтернет-магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 98
+        },
+        {
+          "keys": [
+            "сайт візитка під ключ",
+            "https://maxsite.com.ua/sayt-vizytka/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 81
+        },
+        {
+          "keys": [
+            "сайт для бизнеса",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 39
+        },
+        {
+          "keys": [
+            "сайт для бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 36,
+          "ctr": 0,
+          "position": 19.61111111111111
+        },
+        {
+          "keys": [
+            "сайт для малого бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 36.5
+        },
+        {
+          "keys": [
+            "сайт для послуг",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 71.5
+        },
+        {
+          "keys": [
+            "сайт для салону краси",
+            "https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 65
+        },
+        {
+          "keys": [
+            "сайт для стоматології під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 17.333333333333332
+        },
+        {
+          "keys": [
+            "сайт оптимізований під seo",
+            "https://maxsite.com.ua/seo-sajt-pid-google/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 99.25
+        },
+        {
+          "keys": [
+            "сайт под ключ в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 83.16666666666667
+        },
+        {
+          "keys": [
+            "сайт под ключ для клиники",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 74.8
+        },
+        {
+          "keys": [
+            "сайт под ключ интернет магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 13,
+          "ctr": 0,
+          "position": 91.61538461538461
+        },
+        {
+          "keys": [
+            "сайт під ключ",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 13,
+          "ctr": 0,
+          "position": 70.46153846153847
+        },
+        {
+          "keys": [
+            "сайт під ключ",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 37
+        },
+        {
+          "keys": [
+            "сайт під ключ для медичного центру",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 81.44444444444444
+        },
+        {
+          "keys": [
+            "сайт під ключ київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 76.4
+        },
+        {
+          "keys": [
+            "сайт під ключ у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 46.375
+        },
+        {
+          "keys": [
+            "сайт інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 60.333333333333336
+        },
+        {
+          "keys": [
+            "сайт-візитка під ключ",
+            "https://maxsite.com.ua/sayt-vizytka/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 80.5
+        },
+        {
+          "keys": [
+            "сделать сайт интернет магазина под ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 95.66666666666667
+        },
+        {
+          "keys": [
+            "скільки коштує відкрити інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 77.45454545454545
+        },
+        {
+          "keys": [
+            "скільки коштує відкрити інтернет магазин в україні",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 82.75
+        },
+        {
+          "keys": [
+            "скільки коштує зробити інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 82.83333333333333
+        },
+        {
+          "keys": [
+            "скільки коштує створити сайт інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 87.5
+        },
+        {
+          "keys": [
+            "скільки коштує створити інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 15,
+          "ctr": 0,
+          "position": 91.6
+        },
+        {
+          "keys": [
+            "скільки коштує інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 89
+        },
+        {
+          "keys": [
+            "создание интернет магазина с нуля под ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 70
+        },
+        {
+          "keys": [
+            "создание сайтов в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 87.5
+        },
+        {
+          "keys": [
+            "создать бизнес сайт",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 72.66666666666667
+        },
+        {
+          "keys": [
+            "создать сайт в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 73.33333333333333
+        },
+        {
+          "keys": [
+            "створення сайту в києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 82.5
+        },
+        {
+          "keys": [
+            "створення сайту для бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 45.666666666666664
+        },
+        {
+          "keys": [
+            "створення сайту для компанії",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 40
+        },
+        {
+          "keys": [
+            "створення сайту київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 75,
+          "ctr": 0,
+          "position": 90.94666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів в києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 81.66666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 111,
+          "ctr": 0,
+          "position": 85.01801801801801
+        },
+        {
+          "keys": [
+            "створення сайтів під ключ",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 87
+        },
+        {
+          "keys": [
+            "створення сайтів під ключ київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 83.77777777777777
+        },
+        {
+          "keys": [
+            "створення сайтів у києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 20,
+          "ctr": 0,
+          "position": 37.15
+        },
+        {
+          "keys": [
+            "створення сайтів у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 30,
+          "ctr": 0,
+          "position": 35.06666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів черкаси",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 37.25
+        },
+        {
+          "keys": [
+            "створення інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 36,
+          "ctr": 0,
+          "position": 52.77777777777778
+        },
+        {
+          "keys": [
+            "створення інтернет магазину під ключ ціна",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 88.5
+        },
+        {
+          "keys": [
+            "створення інтернет магазину ціна",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 94.6
+        },
+        {
+          "keys": [
+            "створити сайт для бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 79.125
+        },
+        {
+          "keys": [
+            "створити сайт київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 62,
+          "ctr": 0,
+          "position": 57.04838709677419
+        },
+        {
+          "keys": [
+            "створити сайт у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 31.727272727272727
+        },
+        {
+          "keys": [
+            "створити інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 62.611111111111114
+        },
+        {
+          "keys": [
+            "створити інтернет магазин ціна",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 17,
+          "ctr": 0,
+          "position": 97.23529411764706
+        },
+        {
+          "keys": [
+            "технічна підтримка сайту",
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 99
+        },
+        {
+          "keys": [
+            "технічна підтримка сайтів",
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 80.5
+        },
+        {
+          "keys": [
+            "інтернет магазин на замовлення",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 45.083333333333336
+        },
+        {
+          "keys": [
+            "інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 175,
+          "ctr": 0,
+          "position": 60.777142857142856
+        },
+        {
+          "keys": [
+            "інтернет магазин під ключ ціна",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 93
+        },
+        {
+          "keys": [
+            "інтернет магазин створити ціна",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 79
+        },
+        {
+          "keys": [
+            "інтернет-магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 29,
+          "ctr": 0,
+          "position": 58.41379310344828
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 104,
+        "hasMore": false,
+        "note": "Showing all 104 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    },
+    "queries": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-11",
+      "endDate": "2026-09-07",
+      "dimensions": [
+        "query"
+      ],
+      "searchType": "web",
+      "rowCount": 98,
+      "rows": [
+        {
+          "keys": [
+            "clean site services"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 69
+        },
+        {
+          "keys": [
+            "google analytics під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 32
+        },
+        {
+          "keys": [
+            "landing page під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 54,
+          "ctr": 0,
+          "position": 43.333333333333336
+        },
+        {
+          "keys": [
+            "landing site"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 43
+        },
+        {
+          "keys": [
+            "max siti"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 71
+        },
+        {
+          "keys": [
+            "max websites"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 75
+        },
+        {
+          "keys": [
+            "maxsite"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "seo first"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "вартість створення інтернет магазину"
+          ],
+          "clicks": 0,
+          "impressions": 14,
+          "ctr": 0,
+          "position": 95.21428571428571
+        },
+        {
+          "keys": [
+            "вартість інтернет магазину"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 94.5
+        },
+        {
+          "keys": [
+            "вартість інтернет магазину під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 87.11111111111111
+        },
+        {
+          "keys": [
+            "заказать бизнес сайт"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 32.2
+        },
+        {
+          "keys": [
+            "заказать сайт в черкассах"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 84
+        },
+        {
+          "keys": [
+            "заказать сайт интернет магазина под ключ"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 89.875
+        },
+        {
+          "keys": [
+            "заказать сайт под ключ интернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 90.27272727272727
+        },
+        {
+          "keys": [
+            "заказать сайт черкассы"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "замовити seo просування корпоративного сайту"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 57
+        },
+        {
+          "keys": [
+            "замовити сайт"
+          ],
+          "clicks": 0,
+          "impressions": 233,
+          "ctr": 0,
+          "position": 67.23175965665236
+        },
+        {
+          "keys": [
+            "замовити сайт в києві"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "замовити сайт київ"
+          ],
+          "clicks": 0,
+          "impressions": 132,
+          "ctr": 0,
+          "position": 89.0909090909091
+        },
+        {
+          "keys": [
+            "замовити сайт стоматологія"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 73
+        },
+        {
+          "keys": [
+            "замовити сайт у києві"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 90.55555555555556
+        },
+        {
+          "keys": [
+            "замовити створення медичних сайтів"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 93
+        },
+        {
+          "keys": [
+            "замовити створення інтернет магазину під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 98.8
+        },
+        {
+          "keys": [
+            "замовити інтернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 44,
+          "ctr": 0,
+          "position": 82.25
+        },
+        {
+          "keys": [
+            "замовити інтернет магазин під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 41,
+          "ctr": 0,
+          "position": 97.70731707317073
+        },
+        {
+          "keys": [
+            "замовити інтернет-магазин"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 81.77777777777777
+        },
+        {
+          "keys": [
+            "зробити сайт київ"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 59.857142857142854
+        },
+        {
+          "keys": [
+            "интернет магазин сайт под ключ"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 99.5
+        },
+        {
+          "keys": [
+            "клінінг під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 71.6
+        },
+        {
+          "keys": [
+            "лендінг для клінінгової компанії"
+          ],
+          "clicks": 0,
+          "impressions": 41,
+          "ctr": 0,
+          "position": 8.853658536585366
+        },
+        {
+          "keys": [
+            "медичний сайт під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 70.1
+        },
+        {
+          "keys": [
+            "онлайн магазин під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 68
+        },
+        {
+          "keys": [
+            "послуги створення сайтів для медицини"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 88.14285714285714
+        },
+        {
+          "keys": [
+            "просування сайту в черкасах"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 85
+        },
+        {
+          "keys": [
+            "просування сайту у києві"
+          ],
+          "clicks": 0,
+          "impressions": 78,
+          "ctr": 0,
+          "position": 76.78205128205128
+        },
+        {
+          "keys": [
+            "підтримка сайту"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 79.28571428571429
+        },
+        {
+          "keys": [
+            "розкрутка сайтів у черкасах"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 31.5
+        },
+        {
+          "keys": [
+            "розкрутка сайтів черкаси"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 52.2
+        },
+        {
+          "keys": [
+            "розробка медичних сайтів під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 89
+        },
+        {
+          "keys": [
+            "розробка сайту в черкасах"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 70.6
+        },
+        {
+          "keys": [
+            "розробка сайтів черкаси"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 46.888888888888886
+        },
+        {
+          "keys": [
+            "розробка інтернет магазину під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 98.25
+        },
+        {
+          "keys": [
+            "розробка інтернет-магазину під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 98
+        },
+        {
+          "keys": [
+            "сайт візитка під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 81
+        },
+        {
+          "keys": [
+            "сайт для бизнеса"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 39
+        },
+        {
+          "keys": [
+            "сайт для бізнесу"
+          ],
+          "clicks": 0,
+          "impressions": 36,
+          "ctr": 0,
+          "position": 19.61111111111111
+        },
+        {
+          "keys": [
+            "сайт для малого бізнесу"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 36.5
+        },
+        {
+          "keys": [
+            "сайт для послуг"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 71.5
+        },
+        {
+          "keys": [
+            "сайт для салону краси"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 65
+        },
+        {
+          "keys": [
+            "сайт для стоматології під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 17.333333333333332
+        },
+        {
+          "keys": [
+            "сайт оптимізований під seo"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 99.25
+        },
+        {
+          "keys": [
+            "сайт под ключ в черкассах"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 83.16666666666667
+        },
+        {
+          "keys": [
+            "сайт под ключ для клиники"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 74.8
+        },
+        {
+          "keys": [
+            "сайт под ключ интернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 13,
+          "ctr": 0,
+          "position": 91.61538461538461
+        },
+        {
+          "keys": [
+            "сайт під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 14,
+          "ctr": 0,
+          "position": 68.07142857142857
+        },
+        {
+          "keys": [
+            "сайт під ключ для медичного центру"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 81.44444444444444
+        },
+        {
+          "keys": [
+            "сайт під ключ київ"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 76.4
+        },
+        {
+          "keys": [
+            "сайт під ключ у черкасах"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 46.375
+        },
+        {
+          "keys": [
+            "сайт інтернет магазин під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 60.333333333333336
+        },
+        {
+          "keys": [
+            "сайт-візитка під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 80.5
+        },
+        {
+          "keys": [
+            "сделать сайт интернет магазина под ключ"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 95.66666666666667
+        },
+        {
+          "keys": [
+            "скільки коштує відкрити інтернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 77.45454545454545
+        },
+        {
+          "keys": [
+            "скільки коштує відкрити інтернет магазин в україні"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 82.75
+        },
+        {
+          "keys": [
+            "скільки коштує зробити інтернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 82.83333333333333
+        },
+        {
+          "keys": [
+            "скільки коштує створити сайт інтернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 87.5
+        },
+        {
+          "keys": [
+            "скільки коштує створити інтернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 15,
+          "ctr": 0,
+          "position": 91.6
+        },
+        {
+          "keys": [
+            "скільки коштує інтернет магазин"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 89
+        },
+        {
+          "keys": [
+            "создание интернет магазина с нуля под ключ"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 70
+        },
+        {
+          "keys": [
+            "создание сайтов в черкассах"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 87.5
+        },
+        {
+          "keys": [
+            "создать бизнес сайт"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 72.66666666666667
+        },
+        {
+          "keys": [
+            "создать сайт в черкассах"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 73.33333333333333
+        },
+        {
+          "keys": [
+            "створення сайту в києві"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 82.5
+        },
+        {
+          "keys": [
+            "створення сайту для бізнесу"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 45.666666666666664
+        },
+        {
+          "keys": [
+            "створення сайту для компанії"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 40
+        },
+        {
+          "keys": [
+            "створення сайту київ"
+          ],
+          "clicks": 0,
+          "impressions": 75,
+          "ctr": 0,
+          "position": 90.94666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів в києві"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 81.66666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів київ"
+          ],
+          "clicks": 0,
+          "impressions": 111,
+          "ctr": 0,
+          "position": 85.01801801801801
+        },
+        {
+          "keys": [
+            "створення сайтів під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 87
+        },
+        {
+          "keys": [
+            "створення сайтів під ключ київ"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 83.77777777777777
+        },
+        {
+          "keys": [
+            "створення сайтів у києві"
+          ],
+          "clicks": 0,
+          "impressions": 20,
+          "ctr": 0,
+          "position": 37.15
+        },
+        {
+          "keys": [
+            "створення сайтів у черкасах"
+          ],
+          "clicks": 0,
+          "impressions": 30,
+          "ctr": 0,
+          "position": 35.06666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів черкаси"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 37.25
+        },
+        {
+          "keys": [
+            "створення інтернет магазину під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 36,
+          "ctr": 0,
+          "position": 52.77777777777778
+        },
+        {
+          "keys": [
+            "створення інтернет магазину під ключ ціна"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 88.5
+        },
+        {
+          "keys": [
+            "створення інтернет магазину ціна"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 94.6
+        },
+        {
+          "keys": [
+            "створити сайт для бізнесу"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 79.125
+        },
+        {
+          "keys": [
+            "створити сайт київ"
+          ],
+          "clicks": 0,
+          "impressions": 62,
+          "ctr": 0,
+          "position": 57.04838709677419
+        },
+        {
+          "keys": [
+            "створити сайт у черкасах"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 31.727272727272727
+        },
+        {
+          "keys": [
+            "створити інтернет магазин під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 62.611111111111114
+        },
+        {
+          "keys": [
+            "створити інтернет магазин ціна"
+          ],
+          "clicks": 0,
+          "impressions": 17,
+          "ctr": 0,
+          "position": 97.23529411764706
+        },
+        {
+          "keys": [
+            "технічна підтримка сайту"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 99
+        },
+        {
+          "keys": [
+            "технічна підтримка сайтів"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 80.5
+        },
+        {
+          "keys": [
+            "інтернет магазин на замовлення"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 45.083333333333336
+        },
+        {
+          "keys": [
+            "інтернет магазин під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 175,
+          "ctr": 0,
+          "position": 60.777142857142856
+        },
+        {
+          "keys": [
+            "інтернет магазин під ключ ціна"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 93
+        },
+        {
+          "keys": [
+            "інтернет магазин створити ціна"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 79
+        },
+        {
+          "keys": [
+            "інтернет-магазин під ключ"
+          ],
+          "clicks": 0,
+          "impressions": 29,
+          "ctr": 0,
+          "position": 58.41379310344828
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 98,
+        "hasMore": false,
+        "note": "Showing all 98 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    },
+    "fresh_daily": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-12",
+      "endDate": "2026-09-08",
+      "dimensions": [
+        "date"
+      ],
+      "searchType": "web",
+      "rowCount": 28,
+      "rows": [
+        {
+          "keys": [
+            "2026-08-12"
+          ],
+          "clicks": 0,
+          "impressions": 119,
+          "ctr": 0,
+          "position": 64.30252100840336
+        },
+        {
+          "keys": [
+            "2026-08-13"
+          ],
+          "clicks": 0,
+          "impressions": 59,
+          "ctr": 0,
+          "position": 59.45762711864407
+        },
+        {
+          "keys": [
+            "2026-08-14"
+          ],
+          "clicks": 0,
+          "impressions": 60,
+          "ctr": 0,
+          "position": 65.85
+        },
+        {
+          "keys": [
+            "2026-08-15"
+          ],
+          "clicks": 0,
+          "impressions": 36,
+          "ctr": 0,
+          "position": 60.666666666666664
+        },
+        {
+          "keys": [
+            "2026-08-16"
+          ],
+          "clicks": 0,
+          "impressions": 52,
+          "ctr": 0,
+          "position": 64.01923076923077
+        },
+        {
+          "keys": [
+            "2026-08-17"
+          ],
+          "clicks": 0,
+          "impressions": 148,
+          "ctr": 0,
+          "position": 66.22297297297297
+        },
+        {
+          "keys": [
+            "2026-08-18"
+          ],
+          "clicks": 0,
+          "impressions": 49,
+          "ctr": 0,
+          "position": 71.9795918367347
+        },
+        {
+          "keys": [
+            "2026-08-19"
+          ],
+          "clicks": 0,
+          "impressions": 110,
+          "ctr": 0,
+          "position": 70.00909090909092
+        },
+        {
+          "keys": [
+            "2026-08-20"
+          ],
+          "clicks": 0,
+          "impressions": 38,
+          "ctr": 0,
+          "position": 68.8157894736842
+        },
+        {
+          "keys": [
+            "2026-08-21"
+          ],
+          "clicks": 1,
+          "impressions": 46,
+          "ctr": 2.1739130434782608,
+          "position": 63.69565217391305
+        },
+        {
+          "keys": [
+            "2026-08-22"
+          ],
+          "clicks": 0,
+          "impressions": 44,
+          "ctr": 0,
+          "position": 70.0909090909091
+        },
+        {
+          "keys": [
+            "2026-08-23"
+          ],
+          "clicks": 0,
+          "impressions": 58,
+          "ctr": 0,
+          "position": 67.62068965517241
+        },
+        {
+          "keys": [
+            "2026-08-24"
+          ],
+          "clicks": 0,
+          "impressions": 119,
+          "ctr": 0,
+          "position": 78.21008403361344
+        },
+        {
+          "keys": [
+            "2026-08-25"
+          ],
+          "clicks": 0,
+          "impressions": 80,
+          "ctr": 0,
+          "position": 80.5125
+        },
+        {
+          "keys": [
+            "2026-08-26"
+          ],
+          "clicks": 0,
+          "impressions": 110,
+          "ctr": 0,
+          "position": 72.10909090909091
+        },
+        {
+          "keys": [
+            "2026-08-27"
+          ],
+          "clicks": 0,
+          "impressions": 140,
+          "ctr": 0,
+          "position": 72.8
+        },
+        {
+          "keys": [
+            "2026-08-28"
+          ],
+          "clicks": 0,
+          "impressions": 112,
+          "ctr": 0,
+          "position": 40.69642857142857
+        },
+        {
+          "keys": [
+            "2026-08-29"
+          ],
+          "clicks": 0,
+          "impressions": 42,
+          "ctr": 0,
+          "position": 54.666666666666664
+        },
+        {
+          "keys": [
+            "2026-08-30"
+          ],
+          "clicks": 0,
+          "impressions": 44,
+          "ctr": 0,
+          "position": 67.02272727272727
+        },
+        {
+          "keys": [
+            "2026-08-31"
+          ],
+          "clicks": 0,
+          "impressions": 142,
+          "ctr": 0,
+          "position": 65.35211267605634
+        },
+        {
+          "keys": [
+            "2026-09-01"
+          ],
+          "clicks": 0,
+          "impressions": 90,
+          "ctr": 0,
+          "position": 37.766666666666666
+        },
+        {
+          "keys": [
+            "2026-09-02"
+          ],
+          "clicks": 0,
+          "impressions": 77,
+          "ctr": 0,
+          "position": 67.79220779220779
+        },
+        {
+          "keys": [
+            "2026-09-03"
+          ],
+          "clicks": 0,
+          "impressions": 55,
+          "ctr": 0,
+          "position": 75.38181818181818
+        },
+        {
+          "keys": [
+            "2026-09-04"
+          ],
+          "clicks": 0,
+          "impressions": 47,
+          "ctr": 0,
+          "position": 72.27659574468085
+        },
+        {
+          "keys": [
+            "2026-09-05"
+          ],
+          "clicks": 0,
+          "impressions": 20,
+          "ctr": 0,
+          "position": 70.15
+        },
+        {
+          "keys": [
+            "2026-09-06"
+          ],
+          "clicks": 0,
+          "impressions": 62,
+          "ctr": 0,
+          "position": 57.75806451612903
+        },
+        {
+          "keys": [
+            "2026-09-07"
+          ],
+          "clicks": 0,
+          "impressions": 70,
+          "ctr": 0,
+          "position": 60.51428571428571
+        },
+        {
+          "keys": [
+            "2026-09-08"
+          ],
+          "clicks": 0,
+          "impressions": 84,
+          "ctr": 0,
+          "position": 73.53571428571429
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 28,
+        "hasMore": false,
+        "note": "Showing all 28 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    },
+    "fresh_pages": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-12",
+      "endDate": "2026-09-08",
+      "dimensions": [
+        "page"
+      ],
+      "searchType": "web",
+      "rowCount": 62,
+      "rows": [
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 1,
+          "impressions": 229,
+          "ctr": 0.43668122270742354,
+          "position": 57.19650655021834
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/"
+          ],
+          "clicks": 0,
+          "impressions": 227,
+          "ctr": 0,
+          "position": 46.38325991189427
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/"
+          ],
+          "clicks": 0,
+          "impressions": 15,
+          "ctr": 0,
+          "position": 5.733333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/canonical-url-prostymy-slovamy/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 10
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/ga4-konversiyi-dlya-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 4
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/landing-dlya-google-ads/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 6.666666666666667
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/lending-abo-korporatyvnyj-sajt/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 56.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/nextjs-chy-wordpress/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/pidtrymka-saytu-pislya-zapusku/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 7.2
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/redesign-saytu-bez-vtraty-seo/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/seo-first-pidhid/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 14.333333333333334
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 3.857142857142857
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 106,
+          "ctr": 0,
+          "position": 87.69811320754717
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 5.25
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/struktura-sajtu-dlya-seo/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 6.75
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/tehnichne-seo-cheklist/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 1.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/vnutrishnya-perelinkovka/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 16.583333333333336
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 7.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-pidgotuvaty-bryf-na-sajt/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-vybraty-rozrobnyka-sajtu/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 1.6666666666666665
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/google-ads/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 38.6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/google-analytics-search-console/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 32
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/kontakty/"
+          ],
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 10.11111111111111
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/"
+          ],
+          "clicks": 0,
+          "impressions": 52,
+          "ctr": 0,
+          "position": 2.3269230769230766
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 151,
+          "ctr": 0,
+          "position": 47.211920529801326
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 611,
+          "ctr": 0,
+          "position": 74.80851063829788
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-ukrayina/"
+          ],
+          "clicks": 0,
+          "impressions": 24,
+          "ctr": 0,
+          "position": 4.708333333333334
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 16.083333333333336
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-avtoservisu/"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 20.181818181818183
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-budivelnoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 16,
+          "ctr": 0,
+          "position": 21.3125
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-dezinfekciyi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 8
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-eksperta/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 56,
+          "ctr": 0,
+          "position": 13.785714285714286
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-kursiv/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 8
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-lokalnogo-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 5.333333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 5.444444444444445
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 47,
+          "ctr": 0,
+          "position": 66.59574468085107
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/"
+          ],
+          "clicks": 0,
+          "impressions": 22,
+          "ctr": 0,
+          "position": 41.40909090909091
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 32.285714285714285
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/nishi/sajt-dlya-vyrobnytstva/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 5.833333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 81.33333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/polityka-konfidentsijnosti/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 6.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/portfolio/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 15
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/portfolio/fo-dez/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 2.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/portfolio/formula-chystoty/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 2.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/poslugy/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 8.333333333333332
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/pro-nas/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 5.333333333333333
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/qa-checklist/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 1.4285714285714286
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/rozrobka-nextjs/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/rozrobka-wordpress/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 24
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 22,
+          "ctr": 0,
+          "position": 57.63636363636363
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/sayt-vizytka/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 80.6
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/seo-prosuvannya/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 54
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/seo-sajt-pid-google/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 81
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 627,
+          "ctr": 0,
+          "position": 71.4481658692185
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-korporatyvnoho-saytu/"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 23.3
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 72,
+          "ctr": 0,
+          "position": 44.791666666666664
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-program/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 3.5
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/stvorennya-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 24,
+          "ctr": 0,
+          "position": 8.833333333333332
+        },
+        {
+          "keys": [
+            "https://maxsite.com.ua/tehnichne-seo/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 5.5
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 62,
+        "hasMore": false,
+        "note": "Showing all 62 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    },
+    "devices": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-11",
+      "endDate": "2026-09-07",
+      "dimensions": [
+        "device"
+      ],
+      "searchType": "web",
+      "rowCount": 2,
+      "rows": [
+        {
+          "keys": [
+            "DESKTOP"
+          ],
+          "clicks": 1,
+          "impressions": 1599,
+          "ctr": 0.06253908692933083,
+          "position": 65.1207004377736
+        },
+        {
+          "keys": [
+            "MOBILE"
+          ],
+          "clicks": 0,
+          "impressions": 458,
+          "ctr": 0,
+          "position": 65.97816593886463
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 2,
+        "hasMore": false,
+        "note": "Showing all 2 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    },
+    "countries": {
+      "siteUrl": "https://maxsite.com.ua/",
+      "startDate": "2026-08-11",
+      "endDate": "2026-09-07",
+      "dimensions": [
+        "country"
+      ],
+      "searchType": "web",
+      "rowCount": 32,
+      "rows": [
+        {
+          "keys": [
+            "ukr"
+          ],
+          "clicks": 1,
+          "impressions": 1919,
+          "ctr": 0.05211047420531526,
+          "position": 68.85930171964564
+        },
+        {
+          "keys": [
+            "are"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 4
+        },
+        {
+          "keys": [
+            "aze"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "keys": [
+            "blr"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "bra"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 19.571428571428573
+        },
+        {
+          "keys": [
+            "chl"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 11
+        },
+        {
+          "keys": [
+            "col"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 3
+        },
+        {
+          "keys": [
+            "deu"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 10.1
+        },
+        {
+          "keys": [
+            "dza"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "keys": [
+            "esp"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 34
+        },
+        {
+          "keys": [
+            "fra"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 100
+        },
+        {
+          "keys": [
+            "gbr"
+          ],
+          "clicks": 0,
+          "impressions": 50,
+          "ctr": 0,
+          "position": 5.5
+        },
+        {
+          "keys": [
+            "ind"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 55
+        },
+        {
+          "keys": [
+            "irl"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 49
+        },
+        {
+          "keys": [
+            "irq"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 54
+        },
+        {
+          "keys": [
+            "ita"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 3.2857142857142856
+        },
+        {
+          "keys": [
+            "jor"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "keys": [
+            "kaz"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 50.5
+        },
+        {
+          "keys": [
+            "mar"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 21
+        },
+        {
+          "keys": [
+            "mex"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 78
+        },
+        {
+          "keys": [
+            "mys"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 35
+        },
+        {
+          "keys": [
+            "nga"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 50
+        },
+        {
+          "keys": [
+            "nld"
+          ],
+          "clicks": 0,
+          "impressions": 15,
+          "ctr": 0,
+          "position": 5.533333333333333
+        },
+        {
+          "keys": [
+            "pak"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 57
+        },
+        {
+          "keys": [
+            "phl"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 36.5
+        },
+        {
+          "keys": [
+            "rus"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 22.142857142857142
+        },
+        {
+          "keys": [
+            "sau"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "keys": [
+            "svk"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 71
+        },
+        {
+          "keys": [
+            "swe"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 49.5
+        },
+        {
+          "keys": [
+            "usa"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 10.714285714285714
+        },
+        {
+          "keys": [
+            "vnm"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 14
+        },
+        {
+          "keys": [
+            "zaf"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 64
+        }
+      ],
+      "pagination": {
+        "limit": 25000,
+        "offset": 0,
+        "returned": 32,
+        "hasMore": false,
+        "note": "Showing all 32 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-09-08",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-09-09",
+        "settledThrough": "2026-09-08",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-09-01",
+          "endDate": "2026-09-10",
+          "dataState": "all"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,677 @@
+{
+  "capturedAt": "2026-09-12",
+  "provider": "GA4 Data API through HYPD",
+  "request": {
+    "propertyId": "properties/548154976",
+    "dimensions": [
+      "streamId",
+      "hostName",
+      "eventName",
+      "sessionDefaultChannelGroup"
+    ],
+    "metrics": [
+      "eventCount",
+      "keyEvents"
+    ],
+    "dateRanges": [
+      {
+        "startDate": "2026-08-13",
+        "endDate": "2026-09-09"
+      }
+    ]
+  },
+  "metadata": {
+    "currencyCode": "UAH",
+    "timeZone": "Europe/Kiev"
+  },
+  "rowCount": 80,
+  "rows": [
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "page_view",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "228",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "page_view",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "207",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "user_engagement",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "159",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "session_start",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "153",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "first_visit",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "149",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "session_start",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "133",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "first_visit",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "112",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "page_view",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "83",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "session_start",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "58",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "scroll_75",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "54",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "51",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "user_engagement",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "37",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "first_visit",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "33",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll_75",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "32",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_case",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "32",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "brief_start",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "28",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "form_start",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "28",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "lead_form_start",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "28",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "127.0.0.1",
+      "eventName": "scroll",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "27",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "click",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "22",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "page_view",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "21",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_case",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "21",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "user_engagement",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "13",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_pricing",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "11",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "user_engagement",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "10",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "form_start",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "9",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "9",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "session_start",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "9",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "consultation_click",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "8",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "lead_cta_click",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "8",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "lead_cta_click",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "8",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "page_view",
+      "sessionDefaultChannelGroup": "Cross-network",
+      "eventCount": "8",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "portfolio_open",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "8",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "brief_start",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "6",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "consultation_click",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "6",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "page_view",
+      "sessionDefaultChannelGroup": "Unassigned",
+      "eventCount": "6",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll_75",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "6",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "user_engagement",
+      "sessionDefaultChannelGroup": "Unassigned",
+      "eventCount": "6",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_pricing",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "6",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "user_engagement",
+      "sessionDefaultChannelGroup": "Cross-network",
+      "eventCount": "5",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "first_visit",
+      "sessionDefaultChannelGroup": "Cross-network",
+      "eventCount": "4",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "session_start",
+      "sessionDefaultChannelGroup": "Cross-network",
+      "eventCount": "4",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_case",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "4",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "click_instagram",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "3",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "click_telegram",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "3",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "page_view",
+      "sessionDefaultChannelGroup": "Referral",
+      "eventCount": "3",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "brief_complete",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "case_live_site_click",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "click_phone",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "2",
+      "keyEvents": "2"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "first_visit",
+      "sessionDefaultChannelGroup": "Unassigned",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "form_submit",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "generate_lead",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "2",
+      "keyEvents": "2"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "lead_form_start",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "messenger_click",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "outbound_case_click",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "phone_click",
+      "sessionDefaultChannelGroup": "Paid Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "portfolio_click",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "session_start",
+      "sessionDefaultChannelGroup": "Unassigned",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_case",
+      "sessionDefaultChannelGroup": "Referral",
+      "eventCount": "2",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "brief_complete",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "brief_start",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "click",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "click_phone",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "1",
+      "keyEvents": "1"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "click_phone",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "1",
+      "keyEvents": "1"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "first_visit",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "first_visit",
+      "sessionDefaultChannelGroup": "Referral",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "form_start",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "form_submit",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "generate_lead",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "1",
+      "keyEvents": "1"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "phone_click",
+      "sessionDefaultChannelGroup": "Direct",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "phone_click",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll",
+      "sessionDefaultChannelGroup": "Cross-network",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll",
+      "sessionDefaultChannelGroup": "Referral",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll",
+      "sessionDefaultChannelGroup": "Unassigned",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "scroll_75",
+      "sessionDefaultChannelGroup": "Cross-network",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "session_start",
+      "sessionDefaultChannelGroup": "Referral",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "user_engagement",
+      "sessionDefaultChannelGroup": "Referral",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_pricing",
+      "sessionDefaultChannelGroup": "Organic Search",
+      "eventCount": "1",
+      "keyEvents": "0"
+    },
+    {
+      "streamId": "15365897328",
+      "hostName": "maxsite.com.ua",
+      "eventName": "view_pricing",
+      "sessionDefaultChannelGroup": "Referral",
+      "eventCount": "1",
+      "keyEvents": "0"
+    }
+  ],
+  "limitations": [
+    "Events, not unique leads or confirmed sales.",
+    "Production reporting filters hostName exactly maxsite.com.ua, excluding observed localhost traffic.",
+    "GA4 reporting timezone Europe/Kiev differs from GSC America/Los_Angeles.",
+    "Property selected by observed MAX SITE property name and production hostname; measurementId-to-stream mapping still requires Admin stream confirmation.",
+    "GSC Wizard GA4 remains disconnected; this evidence comes from HYPD."
+  ]
+}

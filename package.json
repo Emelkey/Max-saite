@@ -11,6 +11,8 @@
     "seo:schema": "node tools/seo-check.js schema",
     "seo:schema:normalize": "node tools/normalize-schema-graph.js",
     "seo:links": "node tools/seo-check.js links",
+    "seo:context": "node tools/render-contextual-links.js --check",
+    "seo:inventory": "node tools/top1-route-audit.js",
     "seo:similarity": "node tools/check-city-similarity.js",
     "seo:images:build": "python3 tools/generate-responsive-images.py && node tools/apply-responsive-images.js && node tools/mark-priority-images.js && node tools/audit-responsive-images.js",
     "seo:images": "node tools/audit-responsive-images.js",
@@ -21,7 +23,7 @@
     "screenshots:baseline": "node tools/capture-baseline-screenshots.js",
     "lighthouse": "node tools/run-lighthouse.js",
     "build": "node tools/build-hosting-package.js --site-url https://maxsite.com.ua --form-endpoint https://max-site-leads.emelkey777.workers.dev --ga4 G-TS8DMMKK34",
-    "seo:check": "npm run seo:routes && npm run seo:metadata && npm run seo:canonicals && npm run seo:sitemap && npm run seo:robots && npm run seo:schema && npm run seo:links && npm run seo:similarity && npm run seo:images && npm run seo:content-quality && npm run test && npm run build"
+    "seo:check": "npm run seo:routes && npm run seo:metadata && npm run seo:canonicals && npm run seo:sitemap && npm run seo:robots && npm run seo:schema && npm run seo:links && npm run seo:context && npm run seo:similarity && npm run seo:images && npm run seo:content-quality && npm run test && npm run build && node tools/audit-site.js --root release/max-site-production --site-url https://maxsite.com.ua"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

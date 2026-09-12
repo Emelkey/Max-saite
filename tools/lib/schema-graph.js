@@ -1,4 +1,5 @@
 const entity = require('../../seo/site-entity.json');
+const {editorialDate} = require('./editorial-date');
 const text = value => value.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
 const types = node => [].concat(node?.['@type'] || []);
 
@@ -13,8 +14,8 @@ function buildGraph({nodes, canonical, title, description, main}) {
   for (const node of retained) {
     // Only these articles received a substantive, dated MASTER 4 editorial review.
     // Preserve publication dates and do not stamp unrelated pages on each build.
-    if (/\/blog\/[^/]+\/$/.test(canonical) && /data-master4-editorial/.test(main) && types(node).includes('Article')) {
-      node.dateModified = '2026-09-07';
+    if (/\/blog\/[^/]+\/$/.test(canonical) && editorialDate(main) && types(node).includes('Article')) {
+      node.dateModified = editorialDate(main);
     }
     if (/\/portfolio\/[^/]+\/$/.test(canonical) && types(node).some(type => ['CreativeWork','Article'].includes(type))) {
       node['@type'] = 'Article';
@@ -23,7 +24,7 @@ function buildGraph({nodes, canonical, title, description, main}) {
       node.mainEntityOfPage = {'@id': `${canonical}#webpage`};
       node.author = {'@id': entity.organization['@id']};
       node.publisher = {'@id': entity.organization['@id']};
-      node.dateModified = '2026-09-02';
+      if (editorialDate(main)) node.dateModified = editorialDate(main);
     }
     if (types(node).includes('Service')) {
       node['@id'] ||= `${canonical}#service`;
@@ -35,7 +36,7 @@ function buildGraph({nodes, canonical, title, description, main}) {
   return {'@context': 'https://schema.org', '@graph': [
     entity.organization,
     {...entity.website, inLanguage: 'uk-UA'},
-    {'@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'uk-UA', isPartOf: {'@id': entity.website['@id']}},
+    {'@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'uk-UA', isPartOf: {'@id': entity.website['@id']}, ...(editorialDate(main) ? {dateModified:editorialDate(main)} : {})},
     ...retained,
     ...(questions.length ? [{'@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: questions}] : [])
   ]};

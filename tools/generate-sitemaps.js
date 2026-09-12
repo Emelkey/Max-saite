@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const {editorialDate: reviewedDate} = require('./lib/editorial-date');
 
 const root = path.resolve(__dirname, '..');
 const checkOnly = process.argv.includes('--check');
@@ -49,10 +50,7 @@ for (const file of collect(root)) {
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
   // A substantive review can follow an older published/updated timestamp.
   // For the explicitly reviewed MASTER 4 articles, use that visible review date.
-  const reviewDate = /data-master4-editorial/.test(main)
-    ? main.match(/data-master4-editorial[\s\S]*?<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})"/i)?.[1]
-    : undefined;
-  const editorialDate = reviewDate || main.match(/<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})"/i)?.[1];
+  const editorialDate = reviewedDate(main);
   groups[groupFor(urlPath)].push({loc:expected,lastmod:editorialDate});
 }
 
@@ -74,7 +72,7 @@ for (const [name, content] of expectedFiles) {
   const actual = fs.readFileSync(file,'utf8');
   const expectedUrls = [...content.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>match[1]).sort();
   const actualUrls = [...actual.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>match[1]).sort();
-  if (JSON.stringify(actualUrls) !== JSON.stringify(expectedUrls)) changes.push(name);
+  if (JSON.stringify(actualUrls) !== JSON.stringify(expectedUrls) || actual !== content) changes.push(name);
 }
 
 const count = Object.values(groups).reduce((sum,rows)=>sum+rows.length,0);

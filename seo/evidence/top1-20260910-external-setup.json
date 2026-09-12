@@ -1,0 +1,294 @@
+{
+  "capturedAt": "2026-09-10",
+  "siteUrl": "https://maxsite.com.ua/",
+  "inspectionBefore": {
+    "siteUrl": "https://maxsite.com.ua/",
+    "count": 14,
+    "succeeded": 14,
+    "failed": 0,
+    "skipped": 0,
+    "quotaExhausted": false,
+    "quota": {
+      "count": 24,
+      "limit": 2000,
+      "remaining": 1976
+    },
+    "results": [
+      {
+        "url": "https://maxsite.com.ua/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-08-22T18:19:57Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/stvorennya-saytiv/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-08-22T09:23:30Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-08-26T19:03:48Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/sajty-dlya-poslug/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-08-23T15:52:56Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/stvorennya-landing-page/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-09-08T21:02:50Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/stvorennya-internet-mahazynu/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-09-08T08:00:50Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/seo-prosuvannya/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-08-22T19:55:35Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-09-08T07:51:17Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/",
+        "verdict": "NEUTRAL",
+        "coverageState": "Excluded by ‘noindex’ tag",
+        "indexingState": "BLOCKED_BY_META_TAG",
+        "lastCrawlTime": "2026-08-03T09:39:27Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/",
+        "verdict": "NEUTRAL",
+        "coverageState": "Excluded by ‘noindex’ tag",
+        "indexingState": "BLOCKED_BY_META_TAG",
+        "lastCrawlTime": "2026-08-03T16:38:06Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/",
+        "verdict": "NEUTRAL",
+        "coverageState": "Excluded by ‘noindex’ tag",
+        "indexingState": "BLOCKED_BY_META_TAG",
+        "lastCrawlTime": "2026-08-03T10:04:33Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/",
+        "verdict": "NEUTRAL",
+        "coverageState": "Excluded by ‘noindex’ tag",
+        "indexingState": "BLOCKED_BY_META_TAG",
+        "lastCrawlTime": "2026-08-03T10:50:01Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-09-08T09:27:40Z"
+      },
+      {
+        "url": "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-09-08T11:34:55Z"
+      }
+    ]
+  },
+  "sitemaps": {
+    "siteUrl": "https://maxsite.com.ua/",
+    "sitemaps": [
+      {
+        "path": "https://maxsite.com.ua/sitemap.xml",
+        "lastSubmitted": "2026-08-22T08:28:52.320Z",
+        "isPending": false,
+        "isSitemapsIndex": true,
+        "lastDownloaded": "2026-09-05T18:36:02.651Z",
+        "warnings": "0",
+        "errors": "0",
+        "contents": [
+          {
+            "type": "web",
+            "submitted": "88",
+            "indexed": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "clusters": {
+    "siteUrl": "https://maxsite.com.ua/",
+    "clusters": [
+      {
+        "id": "46b6681c-8c94-4e88-8176-feaa6ca37185",
+        "name": "TOP1 · Інтернет-магазини",
+        "keywords": [
+          "інтернет магазин під ключ",
+          "створення інтернет магазину",
+          "розробка інтернет магазину",
+          "створення інтернет-магазину"
+        ],
+        "created_at": "2026-09-10T18:17:10.121129+00:00"
+      },
+      {
+        "id": "f74dd870-ac06-43d3-9468-9f09935144f8",
+        "name": "TOP1 · Київ",
+        "keywords": [
+          "створення сайтів київ",
+          "розробка сайтів київ",
+          "замовити сайт київ",
+          "створення сайту київ"
+        ],
+        "created_at": "2026-09-10T18:17:12.409828+00:00"
+      },
+      {
+        "id": "c6f38bf0-5999-4b61-b0bc-d632021c3864",
+        "name": "TOP1 · Лендінги",
+        "keywords": [
+          "landing page під ключ",
+          "замовити лендінг",
+          "створення landing page",
+          "лендінг під ключ"
+        ],
+        "created_at": "2026-09-10T18:17:11.25863+00:00"
+      },
+      {
+        "id": "1613ebd4-d8c2-4856-8c53-682249baef06",
+        "name": "TOP1 · Нішеві послуги",
+        "keywords": [
+          "лендінг для клінінгу",
+          "сайт для клінінгової компанії",
+          "сайт для послуг",
+          "сайт для медичних послуг",
+          "сайт для будівельної компанії"
+        ],
+        "created_at": "2026-09-10T18:17:14.620795+00:00"
+      },
+      {
+        "id": "1cbf48cb-db58-49b7-b3b6-66e031299dc6",
+        "name": "TOP1 · Створення сайтів",
+        "keywords": [
+          "замовити сайт",
+          "створення сайтів",
+          "розробка сайтів",
+          "сайт під ключ",
+          "сайт для бізнесу"
+        ],
+        "created_at": "2026-09-10T18:17:08.920072+00:00"
+      },
+      {
+        "id": "f35502ed-55d9-4105-88e3-786d1add78b5",
+        "name": "TOP1 · Черкаси",
+        "keywords": [
+          "створення сайтів черкаси",
+          "розробка сайтів черкаси",
+          "замовити сайт черкаси"
+        ],
+        "created_at": "2026-09-10T18:17:13.508419+00:00"
+      }
+    ]
+  },
+  "createdContentGroups": [
+    {
+      "group": {
+        "id": "02138ec1-b010-4d3c-a583-17a55b73b35e",
+        "name": "TOP1 · Комерційні сторінки",
+        "description": "TOP1 10.09.2026: page-level measurements; not additive with query clusters or whole-property totals.",
+        "color": null,
+        "rules": [
+          {
+            "id": "66657af1-92ea-47dd-98b2-e8f002a6fcb8",
+            "value": "https://maxsite.com.ua/stvorennya-saytiv/",
+            "operator": "equals"
+          },
+          {
+            "id": "7aaebf23-e668-497c-8bed-db63dd2446eb",
+            "value": "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/",
+            "operator": "equals"
+          },
+          {
+            "id": "de318cfe-e2c7-4d14-8fef-aceadade65bf",
+            "value": "https://maxsite.com.ua/stvorennya-internet-mahazynu/",
+            "operator": "equals"
+          },
+          {
+            "id": "d4eb200a-2d1e-40ab-923f-aaa192145a15",
+            "value": "https://maxsite.com.ua/stvorennya-landing-page/",
+            "operator": "equals"
+          },
+          {
+            "id": "e9e6e051-c480-4f4d-a6a3-52c7b0071ac4",
+            "value": "https://maxsite.com.ua/sajty-dlya-poslug/",
+            "operator": "equals"
+          }
+        ],
+        "created_at": "2026-09-10T18:19:37.282317+00:00"
+      }
+    },
+    {
+      "group": {
+        "id": "c47cbe4c-045d-4665-a73d-1322e688a73a",
+        "name": "TOP1 · Пріоритетні міста",
+        "description": "TOP1 10.09.2026: page-level measurements; not additive with query clusters or whole-property totals.",
+        "color": null,
+        "rules": [
+          {
+            "id": "6642adfc-5227-479d-9868-47d7111728c0",
+            "value": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/",
+            "operator": "equals"
+          },
+          {
+            "id": "0b8051d1-89eb-4d7b-848f-f8c3ec4ffc71",
+            "value": "https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/",
+            "operator": "equals"
+          },
+          {
+            "id": "b63cf0dd-4f38-46d7-b446-8c9678fc8e06",
+            "value": "https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/",
+            "operator": "equals"
+          },
+          {
+            "id": "d1cf78bb-05ab-41ab-b964-845fcdd0e0a5",
+            "value": "https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/",
+            "operator": "equals"
+          },
+          {
+            "id": "1a0a9670-494a-48fd-bbda-544510d1ef08",
+            "value": "https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/",
+            "operator": "equals"
+          },
+          {
+            "id": "b99eab4d-8535-4127-b743-e27b15f93086",
+            "value": "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/",
+            "operator": "equals"
+          }
+        ],
+        "created_at": "2026-09-10T18:19:38.80376+00:00"
+      }
+    }
+  ],
+  "limitations": [
+    "Inspections describe Google's most recent crawl, not a live fetch. Four city URLs were last crawled August 3 while noindex; current source is indexable.",
+    "GA4 conversion access and CrUX data are unavailable in this connector; no zero or field-performance claim.",
+    "GSC Wizard topic matches may overlap; do not sum cluster totals as property totals."
+  ]
+}

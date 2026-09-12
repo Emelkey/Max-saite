@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-10",
+  "intentMap": "seo/top1-intent-map.json",
+  "delivery": "Static HTML. No client-side link injection; --check verifies generated blocks without rewriting pages.",
+  "pages": [
+    {
+      "source": "/blog/yak-vybraty-vebstudiyu-v-ukrayini/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Перед порівнянням підрядників звірте, що саме входить у реалізацію, і відкрийте приклад приймання.",
+      "primary": "/stvorennya-saytiv/",
+      "links": [
+        {
+          "url": "/stvorennya-saytiv/",
+          "label": "Створення сайтів під ключ"
+        },
+        {
+          "url": "/portfolio/max-site/",
+          "label": "Як перевіряється власний сайт MAX SITE"
+        }
+      ]
+    },
+    {
+      "source": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Перенесіть перелік робіт у предметний обсяг: формат сайту, відповідальні за матеріали та критерії запуску.",
+      "primary": "/stvorennya-saytiv/",
+      "links": [
+        {
+          "url": "/stvorennya-saytiv/",
+          "label": "Створення сайтів під ключ"
+        },
+        {
+          "url": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
+          "label": "Бриф перед оцінкою"
+        }
+      ]
+    },
+    {
+      "source": "/blog/chomu-tsiny-na-sajty-vidriznyayutsya/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Для магазину порівнюйте не кількість екранів, а каталог, checkout та облік. Вартість інтеграцій відділяйте від базового запуску.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Розробка інтернет-магазину"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+          "label": "З чого складається бюджет магазину"
+        }
+      ]
+    },
+    {
+      "source": "/blog/skilky-tryvaye-rozrobka-sajtu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "У магазині календар залежить від підготовки товарів, договорів із платіжними сервісами та тестування замовлення. Узгодьте ці залежності до розробки.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Розробка інтернет-магазину"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+          "label": "Етапи приймання магазину"
+        }
+      ]
+    },
+    {
+      "source": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Якщо бізнес має кілька послуг і джерел звернення, зафіксуйте окремі маршрути клієнта та того, хто відповідає після заявки.",
+      "primary": "/stvorennya-saytu-dlya-biznesu/",
+      "links": [
+        {
+          "url": "/stvorennya-saytu-dlya-biznesu/",
+          "label": "Багатосторінковий сайт для бізнесу"
+        },
+        {
+          "url": "/portfolio/formula-chystoty/",
+          "label": "Приклад структури сервісної компанії"
+        }
+      ]
+    },
+    {
+      "source": "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Наступний крок — узгодити сторінки послуг, матеріали й обробку звернень. Калькулятор допоможе підготувати початковий орієнтир, але не замінює оцінку.",
+      "primary": "/stvorennya-saytu-dlya-biznesu/",
+      "links": [
+        {
+          "url": "/stvorennya-saytu-dlya-biznesu/",
+          "label": "Багатосторінковий сайт для бізнесу"
+        },
+        {
+          "url": "/kalkulyator-vartosti-saytu/",
+          "label": "Калькулятор обсягу й бюджету"
+        }
+      ]
+    },
+    {
+      "source": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Для кількох послуг потрібні зрозумілі сторінки та справна передача контакту менеджеру. Клік на телефон ще не підтверджує дзвінок або продаж.",
+      "primary": "/stvorennya-saytu-dlya-biznesu/",
+      "links": [
+        {
+          "url": "/stvorennya-saytu-dlya-biznesu/",
+          "label": "Багатосторінковий сайт для бізнесу"
+        },
+        {
+          "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+          "label": "Як відрізняти клік від підтвердженої заявки"
+        }
+      ]
+    },
+    {
+      "source": "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Вибір сервісного сайту починається з переліку послуг, території виїзду та способу оцінки замовлення, а не з копій сторінок для кожного міста.",
+      "primary": "/sajty-dlya-poslug/",
+      "links": [
+        {
+          "url": "/sajty-dlya-poslug/",
+          "label": "Сайт для сервісного бізнесу"
+        },
+        {
+          "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+          "label": "Приклад сценарію для клінінгу"
+        }
+      ]
+    },
+    {
+      "source": "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Для сайту компанії погодьте межі першої версії, права на матеріали та передачу доступів. Перевірні кейси корисніші за непідтверджені гарантії.",
+      "primary": "/stvorennya-saytu-dlya-biznesu/",
+      "links": [
+        {
+          "url": "/stvorennya-saytu-dlya-biznesu/",
+          "label": "Багатосторінковий сайт для бізнесу"
+        },
+        {
+          "url": "/portfolio/",
+          "label": "Відкрити реалізовані роботи"
+        }
+      ]
+    },
+    {
+      "source": "/blog/yak-vybraty-rozrobnyka-sajtu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Перевіряйте не тільки обіцяний стек, а відповідність формату задачі, доступність комунікації та критерії здачі.",
+      "primary": "/stvorennya-saytiv/",
+      "links": [
+        {
+          "url": "/stvorennya-saytiv/",
+          "label": "Створення сайтів під ключ"
+        },
+        {
+          "url": "/zasnovnyk/",
+          "label": "Хто відповідає за проєкт"
+        }
+      ]
+    },
+    {
+      "source": "/blog/lending-abo-korporatyvnyj-sajt/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Якщо потрібні окремі сторінки напрямів, команди й відповідей на запитання, розгляньте багатосторінковий формат. Для однієї перевірки попиту достатньо іншого обсягу.",
+      "primary": "/stvorennya-saytu-dlya-biznesu/",
+      "links": [
+        {
+          "url": "/stvorennya-saytu-dlya-biznesu/",
+          "label": "Багатосторінковий сайт для бізнесу"
+        },
+        {
+          "url": "/stvorennya-landing-page/",
+          "label": "Коли достатньо лендінгу"
+        }
+      ]
+    },
+    {
+      "source": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Після вибору формату оцініть матеріали, інтеграції та приймання. Остаточний кошторис має спиратися на погоджений обсяг.",
+      "primary": "/stvorennya-saytiv/",
+      "links": [
+        {
+          "url": "/stvorennya-saytiv/",
+          "label": "Створення сайтів під ключ"
+        },
+        {
+          "url": "/kalkulyator-vartosti-saytu/",
+          "label": "Порахувати орієнтир самостійно"
+        }
+      ]
+    },
+    {
+      "source": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Щоб порівняти кошториси, звірте варіанти товарів, платіж, доставку, обмін залишками й сценарій повернення. Обирайте пакет за операційним процесом.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Розробка інтернет-магазину"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+          "label": "Що перевірити перед запуском магазину"
+        },
+        {
+          "url": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
+          "label": "Підготовка каталогу одягу: розміри, SKU та залишки"
+        }
+      ]
+    },
+    {
+      "source": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Потрібне не лише оформлення каталогу, а тестове замовлення від вибору варіанта до підтвердження. Зафіксуйте джерело ціни та залишку.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Розробка інтернет-магазину"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+          "label": "Як рахувати обсяг і вартість"
+        },
+        {
+          "url": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
+          "label": "Підготовка каталогу одягу: розміри, SKU та залишки"
+        }
+      ]
+    },
+    {
+      "source": "/blog/nextjs-chy-wordpress/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Для магазину вибір платформи перевіряють на реальному каталозі, оновленні залишків та checkout. Саме назва технології не доводить кращу швидкість чи продажі.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Розробка інтернет-магазину"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+          "label": "Сценарії приймання ecommerce"
+        }
+      ]
+    },
+    {
+      "source": "/blog/pidtrymka-saytu-pislya-zapusku/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "У магазині супровід охоплює не тільки контент: контролюйте збої платежу, залишки, доставку та відновлення. Обсяг підтримки погоджується окремо від розробки.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Розробка інтернет-магазину"
+        },
+        {
+          "url": "/pidtrymka-saytiv/",
+          "label": "Окрема послуга підтримки"
+        }
+      ]
+    },
+    {
+      "source": "/blog/struktura-sajtu-dlya-seo/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Для каталогу розділіть категорії попиту та допоміжні фільтри. Не кожна комбінація розміру, кольору й сортування повинна бути індексованою сторінкою.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Розробка інтернет-магазину"
+        },
+        {
+          "url": "/blog/canonical-url-prostymy-slovamy/",
+          "label": "Як працює canonical"
+        }
+      ]
+    },
+    {
+      "source": "/blog/sajt-dlya-kliningovoyi-kompaniyi/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Для прибирання важливі зрозумілі умови, параметри об’єкта, територія виїзду та зручний контакт. Окремий нішевий опис допоможе скласти бриф.",
+      "primary": "/sajty-dlya-poslug/",
+      "links": [
+        {
+          "url": "/sajty-dlya-poslug/",
+          "label": "Сайт для сервісного бізнесу"
+        },
+        {
+          "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+          "label": "Замовити сайт для клінінгової компанії"
+        }
+      ]
+    },
+    {
+      "source": "/blog/landing-dlya-google-ads/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Посадкова сторінка має продовжувати конкретну пропозицію оголошення і давати один зрозумілий наступний крок.",
+      "primary": "/stvorennya-landing-page/",
+      "links": [
+        {
+          "url": "/stvorennya-landing-page/",
+          "label": "Лендінг під одну пропозицію"
+        },
+        {
+          "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+          "label": "Вимірювання звернення після реклами"
+        }
+      ]
+    },
+    {
+      "source": "/blog/google-ads-dlya-biznesu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Перед запуском реклами перевірте відповідність оголошення посадковій сторінці, мобільний контакт і підтвердження форми.",
+      "primary": "/stvorennya-landing-page/",
+      "links": [
+        {
+          "url": "/stvorennya-landing-page/",
+          "label": "Лендінг під одну пропозицію"
+        },
+        {
+          "url": "/google-ads/",
+          "label": "Налаштування та ведення Google Ads"
+        }
+      ]
+    },
+    {
+      "source": "/blog/tehnichne-seo-cheklist/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Чекліст знаходить технічні перешкоди, але просування також потребує релевантного змісту, внутрішніх посилань і перевірних доказів.",
+      "primary": "/seo-prosuvannya/",
+      "links": [
+        {
+          "url": "/seo-prosuvannya/",
+          "label": "SEO-просування сайту"
+        },
+        {
+          "url": "/tehnichne-seo/",
+          "label": "Окремий технічний SEO-аудит"
+        }
+      ]
+    },
+    {
+      "source": "/blog/seo-first-pidhid/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Після запуску перевіряйте сторінки й запити в Search Console: індексація сама по собі не означає переходів або заявок.",
+      "primary": "/seo-prosuvannya/",
+      "links": [
+        {
+          "url": "/seo-prosuvannya/",
+          "label": "SEO-просування сайту"
+        },
+        {
+          "url": "/portfolio/max-site/",
+          "label": "Власний SEO-кейс із відкритим baseline"
+        }
+      ]
+    },
+    {
+      "source": "/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Відокремте недоступність для індексації від слабкої відповідності запиту. План змін починається з даних, а не з переписування всіх URL.",
+      "primary": "/seo-prosuvannya/",
+      "links": [
+        {
+          "url": "/seo-prosuvannya/",
+          "label": "SEO-просування сайту"
+        },
+        {
+          "url": "/blog/tehnichne-seo-cheklist/",
+          "label": "Початкова технічна перевірка"
+        }
+      ]
+    },
+    {
+      "source": "/blog/canonical-url-prostymy-slovamy/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Canonical не повинен підміняти відмінні послуги. Спочатку визначте власника наміру, тоді усувайте справжні дублікати.",
+      "primary": "/seo-prosuvannya/",
+      "links": [
+        {
+          "url": "/seo-prosuvannya/",
+          "label": "SEO-просування сайту"
+        },
+        {
+          "url": "/blog/struktura-sajtu-dlya-seo/",
+          "label": "Структура сторінок за наміром"
+        }
+      ]
+    },
+    {
+      "source": "/blog/vnutrishnya-perelinkovka/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Почніть із зв’язків стаття → послуга → доказ, що допомагають читачеві завершити задачу. Кількість посилань сама по собі не є результатом.",
+      "primary": "/seo-prosuvannya/",
+      "links": [
+        {
+          "url": "/seo-prosuvannya/",
+          "label": "SEO-просування сайту"
+        },
+        {
+          "url": "/portfolio/max-site/",
+          "label": "Архітектура MAX SITE на практиці"
+        }
+      ]
+    },
+    {
+      "source": "/blog/redesign-saytu-bez-vtraty-seo/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Оновлення багатосторінкового сайту починайте з інвентаризації URL і заявок. Збережіть корисні маршрути, а перенаправлення перевірте до запуску.",
+      "primary": "/stvorennya-saytu-dlya-biznesu/",
+      "links": [
+        {
+          "url": "/stvorennya-saytu-dlya-biznesu/",
+          "label": "Багатосторінковий сайт для бізнесу"
+        },
+        {
+          "url": "/redesign-saytu/",
+          "label": "Редизайн зі збереженням структури"
+        }
+      ]
+    },
+    {
+      "source": "/blog/ga4-konversiyi-dlya-sajtu/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Спочатку погодьте, що бізнес вважає зверненням. Успішне надсилання форми і клік на телефон мають різний зміст, тому оцінюйте їх окремо.",
+      "primary": "/stvorennya-saytu-dlya-biznesu/",
+      "links": [
+        {
+          "url": "/stvorennya-saytu-dlya-biznesu/",
+          "label": "Багатосторінковий сайт для бізнесу"
+        },
+        {
+          "url": "/google-analytics-search-console/",
+          "label": "Налаштування аналітики й Search Console"
+        }
+      ]
+    },
+    {
+      "source": "/blog/google-analytics-search-console/",
+      "heading": "Від рекомендацій до вашого проєкту",
+      "intro": "Пошукові покази пояснюють видимість, а аналітика — поведінку після переходу. Не підсумовуйте ці показники як однакові події.",
+      "primary": "/seo-prosuvannya/",
+      "links": [
+        {
+          "url": "/seo-prosuvannya/",
+          "label": "SEO-просування сайту"
+        },
+        {
+          "url": "/google-analytics-search-console/",
+          "label": "Підключення та перевірка вимірювання"
+        }
+      ]
+    },
+    {
+      "source": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
+      "heading": "Від даних каталогу до працюючого магазину",
+      "intro": "Погодьте склад системи та бюджет після перевірки одного складного товару, способів оплати і джерела залишків.",
+      "primary": "/stvorennya-internet-mahazynu/",
+      "links": [
+        {
+          "url": "/stvorennya-internet-mahazynu/",
+          "label": "Інтернет-магазин із каталогом і замовленнями"
+        },
+        {
+          "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+          "label": "Що перевіряти в обсязі розробки"
+        },
+        {
+          "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+          "label": "Як формується кошторис магазину"
+        }
+      ]
+    },
+    {
+      "source": "/blog/analiz-google-stvorennya-sajtiv-kyiv/",
+      "heading": "Від дослідження до структури вашого сайту",
+      "intro": "Порівняйте задачі своєї компанії з форматом майбутньої посадкової та перевірте, як вона підтримує головну послугу.",
+      "primary": "/mista/stvorennya-sajtiv-kyiv/",
+      "links": [
+        {
+          "url": "/mista/stvorennya-sajtiv-kyiv/",
+          "label": "Розробка сайту для київської компанії"
+        },
+        {
+          "url": "/blog/struktura-sajtu-dlya-seo/",
+          "label": "Як розподіляти запити між сторінками"
+        },
+        {
+          "url": "/blog/yak-vybraty-vebstudiyu-v-ukrayini/",
+          "label": "Що перевірити у пропозиції вебстудії"
+        }
+      ]
+    }
+  ]
+}
