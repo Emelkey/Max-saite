@@ -1,0 +1,133 @@
+{
+  "capturedAt": "2026-09-12",
+  "source": "HYPD Google organic SERP via data provider",
+  "requested": {
+    "location": "Ukraine",
+    "language": "Ukrainian",
+    "device": "desktop",
+    "itemTypes": [
+      "organic"
+    ]
+  },
+  "limitations": [
+    "Country-level location, not a Kyiv city geolocation.",
+    "Single observation per query; results change over time.",
+    "Only organic items retained. Advertisements, local packs, reviews and PAA excluded.",
+    "Some Google responses contained nine organic items; missing tenth is not invented."
+  ],
+  "queries": [
+    {
+      "query": "створення сайтів київ",
+      "observedAt": "2026-09-12 18:24:48 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://wezom.com.ua/ua/razrabotka_sajtov",
+          "title": "Розробка сайтів Київ: замовити розробку сайту під ключ"
+        },
+        {
+          "rank": 2,
+          "url": "https://thedc.studio/rozrobka-saitiv-u-kyievi/",
+          "title": "Розробка сайтів Київ – створення сайтів під ключ"
+        },
+        {
+          "rank": 3,
+          "url": "https://dime-studio.com/",
+          "title": "Dime Studio - створення розробка сайтів Київ Україна ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://site-m.kiev.ua/",
+          "title": "Створення сайтів Київ: Сайт під ключ | Розробка сайтів Київ"
+        },
+        {
+          "rank": 5,
+          "url": "https://barbarys.com.ua/blog/stvorennya-sajtiv-kyyiv/",
+          "title": "Створення сайтів у Києві під ключ - Розробка сайтів"
+        },
+        {
+          "rank": 6,
+          "url": "https://megasite.ua/ua/kiev",
+          "title": "Створення сайтів Київ - Розробка сайтів у Києві - megasite"
+        },
+        {
+          "rank": 7,
+          "url": "https://championweb.com.ua/uk",
+          "title": "Розробка сайтів в Україні 2026"
+        },
+        {
+          "rank": 8,
+          "url": "https://webcase.com.ua/uk/sozdanie-sajtov-kiev/",
+          "title": "Розробка сайтів Київ| Створення сайтів Київ - Webcase"
+        },
+        {
+          "rank": 9,
+          "url": "https://www.limenet.kiev.ua/ua/",
+          "title": "Розробка сайтів | Замовити сайт під ключ | Київ Лаймнет"
+        },
+        {
+          "rank": 10,
+          "url": "https://kabanchik.ua/ua/kyiv/category/stvorennia-saitiv",
+          "title": "Створення сайтів під ключ в Києві"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт київ",
+      "observedAt": "2026-09-12 18:25:04 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://wezom.com.ua/ua/razrabotka_sajtov",
+          "title": "Розробка сайтів Київ: замовити розробку сайту під ключ"
+        },
+        {
+          "rank": 2,
+          "url": "https://webpc.com.ua/",
+          "title": "Замовити сайт у Києві: розробка під ключ | webPC"
+        },
+        {
+          "rank": 3,
+          "url": "https://barbarys.com.ua/blog/stvorennya-sajtiv-kyyiv/",
+          "title": "Створення сайтів у Києві під ключ - Розробка сайтів"
+        },
+        {
+          "rank": 4,
+          "url": "https://impulse-design.com.ua/ua/",
+          "title": "Розробка сайтів Київ - замовити сайт Україна веб студія ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://webcase.com.ua/uk/sozdanie-sajtov-kiev/",
+          "title": "Розробка сайтів Київ| Створення сайтів Київ - Webcase"
+        },
+        {
+          "rank": 6,
+          "url": "https://thedc.studio/rozrobka-saitiv-u-kyievi/",
+          "title": "Розробка сайтів Київ – створення сайтів під ключ"
+        },
+        {
+          "rank": 7,
+          "url": "https://megasite.ua/ua/kiev",
+          "title": "Створення сайтів Київ - Розробка сайтів у Києві - megasite"
+        },
+        {
+          "rank": 8,
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-kiyiv/",
+          "title": "Створення сайтів Київ. Розробка сайту у Києві - iFish"
+        },
+        {
+          "rank": 9,
+          "url": "https://brainlab.com.ua/uk/poslugi",
+          "title": "Розробка сайтів в Україні. Сучасні рішення 2026 - Brainlab"
+        }
+      ]
+    }
+  ]
+}

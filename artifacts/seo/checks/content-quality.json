@@ -1,13 +1,24 @@
 {
   "check": "content-quality",
-  "generatedAt": "2026-09-07T19:53:44.859Z",
-  "pages": 110,
-  "indexable": 88,
+  "generatedAt": "2026-09-12T18:39:06.605Z",
+  "pages": 112,
+  "indexable": 90,
   "errors": [],
   "warnings": [
+    "/blog/analiz-google-stvorennya-sajtiv-kyiv/: no identifiable references section with an external citation; review factual claims and add relevant sources",
     "Worker Durable Object rate limiting/idempotency are configured and unit-tested; production bindings and real Telegram delivery still require separate live verification."
   ],
   "editorialReview": [
+    {
+      "route": "/blog/analiz-google-stvorennya-sajtiv-kyiv/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": false,
+      "duplicateParagraphs": 0,
+      "findings": [
+        "no identifiable references section with an external citation; review factual claims and add relevant sources"
+      ]
+    },
     {
       "route": "/blog/canonical-url-prostymy-slovamy/",
       "hasAuthor": true,
@@ -186,6 +197,14 @@
     },
     {
       "route": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
+      "hasAuthor": true,
+      "hasVisibleDate": true,
+      "hasReferences": true,
+      "duplicateParagraphs": 0,
+      "findings": []
+    },
+    {
+      "route": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
       "hasAuthor": true,
       "hasVisibleDate": true,
       "hasReferences": true,

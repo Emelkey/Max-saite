@@ -1,5 +1,11 @@
 /* Small first-party consent control; loaded before the Google tag on every page. */
 (() => {
+  // QA/preview visits must never enter the production GA4 property. This file
+  // executes synchronously before the Google tag, including automatic pageviews.
+  // https://developers.google.com/tag-platform/security/guides/privacy
+  if (location.hostname !== "maxsite.com.ua") {
+    window["ga-disable-G-TS8DMMKK34"] = true;
+  }
   const key = "max_site_consent_v1";
   const denied = {analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied"};
   let saved = null;

@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-09-07T19:53:44.057Z",
+  "generatedAt": "2026-09-12T18:39:05.711Z",
   "method": "All published city main bodies; 5-gram Jaccard; only complete shared pricing/process/CTA/navigation sections excluded; proof retained",
   "threshold": 0.55,
   "pages": {
     "kyiv": {
-      "words": 703,
-      "grams": 699
+      "words": 971,
+      "grams": 967
     },
     "lviv": {
-      "words": 704,
-      "grams": 700
+      "words": 841,
+      "grams": 837
     },
     "odesa": {
-      "words": 701,
-      "grams": 697
+      "words": 837,
+      "grams": 833
     },
     "dnipro": {
-      "words": 688,
-      "grams": 684
+      "words": 828,
+      "grams": 824
     },
     "kharkiv": {
-      "words": 703,
-      "grams": 699
+      "words": 837,
+      "grams": 833
     },
     "cherkasy": {
-      "words": 488,
-      "grams": 484
+      "words": 700,
+      "grams": 696
     },
     "ukrayina": {
       "words": 327,
@@ -36,81 +36,81 @@
     {
       "a": "kyiv",
       "b": "lviv",
-      "similarity": 0.0762,
+      "similarity": 0.0581,
       "intersection": 99,
-      "union": 1300,
+      "union": 1705,
       "pass": true
     },
     {
       "a": "kyiv",
       "b": "odesa",
-      "similarity": 0.0772,
-      "intersection": 100,
-      "union": 1296,
+      "similarity": 0.0576,
+      "intersection": 98,
+      "union": 1702,
       "pass": true
     },
     {
       "a": "kyiv",
       "b": "dnipro",
-      "similarity": 0.0729,
+      "similarity": 0.0554,
       "intersection": 94,
+      "union": 1697,
+      "pass": true
+    },
+    {
+      "a": "kyiv",
+      "b": "kharkiv",
+      "similarity": 0.0551,
+      "intersection": 94,
+      "union": 1706,
+      "pass": true
+    },
+    {
+      "a": "kyiv",
+      "b": "cherkasy",
+      "similarity": 0.0006,
+      "intersection": 1,
+      "union": 1662,
+      "pass": true
+    },
+    {
+      "a": "kyiv",
+      "b": "ukrayina",
+      "similarity": 0,
+      "intersection": 0,
       "union": 1289,
       "pass": true
     },
     {
-      "a": "kyiv",
-      "b": "kharkiv",
-      "similarity": 0.0721,
-      "intersection": 94,
-      "union": 1304,
-      "pass": true
-    },
-    {
-      "a": "kyiv",
-      "b": "cherkasy",
-      "similarity": 0,
-      "intersection": 0,
-      "union": 1183,
-      "pass": true
-    },
-    {
-      "a": "kyiv",
-      "b": "ukrayina",
-      "similarity": 0,
-      "intersection": 0,
-      "union": 1021,
-      "pass": true
-    },
-    {
       "a": "lviv",
       "b": "odesa",
-      "similarity": 0.0754,
-      "intersection": 98,
-      "union": 1299,
+      "similarity": 0.0644,
+      "intersection": 101,
+      "union": 1569,
       "pass": true
     },
     {
       "a": "lviv",
       "b": "dnipro",
-      "similarity": 0.0729,
-      "intersection": 94,
-      "union": 1290,
+      "similarity": 0.062,
+      "intersection": 97,
+      "union": 1564,
       "pass": true
     },
     {
       "a": "lviv",
       "b": "kharkiv",
-      "similarity": 0.072,
-      "intersection": 94,
-      "union": 1305,
+      "similarity": 0.0617,
+      "intersection": 97,
+      "union": 1573,
       "pass": true
     },
     {
       "a": "lviv",
       "b": "cherkasy",
-      "similarity": 0,
-      "intersection": 0,
-      "union": 1184,
+      "similarity": 0.002,
+      "intersection": 3,
+      "union": 1530,
       "pass": true
     },
     {
@@ -118,31 +118,31 @@
       "b": "ukrayina",
       "similarity": 0,
       "intersection": 0,
-      "union": 1022,
+      "union": 1159,
       "pass": true
     },
     {
       "a": "odesa",
       "b": "dnipro",
-      "similarity": 0.073,
-      "intersection": 94,
-      "union": 1287,
+      "similarity": 0.0622,
+      "intersection": 97,
+      "union": 1560,
       "pass": true
     },
     {
       "a": "odesa",
       "b": "kharkiv",
-      "similarity": 0.0722,
-      "intersection": 94,
-      "union": 1302,
+      "similarity": 0.0618,
+      "intersection": 97,
+      "union": 1569,
       "pass": true
     },
     {
       "a": "odesa",
       "b": "cherkasy",
-      "similarity": 0,
-      "intersection": 0,
-      "union": 1181,
+      "similarity": 0.002,
+      "intersection": 3,
+      "union": 1526,
       "pass": true
     },
     {
@@ -150,23 +150,23 @@
       "b": "ukrayina",
       "similarity": 0,
       "intersection": 0,
-      "union": 1019,
+      "union": 1155,
       "pass": true
     },
     {
       "a": "dnipro",
       "b": "kharkiv",
-      "similarity": 0.0738,
-      "intersection": 95,
-      "union": 1288,
+      "similarity": 0.0642,
+      "intersection": 100,
+      "union": 1557,
       "pass": true
     },
     {
       "a": "dnipro",
       "b": "cherkasy",
-      "similarity": 0,
-      "intersection": 0,
-      "union": 1168,
+      "similarity": 0.002,
+      "intersection": 3,
+      "union": 1517,
       "pass": true
     },
     {
@@ -174,15 +174,15 @@
       "b": "ukrayina",
       "similarity": 0,
       "intersection": 0,
-      "union": 1006,
+      "union": 1146,
       "pass": true
     },
     {
       "a": "kharkiv",
       "b": "cherkasy",
-      "similarity": 0,
-      "intersection": 0,
-      "union": 1183,
+      "similarity": 0.002,
+      "intersection": 3,
+      "union": 1526,
       "pass": true
     },
     {
@@ -190,7 +190,7 @@
       "b": "ukrayina",
       "similarity": 0,
       "intersection": 0,
-      "union": 1021,
+      "union": 1155,
       "pass": true
     },
     {
@@ -198,7 +198,7 @@
       "b": "ukrayina",
       "similarity": 0,
       "intersection": 0,
-      "union": 806,
+      "union": 1018,
       "pass": true
     }
   ],

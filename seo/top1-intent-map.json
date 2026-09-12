@@ -1,0 +1,141 @@
+{
+  "version": "TOP1-2026-09-10",
+  "approvedBy": "User instruction to execute attached TOP1 specification, section 3",
+  "baseline": "seo/evidence/top1-20260910-gsc-baseline.json",
+  "policy": "One primary URL per intent, existing routes retained. Overlap is monitored; no cross-canonicalization, redirects, new city synonyms or URL deletions are justified by low rank alone.",
+  "owners": [
+    {
+      "cluster": "brand",
+      "url": "/",
+      "primary": "MAX SITE",
+      "secondary": [
+        "maxsite",
+        "макс сайт"
+      ],
+      "intent": "Brand and umbrella: websites, SEO, Google Ads, custom software",
+      "excludePrimary": [
+        "замовити сайт",
+        "сайт для бізнесу"
+      ]
+    },
+    {
+      "cluster": "general-sites",
+      "url": "/stvorennya-saytiv/",
+      "primary": "створення сайтів під ключ",
+      "secondary": [
+        "замовити сайт",
+        "розробка сайтів",
+        "сайт під ключ"
+      ],
+      "intent": "Choose and commission a website format for business"
+    },
+    {
+      "cluster": "smb",
+      "url": "/stvorennya-saytu-dlya-biznesu/",
+      "primary": "сайт для бізнесу",
+      "secondary": [
+        "сайт для малого бізнесу",
+        "створення сайту для бізнесу"
+      ],
+      "intent": "Multi-page small/medium business website with managed enquiry flow"
+    },
+    {
+      "cluster": "service-business",
+      "url": "/sajty-dlya-poslug/",
+      "primary": "сайт для послуг",
+      "secondary": [
+        "сайт сервісного бізнесу",
+        "сайт для компанії послуг"
+      ],
+      "intent": "Service catalogue, geography, quote and enquiry workflow"
+    },
+    {
+      "cluster": "landing",
+      "url": "/stvorennya-landing-page/",
+      "primary": "landing page під ключ",
+      "secondary": [
+        "замовити лендінг",
+        "створення landing page"
+      ],
+      "intent": "One offer and one measurable conversion route"
+    },
+    {
+      "cluster": "ecommerce",
+      "url": "/stvorennya-internet-mahazynu/",
+      "primary": "інтернет магазин під ключ",
+      "secondary": [
+        "створення інтернет магазину",
+        "розробка інтернет магазину"
+      ],
+      "intent": "Catalogue, checkout, payment, shipping and operational integrations"
+    },
+    {
+      "cluster": "seo",
+      "url": "/seo-prosuvannya/",
+      "primary": "SEO просування сайту",
+      "secondary": [
+        "просування сайту",
+        "SEO для бізнесу"
+      ],
+      "intent": "Ongoing organic growth; distinct from SEO-ready build and technical audit"
+    },
+    {
+      "cluster": "city-kyiv",
+      "url": "/mista/stvorennya-sajtiv-kyiv/",
+      "primary": "створення сайтів у Києві",
+      "secondary": [],
+      "intent": "Remote project delivery for businesses in Києві; no fabricated local office",
+      "newUrlAllowed": false
+    },
+    {
+      "cluster": "city-lviv",
+      "url": "/mista/stvorennya-sajtiv-lviv/",
+      "primary": "створення сайтів у Львові",
+      "secondary": [],
+      "intent": "Remote project delivery for businesses in Львові; no fabricated local office",
+      "newUrlAllowed": false
+    },
+    {
+      "cluster": "city-odesa",
+      "url": "/mista/stvorennya-sajtiv-odesa/",
+      "primary": "створення сайтів у Одесі",
+      "secondary": [],
+      "intent": "Remote project delivery for businesses in Одесі; no fabricated local office",
+      "newUrlAllowed": false
+    },
+    {
+      "cluster": "city-dnipro",
+      "url": "/mista/stvorennya-sajtiv-dnipro/",
+      "primary": "створення сайтів у Дніпрі",
+      "secondary": [],
+      "intent": "Remote project delivery for businesses in Дніпрі; no fabricated local office",
+      "newUrlAllowed": false
+    },
+    {
+      "cluster": "city-kharkiv",
+      "url": "/mista/stvorennya-sajtiv-kharkiv/",
+      "primary": "створення сайтів у Харкові",
+      "secondary": [],
+      "intent": "Remote project delivery for businesses in Харкові; no fabricated local office",
+      "newUrlAllowed": false
+    },
+    {
+      "cluster": "city-cherkasy",
+      "url": "/mista/stvorennya-sajtiv-cherkasy/",
+      "primary": "створення сайтів у Черкасах",
+      "secondary": [],
+      "intent": "Remote project delivery for businesses in Черкасах; no fabricated local office",
+      "newUrlAllowed": false
+    },
+    {
+      "cluster": "cleaning",
+      "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+      "primary": "сайт для клінінгової компанії",
+      "secondary": [
+        "лендінг для клінінгу"
+      ],
+      "intent": "Cleaning-specific services, coverage, quote and real Formula Chystoty case"
+    }
+  ],
+  "supportingMap": "seo/keyword-map.csv"
+}

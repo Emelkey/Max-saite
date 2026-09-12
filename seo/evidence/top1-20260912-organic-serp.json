@@ -1,0 +1,870 @@
+{
+  "capturedAt": "2026-09-12",
+  "source": "HYPD Google organic SERP via data provider",
+  "requested": {
+    "location": "Ukraine",
+    "language": "Ukrainian",
+    "device": "desktop",
+    "itemTypes": [
+      "organic"
+    ]
+  },
+  "limitations": [
+    "Country-level location, not a Kyiv city geolocation.",
+    "Single observation per query; results change over time.",
+    "Only organic items retained. Advertisements, local packs, reviews and PAA excluded.",
+    "Some Google responses contained nine organic items; missing tenth is not invented."
+  ],
+  "queries": [
+    {
+      "query": "створення сайтів київ",
+      "observedAt": "2026-09-12 18:24:48 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "bc3925d8-b58c-48e4-995d-86e6c62726c7",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://wezom.com.ua/ua/razrabotka_sajtov",
+          "title": "Розробка сайтів Київ: замовити розробку сайту під ключ"
+        },
+        {
+          "rank": 2,
+          "url": "https://thedc.studio/rozrobka-saitiv-u-kyievi/",
+          "title": "Розробка сайтів Київ – створення сайтів під ключ"
+        },
+        {
+          "rank": 3,
+          "url": "https://dime-studio.com/",
+          "title": "Dime Studio - створення розробка сайтів Київ Україна ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://site-m.kiev.ua/",
+          "title": "Створення сайтів Київ: Сайт під ключ | Розробка сайтів Київ"
+        },
+        {
+          "rank": 5,
+          "url": "https://barbarys.com.ua/blog/stvorennya-sajtiv-kyyiv/",
+          "title": "Створення сайтів у Києві під ключ - Розробка сайтів"
+        },
+        {
+          "rank": 6,
+          "url": "https://megasite.ua/ua/kiev",
+          "title": "Створення сайтів Київ - Розробка сайтів у Києві - megasite"
+        },
+        {
+          "rank": 7,
+          "url": "https://championweb.com.ua/uk",
+          "title": "Розробка сайтів в Україні 2026"
+        },
+        {
+          "rank": 8,
+          "url": "https://webcase.com.ua/uk/sozdanie-sajtov-kiev/",
+          "title": "Розробка сайтів Київ| Створення сайтів Київ - Webcase"
+        },
+        {
+          "rank": 9,
+          "url": "https://www.limenet.kiev.ua/ua/",
+          "title": "Розробка сайтів | Замовити сайт під ключ | Київ Лаймнет"
+        },
+        {
+          "rank": 10,
+          "url": "https://kabanchik.ua/ua/kyiv/category/stvorennia-saitiv",
+          "title": "Створення сайтів під ключ в Києві"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт київ",
+      "observedAt": "2026-09-12 18:25:04 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "5cc8c63f-d5c0-4a5f-a3ea-2c5dd5786bd3",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://wezom.com.ua/ua/razrabotka_sajtov",
+          "title": "Розробка сайтів Київ: замовити розробку сайту під ключ"
+        },
+        {
+          "rank": 2,
+          "url": "https://webpc.com.ua/",
+          "title": "Замовити сайт у Києві: розробка під ключ | webPC"
+        },
+        {
+          "rank": 3,
+          "url": "https://barbarys.com.ua/blog/stvorennya-sajtiv-kyyiv/",
+          "title": "Створення сайтів у Києві під ключ - Розробка сайтів"
+        },
+        {
+          "rank": 4,
+          "url": "https://impulse-design.com.ua/ua/",
+          "title": "Розробка сайтів Київ - замовити сайт Україна веб студія ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://webcase.com.ua/uk/sozdanie-sajtov-kiev/",
+          "title": "Розробка сайтів Київ| Створення сайтів Київ - Webcase"
+        },
+        {
+          "rank": 6,
+          "url": "https://thedc.studio/rozrobka-saitiv-u-kyievi/",
+          "title": "Розробка сайтів Київ – створення сайтів під ключ"
+        },
+        {
+          "rank": 7,
+          "url": "https://megasite.ua/ua/kiev",
+          "title": "Створення сайтів Київ - Розробка сайтів у Києві - megasite"
+        },
+        {
+          "rank": 8,
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-kiyiv/",
+          "title": "Створення сайтів Київ. Розробка сайту у Києві - iFish"
+        },
+        {
+          "rank": 9,
+          "url": "https://brainlab.com.ua/uk/poslugi",
+          "title": "Розробка сайтів в Україні. Сучасні рішення 2026 - Brainlab"
+        }
+      ]
+    },
+    {
+      "query": "створення сайтів львів",
+      "observedAt": "2026-09-12 18:25:25 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "f4119365-af7a-4bb9-ac30-55b45cf99f2c",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://webartix.com.ua/rozrobka-saitiv-lviv/",
+          "title": "Створення сайтів Львів від WebArtix | Замовити сайт"
+        },
+        {
+          "rank": 2,
+          "url": "https://webetalon.com.ua/",
+          "title": "WebEtalon: Створення сайтів у Львові від 5000 гривень"
+        },
+        {
+          "rank": 3,
+          "url": "https://webera.com.ua/",
+          "title": "Розробка сайтів Львів. Створення та розкрутка веб сайту у ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://fabryka.cc/",
+          "title": "Фабрика Сайтів: Розробка сайтів (створення сайту) Львів ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://lviv.rozrobka-sajtiv.in.ua/",
+          "title": "Розробка та створення сайтів Львів"
+        },
+        {
+          "rank": 6,
+          "url": "https://redstone.agency/",
+          "title": "REDSTONE ᐉ Розробка сайтів, Створення сайтів, APP ..."
+        },
+        {
+          "rank": 7,
+          "url": "https://websufix.com/kamianske/",
+          "title": "Створення сайтів Львів | Просування (SEO, PPC, SMM)"
+        },
+        {
+          "rank": 8,
+          "url": "https://www.krylovcompany.com.ua/service/rozrobka-saytiv/",
+          "title": "Розробка сайтів у Львові - Ціни 2026, ..."
+        },
+        {
+          "rank": 9,
+          "url": "https://brainlab.com.ua/uk/stvorennya-sajtu-u-lvovi",
+          "title": "Розробка сайту Львів ᐉ створення сайтів під ключ у Львові"
+        },
+        {
+          "rank": 10,
+          "url": "https://romanstudio.net.ua/rozrobka-sajtiv-u-lvovi/",
+          "title": "Розробка сайтів у Львові під ключ"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт львів",
+      "observedAt": "2026-09-12 18:25:41 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "c8b6c878-30c8-4db1-bd0a-214fd342bcbf",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://webartix.com.ua/rozrobka-saitiv-lviv/",
+          "title": "Створення сайтів Львів від WebArtix | Замовити сайт"
+        },
+        {
+          "rank": 2,
+          "url": "https://webetalon.com.ua/",
+          "title": "WebEtalon: Створення сайтів у Львові від 5000 гривень"
+        },
+        {
+          "rank": 3,
+          "url": "https://www.krylovcompany.com.ua/service/rozrobka-saytiv/",
+          "title": "Розробка сайтів у Львові - Ціни 2026, ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://pbb.design/",
+          "title": "Cтворення сайтів у Львові | Замовити розробку сайту під ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://brainlab.com.ua/uk/stvorennya-sajtu-u-lvovi",
+          "title": "Розробка сайту Львів ᐉ створення сайтів під ключ у Львові"
+        },
+        {
+          "rank": 6,
+          "url": "https://webera.com.ua/",
+          "title": "Розробка сайтів Львів. Створення та розкрутка веб сайту у ..."
+        },
+        {
+          "rank": 7,
+          "url": "https://webtune.com.ua/web-development/",
+          "title": "Створення сайтів Львів. Розробка сайтів. Замовити веб сайт"
+        },
+        {
+          "rank": 8,
+          "url": "https://redstone.agency/",
+          "title": "REDSTONE ᐉ Розробка сайтів, Створення сайтів, APP ..."
+        },
+        {
+          "rank": 9,
+          "url": "https://www.legion-marketing.com.ua/stvorenny-sajtiv/",
+          "title": "Замовити сайт - Розробка сайтів від 20 000 грн - Legion Львів"
+        }
+      ]
+    },
+    {
+      "query": "створення сайтів одеса",
+      "observedAt": "2026-09-12 18:26:04 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "5cd33da4-1386-493b-bf0d-4d1678ec5683",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://mart.com.ua/uk/",
+          "title": "Студiя «Март» - Створення сайтів в Одесі. Дизайн ..."
+        },
+        {
+          "rank": 2,
+          "url": "https://sprava.ua/sprava-in-odessa",
+          "title": "Розробка та просування сайту в Одесі"
+        },
+        {
+          "rank": 3,
+          "url": "https://thedc.studio/rozrobka-saitiv-odesa/",
+          "title": "Розробка сайтів Одеса — WordPress-сайти під ключ"
+        },
+        {
+          "rank": 4,
+          "url": "https://xn----7sbbaqhlkm9ah9aiq.net/ua/sozdanie-saytov-ukraine/rozrobka-saytu-odesa/",
+          "title": "Створення сайтів в Одесі"
+        },
+        {
+          "rank": 5,
+          "url": "https://g-one.com.ua/rozrobka-sajtiv-po-vsij-ukrayini/odesa/",
+          "title": "Розробка сайтів Одеса | Створення сайтів під ключ G-ONE"
+        },
+        {
+          "rank": 6,
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-odesa/",
+          "title": "Розробка сайтів Одеса. Створення сайту в Одесі - iFish"
+        },
+        {
+          "rank": 7,
+          "url": "https://megasite.ua/ua/odessa",
+          "title": "Створення сайтів Одеса ᐉ Замовити розробку сайту в ..."
+        },
+        {
+          "rank": 8,
+          "url": "https://web-astudio.com/ua/od/",
+          "title": "Створення сайтів в Одесі під ключ будь-якої складності"
+        },
+        {
+          "rank": 9,
+          "url": "https://list.in.ua/%D0%9E%D0%B4%D0%B5%D1%81%D0%B0/%D0%A1%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D1%81%D0%B0%D0%B9%D1%82%D1%96%D0%B2-%D0%B4%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D1%96%D0%B9%D0%BD%D0%BE",
+          "title": "Створення сайтів дистанційно у Одесі ᐈ знайдено 1"
+        },
+        {
+          "rank": 10,
+          "url": "https://artjoker.ua/uslugi/odessa/",
+          "title": "Створення сайту в Одесі від $2000"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт одеса",
+      "observedAt": "2026-09-12 18:26:37 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "d94c924b-63ec-4e24-9a78-a3b135eeff1c",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-odesa/",
+          "title": "Розробка сайтів Одеса. Створення сайту в Одесі - iFish"
+        },
+        {
+          "rank": 2,
+          "url": "https://isdl.in.ua/uk/stvorennya-saytiv-odesa",
+          "title": "Створення сайтів Одеса | Замовити сайт, розробка, ціна"
+        },
+        {
+          "rank": 3,
+          "url": "https://thedc.studio/rozrobka-saitiv-odesa/",
+          "title": "Розробка сайтів Одеса — WordPress-сайти під ключ"
+        },
+        {
+          "rank": 4,
+          "url": "https://sprava.ua/sprava-in-odessa",
+          "title": "Розробка та просування сайту в Одесі"
+        },
+        {
+          "rank": 5,
+          "url": "https://megasite.ua/ua/odessa",
+          "title": "Створення сайтів Одеса ᐉ Замовити розробку сайту в ..."
+        },
+        {
+          "rank": 6,
+          "url": "https://g-one.com.ua/rozrobka-sajtiv-po-vsij-ukrayini/odesa/",
+          "title": "Розробка сайтів Одеса | Створення сайтів під ключ G-ONE"
+        },
+        {
+          "rank": 7,
+          "url": "https://mart.com.ua/uk/",
+          "title": "Студiя «Март» - Створення сайтів в Одесі. Дизайн ..."
+        },
+        {
+          "rank": 8,
+          "url": "https://msn.od.ua/uk/",
+          "title": "Digital агенція з розробки сайтів Веб студія Одеса"
+        },
+        {
+          "rank": 9,
+          "url": "https://sitepoint.com.ua/website-development-odesa/",
+          "title": "Розробка сайтів Одеса під ключ | Замовити сайт в Одесі"
+        }
+      ]
+    },
+    {
+      "query": "створення сайтів дніпро",
+      "observedAt": "2026-09-12 18:25:09 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "90178211-3efc-4fb4-9188-32b4991991a3",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://web-master.dp.ua/",
+          "title": "Створення сайтів Дніпро в Україні Розробка сайту візитки ..."
+        },
+        {
+          "rank": 2,
+          "url": "https://xn----7sbbaqhlkm9ah9aiq.net/ua/sozdanie-saytov-ukraine/rozrobka-saytu-dnipro/",
+          "title": "Створення сайту Дніпро від 6900 грн | Розробка сайтів в ..."
+        },
+        {
+          "rank": 3,
+          "url": "https://web-art.dp.ua/",
+          "title": "Web Art studio: Створення сайтів у Дніпрі під ключ"
+        },
+        {
+          "rank": 4,
+          "url": "https://sprava.ua/sprava-in-dnipro",
+          "title": "Створення і SEO просування сайту у Дніпрі / розробка ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://webnauts.pro/uk/service/stvorennya-saitiv-u-dnipri-pid-kliuch/",
+          "title": "Створення сайтів у Дніпрі під ключ — Розробка ..."
+        },
+        {
+          "rank": 6,
+          "url": "https://webosnova.com/rozrobka-saytiv-dnipro",
+          "title": "Розробка сайтів у Дніпрі від Webosnova"
+        },
+        {
+          "rank": 7,
+          "url": "https://m.olx.ua/uk/uslugi/delovye-uslugi/sozdanie-prodvizhenie-saytov/dnepr/",
+          "title": "Створення сайтів та їх просування Дніпро на ..."
+        },
+        {
+          "rank": 8,
+          "url": "https://thecoder.com.ua/rozrobka-saitiv-dnipro/",
+          "title": "ᐈ Розробка сайтів в місті Дніпро (Дніпропетровськ)"
+        },
+        {
+          "rank": 9,
+          "url": "https://attico.dp.ua/ua/",
+          "title": "Створення та просування сайтів Дніпро Створити сайт ..."
+        },
+        {
+          "rank": 10,
+          "url": "https://creative-power.in.ua/index.php/uk/website-development-dnipro",
+          "title": "Створення сайтів - Дніпро, Україна - Дизайн студия"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт дніпро",
+      "observedAt": "2026-09-12 18:25:29 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "6ef537b6-b1dd-47c6-a4d6-b6ca3529282e",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://attico.dp.ua/ua/",
+          "title": "Створення та просування сайтів Дніпро Створити сайт ..."
+        },
+        {
+          "rank": 2,
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-dnipro/",
+          "title": "Створення сайтів Дніпро: розробка під ключ - iFish"
+        },
+        {
+          "rank": 3,
+          "url": "https://creative-power.in.ua/index.php/uk/website-development-dnipro",
+          "title": "Створення сайтів - Дніпро, Україна - Дизайн студия"
+        },
+        {
+          "rank": 4,
+          "url": "https://webosnova.com/rozrobka-saytiv-dnipro",
+          "title": "Розробка сайтів у Дніпрі від Webosnova"
+        },
+        {
+          "rank": 5,
+          "url": "https://i-pr.com.ua/ua/services/sozdanie-sajtov-dnepr/",
+          "title": "Створення сайтів у Дніпрі - Агенція"
+        },
+        {
+          "rank": 6,
+          "url": "https://xn----7sbbaqhlkm9ah9aiq.net/ua/sozdanie-saytov-ukraine/rozrobka-saytu-dnipro/",
+          "title": "Створення сайту Дніпро від 6900 грн | Розробка сайтів в ..."
+        },
+        {
+          "rank": 7,
+          "url": "https://sprava.ua/sprava-in-dnipro",
+          "title": "Створення і SEO просування сайту у Дніпрі / розробка ..."
+        },
+        {
+          "rank": 8,
+          "url": "https://web-art.dp.ua/",
+          "title": "Web Art studio: Створення сайтів у Дніпрі під ключ"
+        },
+        {
+          "rank": 9,
+          "url": "https://freelance.ua/users/sajt-pod-kljuch/",
+          "title": "ᐈ Сайт під ключ | Замовити розробку сайту на ..."
+        }
+      ]
+    },
+    {
+      "query": "створення сайтів харків",
+      "observedAt": "2026-09-12 18:25:16 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "2dbc14a1-0ba6-456d-9d72-5cd19fea5877",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://brainlab.com.ua/uk/stvorennya-sajtu-u-harkovi",
+          "title": "Розробка сайту Харків ᐉ створення сайтів під ключ у Харкові"
+        },
+        {
+          "rank": 2,
+          "url": "https://internera.com/",
+          "title": "Створення сайтів Київ • Харків • Розробка сайту в Україні ..."
+        },
+        {
+          "rank": 3,
+          "url": "https://q-web.com.ua/ua/",
+          "title": "Створення сайтів Харків 【Q-WEB™】веб-студія розробки ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://xn----7sbbaqhlkm9ah9aiq.net/ua/sozdanie-saytov-ukraine/rozrobka-saytu-kharkiv/",
+          "title": "Створення сайту Харків від 6900 грн | Розробка сайтів в ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://apsite.in.ua/ua/stvorennya-saytiv",
+          "title": "Створення сайту - створення сайтів Харків (Україна) | Apsite"
+        },
+        {
+          "rank": 6,
+          "url": "https://webosnova.com/rozrobka-sayta-kharkiv",
+          "title": "Розробка та створення сайтів в місті Харків та Харківській ..."
+        },
+        {
+          "rank": 7,
+          "url": "https://kabanchik.ua/ua/kharkiv/category/stvorennia-saitiv/page/4",
+          "title": "Створення сайтів в м. Харків - сторінка 4"
+        },
+        {
+          "rank": 8,
+          "url": "https://art-lemon.com/ua/",
+          "title": "➊Розробка і створення сайтів Київ, Харків веб-студія ..."
+        },
+        {
+          "rank": 9,
+          "url": "https://site-line.com.ua/stvorennya-sajtivu-harkovi",
+          "title": "Створення сайтів у Харкові"
+        },
+        {
+          "rank": 10,
+          "url": "https://web-astudio.com/ua/kharkiv/",
+          "title": "Створення сайтів у Харкові під ключ будь-якої складності"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт харків",
+      "observedAt": "2026-09-12 18:26:23 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "0dbd9157-2875-46e6-9b3c-94bd40e628fd",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://g-one.com.ua/rozrobka-sajtiv-po-vsij-ukrayini/kharkiv/",
+          "title": "Розробка сайтів Харків Створення сайтів під ключ у Харкові"
+        },
+        {
+          "rank": 2,
+          "url": "https://brainlab.com.ua/uk/stvorennya-sajtu-u-harkovi",
+          "title": "Розробка сайту Харків ᐉ створення сайтів під ключ у Харкові"
+        },
+        {
+          "rank": 3,
+          "url": "https://xn----7sbbaqhlkm9ah9aiq.net/ua/sozdanie-saytov-ukraine/rozrobka-saytu-kharkiv/",
+          "title": "Створення сайту Харків від 6900 грн | Розробка сайтів в ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://byshep.com/rozrobka-sajtiv-ukrayini/rozrobka-ta-stvorennya-sajtiv-u-harkovi/",
+          "title": "Розробка та створення сайтів | Замовити сайт Харків"
+        },
+        {
+          "rank": 5,
+          "url": "https://apsite.in.ua/ua/stvorennya-saytiv",
+          "title": "Створення сайту - створення сайтів Харків (Україна) | Apsite"
+        },
+        {
+          "rank": 6,
+          "url": "https://megasite.ua/ua/kharkov",
+          "title": "Створення сайтів Харків, ціни ᐉ Замовити розробку сайту ..."
+        },
+        {
+          "rank": 7,
+          "url": "https://webosnova.com/rozrobka-sayta-kharkiv",
+          "title": "Розробка та створення сайтів в місті Харків та Харківській ..."
+        },
+        {
+          "rank": 8,
+          "url": "https://kabanchik.ua/ua/kharkiv/category/stvorennia-saitiv/page/4",
+          "title": "Створення сайтів в м. Харків - сторінка 4"
+        },
+        {
+          "rank": 9,
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-harkov/",
+          "title": "Розробка сайтів у Харкові. Створення сайту в Харкові - iFish"
+        }
+      ]
+    },
+    {
+      "query": "створення сайтів черкаси",
+      "observedAt": "2026-09-12 18:26:08 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "e4da7916-b7ff-43d1-a716-de5959f371ed",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://webcase.com.ua/uk/sozdanie-sajtov-cherkassy/",
+          "title": "Створення Сайтів Черкаси | Розробка сайтів Черкаси"
+        },
+        {
+          "rank": 2,
+          "url": "https://academy.ck.ua/ua/kursu-dlya-vzrosluh-razrabotka-sajtov-cherkassy/",
+          "title": "Курси для дорослих з розробки сайтів у Черкасах ..."
+        },
+        {
+          "rank": 3,
+          "url": "https://rubik.com.ua/cherkasy/",
+          "title": "Розробка та просування сайтів у Черкасах під ключ"
+        },
+        {
+          "rank": 4,
+          "url": "https://webmaestro.com.ua/ua/rozrobka-sajtiv-cherkasy/",
+          "title": "Розробка, створення сайтів Черкаси"
+        },
+        {
+          "rank": 5,
+          "url": "https://seo-tiko.com/site-creation/cherk/",
+          "title": "Розробка та створення сайта м.Черкаси. Замовити сайт в ..."
+        },
+        {
+          "rank": 6,
+          "url": "https://boinstudio.com/stvorennya-sajtiv-cherkasy/",
+          "title": "Створення сайтів Черкаси: розробка, SEO"
+        },
+        {
+          "rank": 7,
+          "url": "https://it-rating.ua/seo/cherkassi/",
+          "title": "Розкрутка сайтів у Черкасах"
+        },
+        {
+          "rank": 8,
+          "url": "https://web-master.ck.ua/index-ua.html",
+          "title": "Створення сайту черкаси, розробка сайта черкаси ..."
+        },
+        {
+          "rank": 9,
+          "url": "https://websufix.com/cherkasy/",
+          "title": "Створення сайтів Львів | Просування (SEO, PPC, SMM)"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт черкаси",
+      "observedAt": "2026-09-12 18:26:50 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "e903a389-3075-43ae-8877-a19068b07935",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://thecoder.com.ua/rozrobka-sajtiv-cherkasy/",
+          "title": "ᐈ Розробка сайтів у Черкасах - Веб студія - THE CODER"
+        },
+        {
+          "rank": 2,
+          "url": "https://rubik.com.ua/cherkasy/",
+          "title": "Розробка та просування сайтів у Черкасах під ключ"
+        },
+        {
+          "rank": 3,
+          "url": "https://webcase.com.ua/uk/sozdanie-sajtov-cherkassy/",
+          "title": "Створення Сайтів Черкаси | Розробка сайтів Черкаси"
+        },
+        {
+          "rank": 4,
+          "url": "https://seo-tiko.com/site-creation/cherk/",
+          "title": "Розробка та створення сайта м.Черкаси. Замовити сайт в ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://megasite.ua/ua/cherkassy",
+          "title": "ціни ᐉ Замовити розробку сайту в Черкасах - megasite"
+        },
+        {
+          "rank": 6,
+          "url": "https://boinstudio.com/stvorennya-sajtiv-cherkasy/",
+          "title": "Створення сайтів Черкаси: розробка, SEO"
+        },
+        {
+          "rank": 7,
+          "url": "https://web-astudio.com/ua/ck/",
+          "title": "Створення сайтів у Черкасах під ключ будь-якої складності"
+        },
+        {
+          "rank": 8,
+          "url": "https://webmaestro.com.ua/ua/rozrobka-sajtiv-cherkasy/",
+          "title": "Розробка, створення сайтів Черкаси"
+        },
+        {
+          "rank": 9,
+          "url": "https://kabanchik.ua/ua/cherkasy/category/stvorennia-saitiv",
+          "title": "ᐈ Створення сайтів Черкаси - Ціни 2026, на замовлення ..."
+        }
+      ]
+    },
+    {
+      "query": "створення сайтів",
+      "observedAt": "2026-09-12 18:27:03 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "f04bc9a8-9942-4da2-a28f-5cc9cc4a045b",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://uk.wix.com/",
+          "title": "Wix.com: Конструктор сайтів | Створіть сайт безкоштовно ..."
+        },
+        {
+          "rank": 2,
+          "url": "https://ua.weblium.com/blog/najkrashi-konstruktori-sajtiv-top-10",
+          "title": "Найкращі конструктори сайтів в Україні (ТОП 10)"
+        },
+        {
+          "rank": 3,
+          "url": "https://tilda.cc/ua/",
+          "title": "Створити веб-сайт безкоштовно. Представляємо ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://www.webnode.com/uk/",
+          "title": "Конструктор сайтів Webnode | Створіть безкоштовний сайт ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://brander.ua/blog/top-14-konstruktoriv-saytiv",
+          "title": "ТОП-14 конструкторів сайтів: обираємо варіант разом із ..."
+        },
+        {
+          "rank": 6,
+          "url": "https://www.miyklas.com.ua/p/informatica/8-klas/stvorennia-ta-publikatciia-veb-resursiv-444304/avtomatizovani-zasobi-dlia-stvorennia-ta-publikatciyi-veb-resursiv-443560/re-caca1738-9877-40d6-ade4-4a2401edb98d",
+          "title": "Створення сайтів — урок. Інформатика, 8 клас НУШ."
+        },
+        {
+          "rank": 7,
+          "url": "https://adsense.google.com/intl/uk_ua/start/resources/how-to-create-a-website/",
+          "title": "Як створити веб-сайт"
+        },
+        {
+          "rank": 8,
+          "url": "https://www.godaddy.com/uk-ua/%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B8/%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2",
+          "title": "Cтворення сайту за лічені хвилини"
+        },
+        {
+          "rank": 9,
+          "url": "https://webnauts.pro/uk/sozdanie-saytov/",
+          "title": "Створення сайтів під ключ — Розробка сайтів 2026"
+        }
+      ]
+    },
+    {
+      "query": "замовити сайт",
+      "observedAt": "2026-09-12 18:26:57 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "7df2eedb-57e0-41af-af03-922bdb142cf6",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://m.olx.ua/uk/list/q-%D0%B7%D0%B0%D0%BC%D0%BE%D0%B2%D0%B8%D1%82%D0%B8-%D1%81%D0%B0%D0%B9%D1%82/",
+          "title": "замовити сайт - OLX.ua"
+        },
+        {
+          "rank": 2,
+          "url": "https://seok.ua/uk/sozdanie-sajtov",
+          "title": "Створення Сайту Під Ключ Ціна 2026 - Замовити Сайт ..."
+        },
+        {
+          "rank": 3,
+          "url": "https://webetalon.com.ua/",
+          "title": "WebEtalon: Створення сайтів у Львові від 5000 гривень"
+        },
+        {
+          "rank": 4,
+          "url": "https://freelance.ua/users/sajt-pod-kljuch/",
+          "title": "ᐈ Сайт під ключ | Замовити розробку сайту на ..."
+        },
+        {
+          "rank": 5,
+          "url": "https://wezom.com.ua/ua/razrabotka_sajtov",
+          "title": "Розробка сайтів Київ: замовити розробку сайту під ключ"
+        },
+        {
+          "rank": 6,
+          "url": "https://webnauts.pro/uk/sozdanie-saytov/",
+          "title": "Створення сайтів під ключ — Розробка сайтів 2026"
+        },
+        {
+          "rank": 7,
+          "url": "https://webartix.com.ua/rozrobka-saitiv-lviv/",
+          "title": "Створення сайтів Львів від WebArtix | Замовити сайт"
+        },
+        {
+          "rank": 8,
+          "url": "https://krakatets.pro/posluhy/zamovyty-sayt",
+          "title": "Розробка сайтів на замовлення для бізнесу - Krakatets.pro"
+        },
+        {
+          "rank": 9,
+          "url": "https://barbarys.com.ua/blog/zamovyty-rozrobku-sajtu-cziny-ta-stvorennya-sajtiv-pid-klyuch/",
+          "title": "Замовити розробку сайту – ціни та створення сайтів під ключ"
+        }
+      ]
+    },
+    {
+      "query": "сайт для бізнесу",
+      "observedAt": "2026-09-12 18:27:17 +00:00",
+      "locationCode": 2804,
+      "languageCode": "uk",
+      "searchEngine": "google.com",
+      "resultId": "ab9db2d2-532a-45c7-b4cf-8569184c14bb",
+      "organic": [
+        {
+          "rank": 1,
+          "url": "https://www.webnode.com/uk/biznes-sajty/",
+          "title": "Створіть сайт для свого бізнесу"
+        },
+        {
+          "rank": 2,
+          "url": "https://genius.space/lab/5-najkrashhih-konstruktoriv-sajtiv-dlya-malogo-biznesu-stvori-svij-sajt-bez-znannya-kodu-za-godinu/",
+          "title": "5 найкращих конструкторів сайтів для малого бізнесу"
+        },
+        {
+          "rank": 3,
+          "url": "https://uk.wix.com/",
+          "title": "Wix.com: Конструктор сайтів | Створіть сайт безкоштовно ..."
+        },
+        {
+          "rank": 4,
+          "url": "https://brainlab.com.ua/uk/poslugi/biznes-sajt",
+          "title": "Бізнес сайт: створення та розробка сайтів для бізнесу"
+        },
+        {
+          "rank": 5,
+          "url": "https://ua.weblium.com/category",
+          "title": "Готові сайти безкоштовно"
+        },
+        {
+          "rank": 6,
+          "url": "https://guildofmarketing.ua/saiti-dlya-biznesu/",
+          "title": "Розробка сайтів для бізнесу під ключ"
+        },
+        {
+          "rank": 7,
+          "url": "https://webtune.com.ua/statti/web-rozrobka/navishho-potriben-sajt/",
+          "title": "Навіщо потрібен сайт і що він дає для бізнесу - Webtune"
+        },
+        {
+          "rank": 8,
+          "url": "https://tilda.cc/ua/",
+          "title": "Створити веб-сайт безкоштовно. Представляємо ..."
+        },
+        {
+          "rank": 9,
+          "url": "https://webnauts.pro/uk/sozdanie-saytov/",
+          "title": "Створення сайтів під ключ — Розробка сайтів 2026"
+        }
+      ]
+    }
+  ]
+}

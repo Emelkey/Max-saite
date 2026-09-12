@@ -1,0 +1,905 @@
+{
+  "schema_version": 1,
+  "artifact": "MAX_SITE_TOP1_CITY_SERP_RESEARCH",
+  "observed_date": "2026-09-10",
+  "timezone": "Europe/Kyiv",
+  "method": {
+    "kind": "qualitative_official_company_page_sample",
+    "discovery": "Web search за українськими комерційними запитами, відбір офіційних сторінок, читання доступного тексту та зіставлення блоків ціни/scope/процесу.",
+    "selection": "5–6 різних компаній на місто; допускається повтор домену між містами. Не ймовірнісна і не вичерпна вибірка.",
+    "query_assignment": "Багатозапитні пошуки могли об'єднувати результати; точне джерело кожного URL серед запитів не стверджується.",
+    "not_a_google_top10": true,
+    "geolocation_controlled": false,
+    "search_locale_controlled": false,
+    "device_controlled": false,
+    "organic_rank_verified": false,
+    "serp_overlap_percent": null,
+    "serp_overlap_status": "UNKNOWN",
+    "live_http_or_visual_audit": false,
+    "crawl_freshness": "Дата дослідження не є датою обходу. Інструмент повертає індексовані тексти різного віку; ціни можуть бути застарілими.",
+    "price_policy": "Лише оприлюднені орієнтири, не підтверджені комерційні пропозиції. Без валютної конвертації, ринкового середнього, припущення про ПДВ, гарантії чи однаковий обсяг.",
+    "claim_policy": "Кейси, офіси, рейтинги, досвід і результати компаній — їхні заяви; незалежна верифікація не проводилася.",
+    "citation_policy": "URL поруч із кожним спостереженням. Текст перефразований; висновки для MAX SITE позначені як редакційні рішення."
+  },
+  "decision_gate": {
+    "existing_city_hubs": "retain_and_improve",
+    "new_city_urls_allowed": false,
+    "new_service_city_urls_allowed": false,
+    "quantitative_serp_split_gate": "NOT_PASSED_NO_GEOLOCATED_TOP10",
+    "thresholds_from_existing_policy": {
+      "overlap_at_least_60": "один власник intent",
+      "overlap_at_most_40": "окремий URL лише за самостійної користі та доказів",
+      "between_41_and_59_or_unstable": "ручна перевірка; за замовчуванням без нового URL"
+    },
+    "required_before_url_split": [
+      "дві порівнювані органічні Google top-10 вибірки для query pair",
+      "країна, місто, мова, пристрій, дата, відсутність персоналізації",
+      "нормалізація URL і повторне спостереження",
+      "GSC query↔URL і перевірка канібалізації",
+      "самостійний корисний контент, а не заміна назви міста"
+    ],
+    "baseline_file": "seo/evidence/top1-20260910-gsc-baseline.json",
+    "intent_owner_file": "seo/top1-intent-map.json",
+    "gsc_metrics_copied_here": false
+  },
+  "cities": [
+    {
+      "slug": "kyiv",
+      "name": "Київ",
+      "queries": [
+        "створення сайтів Київ замовити сайт ціна веб студія",
+        "\"створення сайтів\" \"Київ\" -site:reddit.com -site:kabanchik.ua",
+        "замовити сайт Київ веб студія -site:reddit.com -site:kabanchik.ua"
+      ],
+      "companies": [
+        {
+          "company": "TOTONIS",
+          "url": "https://totonis.com/en",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "лендінг",
+            "корпоративний сайт",
+            "e-commerce",
+            "CRM/MVP"
+          ],
+          "price": {
+            "status": "published_conflicting",
+            "published_summary": "Таблиця USD: landing від $1000, corporate від $2000, e-commerce від $3000. Інша таблиця UAH: landing від 18000, corporate від 40000.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Вибір формату, прототипування, інтеграції.",
+          "limitation": "Різні валютні таблиці й строки на одній сторінці не дають єдиної пропозиції. Вхідний URL перенаправив на /en."
+        },
+        {
+          "company": "iFish",
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-kiyiv/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "шаблонна/індивідуальна розробка",
+            "лендінг",
+            "магазин"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Малий бізнес від 15000 грн; середній від 35000 грн; великий від 180000 грн.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Розмежування типу бізнесу, строків і рівня кастомізації.",
+          "limitation": "Стартові суми; остаточна ціна після ТЗ, різний обсяг пакетів."
+        },
+        {
+          "company": "Webatom",
+          "url": "https://webatom.com.ua/stvorennya-sajtiv-u-kiyevi/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "візитка",
+            "лендінг",
+            "корпоративний",
+            "магазин"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Візитка від 8900 грн; landing від 15575; компанія від 17800; магазин від 22250.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Опис приймання, доступів і відмінності шаблону від індивідуального дизайну.",
+          "limitation": "Наповнення після передачі описане як окрема робота; не вважати все включеним."
+        },
+        {
+          "company": "Friendly",
+          "url": "https://friendly.com.ua/ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "бізнес-сайт",
+            "магазин OpenCart",
+            "індивідуальний дизайн",
+            "підтримка"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Landing від 14000 грн; візитка від 15000; бізнес від 30000; корпоративний від 55000; магазин від 70000.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Договір, ТЗ, окремі шаблонні й кастомні пропозиції.",
+          "limitation": "Mini Shop і повний магазин мають різний обсяг. Не порівнювати найменшу цифру як еквівалент."
+        },
+        {
+          "company": "KWEB",
+          "url": "https://www.kweb.kiev.ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "візитка",
+            "корпоративний",
+            "магазин",
+            "каталог"
+          ],
+          "price": {
+            "status": "published_unresolved_currency",
+            "published_summary": "Landing від 200 у.е.; візитка від 300; корпоративний від 500; магазин від 700.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Простий вибір типу сайту та портфоліо.",
+          "limitation": "Умовна одиниця не визначена як конкретна валюта; курс не вигадуємо. Заяви про позиції клієнтів не перевірені."
+        }
+      ],
+      "decision": "Підсилити одну наявну сторінку вибором формату для кількох напрямів/філій, обсягом інтеграцій, єдиною таблицею власних стартових цін та перевірними кейсами. Не створювати районних або service×city дублів.",
+      "introFocus": "Різні ролі відвідувача: покупець послуги, партнер, закупівельник; письмові межі першого релізу.",
+      "existing_owner": "/mista/stvorennya-sajtiv-kyiv/",
+      "decision_status": "existing_page_content_improvement_only",
+      "serp_overlap_percent": null
+    },
+    {
+      "slug": "lviv",
+      "name": "Львів",
+      "queries": [
+        "створення сайтів Львів веб студія",
+        "замовити сайт Львів веб студія -site:reddit.com -site:kabanchik.ua"
+      ],
+      "companies": [
+        {
+          "company": "Веб Студіо",
+          "url": "https://www.webstudio.lviv.ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "візитка до 15 сторінок",
+            "бізнес-сайт",
+            "магазин"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Візитка від $390, 10–20 днів; бізнес від $590; магазин від $790.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Тип, обсяг і строк показано разом.",
+          "limitation": "Для бізнес-сайту написано необмежений обсяг без деталізації; це не підтверджений фіксований кошторис."
+        },
+        {
+          "company": "Фабрика Сайтів",
+          "url": "https://fabryka.cc/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "простий сайт",
+            "landing",
+            "корпоративний",
+            "магазин",
+            "підтримка"
+          ],
+          "price": {
+            "status": "published_conflicting",
+            "published_summary": "Картки: простий від 5700 грн, landing від 10000, корпоративний/магазин від 20000. FAQ: магазин від 16000.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Портфоліо, договір, окремо оцінені дизайн, домен і підтримка.",
+          "limitation": "Картки та FAQ містять різні суми; без персональної пропозиції не зводити до однієї ціни."
+        },
+        {
+          "company": "QMarket",
+          "url": "https://qmarket.com.ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "сайти",
+            "локальне SEO",
+            "аналітика",
+            "CRM/месенджери"
+          ],
+          "price": {
+            "status": "not_observed_on_reviewed_page",
+            "published_summary": "На перевіреній головній числову ціну не зафіксовано; є перехід до пакетів Львова.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Зв'язок ніші, сценарію заявки, аналітики й подальшого SEO.",
+          "limitation": "Це не висновок про відсутність цін на інших сторінках. Обіцянки клієнтів/позицій не перевірені."
+        },
+        {
+          "company": "SUFIX",
+          "url": "https://websufix.com/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "сайт/кабінет",
+            "магазин",
+            "аудит",
+            "реклама"
+          ],
+          "price": {
+            "status": "quote_after_brief",
+            "published_summary": "Кошторис після визначення задач і структури; числову суму не наведено в перевіреному FAQ.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Запуск → вимірювання → покращення; гарантійні виправлення відділені від розвитку.",
+          "limitation": "Результативність наведених кейсів — слова постачальника, не незалежний аудит."
+        },
+        {
+          "company": "PBB design",
+          "url": "https://pbb.design/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "сайт з CMS",
+            "адаптивний дизайн",
+            "підтримка"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Від 10000 грн; складність і обсяг уточнюються.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Етапи, приклади робіт, FAQ про контент; заявлена зустріч у Львові.",
+          "limitation": "Наявність локальних зустрічей — самозаява; це не підстава заявляти офіс MAX SITE."
+        },
+        {
+          "company": "SEO Lviv",
+          "url": "https://seolviv.com.ua/poslugy/stvorennya-sajtiv",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_service_page",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "корпоративний",
+            "магазин",
+            "landing",
+            "портал"
+          ],
+          "price": {
+            "status": "title_only",
+            "published_summary": "У заголовку сторінки від $400; у перевіреному тексті умови саме цього тарифу не знайдені.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Поєднання дизайну, функціональності й пошукової підготовки.",
+          "limitation": "Тизер у title не дорівнює деталізованій оферті; індексований текст має давніший обхід."
+        }
+      ],
+      "decision": "На існуючому URL пояснити мови, оновлення контенту, бронювання/оплату та відмінність запиту від підтвердженого бронювання. Кейси тільки справжні, не перейменовувати чужі регіони на Львів.",
+      "introFocus": "Готель, освітній набір, бренд: різні дії користувача й відповідальність за актуальність умов.",
+      "existing_owner": "/mista/stvorennya-sajtiv-lviv/",
+      "decision_status": "existing_page_content_improvement_only",
+      "serp_overlap_percent": null
+    },
+    {
+      "slug": "odesa",
+      "name": "Одеса",
+      "queries": [
+        "створення сайтів Одеса замовити сайт ціна веб студія",
+        "створення сайтів Одеса веб студія ціни",
+        "замовити сайт Одеса веб студія"
+      ],
+      "companies": [
+        {
+          "company": "Sena",
+          "url": "https://sena.od.ua/uk.html",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "шаблонний економ",
+            "шаблонний стандарт",
+            "індивідуальний сайт"
+          ],
+          "price": {
+            "status": "published_unresolved_currency",
+            "published_summary": "Економ 100 у.о.; стандарт від 300 у.о.; індивідуальний від 500 у.о.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Кількість пунктів меню, строки, навчання й адміністрування.",
+          "limitation": "Умовна валюта; різні шаблонні/кастомні обсяги. Вік отриманого тексту обмежує актуальність."
+        },
+        {
+          "company": "WebManna",
+          "url": "https://webmanna.pro/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "сайти",
+            "магазини",
+            "SEO",
+            "AI-підтримка"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Розробка від 5000 грн; магазин від 30000; SEO від 4000 грн/міс; підтримка/AI від 2500 грн/міс.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Разові та щомісячні послуги відокремлені.",
+          "limitation": "Найменша стартова цифра не описує повний обсяг магазину або інтеграцій."
+        },
+        {
+          "company": "Cursor",
+          "url": "https://cursor.net.ua/ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "індивідуальний landing",
+            "корпоративний",
+            "вітрина",
+            "магазин"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Landing від 45000 грн; корпоративний від 90000; вітрина від 120000; магазин від 300000.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Дизайн під пристрої, тестування, анкета для оцінки, строки за типом.",
+          "limitation": "Не еквівалент шаблонним бюджетним пакетам; часові обіцянки залежать від матеріалів."
+        },
+        {
+          "company": "OD-web",
+          "url": "https://od-web.com/uk/odessa/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "landing",
+            "корпоративний",
+            "магазин",
+            "модернізація"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Landing від $300; корпоративний від $400; магазин від $600. Домен приблизно $15/рік, сервер $60/рік.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Видимі повторювані витрати та CMS.",
+          "limitation": "Не перевірено склад інтеграцій і реальні строки; оприлюднена оцінка, не погоджена пропозиція."
+        },
+        {
+          "company": "iFish",
+          "url": "https://ifish.com.ua/ua/poslugi/sajt-odesa/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "шаблонний/кастомний",
+            "корпоративний",
+            "каталог",
+            "магазин"
+          ],
+          "price": {
+            "status": "published_conflicting",
+            "published_summary": "Таблиця: кастомний landing від 25000 грн, корпоративний від 55000, магазин від 100000; нижчі суми також трапляються в тексті.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Пояснені додаткові витрати: домен, хостинг, просування, реклама, супровід.",
+          "limitation": "Різні розділи суперечать один одному щодо мінімальних сум; уточнювати scope та актуальний кошторис."
+        }
+      ],
+      "decision": "Не змагатися з найнижчим тизером. Для існуючої сторінки зробити зрозумілими каталог, доставка, бронювання, контент і подальші витрати; відвести комерційні сценарії на відповідні національні послуги.",
+      "introFocus": "Вітрина, повний checkout і запит бронювання — різні обсяги; окремо операційні інтеграції.",
+      "existing_owner": "/mista/stvorennya-sajtiv-odesa/",
+      "decision_status": "existing_page_content_improvement_only",
+      "serp_overlap_percent": null
+    },
+    {
+      "slug": "dnipro",
+      "name": "Дніпро",
+      "queries": [
+        "створення сайтів Дніпро",
+        "створення сайтів Дніпро веб студія ціна -site:reddit.com -site:kabanchik.ua",
+        "замовити сайт Дніпро веб студія"
+      ],
+      "companies": [
+        {
+          "company": "Megasite",
+          "url": "https://megasite.ua/ua/dnepr",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "landing",
+            "корпоративний",
+            "магазин"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Від 75000 грн; обсяг, дизайн і контент визначаються ТЗ.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Пояснені строки, компоненти кошторису, договір.",
+          "limitation": "Міська посадкова не доводить наявність офісу; межі шаблонного й кастомного варіантів потребують уточнення."
+        },
+        {
+          "company": "INPREZA",
+          "url": "https://inpreza.ua/stvorennya-web-saytu-dnipro/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "кастомні сайти",
+            "дизайн",
+            "просування",
+            "підтримка"
+          ],
+          "price": {
+            "status": "quote_after_brief",
+            "published_summary": "Індивідуальна оцінка залежно від складності та функціоналу.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Галузеві приклади та посилання на роботи.",
+          "limitation": "Отриманий індексований текст має давніший обхід; відгуки й результати незалежно не перевірені."
+        },
+        {
+          "company": "myDesign",
+          "url": "https://mydesign.com.ua/ua/websites/dnipro",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "структура",
+            "індивідуальний дизайн",
+            "адаптивність",
+            "SEO-основа"
+          ],
+          "price": {
+            "status": "quote_after_brief",
+            "published_summary": "Цифри не наведено; пропонують оцінити вартість і строки після заявки.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Короткий зрозумілий склад робіт.",
+          "limitation": "Сторінка стисла: немає деталізованих пакетів або підтвердженого міського кейсу в перевіреному тексті."
+        },
+        {
+          "company": "ATTICO",
+          "url": "https://attico.dp.ua/ua",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "landing",
+            "візитка",
+            "корпоративний",
+            "магазин Joomla"
+          ],
+          "price": {
+            "status": "published_conflicting",
+            "published_summary": "Картки: landing від 15000 грн, візитка від 18000, корпоративний від 35000, магазин від 50000; FAQ загалом від 10000.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Договір, навчання CMS, підтримка та етапи.",
+          "limitation": "Загальний мінімум FAQ відрізняється від карток; не вважати його ціною будь-якого сайту."
+        },
+        {
+          "company": "PDM",
+          "url": "https://profitable-digital-marketing.com/price/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_price_page_with_city_identity",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "шаблон",
+            "шаблон із доробками",
+            "індивідуальний дизайн"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Landing від 5000/8000/23000 грн; корпоративний від 10000/20000/70000; магазин від 12000/25000/80000 відповідно.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Сильна матриця однакового типу сайту за трьома рівнями розробки.",
+          "limitation": "Трудовитрати та інтеграції уточнюються; рекламні та щомісячні послуги окремі."
+        },
+        {
+          "company": "SCS",
+          "url": "https://webstudioscs.com/ua/stvorennya-saytiv/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "indexed_primary_text_open_failed",
+          "google_local_rank": null,
+          "city_relevance": "company_service_page_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "WordPress",
+            "каталог B2B",
+            "магазин",
+            "багатомовність"
+          ],
+          "price": {
+            "status": "indexed_starting_unverified_live",
+            "published_summary": "В індексованому тексті магазин від 22500 грн; експортний каталог за запитом.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Окремо пояснено використання готової теми WordPress у базовому пакеті.",
+          "limitation": "Пряме відкриття інструментом не вдалося; використано текст офіційної сторінки у пошуковому результаті, не перевірку live HTTP."
+        }
+      ],
+      "decision": "Існуючий міський URL має порівнювати інформаційний B2B-каталог, магазин із залишками й кабінет дилера, показувати потрібні дані для оцінки. Не копіювати цінову матрицю або шаблонні галузеві твердження конкурентів.",
+      "introFocus": "Прайс, характеристики, документи, запит комерційної пропозиції й облік — критерії B2B-сценарію, не статистика міста.",
+      "existing_owner": "/mista/stvorennya-sajtiv-dnipro/",
+      "decision_status": "existing_page_content_improvement_only",
+      "serp_overlap_percent": null
+    },
+    {
+      "slug": "kharkiv",
+      "name": "Харків",
+      "queries": [
+        "створення сайтів Харків",
+        "замовити сайт Харків веб студія -site:reddit.com -site:kabanchik.ua",
+        "створення сайтів Харків веб студія Art Lemon ціна"
+      ],
+      "companies": [
+        {
+          "company": "Market Bridge",
+          "url": "https://market-bridge.com.ua/ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "базовий сайт",
+            "візитка",
+            "сайт компанії",
+            "підтримка"
+          ],
+          "price": {
+            "status": "published_conflicting",
+            "published_summary": "Пакети від $1000/$1300/$1700; title від $400, опис від $500, FAQ від 12000 грн.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Договір і правила оплати змін після погодження ТЗ.",
+          "limitation": "Кілька несумісних цінових орієнтирів на сторінці; не робити одного ранжованого порівняння."
+        },
+        {
+          "company": "Укртехсофт",
+          "url": "https://ukrtechsoft.com/rozrobka-saitiv-kharkiv",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "корпоративний",
+            "каталог",
+            "e-commerce",
+            "інтеграції"
+          ],
+          "price": {
+            "status": "quote_after_brief",
+            "published_summary": "Усі ціни за запитом після брифу.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Прямий перелік QA: продуктивність, SEO, доступність і безпека.",
+          "limitation": "Технологічний стек та обіцянка результату самі по собі не доводять якість виконання."
+        },
+        {
+          "company": "Q-WEB",
+          "url": "https://q-web.com.ua/ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "сайти",
+            "брендинг",
+            "інтеграції",
+            "інформаційна безпека"
+          ],
+          "price": {
+            "status": "not_observed_on_reviewed_page",
+            "published_summary": "Числову ціну у перевірених блоках головної не зафіксовано.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Широкий спектр робіт, технічна документація й названі проєкти.",
+          "limitation": "Наявність логотипа/назви клієнта не є незалежним підтвердженням результативності."
+        },
+        {
+          "company": "AXIS",
+          "url": "https://axis.com.ua/uk",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "індивідуальні сайти",
+            "SEO",
+            "контент",
+            "підтримка"
+          ],
+          "price": {
+            "status": "not_observed_on_reviewed_page",
+            "published_summary": "Числову ціну у перевірених блоках не зафіксовано.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "План-графік і договір, приклади різних форматів сайтів.",
+          "limitation": "Локальність і вік компанії — опубліковані заяви, не незалежно перевірена перевага."
+        },
+        {
+          "company": "ART LEMON",
+          "url": "https://art-lemon.com/ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_multiple_city_statements",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "дизайн",
+            "корпоративний",
+            "магазин",
+            "розробка/просування"
+          ],
+          "price": {
+            "status": "not_observed_on_reviewed_page",
+            "published_summary": "Числову ціну у перевірених блоках не зафіксовано.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Аналіз ринку → ТЗ/прототип → CMS; заявлена робота по Україні.",
+          "limitation": "Сторінка поєднує Київ і Харків; не є чистим доказом окремого міського intent або локальної позиції."
+        }
+      ],
+      "decision": "Підсилити наявний URL сценаріями дистанційного погодження, передачі доступів, резервного контакту та приймання. Показати справжню вузьку компетенцію, не вигадувати локальну команду, кейси чи гарантовану безперервність.",
+      "introFocus": "Мінімальний робочий запуск для експертних послуг, навчання, виробництва; простежуваний шлях заявки.",
+      "existing_owner": "/mista/stvorennya-sajtiv-kharkiv/",
+      "decision_status": "existing_page_content_improvement_only",
+      "serp_overlap_percent": null
+    },
+    {
+      "slug": "cherkasy",
+      "name": "Черкаси",
+      "queries": [
+        "створення сайтів Черкаси веб студія",
+        "замовити сайт Черкаси веб студія -site:reddit.com -site:kabanchik.ua"
+      ],
+      "companies": [
+        {
+          "company": "WEBMASTER",
+          "url": "https://web-master.ck.ua/index-ua.html",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_statement",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "розробка",
+            "магазин",
+            "просування",
+            "супровід"
+          ],
+          "price": {
+            "status": "published_starting",
+            "published_summary": "Сайт від $400; магазин від $600; супровід від $50, просування від $100 без уточненого періоду в картках.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Багато названих робіт із посиланнями й географічним контекстом.",
+          "limitation": "Зазначення міста в портфоліо — первинне свідчення автора, не незалежна перевірка; період супроводу не припускаємо."
+        },
+        {
+          "company": "Astudio",
+          "url": "https://web-astudio.com/ck/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "CMS/framework",
+            "сайти",
+            "CRM",
+            "SEO"
+          ],
+          "price": {
+            "status": "title_only",
+            "published_summary": "У title від 39000 грн; у перевірених основних блоках цей тариф не деталізований.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Договір фіксує ціну, строки, технічний обсяг і зобов'язання.",
+          "limitation": "Title-тизер не є достатнім описом пакета."
+        },
+        {
+          "company": "Rubik",
+          "url": "https://rubik.com.ua/cherkasy/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "WordPress",
+            "OpenCart",
+            "сервіс доставки",
+            "корпоративний"
+          ],
+          "price": {
+            "status": "not_observed_on_reviewed_page",
+            "published_summary": "Числову ціну не зафіксовано; є окреме посилання на оренду сайту.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Пояснення CMS і навчання адміністратора простою мовою.",
+          "limitation": "Безкоштовна орендна пропозиція не означає безкоштовну індивідуальну розробку; умови оренди тут не перевірені."
+        },
+        {
+          "company": "theDC.studio",
+          "url": "https://thedc.studio/rozrobka-saitiv-cherkasy/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "city_landing",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "WordPress",
+            "корпоративний",
+            "каталог",
+            "LMS",
+            "магазин"
+          ],
+          "price": {
+            "status": "published_conflicting",
+            "published_summary": "Картки: landing від $500, корпоративний від $1500, магазин від $2500; FAQ: landing від $300, корпоративний/магазин від $1000.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Конкретні формати, автоматизація та обмеження фінальної оцінки.",
+          "limitation": "Картки суперечать FAQ; віддалена робота не є доказом офісу в Черкасах."
+        },
+        {
+          "company": "Tera Group",
+          "url": "https://teragroup.com.ua/",
+          "observed_date": "2026-09-10",
+          "source_type": "official_company_page",
+          "access": "opened_primary_text",
+          "google_local_rank": null,
+          "city_relevance": "company_homepage_with_city_relevance_in_search",
+          "physical_office_independently_verified": false,
+          "intent": "commercial_website_development",
+          "scope": [
+            "магазини",
+            "сайт компанії",
+            "landing",
+            "CRM-інтеграції"
+          ],
+          "price": {
+            "status": "published_package_scope_unverified",
+            "published_summary": "Картки: бізнес $1090, корпоративний $1815, каталог $1705, landing $800; магазин через калькулятор.",
+            "final_quote_verified": false
+          },
+          "useful_signal": "Поетапна оплата, договір, інтеграція товарів/залишків та окремі приклади.",
+          "limitation": "Картки не містять повного кошторису; актуальний пакет, податки й регулярні платежі треба уточнювати."
+        }
+      ],
+      "decision": "Quick win — перевірювана гіпотеза, не обіцянка швидкого TOP. На існуючій сторінці посилити зрозумілий перший крок, підтверджені роботи, умови оцінки й доречні послуги. Пріоритет конкретних запитів визначити за live GSC, а не обсягом цієї вибірки.",
+      "introFocus": "Сервісному бізнесу потрібні послуга, реальна зона обслуговування, пояснення вартості й простий контакт.",
+      "existing_owner": "/mista/stvorennya-sajtiv-cherkasy/",
+      "decision_status": "existing_page_content_improvement_only",
+      "serp_overlap_percent": null
+    }
+  ]
+}
