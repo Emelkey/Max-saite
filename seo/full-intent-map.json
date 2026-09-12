@@ -1,0 +1,2502 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-12",
+  "gscSource": "seo/evidence/top1-20260912-gsc-current.json",
+  "gscWindow": "2026-08-13/2026-09-09",
+  "policy": "Single editorial owner per intent. Assigned queries are hypotheses; observedQueries are exact returned GSC rows, not exhaustive demand. No new URLs or indexing changes. TOP1 owners must match seo/top1-intent-map.json.",
+  "pages": [
+    {
+      "url": "/blog/analiz-google-stvorennya-sajtiv-kyiv/",
+      "cluster": "blog-analiz-google-stvorennya-sajtiv-kyiv",
+      "primary": "аналіз видачі створення сайтів Київ",
+      "secondary": [
+        "конкуренти вебстудій Києва",
+        "дослідження Google Київ"
+      ],
+      "intent": "Власна датована SERP-вибірка та методика порівняння",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/canonical-url-prostymy-slovamy/",
+      "cluster": "blog-canonical-url-prostymy-slovamy",
+      "primary": "що таке canonical URL",
+      "secondary": [
+        "канонічна адреса сторінки",
+        "помилки canonical"
+      ],
+      "intent": "Пояснення канонічної адреси та приклади помилок",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/chomu-sajt-bez-seo-ne-daye-rezultatu/",
+      "cluster": "blog-chomu-sajt-bez-seo-ne-daye-rezultatu",
+      "primary": "чому сайт не отримує органічний трафік",
+      "secondary": [
+        "сайт без SEO",
+        "причини відсутності органічних заявок"
+      ],
+      "intent": "Діагностика причин, не замовлення просування",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/chomu-tsiny-na-sajty-vidriznyayutsya/",
+      "cluster": "content-price-gap",
+      "primary": "чому відрізняються ціни на сайти",
+      "secondary": [
+        "дешевий і дорогий сайт",
+        "порівняння кошторисів розробки"
+      ],
+      "intent": "Причини розриву кошторисів, не загальний прайс",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/ga4-konversiyi-dlya-sajtu/",
+      "cluster": "blog-ga4-konversiyi-dlya-sajtu",
+      "primary": "як налаштувати конверсії GA4",
+      "secondary": [
+        "події заявки GA4",
+        "ключові події сайту"
+      ],
+      "intent": "Пояснення вимірювання подій і перевірки конверсій",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/google-ads-dlya-biznesu/",
+      "cluster": "blog-google-ads-dlya-biznesu",
+      "primary": "коли бізнесу запускати Google Ads",
+      "secondary": [
+        "чи потрібна контекстна реклама",
+        "підготовка до Google Ads"
+      ],
+      "intent": "Критерії готовності бізнесу до реклами",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/google-analytics-search-console/",
+      "cluster": "blog-google-analytics-search-console",
+      "primary": "навіщо бізнесу Analytics і Search Console",
+      "secondary": [
+        "відмінність GA4 та GSC",
+        "аналітика для власника сайту"
+      ],
+      "intent": "Пояснення ролі двох інструментів",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/",
+      "cluster": "blog",
+      "primary": "блог MAX SITE",
+      "secondary": [
+        "статті MAX SITE про сайти"
+      ],
+      "intent": "Навігація експертними матеріалами",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/landing-dlya-google-ads/",
+      "cluster": "blog-landing-dlya-google-ads",
+      "primary": "яким має бути лендінг для Google Ads",
+      "secondary": [
+        "посадкова сторінка для реклами",
+        "чекліст рекламного лендінгу"
+      ],
+      "intent": "Практичні вимоги до сторінки рекламної кампанії",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/lending-abo-korporatyvnyj-sajt/",
+      "cluster": "blog-lending-abo-korporatyvnyj-sajt",
+      "primary": "лендінг чи корпоративний сайт",
+      "secondary": [
+        "односторінковий чи багатосторінковий сайт",
+        "вибір формату сайту"
+      ],
+      "intent": "Порівняння форматів за бізнес-завданням",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/nextjs-chy-wordpress/",
+      "cluster": "blog-nextjs-chy-wordpress",
+      "primary": "Next.js чи WordPress",
+      "secondary": [
+        "порівняння Next.js WordPress",
+        "вибір CMS і фреймворку"
+      ],
+      "intent": "Порівняння платформ, витрат і вимірювань",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/pidtrymka-saytu-pislya-zapusku/",
+      "cluster": "blog-pidtrymka-saytu-pislya-zapusku",
+      "primary": "що робити після запуску сайту",
+      "secondary": [
+        "план підтримки сайту",
+        "обслуговування після релізу"
+      ],
+      "intent": "План перевірок і розподіл відповідальності",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/redesign-saytu-bez-vtraty-seo/",
+      "cluster": "blog-redesign-saytu-bez-vtraty-seo",
+      "primary": "як зберегти SEO під час редизайну",
+      "secondary": [
+        "міграція сайту без втрати трафіку",
+        "чекліст редизайну"
+      ],
+      "intent": "Інформаційний план міграції; комерційний власник /redesign-saytu/",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/sajt-dlya-kliningovoyi-kompaniyi/",
+      "cluster": "blog-sajt-dlya-kliningovoyi-kompaniyi",
+      "primary": "що має бути на сайті клінінгової компанії",
+      "secondary": [
+        "структура сайту клінінгу",
+        "чекліст клінінгового сайту"
+      ],
+      "intent": "Освітній чекліст; замовлення належить нішевій сторінці",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/seo-first-pidhid/",
+      "cluster": "blog-seo-first-pidhid",
+      "primary": "що таке SEO-first підхід",
+      "secondary": [
+        "SEO до дизайну",
+        "порядок проектування SEO структури"
+      ],
+      "intent": "Пояснення методу; брендований процес належить /seo-first/",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "seo first",
+            "https://maxsite.com.ua/blog/seo-first-pidhid/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 5
+        }
+      ]
+    },
+    {
+      "url": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
+      "cluster": "content-turnkey-scope",
+      "primary": "що входить у сайт під ключ",
+      "secondary": [
+        "етапи створення сайту",
+        "склад робіт розробника"
+      ],
+      "intent": "Перелік результатів робіт і меж відповідальності",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/",
+      "cluster": "blog-shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch",
+      "primary": "що входить у створення інтернет-магазину",
+      "secondary": [
+        "склад робіт ecommerce",
+        "функції магазину під ключ"
+      ],
+      "intent": "Пояснення функцій та приймання магазину",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
+      "cluster": "blog-skilky-koshtuye-stvorennya-internet-magazynu",
+      "primary": "скільки коштує інтернет-магазин",
+      "secondary": [
+        "бюджет запуску магазину",
+        "складові ціни ecommerce"
+      ],
+      "intent": "Освітній розбір кошторису саме магазину",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "вартість створення інтернет магазину",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 14,
+          "ctr": 0,
+          "position": 95.21428571428571
+        },
+        {
+          "keys": [
+            "вартість інтернет магазину",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 94.5
+        },
+        {
+          "keys": [
+            "скільки коштує відкрити інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 77.45454545454545
+        },
+        {
+          "keys": [
+            "скільки коштує відкрити інтернет магазин в україні",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 82.75
+        },
+        {
+          "keys": [
+            "скільки коштує зробити інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 82.83333333333333
+        },
+        {
+          "keys": [
+            "скільки коштує створити сайт інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 87.5
+        },
+        {
+          "keys": [
+            "скільки коштує створити інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 15,
+          "ctr": 0,
+          "position": 91.6
+        },
+        {
+          "keys": [
+            "скільки коштує інтернет магазин",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 89
+        },
+        {
+          "keys": [
+            "створення інтернет магазину ціна",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 94.6
+        },
+        {
+          "keys": [
+            "створити інтернет магазин ціна",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 17,
+          "ctr": 0,
+          "position": 97.23529411764706
+        },
+        {
+          "keys": [
+            "інтернет магазин створити ціна",
+            "https://maxsite.com.ua/blog/skilky-koshtuye-stvorennya-internet-magazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 79
+        }
+      ]
+    },
+    {
+      "url": "/blog/skilky-koshtuye-stvorennya-sajtu/",
+      "cluster": "blog-skilky-koshtuye-stvorennya-sajtu",
+      "primary": "скільки коштує створення сайту",
+      "secondary": [
+        "ціни вебстудій України 2026",
+        "дослідження вартості сайтів"
+      ],
+      "intent": "Власне дослідження 50 джерел і метод порівняння бюджетів",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/skilky-tryvaye-rozrobka-sajtu/",
+      "cluster": "content-duration",
+      "primary": "скільки триває розробка сайту",
+      "secondary": [
+        "строки створення сайту",
+        "календар запуску сайту"
+      ],
+      "intent": "План строків і залежності від матеріалів та інтеграцій",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/struktura-sajtu-dlya-seo/",
+      "cluster": "blog-struktura-sajtu-dlya-seo",
+      "primary": "як побудувати структуру сайту для SEO",
+      "secondary": [
+        "розподіл запитів між сторінками",
+        "SEO структура"
+      ],
+      "intent": "Інструкція з побудови ієрархії сторінок",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/tehnichne-seo-cheklist/",
+      "cluster": "blog-tehnichne-seo-cheklist",
+      "primary": "технічне SEO чекліст",
+      "secondary": [
+        "перевірка SEO перед запуском",
+        "технічний аудит самостійно"
+      ],
+      "intent": "Самостійна перевірка та власні технічні експерименти",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/vnutrishnya-perelinkovka/",
+      "cluster": "blog-vnutrishnya-perelinkovka",
+      "primary": "як зробити внутрішню перелінковку",
+      "secondary": [
+        "контекстні посилання сайту",
+        "карта внутрішніх посилань"
+      ],
+      "intent": "Навчальний матеріал про зв'язки сторінок",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/",
+      "cluster": "blog-yak-pidgotuvaty-biznes-do-zapusku-sajtu",
+      "primary": "як підготувати бізнес до запуску сайту",
+      "secondary": [
+        "матеріали для розробки сайту",
+        "готовність бізнесу до запуску"
+      ],
+      "intent": "Організаційна підготовка власника",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yak-pidgotuvaty-bryf-na-sajt/",
+      "cluster": "blog-yak-pidgotuvaty-bryf-na-sajt",
+      "primary": "як заповнити бриф на сайт",
+      "secondary": [
+        "шаблон брифу на сайт",
+        "питання брифу для розробки"
+      ],
+      "intent": "Інструкція та придатний до заповнення шаблон",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu/",
+      "cluster": "blog-yak-pidhotuvaty-kataloh-odyahu-dlya-internet-mahazynu",
+      "primary": "як підготувати каталог одягу для магазину",
+      "secondary": [
+        "SKU розміри та кольори",
+        "залишки товарних варіантів"
+      ],
+      "intent": "Практичний ecommerce гайд для одягу",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/",
+      "cluster": "blog-yak-sajt-dopomagaye-otrymuvaty-zayavky",
+      "primary": "як сайт допомагає отримувати заявки",
+      "secondary": [
+        "конверсійний шлях відвідувача",
+        "обробка заявок сайту"
+      ],
+      "intent": "Пояснення шляху заявки й вимірювання",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yak-vybraty-rozrobnyka-sajtu/",
+      "cluster": "blog-yak-vybraty-rozrobnyka-sajtu",
+      "primary": "як вибрати розробника сайту",
+      "secondary": [
+        "перевірка компетенцій розробника",
+        "питання виконавцю сайту"
+      ],
+      "intent": "Оцінка особистої компетенції й відповідальності виконавця",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yak-vybraty-vebstudiyu-v-ukrayini/",
+      "cluster": "content-studio-choice",
+      "primary": "як вибрати вебстудію в Україні",
+      "secondary": [
+        "порівняння вебстудій",
+        "перевірка процесів агенції"
+      ],
+      "intent": "Оцінка команди, процесу та договору агенції",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yak-zamovyty-sajt-i-ne-vtratyty-groshi/",
+      "cluster": "blog-yak-zamovyty-sajt-i-ne-vtratyty-groshi",
+      "primary": "як безпечно замовити сайт",
+      "secondary": [
+        "ризики замовлення сайту",
+        "приймання та оплата розробки"
+      ],
+      "intent": "Запобігання ризикам договору та передачі доступів",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/blog/yakyj-sajt-potriben-lokalnomu-biznesu/",
+      "cluster": "blog-yakyj-sajt-potriben-lokalnomu-biznesu",
+      "primary": "який сайт потрібен локальному бізнесу",
+      "secondary": [
+        "локальний сайт чи соцмережі",
+        "вибір сайту для місцевих послуг"
+      ],
+      "intent": "Освітній вибір каналу і формату для місцевого бізнесу",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/google-ads/",
+      "cluster": "google-ads",
+      "primary": "налаштування Google Ads",
+      "secondary": [
+        "ведення Google Ads",
+        "пошукова реклама"
+      ],
+      "intent": "Advertising service intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/google-analytics-search-console/",
+      "cluster": "analytics",
+      "primary": "Google Analytics і Search Console",
+      "secondary": [
+        "налаштування GA4",
+        "підключення Search Console"
+      ],
+      "intent": "Measurement service intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "google analytics під ключ",
+            "https://maxsite.com.ua/google-analytics-search-console/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 32
+        }
+      ]
+    },
+    {
+      "url": "/",
+      "cluster": "brand",
+      "primary": "MAX SITE",
+      "secondary": [
+        "maxsite",
+        "макс сайт"
+      ],
+      "intent": "Brand and umbrella: websites, SEO, Google Ads, custom software",
+      "searchIntent": "navigational",
+      "contentType": "home",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "замовити seo просування корпоративного сайту",
+            "https://maxsite.com.ua/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 57
+        },
+        {
+          "keys": [
+            "замовити сайт",
+            "https://maxsite.com.ua/"
+          ],
+          "clicks": 0,
+          "impressions": 142,
+          "ctr": 0,
+          "position": 63.774647887323944
+        }
+      ]
+    },
+    {
+      "url": "/kalkulyator-vartosti-saytu/",
+      "cluster": "kalkulyator-vartosti-saytu",
+      "primary": "калькулятор вартості сайту",
+      "secondary": [
+        "розрахувати бюджет сайту"
+      ],
+      "intent": "Інтерактивна попередня оцінка обсягу",
+      "searchIntent": "informational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/kontakty/",
+      "cluster": "kontakty",
+      "primary": "контакти MAX SITE",
+      "secondary": [
+        "телефон MAX SITE"
+      ],
+      "intent": "Контактна навігація",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/mista/",
+      "cluster": "mista",
+      "primary": "міста роботи MAX SITE",
+      "secondary": [
+        "географія MAX SITE"
+      ],
+      "intent": "Навігація географією роботи",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/mista/stvorennya-sajtiv-cherkasy/",
+      "cluster": "city-cherkasy",
+      "primary": "створення сайтів у Черкасах",
+      "secondary": [
+        "замовити сайт у Черкасах",
+        "розробка сайту у Черкасах"
+      ],
+      "intent": "Remote project delivery for businesses in Черкасах; no fabricated local office",
+      "searchIntent": "commercial",
+      "contentType": "city-hub",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "заказать сайт в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 84.4
+        },
+        {
+          "keys": [
+            "заказать сайт черкассы",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "просування сайту в черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 85
+        },
+        {
+          "keys": [
+            "разработка сайта в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 81
+        },
+        {
+          "keys": [
+            "розкрутка сайтів у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 31.5
+        },
+        {
+          "keys": [
+            "розкрутка сайтів черкаси",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 52.2
+        },
+        {
+          "keys": [
+            "розробка сайту в черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 65.16666666666667
+        },
+        {
+          "keys": [
+            "розробка сайтів черкаси",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 11,
+          "ctr": 0,
+          "position": 45.63636363636363
+        },
+        {
+          "keys": [
+            "сайт под ключ в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 83
+        },
+        {
+          "keys": [
+            "сайт під ключ у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 37.57142857142857
+        },
+        {
+          "keys": [
+            "создание сайтов в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 85.66666666666667
+        },
+        {
+          "keys": [
+            "создать сайт в черкассах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 66.8
+        },
+        {
+          "keys": [
+            "створення сайтів у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 26,
+          "ctr": 0,
+          "position": 32.07692307692308
+        },
+        {
+          "keys": [
+            "створення сайтів черкаси",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 37.25
+        },
+        {
+          "keys": [
+            "створити сайт у черкасах",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 29.5
+        }
+      ]
+    },
+    {
+      "url": "/mista/stvorennya-sajtiv-dnipro/",
+      "cluster": "city-dnipro",
+      "primary": "створення сайтів у Дніпрі",
+      "secondary": [
+        "замовити сайт у Дніпрі",
+        "розробка сайту у Дніпрі"
+      ],
+      "intent": "Remote project delivery for businesses in Дніпрі; no fabricated local office",
+      "searchIntent": "commercial",
+      "contentType": "city-hub",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": []
+    },
+    {
+      "url": "/mista/stvorennya-sajtiv-kharkiv/",
+      "cluster": "city-kharkiv",
+      "primary": "створення сайтів у Харкові",
+      "secondary": [
+        "замовити сайт у Харкові",
+        "розробка сайту у Харкові"
+      ],
+      "intent": "Remote project delivery for businesses in Харкові; no fabricated local office",
+      "searchIntent": "commercial",
+      "contentType": "city-hub",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": []
+    },
+    {
+      "url": "/mista/stvorennya-sajtiv-kyiv/",
+      "cluster": "city-kyiv",
+      "primary": "створення сайтів у Києві",
+      "secondary": [
+        "замовити сайт у Києві",
+        "розробка сайту у Києві"
+      ],
+      "intent": "Remote project delivery for businesses in Києві; no fabricated local office",
+      "searchIntent": "commercial",
+      "contentType": "city-hub",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "замовити сайт в києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 85.16666666666667
+        },
+        {
+          "keys": [
+            "замовити сайт київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 133,
+          "ctr": 0,
+          "position": 90.2781954887218
+        },
+        {
+          "keys": [
+            "замовити сайт у києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 91.2
+        },
+        {
+          "keys": [
+            "зробити сайт київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 61.714285714285715
+        },
+        {
+          "keys": [
+            "просування сайту у києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 77,
+          "ctr": 0,
+          "position": 77.27272727272727
+        },
+        {
+          "keys": [
+            "розробка односторінкового сайту київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 79
+        },
+        {
+          "keys": [
+            "сайт під ключ київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 76.4
+        },
+        {
+          "keys": [
+            "створення сайту київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 75,
+          "ctr": 0,
+          "position": 90.94666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів в києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 81.66666666666667
+        },
+        {
+          "keys": [
+            "створення сайтів київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 113,
+          "ctr": 0,
+          "position": 86.01769911504425
+        },
+        {
+          "keys": [
+            "створення сайтів під ключ київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 83.77777777777777
+        },
+        {
+          "keys": [
+            "створення сайтів у києві",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 20,
+          "ctr": 0,
+          "position": 37.15
+        },
+        {
+          "keys": [
+            "створити сайт київ",
+            "https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/"
+          ],
+          "clicks": 0,
+          "impressions": 61,
+          "ctr": 0,
+          "position": 57.704918032786885
+        }
+      ]
+    },
+    {
+      "url": "/mista/stvorennya-sajtiv-lviv/",
+      "cluster": "city-lviv",
+      "primary": "створення сайтів у Львові",
+      "secondary": [
+        "замовити сайт у Львові",
+        "розробка сайту у Львові"
+      ],
+      "intent": "Remote project delivery for businesses in Львові; no fabricated local office",
+      "searchIntent": "commercial",
+      "contentType": "city-hub",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": []
+    },
+    {
+      "url": "/mista/stvorennya-sajtiv-odesa/",
+      "cluster": "city-odesa",
+      "primary": "створення сайтів у Одесі",
+      "secondary": [
+        "замовити сайт у Одесі",
+        "розробка сайту у Одесі"
+      ],
+      "intent": "Remote project delivery for businesses in Одесі; no fabricated local office",
+      "searchIntent": "commercial",
+      "contentType": "city-hub",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": []
+    },
+    {
+      "url": "/mista/stvorennya-sajtiv-ukrayina/",
+      "cluster": "city-ukraine",
+      "primary": "дистанційна розробка сайту по Україні",
+      "secondary": [
+        "віддалена співпраця з вебстудією"
+      ],
+      "intent": "Доставка проєкту дистанційно по Україні; загальний продаж належить /stvorennya-saytiv/",
+      "searchIntent": "navigational",
+      "contentType": "city-hub",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/",
+      "cluster": "nishi",
+      "primary": "нішеві рішення MAX SITE",
+      "secondary": [
+        "сайти за галузями бізнесу"
+      ],
+      "intent": "Навігація рішеннями за галузями",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "max siti",
+            "https://maxsite.com.ua/nishi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 71
+        },
+        {
+          "keys": [
+            "max websites",
+            "https://maxsite.com.ua/nishi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 77
+        }
+      ]
+    },
+    {
+      "url": "/nishi/sajt-dlya-avtoservisu/",
+      "cluster": "niche-auto",
+      "primary": "сайт для автосервісу",
+      "secondary": [
+        "розробка сайту для автосервісу",
+        "замовити сайт для автосервісу"
+      ],
+      "intent": "Комерційне галузеве рішення: автосервісу; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": [
+        {
+          "keys": [
+            "maxsite",
+            "https://maxsite.com.ua/nishi/sajt-dlya-avtoservisu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 85
+        }
+      ]
+    },
+    {
+      "url": "/nishi/sajt-dlya-b2b-kompaniyi/",
+      "cluster": "niche-b2b",
+      "primary": "b2b-сайт для компанії",
+      "secondary": [
+        "розробка сайту для компанії",
+        "замовити сайт для компанії"
+      ],
+      "intent": "Комерційне галузеве рішення: компанії; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-budivelnoyi-kompaniyi/",
+      "cluster": "niche-construction",
+      "primary": "сайт для будівельної компанії",
+      "secondary": [
+        "розробка сайту для будівельної компанії",
+        "замовити сайт для будівельної компанії"
+      ],
+      "intent": "Комерційне галузеве рішення: будівельної компанії; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-dezinfekciyi/",
+      "cluster": "nishi-sajt-dlya-dezinfekciyi",
+      "primary": "сайт для дезінфекції",
+      "secondary": [
+        "розробка сайту для дезінфекції",
+        "замовити сайт для дезінфекції"
+      ],
+      "intent": "Комерційне галузеве рішення: дезінфекції; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-eksperta/",
+      "cluster": "nishi-sajt-dlya-eksperta",
+      "primary": "сайт для експерта",
+      "secondary": [
+        "розробка сайту для експерта",
+        "замовити сайт для експерта"
+      ],
+      "intent": "Комерційне галузеве рішення: експерта; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-horeca/",
+      "cluster": "nishi-sajt-dlya-horeca",
+      "primary": "сайт для horeca та готелів",
+      "secondary": [
+        "розробка сайту для horeca та готелів",
+        "замовити сайт для horeca та готелів"
+      ],
+      "intent": "Комерційне галузеве рішення: horeca та готелів; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-kliningovoyi-kompaniyi/",
+      "cluster": "cleaning",
+      "primary": "сайт для клінінгової компанії",
+      "secondary": [
+        "лендінг для клінінгу"
+      ],
+      "intent": "Cleaning-specific services, coverage, quote and real Formula Chystoty case",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "клінінг під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 71.6
+        },
+        {
+          "keys": [
+            "лендінг для клінінгової компанії",
+            "https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/"
+          ],
+          "clicks": 0,
+          "impressions": 38,
+          "ctr": 0,
+          "position": 8.605263157894736
+        }
+      ]
+    },
+    {
+      "url": "/nishi/sajt-dlya-kursiv/",
+      "cluster": "nishi-sajt-dlya-kursiv",
+      "primary": "сайт для курсів",
+      "secondary": [
+        "розробка сайту для курсів",
+        "замовити сайт для курсів"
+      ],
+      "intent": "Комерційне галузеве рішення: курсів; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-landshaftnoyi-kompaniyi/",
+      "cluster": "nishi-sajt-dlya-landshaftnoyi-kompaniyi",
+      "primary": "сайт для ландшафтної компанії",
+      "secondary": [
+        "розробка сайту для ландшафтної компанії",
+        "замовити сайт для ландшафтної компанії"
+      ],
+      "intent": "Комерційне галузеве рішення: ландшафтної компанії; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-logistychnoyi-kompaniyi/",
+      "cluster": "nishi-sajt-dlya-logistychnoyi-kompaniyi",
+      "primary": "сайт для логістичної компанії",
+      "secondary": [
+        "розробка сайту для логістичної компанії",
+        "замовити сайт для логістичної компанії"
+      ],
+      "intent": "Комерційне галузеве рішення: логістичної компанії; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-lokalnogo-biznesu/",
+      "cluster": "niche-local",
+      "primary": "сайт для локального бізнесу",
+      "secondary": [
+        "розробка сайту для локального бізнесу",
+        "замовити сайт для локального бізнесу"
+      ],
+      "intent": "Комерційне галузеве рішення: локального бізнесу; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-magazynu/",
+      "cluster": "nishi-sajt-dlya-magazynu",
+      "primary": "сайт для магазину",
+      "secondary": [
+        "розробка сайту для магазину",
+        "замовити сайт для магазину"
+      ],
+      "intent": "Комерційне галузеве рішення: магазину; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-meblevoyi-kompaniyi/",
+      "cluster": "nishi-sajt-dlya-meblevoyi-kompaniyi",
+      "primary": "сайт для меблевої компанії",
+      "secondary": [
+        "розробка сайту для меблевої компанії",
+        "замовити сайт для меблевої компанії"
+      ],
+      "intent": "Комерційне галузеве рішення: меблевої компанії; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-medychnyh-poslug/",
+      "cluster": "niche-medical",
+      "primary": "сайт для медичних послуг",
+      "secondary": [
+        "розробка сайту для медичних послуг",
+        "замовити сайт для медичних послуг"
+      ],
+      "intent": "Комерційне галузеве рішення: медичних послуг; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": [
+        {
+          "keys": [
+            "замовити створення медичних сайтів",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 93
+        },
+        {
+          "keys": [
+            "медичний сайт під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 10,
+          "ctr": 0,
+          "position": 72.2
+        },
+        {
+          "keys": [
+            "послуги створення сайтів для медицини",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 88.14285714285714
+        },
+        {
+          "keys": [
+            "розробка медичних сайтів під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 89
+        },
+        {
+          "keys": [
+            "сайт под ключ для клиники",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 74.2
+        },
+        {
+          "keys": [
+            "сайт під ключ для медичного центру",
+            "https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 82.44444444444444
+        }
+      ]
+    },
+    {
+      "url": "/nishi/sajt-dlya-neruhomosti/",
+      "cluster": "nishi-sajt-dlya-neruhomosti",
+      "primary": "сайт для нерухомості",
+      "secondary": [
+        "розробка сайту для нерухомості",
+        "замовити сайт для нерухомості"
+      ],
+      "intent": "Комерційне галузеве рішення: нерухомості; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-remontnyh-poslug/",
+      "cluster": "nishi-sajt-dlya-remontnyh-poslug",
+      "primary": "сайт для ремонтних послуг",
+      "secondary": [
+        "розробка сайту для ремонтних послуг",
+        "замовити сайт для ремонтних послуг"
+      ],
+      "intent": "Комерційне галузеве рішення: ремонтних послуг; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/nishi/sajt-dlya-salonu-krasy/",
+      "cluster": "niche-beauty",
+      "primary": "сайт для салону краси",
+      "secondary": [
+        "розробка сайту для салону краси",
+        "замовити сайт для салону краси"
+      ],
+      "intent": "Комерційне галузеве рішення: салону краси; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": [
+        {
+          "keys": [
+            "сайт для салону краси",
+            "https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 65
+        },
+        {
+          "keys": [
+            "створення сайту для салону краси",
+            "https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 53
+        }
+      ]
+    },
+    {
+      "url": "/nishi/sajt-dlya-stomatologiyi/",
+      "cluster": "niche-dentistry",
+      "primary": "сайт для стоматології",
+      "secondary": [
+        "розробка сайту для стоматології",
+        "замовити сайт для стоматології"
+      ],
+      "intent": "Комерційне галузеве рішення: стоматології; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "niche",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": [
+        {
+          "keys": [
+            "замовити сайт стоматологія",
+            "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 73
+        },
+        {
+          "keys": [
+            "сайт для стоматології під ключ",
+            "https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 17.333333333333332
+        }
+      ]
+    },
+    {
+      "url": "/nishi/sajt-dlya-vyrobnytstva/",
+      "cluster": "nishi-sajt-dlya-vyrobnytstva",
+      "primary": "сайт для виробництва",
+      "secondary": [
+        "розробка сайту для виробництва",
+        "замовити сайт для виробництва"
+      ],
+      "intent": "Комерційне галузеве рішення: виробництва; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "сайт для виробника",
+            "https://maxsite.com.ua/nishi/sajt-dlya-vyrobnytstva/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 7
+        }
+      ]
+    },
+    {
+      "url": "/nishi/sajt-dlya-yurydychnoyi-kompaniyi/",
+      "cluster": "nishi-sajt-dlya-yurydychnoyi-kompaniyi",
+      "primary": "сайт для юридичної компанії",
+      "secondary": [
+        "розробка сайту для юридичної компанії",
+        "замовити сайт для юридичної компанії"
+      ],
+      "intent": "Комерційне галузеве рішення: юридичної компанії; специфічні послуги, довіра, каталог і шлях звернення",
+      "searchIntent": "commercial",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/pidtrymka-saytiv/",
+      "cluster": "support",
+      "primary": "підтримка сайту",
+      "secondary": [
+        "технічна підтримка сайтів",
+        "супровід сайту"
+      ],
+      "intent": "Post-launch support intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "підтримка сайту",
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 79.28571428571429
+        },
+        {
+          "keys": [
+            "технічна підтримка сайту",
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 99
+        },
+        {
+          "keys": [
+            "технічна підтримка сайтів",
+            "https://maxsite.com.ua/pidtrymka-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 80.5
+        }
+      ]
+    },
+    {
+      "url": "/polityka-konfidentsijnosti/",
+      "cluster": "polityka-konfidentsijnosti",
+      "primary": "політика конфіденційності MAX SITE",
+      "secondary": [],
+      "intent": "Правила обробки даних; пошуковий попит не є ціллю",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [],
+      "secondaryNotApplicable": "Legal utility; no independent secondary search intent."
+    },
+    {
+      "url": "/portfolio/fo-dez/",
+      "cluster": "case-dez",
+      "primary": "кейс FO-DEZ MAX SITE",
+      "secondary": [
+        "сайт FO-DEZ кейс"
+      ],
+      "intent": "Архітектура сервісного сайту й підтверджений обсяг робіт",
+      "searchIntent": "navigational",
+      "contentType": "case",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/portfolio/formula-chystoty/",
+      "cluster": "case-cleaning",
+      "primary": "кейс Формула Чистоти MAX SITE",
+      "secondary": [
+        "сайт Формула Чистоти кейс"
+      ],
+      "intent": "Підтверджена роль і технічні результати проєкту клінінгу",
+      "searchIntent": "navigational",
+      "contentType": "case",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/portfolio/",
+      "cluster": "portfolio",
+      "primary": "портфоліо MAX SITE",
+      "secondary": [
+        "проєкти MAX SITE"
+      ],
+      "intent": "Навігація реальними прикладами робіт",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "clean site services",
+            "https://maxsite.com.ua/portfolio/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 69
+        }
+      ]
+    },
+    {
+      "url": "/portfolio/max-site/",
+      "cluster": "case-max-site",
+      "primary": "кейс MAX SITE",
+      "secondary": [
+        "розробка власного сайту MAX SITE"
+      ],
+      "intent": "Власний проєкт: технічний baseline і публічний журнал",
+      "searchIntent": "navigational",
+      "contentType": "case",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/poslugy/",
+      "cluster": "poslugy",
+      "primary": "послуги MAX SITE",
+      "secondary": [
+        "напрями роботи MAX SITE"
+      ],
+      "intent": "Каталог послуг: розробка, просування й аналітика",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/pro-nas/",
+      "cluster": "pro-nas",
+      "primary": "про MAX SITE",
+      "secondary": [
+        "команда MAX SITE"
+      ],
+      "intent": "Бренд, процес і компетенції",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/qa-checklist/",
+      "cluster": "qa-checklist",
+      "primary": "чекліст приймання сайту",
+      "secondary": [
+        "перевірка готового сайту",
+        "шаблон приймання розробки"
+      ],
+      "intent": "Практичний ресурс для перевірки виконаного обсягу",
+      "searchIntent": "informational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/redesign-saytu/",
+      "cluster": "redesign",
+      "primary": "редизайн сайту",
+      "secondary": [
+        "оновлення сайту",
+        "редизайн без втрати SEO"
+      ],
+      "intent": "Preservation/migration intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/rozrobka-nextjs/",
+      "cluster": "nextjs",
+      "primary": "розробка Next.js сайту",
+      "secondary": [
+        "Next.js розробник",
+        "сайт на Next.js"
+      ],
+      "intent": "Technology-specific intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": []
+    },
+    {
+      "url": "/rozrobka-wordpress/",
+      "cluster": "wordpress",
+      "primary": "розробка WordPress сайту",
+      "secondary": [
+        "WordPress під ключ"
+      ],
+      "intent": "Technology-specific intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": []
+    },
+    {
+      "url": "/sajty-dlya-poslug/",
+      "cluster": "service-business",
+      "primary": "сайт для послуг",
+      "secondary": [
+        "сайт сервісного бізнесу",
+        "сайт для компанії послуг"
+      ],
+      "intent": "Service catalogue, geography, quote and enquiry workflow",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "max siti",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 78
+        },
+        {
+          "keys": [
+            "max websites",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 79
+        },
+        {
+          "keys": [
+            "maxsite",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "keys": [
+            "сайт для послуг",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 71.5
+        },
+        {
+          "keys": [
+            "сайт під ключ",
+            "https://maxsite.com.ua/sajty-dlya-poslug/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 66.5
+        }
+      ]
+    },
+    {
+      "url": "/sayt-vizytka/",
+      "cluster": "site-card",
+      "primary": "сайт візитка під ключ",
+      "secondary": [
+        "створення сайту візитки"
+      ],
+      "intent": "Small informational site intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P3",
+      "observedQueries": [
+        {
+          "keys": [
+            "сайт візитка під ключ",
+            "https://maxsite.com.ua/sayt-vizytka/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 81
+        },
+        {
+          "keys": [
+            "сайт-візитка під ключ",
+            "https://maxsite.com.ua/sayt-vizytka/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 80.5
+        }
+      ]
+    },
+    {
+      "url": "/seo-first/",
+      "cluster": "seo-first",
+      "primary": "MAX SITE SEO-FIRST",
+      "secondary": [
+        "процес SEO-FIRST MAX SITE"
+      ],
+      "intent": "Власний процес і його артефакти",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/seo-prosuvannya/",
+      "cluster": "seo",
+      "primary": "SEO просування сайту",
+      "secondary": [
+        "просування сайту",
+        "SEO для бізнесу"
+      ],
+      "intent": "Ongoing organic growth; distinct from SEO-ready build and technical audit",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": []
+    },
+    {
+      "url": "/seo-sajt-pid-google/",
+      "cluster": "seo-ready-site",
+      "primary": "створення SEO сайту під Google",
+      "secondary": [
+        "сайт з SEO основою"
+      ],
+      "intent": "Замовлення розробки із заданою SEO архітектурою; не поточне просування",
+      "searchIntent": "commercial",
+      "contentType": "money",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [
+        {
+          "keys": [
+            "сайт оптимізований під seo",
+            "https://maxsite.com.ua/seo-sajt-pid-google/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 99.25
+        }
+      ]
+    },
+    {
+      "url": "/stvorennya-internet-mahazynu/",
+      "cluster": "ecommerce",
+      "primary": "інтернет магазин під ключ",
+      "secondary": [
+        "створення інтернет магазину",
+        "розробка інтернет магазину"
+      ],
+      "intent": "Catalogue, checkout, payment, shipping and operational integrations",
+      "searchIntent": "commercial",
+      "contentType": "money",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "вартість інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 87.44444444444444
+        },
+        {
+          "keys": [
+            "заказать сайт интернет магазина под ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 89.875
+        },
+        {
+          "keys": [
+            "заказать сайт под ключ интернет магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 13,
+          "ctr": 0,
+          "position": 90
+        },
+        {
+          "keys": [
+            "замовити створення інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 98.66666666666667
+        },
+        {
+          "keys": [
+            "замовити інтернет магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 53,
+          "ctr": 0,
+          "position": 83.05660377358491
+        },
+        {
+          "keys": [
+            "замовити інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 41,
+          "ctr": 0,
+          "position": 97.17073170731707
+        },
+        {
+          "keys": [
+            "замовити інтернет-магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 15,
+          "ctr": 0,
+          "position": 84.4
+        },
+        {
+          "keys": [
+            "интернет магазин сайт под ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 99.5
+        },
+        {
+          "keys": [
+            "онлайн магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 58.5
+        },
+        {
+          "keys": [
+            "розробка інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 98.11111111111111
+        },
+        {
+          "keys": [
+            "розробка інтернет-магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 98
+        },
+        {
+          "keys": [
+            "сайт под ключ интернет магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 16,
+          "ctr": 0,
+          "position": 91.9375
+        },
+        {
+          "keys": [
+            "сайт інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 46.666666666666664
+        },
+        {
+          "keys": [
+            "сделать сайт интернет магазина под ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 95.66666666666667
+        },
+        {
+          "keys": [
+            "створення інтернет магазину в києві",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 60
+        },
+        {
+          "keys": [
+            "створення інтернет магазину київ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 66
+        },
+        {
+          "keys": [
+            "створення інтернет магазину під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 35,
+          "ctr": 0,
+          "position": 51.17142857142857
+        },
+        {
+          "keys": [
+            "створення інтернет магазину під ключ київ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 77
+        },
+        {
+          "keys": [
+            "створення інтернет магазину під ключ ціна",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 88.5
+        },
+        {
+          "keys": [
+            "створення інтернет-магазину в києві",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 58
+        },
+        {
+          "keys": [
+            "створити сайт інтернет магазин",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 71
+        },
+        {
+          "keys": [
+            "створити інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 19,
+          "ctr": 0,
+          "position": 62.73684210526316
+        },
+        {
+          "keys": [
+            "інтернет магазин на замовлення",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 12,
+          "ctr": 0,
+          "position": 48
+        },
+        {
+          "keys": [
+            "інтернет магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 170,
+          "ctr": 0,
+          "position": 59.28235294117647
+        },
+        {
+          "keys": [
+            "інтернет магазин під ключ ціна",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 69.5
+        },
+        {
+          "keys": [
+            "інтернет-магазин під ключ",
+            "https://maxsite.com.ua/stvorennya-internet-mahazynu/"
+          ],
+          "clicks": 0,
+          "impressions": 29,
+          "ctr": 0,
+          "position": 54.93103448275862
+        }
+      ]
+    },
+    {
+      "url": "/stvorennya-korporatyvnoho-saytu/",
+      "cluster": "corporate",
+      "primary": "створення корпоративного сайту",
+      "secondary": [
+        "корпоративний сайт під ключ",
+        "сайт компанії"
+      ],
+      "intent": "Corporate structure/team/cases intent",
+      "searchIntent": "commercial",
+      "contentType": "money",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": []
+    },
+    {
+      "url": "/stvorennya-landing-page/",
+      "cluster": "landing",
+      "primary": "landing page під ключ",
+      "secondary": [
+        "замовити лендінг",
+        "створення landing page"
+      ],
+      "intent": "One offer and one measurable conversion route",
+      "searchIntent": "commercial",
+      "contentType": "money",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "landing page під ключ",
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 52,
+          "ctr": 0,
+          "position": 40.75
+        },
+        {
+          "keys": [
+            "landing site",
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 43
+        },
+        {
+          "keys": [
+            "замовити landing page",
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 44
+        },
+        {
+          "keys": [
+            "замовити створення landing page",
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 48
+        },
+        {
+          "keys": [
+            "розробка landing page під ключ",
+            "https://maxsite.com.ua/stvorennya-landing-page/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 94
+        }
+      ]
+    },
+    {
+      "url": "/stvorennya-program/",
+      "cluster": "custom-software",
+      "primary": "створення програм для бізнесу",
+      "secondary": [
+        "розробка CRM",
+        "вебзастосунок",
+        "автоматизація бізнесу"
+      ],
+      "intent": "Custom software/web app intent",
+      "searchIntent": "commercial",
+      "contentType": "money",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": []
+    },
+    {
+      "url": "/stvorennya-saytiv/",
+      "cluster": "general-sites",
+      "primary": "створення сайтів під ключ",
+      "secondary": [
+        "замовити сайт",
+        "розробка сайтів",
+        "сайт під ключ"
+      ],
+      "intent": "Choose and commission a website format for business",
+      "searchIntent": "commercial",
+      "contentType": "money",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "max websites",
+            "https://maxsite.com.ua/stvorennya-saytiv/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 75
+        }
+      ]
+    },
+    {
+      "url": "/stvorennya-saytu-dlya-biznesu/",
+      "cluster": "smb",
+      "primary": "сайт для бізнесу",
+      "secondary": [
+        "сайт для малого бізнесу",
+        "створення сайту для бізнесу"
+      ],
+      "intent": "Multi-page small/medium business website with managed enquiry flow",
+      "searchIntent": "commercial",
+      "contentType": "money",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P1",
+      "observedQueries": [
+        {
+          "keys": [
+            "заказать бизнес сайт",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 32.2
+        },
+        {
+          "keys": [
+            "замовити сайт",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 110,
+          "ctr": 0,
+          "position": 80.38181818181818
+        },
+        {
+          "keys": [
+            "сайт для бизнеса",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 39
+        },
+        {
+          "keys": [
+            "сайт для бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 40,
+          "ctr": 0,
+          "position": 19.6
+        },
+        {
+          "keys": [
+            "сайт для малого бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 36.5
+        },
+        {
+          "keys": [
+            "сайт під ключ",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 37
+        },
+        {
+          "keys": [
+            "создать бизнес сайт",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 72.66666666666667
+        },
+        {
+          "keys": [
+            "створення сайту для бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 45.666666666666664
+        },
+        {
+          "keys": [
+            "створення сайту для компанії",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 40
+        },
+        {
+          "keys": [
+            "створення сайтів під ключ",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 87
+        },
+        {
+          "keys": [
+            "створити сайт для бізнесу",
+            "https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0,
+          "position": 79.125
+        }
+      ]
+    },
+    {
+      "url": "/tehnichne-seo/",
+      "cluster": "technical-seo",
+      "primary": "технічний SEO аудит",
+      "secondary": [
+        "canonical sitemap schema аудит"
+      ],
+      "intent": "Technical audit intent",
+      "searchIntent": "commercial",
+      "contentType": "supporting",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    },
+    {
+      "url": "/zasnovnyk/",
+      "cluster": "zasnovnyk",
+      "primary": "засновник MAX SITE",
+      "secondary": [
+        "редакція MAX SITE"
+      ],
+      "intent": "Відповідальність за матеріали й підтверджені відомості про автора",
+      "searchIntent": "navigational",
+      "contentType": "utility",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
+    }
+  ]
+}

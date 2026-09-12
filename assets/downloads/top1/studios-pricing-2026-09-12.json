@@ -1,0 +1,754 @@
+{
+  "version": 1,
+  "title": "Ціни створення сайтів: 50 публічних джерел, 12.09.2026",
+  "period": "Q3 2026 point-in-time snapshot",
+  "checkedAt": "2026-09-12",
+  "nextScheduledReview": "2026-12-12",
+  "sampleSize": 50,
+  "selection": "31 унікальний сайт із міського SERP-дослідження 10.09 плюс 19 додаткових первинних сайтів із пошуку 12.09. Цільова, не випадкова вибірка; не рейтинг якості й не репрезентативне опитування ринку.",
+  "method": "Одна зафіксована публічна сторінка кожного виконавця; HTTP 200, ручна перевірка ціни та контексту. Не надсилали заявки, не отримували комерційні пропозиції. USD/EUR/UAH/умовні одиниці розділені. Відсутність ціни стосується лише обраної сторінки. Строки зібрано тільки там, де контекст був однозначним; повний розподіл строків не оцінювався.",
+  "limitations": "Немає однакового брифу, підтвердження фактичних продажів, ПДВ, знижок або поточних вільних слотів. Не обчислюємо спільну середню ціну. Сайт студії може змінитися після дати зрізу.",
+  "counts": {
+    "multi": 5,
+    "from": 16,
+    "units": 2,
+    "not-found": 12,
+    "general": 6,
+    "title-only": 2,
+    "tiered": 2,
+    "listed": 4,
+    "range": 1
+  },
+  "rows": [
+    {
+      "id": 1,
+      "company": "TOTONIS",
+      "sourceUrl": "https://totonis.com/en",
+      "checkedAt": "2026-09-12T19:34:41.926824+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "fe342207dd0d1579f249b1d6ebe44635c9628813741c3ce2b1894a28a6ce5fd2",
+      "priceKind": "multi",
+      "currencies": [
+        "USD",
+        "UAH"
+      ],
+      "publishedPrice": "Landing від 1 000 USD; корпоративний від 2 000 USD; магазин від 3 000 USD.",
+      "scopeNotes": "На цій же сторінці є окрема гривнева таблиця: landing 18 000, корпоративний 40 000, магазин 45 000 грн. Відповідність пакетів не пояснено.",
+      "publishedTiming": "Від 20 робочих днів; залежить від формату."
+    },
+    {
+      "id": 2,
+      "company": "iFish",
+      "sourceUrl": "https://ifish.com.ua/ua/poslugi/sajt-kiyiv/",
+      "checkedAt": "2026-09-12T19:34:41.927273+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "3d5519377e131ee583ec6925443f37bd8663de7937922ea27fd01c251e8a1559",
+      "priceKind": "multi",
+      "currencies": [
+        "USD",
+        "UAH"
+      ],
+      "publishedPrice": "Landing за шаблоном 15 000 грн; індивідуальний понад 30 000 грн; базовий магазин 50 000 грн.",
+      "scopeNotes": "Окремі USD-картки й пакети за розміром бізнесу мають інший склад; не прирівнюємо їх до гривневої оцінки.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 3,
+      "company": "Webatom",
+      "sourceUrl": "https://webatom.com.ua/stvorennya-sajtiv-u-kiyevi/",
+      "checkedAt": "2026-09-12T19:34:41.927382+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "decdcc627236ba7fa15df94a2c96901fa04c644fab8069c2ea7594604870ffed",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Візитка від 9 000 грн; landing від 15 750; компанія від 18 000; магазин від 22 500.",
+      "scopeNotes": "Портал, дизайн і просування оцінюються окремо; FAQ також використовує умовні одиниці.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 4,
+      "company": "Friendly",
+      "sourceUrl": "https://friendly.com.ua/ua/",
+      "checkedAt": "2026-09-12T19:34:41.927431+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "09659b1039274cb4c7ca57fe35dbad24f9303b277ea9e700717a4a1286fce73d",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Візитка від 15 000 грн; бізнес-сайт від 30 000; корпоративний від 55 000; магазин від 70 000.",
+      "scopeNotes": "Початкові бюджети різних форматів, не однаковий обсяг.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 5,
+      "company": "KWEB",
+      "sourceUrl": "https://www.kweb.kiev.ua/",
+      "checkedAt": "2026-09-12T19:34:41.927522+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "f7927f10d15e9698a165be4b1eb5501c78bd8e64dd8925e6adb90596971c35a5",
+      "priceKind": "units",
+      "currencies": [
+        "UNSPECIFIED"
+      ],
+      "publishedPrice": "Візитка від 300 у.о.; корпоративний від 500; магазин від 700; landing від 200.",
+      "scopeNotes": "Умовні одиниці не перераховано у USD чи UAH без явного визначення валюти.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 6,
+      "company": "Веб Студіо",
+      "sourceUrl": "https://www.webstudio.lviv.ua/",
+      "checkedAt": "2026-09-12T19:34:42.345201+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "c521ddb1b76e51723c73aa3b76846955b5e08c6027c4cc36545a73c49fe96f10",
+      "priceKind": "from",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Візитка від 390 USD; бізнес-сайт від 590; магазин від 790.",
+      "scopeNotes": "Пакет візитки передбачає до 15 сторінок; порівнювати з односторінковим тарифом некоректно.",
+      "publishedTiming": "Візитка 10–20 днів; бізнес 20–30; магазин 20–40."
+    },
+    {
+      "id": 7,
+      "company": "Фабрика Сайтів",
+      "sourceUrl": "https://fabryka.cc/",
+      "checkedAt": "2026-09-12T19:34:42.373022+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "f966e37cc596d464185f51432b10044cf79111b5c63fc9c2edb417aaa599c25c",
+      "priceKind": "multi",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Простий сайт від 5 700 грн; візитка від 10 800; landing від 10 000; магазин у таблиці від 20 000.",
+      "scopeNotes": "FAQ окремо називає магазин від 16 000 грн. Потрібне уточнення складу двох пропозицій.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 8,
+      "company": "QMarket",
+      "sourceUrl": "https://qmarket.com.ua/",
+      "checkedAt": "2026-09-12T19:34:42.675501+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "7318cb807d1b81b5a5c8990cac03705930e77e22fcd06cf0a5a78d9a53cf08cd",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing від 4 900 грн; сайт компанії від 9 900.",
+      "scopeNotes": "Відкриті стартові пропозиції; остаточний склад слід погоджувати.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 9,
+      "company": "SUFIX",
+      "sourceUrl": "https://websufix.com/",
+      "checkedAt": "2026-09-12T19:34:42.821995+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "5019a9265343c8ed43a32d89db19470d60ffc183e9d75fccf733c8f4464a7b9a",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Це не твердження про відсутність прайсу на всьому сайті.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 10,
+      "company": "PBB design",
+      "sourceUrl": "https://pbb.design/",
+      "checkedAt": "2026-09-12T19:34:42.870373+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "b6cef58e3687af001a74bf1001ba4aa64579fab546b879e527526282cdbea0e3",
+      "priceKind": "general",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Розробка сайту від 10 000 грн.",
+      "scopeNotes": "Загальний старт без єдиного визначеного формату.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 11,
+      "company": "SEO Lviv",
+      "sourceUrl": "https://seolviv.com.ua/poslugy/stvorennya-sajtiv",
+      "checkedAt": "2026-09-12T19:34:42.908766+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "9914009892a8d2bd2588529f60a1717ca0478282274338d0643630d8c6fe4058",
+      "priceKind": "title-only",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Заголовок сторінки містить ціну від 400 USD.",
+      "scopeNotes": "Склад пакета за цією ціною у перевіреному тексті не визначено; окремо від деталізованих тарифів.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 12,
+      "company": "Sena",
+      "sourceUrl": "https://sena.od.ua/uk.html",
+      "checkedAt": "2026-09-12T19:34:43.060180+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "cf803b47a050fb37b54841d43ff80d9553a67edd31367722ed92fd6599045f0c",
+      "priceKind": "units",
+      "currencies": [
+        "UNSPECIFIED"
+      ],
+      "publishedPrice": "Економ від 100 у.о.; стандарт від 300; індивідуальний від 500.",
+      "scopeNotes": "Економ — шаблон із 3–5 пунктами меню; валюта умовної одиниці не визначена.",
+      "publishedTiming": "Для економ-пакета заявлено 24–48 годин."
+    },
+    {
+      "id": 13,
+      "company": "WebManna",
+      "sourceUrl": "https://webmanna.pro/",
+      "checkedAt": "2026-09-12T19:34:43.147641+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "12369b16b1b3bfab1f177c025200487f46463d970e392ebe590fd333a507d2c3",
+      "priceKind": "general",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Розробка сайту від 5 000 грн.",
+      "scopeNotes": "Щомісячну ціну SEO не включено до вартості створення.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 14,
+      "company": "Cursor",
+      "sourceUrl": "https://cursor.net.ua/ua/",
+      "checkedAt": "2026-09-12T19:34:43.221755+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "9030b3fd9ec3b636e03e0850fc8779f84b096c79511c554dc63d9675672edf54",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing від 45 000 грн; корпоративний від 90 000; магазин від 300 000.",
+      "scopeNotes": "Landing — 5 екранів; корпоративний — 6–8 сторінок; магазин — 12–18 сторінок. Погодинна ставка має окремі часові умови.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 15,
+      "company": "OD-web",
+      "sourceUrl": "https://od-web.com/uk/odessa/",
+      "checkedAt": "2026-09-12T19:34:43.255735+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "1afb8bac552d1fd99d2c7dfc8882e1166bd5cb8c5d73cf83d168cb7588a87a36",
+      "priceKind": "from",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Landing від 300 USD; корпоративний від 400; магазин від 600.",
+      "scopeNotes": "Домен і сервер наведено як окремі регулярні витрати.",
+      "publishedTiming": "Мінімальні рекламні строки 1–4 дні не порівнюємо з повним індивідуальним проєктом."
+    },
+    {
+      "id": 16,
+      "company": "Megasite",
+      "sourceUrl": "https://megasite.ua/ua/dnepr",
+      "checkedAt": "2026-09-12T19:34:43.531203+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "38bd850ff07eed591023b883dbdd8000739c440a0f71edc1a0465884ba961dd6",
+      "priceKind": "general",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Індивідуальна розробка від 75 000 грн.",
+      "scopeNotes": "Загальна відповідь FAQ; функціональний склад визначається проєктом.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 17,
+      "company": "INPREZA",
+      "sourceUrl": "https://inpreza.ua/rozrobka-saitiv-dnipro/",
+      "checkedAt": "2026-09-12T19:34:43.871830+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "a9181a30e83b9c80b7a9e91596352089d6f3f89e1591c5d6ec624fb4c926dbed",
+      "priceKind": "general",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Розробка від 1 000 USD; поруч приблизний еквівалент 45 000 грн.",
+      "scopeNotes": "Еквівалент наведений джерелом, не наш валютний розрахунок. Промо на хостинг виключено.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 18,
+      "company": "myDesign",
+      "sourceUrl": "https://mydesign.com.ua/ua/websites/dnipro",
+      "checkedAt": "2026-09-12T19:34:43.945939+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "06d22639ae42c050c80a99cbb68d8124fdb6e30b2c10859bf0ed46e0436ce450",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Для порівняння потрібен індивідуальний кошторис.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 19,
+      "company": "ATTICO",
+      "sourceUrl": "https://attico.dp.ua/ua",
+      "checkedAt": "2026-09-12T19:34:44.014636+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "6c277a987da96f181df47609db141d4f3a0dad8de087628c49e218ecdabbc9da",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing від 15 000 грн; візитка від 18 000; корпоративний від 35 000; магазин від 50 000.",
+      "scopeNotes": "Загальний нижчий поріг у FAQ не прирівнюємо до цих пакетів.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 20,
+      "company": "PDM",
+      "sourceUrl": "https://profitable-digital-marketing.com/price/",
+      "checkedAt": "2026-09-12T19:34:44.061958+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "0fdce91358d8e59f21b9d763b7660e4b11cfeb7655c96871ff6563d3102ccaab",
+      "priceKind": "tiered",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Шаблонний landing 5 000 грн; адаптований 8 000; індивідуальний 23 000.",
+      "scopeNotes": "Три рівні кастомізації. Для магазину окремо 12 000 / 25 000 / 80 000 грн; не змішуємо рівні в одному середньому.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 21,
+      "company": "SCS",
+      "sourceUrl": "https://webstudioscs.com/ua/stvorennya-saytiv/",
+      "checkedAt": "2026-09-12T19:34:44.125750+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "cc6192515253864532dc6c3e459c66275567d64f39e04382199bc4dd0bde4eee",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing від 4 600 грн; візитка від 11 800; корпоративний від 15 500; магазин від 22 500.",
+      "scopeNotes": "Каталог виділено окремо: від 19 800 грн. Хостинг не є ціною розробки.",
+      "publishedTiming": "Landing 5–10 днів; візитка від 2 тижнів; корпоративний 3–5; магазин від 6 тижнів."
+    },
+    {
+      "id": 22,
+      "company": "Market Bridge",
+      "sourceUrl": "https://market-bridge.com.ua/ua/",
+      "checkedAt": "2026-09-12T19:34:44.135746+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "fc66790c260c7d14ec897410d544998dd984a2c2b30578df2986d1feb5c37bb2",
+      "priceKind": "multi",
+      "currencies": [
+        "USD",
+        "UAH"
+      ],
+      "publishedPrice": "Заголовок: від 800 USD; інший блок: від 500; пакети 1 000 / 1 300 / 1 700 USD.",
+      "scopeNotes": "FAQ також містить 12 000 грн. Не обираємо найнижче число як універсальну пропозицію.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 23,
+      "company": "Укртехсофт",
+      "sourceUrl": "https://ukrtechsoft.com/rozrobka-saitiv-kharkiv",
+      "checkedAt": "2026-09-12T19:34:44.305744+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "f63fbc2f28ae232eb96c6a41b71b4a4be3a4c3daf6ca1022d077106f13837d74",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Потрібне окреме уточнення складу та бюджету.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 24,
+      "company": "Q-WEB",
+      "sourceUrl": "https://q-web.com.ua/ua/",
+      "checkedAt": "2026-09-12T19:34:44.611657+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "7aaf0b9907c416c9d1e063d85aa73f651e9405747917c502a3c1d0d1ecaaa07a",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Перелік послуг не є публічним кошторисом.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 25,
+      "company": "AXIS",
+      "sourceUrl": "https://axis.com.ua/uk",
+      "checkedAt": "2026-09-12T19:34:44.854309+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "1f25519520d7b82b52e8b151da5856f0080e5baa94c0cb073654feaac3d02568",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Не підмінюємо відсутнє значення нулем.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 26,
+      "company": "ART LEMON",
+      "sourceUrl": "https://art-lemon.com/ua/",
+      "checkedAt": "2026-09-12T19:34:45.204871+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "f6e26598bf3230d72211581e24d100ef9538582884c3d98746d179e4cfd52d66",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Оцінка після обговорення обсягу; цифри не припускаємо.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 27,
+      "company": "WEBMASTER",
+      "sourceUrl": "https://web-master.ck.ua/index-ua.html",
+      "checkedAt": "2026-09-12T19:34:45.307425+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "b7e95b315baeed16ef496ab1362cbc0efe9799448e3505e13e08c4d8c325ee48",
+      "priceKind": "from",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Загальний старт від 699 USD; магазин від 999.",
+      "scopeNotes": "Підтримка й SEO мають окремі тарифи; не включені до цих сум.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 28,
+      "company": "Astudio",
+      "sourceUrl": "https://web-astudio.com/ck/",
+      "checkedAt": "2026-09-12T19:34:45.419379+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "52a34f724de941118308ec9593bd4e5bf24a7daa6399a96df23ebdba43c2c112",
+      "priceKind": "title-only",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Заголовок містить ціну від 39 000 грн.",
+      "scopeNotes": "На перевіреній сторінці немає достатнього опису пакета саме за цим числом.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 29,
+      "company": "Rubik",
+      "sourceUrl": "https://rubik.com.ua/cherkasy/",
+      "checkedAt": "2026-09-12T19:34:45.452863+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "fd3eeb5c3dd42f03d539d33fc790195e73654726867603cfe6a17b1ad8737fa5",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "На сайті є окремі сторінки форматів; цей зріз охоплює вибрану міську сторінку.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 30,
+      "company": "theDC.studio",
+      "sourceUrl": "https://thedc.studio/rozrobka-saitiv-cherkasy/",
+      "checkedAt": "2026-09-12T19:34:45.528090+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "06ab1ae460b28dee57f6da37579f30c3af83db21ad5a3c78cfafe9f1f82e1e70",
+      "priceKind": "multi",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Картки: landing від 500 USD, корпоративний від 1 500, магазин від 2 500.",
+      "scopeNotes": "FAQ називає інші нижні межі: landing 300, корпоративний/магазин 1 000 USD; склад потребує уточнення.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 31,
+      "company": "Tera Group",
+      "sourceUrl": "https://teragroup.com.ua/",
+      "checkedAt": "2026-09-12T19:34:45.831383+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "d03eeebe1c955d92642b6433db50b1dd6fc92adae1622c6cea604f488a7b8dfc",
+      "priceKind": "listed",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Бізнес-сайт 1 090 USD; корпоративний 1 815; каталог 1 705; landing 800.",
+      "scopeNotes": "Опубліковані суми карток. Магазин через форму розрахунку не оцінювали; заявку не надсилали.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 32,
+      "company": "WEZOM",
+      "sourceUrl": "https://wezom.com.ua/ua/razrabotka_sajtov",
+      "checkedAt": "2026-09-12T19:34:45.933622+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "5dfd2a8f39e039ba1f8bb80ccc4a5e97615beb4e5d1a47cf5d05879f06ed4a22",
+      "priceKind": "general",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Загальна розробка від 8 000 USD.",
+      "scopeNotes": "Стартовий поріг FAQ, не ціна будь-якого магазину чи застосунку.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 33,
+      "company": "Dime Studio",
+      "sourceUrl": "https://dime-studio.com/",
+      "checkedAt": "2026-09-12T19:34:46.067618+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "b3f0372ecfdc98261da731ee05b0eacfb824b104f5081f977709029c80434ba0",
+      "priceKind": "general",
+      "currencies": [
+        "EUR"
+      ],
+      "publishedPrice": "Створення сайту від 350 EUR.",
+      "scopeNotes": "Загальна пропозиція; не прирівнюємо її до повного ecommerce.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 34,
+      "company": "Site-M",
+      "sourceUrl": "https://site-m.kiev.ua/",
+      "checkedAt": "2026-09-12T19:34:46.162405+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "dd7e744985411d0c7a7ce309b610c38e49bbd0a961f0ce488129e84d33c1e591",
+      "priceKind": "listed",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing 12 000 грн; візитка 18 000; корпоративний 25 000; магазин від 25 000.",
+      "scopeNotes": "Суми карток; слово «від» явно вказано для магазину.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 35,
+      "company": "Barbarys",
+      "sourceUrl": "https://barbarys.com.ua/blog/stvorennya-sajtiv-kyyiv/",
+      "checkedAt": "2026-09-12T19:34:46.162555+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "ed6f9c6643618d6e359ae29fc828facd33626ebb14b324347f264ef5efaf127b",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing від 15 000 грн; візитка від 25 000; корпоративний від 50 000; магазин від 40 000.",
+      "scopeNotes": "Різні функціональні формати з окремим кошторисом.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 36,
+      "company": "Championweb",
+      "sourceUrl": "https://championweb.com.ua/uk",
+      "checkedAt": "2026-09-12T19:34:46.509036+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "b719528fc162005eed55be6bfc01b2178ac33d03f1f5512de2d7a9c09cbdbcb0",
+      "priceKind": "from",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Landing від 150 USD; бізнес-сайт від 350; каталог від 390.",
+      "scopeNotes": "Каталог описано без онлайн-оплати; це не еквівалент магазину.",
+      "publishedTiming": "Landing 7–10 днів; бізнес 9–24; каталог 7–30."
+    },
+    {
+      "id": 37,
+      "company": "WEBCASE",
+      "sourceUrl": "https://webcase.com.ua/uk/sozdanie-sajtov-kiev/",
+      "checkedAt": "2026-09-12T19:34:46.509864+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "9eeea44e52db6ee3ef77f92581a29275986b65ecd3e4a25756c0d75748af8bdb",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Кейси та послуги не замінюють оцінку однакового брифу.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 38,
+      "company": "Limenet",
+      "sourceUrl": "https://www.limenet.kiev.ua/ua/",
+      "checkedAt": "2026-09-12T19:34:46.578694+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "9654aa31ce714cc881d8ba12a6b080c0242bae6625ab8587a403821d8e3a44f0",
+      "priceKind": "range",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing і візитка 25 000–50 000 грн; магазин і корпоративний 50 000–150 000.",
+      "scopeNotes": "Це опубліковані діапазони одного виконавця, не ринкові середні.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 39,
+      "company": "WebPC",
+      "sourceUrl": "https://webpc.com.ua/",
+      "checkedAt": "2026-09-12T19:34:46.724206+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "8a59eb38826ff931b2ec5d8d8421ea155c25150bec436604c4cf2807c9f293ab",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Start від 40 000 грн; Business від 80 000; Pro від 150 000.",
+      "scopeNotes": "Start — візитка/landing; Pro — магазин, каталог або портал з різною складністю.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 40,
+      "company": "Impulse Design",
+      "sourceUrl": "https://impulse-design.com.ua/ua/",
+      "checkedAt": "2026-09-12T19:34:46.733010+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "4ab486e7166a42adea26fdd9f13785eba31e41528265bbba97793348cfa1bab8",
+      "priceKind": "from",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Landing від 600 USD; компанія від 1 300; магазин від 1 500; custom від 3 000.",
+      "scopeNotes": "Просування має окремий тариф; не включене в ціну створення.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 41,
+      "company": "Brainlab",
+      "sourceUrl": "https://brainlab.com.ua/uk/poslugi",
+      "checkedAt": "2026-09-12T19:34:46.987429+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "a8fb7449644799936bcc5516ac6365ccdbb268a7ec8f849798a46a2b738fab24",
+      "priceKind": "from",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Візитка від 4 000 USD; landing від 5 000; бізнес від 7 000; магазин від 12 000.",
+      "scopeNotes": "Окремі бюджети CRM/ERP, підтримки й редизайну не включено до цих форматів.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 42,
+      "company": "WebArtix",
+      "sourceUrl": "https://webartix.com.ua/rozrobka-saitiv-lviv/",
+      "checkedAt": "2026-09-12T19:34:47.093179+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "627402f38f03824efc616df7c4d6233b4f75f54d52ea4a873f9cc08f95c693df",
+      "priceKind": "listed",
+      "currencies": [
+        "UAH",
+        "USD"
+      ],
+      "publishedPrice": "Візитка на 3 сторінки 20 000 грн; корпоративний до 8 сторінок від 25 000; landing 18 000; магазин від 1 200 USD.",
+      "scopeNotes": "WordPress і плагіни зазначені у поясненні; супровід рахується окремо.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 43,
+      "company": "WEB ETALON",
+      "sourceUrl": "https://webetalon.com.ua/",
+      "checkedAt": "2026-09-12T19:34:47.175861+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "dcdd7da202aa9a0a28864e7fb20a58eb42c11bd5e95a87effb537bb0a032f84d",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Візитка від 7 000 грн; корпоративний від 15 000; магазин від 35 000.",
+      "scopeNotes": "Заголовок від 5 000 грн не тотожний цим форматам; FAQ окремо називає базовий landing від 8 000.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 44,
+      "company": "Webera",
+      "sourceUrl": "https://webera.com.ua/",
+      "checkedAt": "2026-09-12T19:34:47.273061+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "8d17ad773a6e0dee7aacec26482128179726f39181b1082ef1875f9edd620fd9",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Рекламний промокод 1 500 грн виключено: це не вартість створення сайту.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 45,
+      "company": "REDSTONE",
+      "sourceUrl": "https://redstone.agency/",
+      "checkedAt": "2026-09-12T19:34:47.396841+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "32f6c7a567734dae6e9d1f513b797f34f67bca76c44044425e6dad17c26d91a9",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Вартість не виводимо з переліку відомих клієнтів чи кейсів.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 46,
+      "company": "Krylov Company",
+      "sourceUrl": "https://www.krylovcompany.com.ua/service/rozrobka-saytiv/",
+      "checkedAt": "2026-09-12T19:34:47.397345+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "775f7b41e886f14ab76a2cd5037d8df35ed8f825824f6dc02a3dd02f7fce5814",
+      "priceKind": "listed",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Landing 16 000 грн; бізнес-сайт 24 000; магазин від 45 000.",
+      "scopeNotes": "Домен і хостинг мають окремий бюджет; у пакетах зазначено місяць підтримки.",
+      "publishedTiming": "Landing 16 днів; бізнес до 30; магазин до 2 місяців."
+    },
+    {
+      "id": 47,
+      "company": "RomanStudio",
+      "sourceUrl": "https://romanstudio.net.ua/rozrobka-sajtiv-u-lvovi/",
+      "checkedAt": "2026-09-12T19:34:47.583376+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "82729f63992e7fdcd1ca88fbf1a5b048dd1dd3bf88ffdbd1904b2912c4544e75",
+      "priceKind": "from",
+      "currencies": [
+        "UAH"
+      ],
+      "publishedPrice": "Візитка від 10 000 грн; landing від 8 000; корпоративний від 11 000; магазин від 16 000.",
+      "scopeNotes": "Стартові бюджети форматів; індивідуальний функціонал погоджується окремо.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 48,
+      "company": "Webtune",
+      "sourceUrl": "https://webtune.com.ua/web-development/",
+      "checkedAt": "2026-09-12T19:34:47.695702+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "d1fbdcf03a8f33e71e3fb59b138e1b42c83a992adbfbeb0c1fd4422f46fbe670",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Не поширюємо висновок на всі сторінки компанії.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 49,
+      "company": "Legion Marketing",
+      "sourceUrl": "https://www.legion-marketing.com.ua/stvorenny-sajtiv/",
+      "checkedAt": "2026-09-12T19:34:48.016524+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "d7aff435bdf44332ef3c8dd3073e968fc6a4b16eccc158c52c62781a388ad18c",
+      "priceKind": "tiered",
+      "currencies": [
+        "USD"
+      ],
+      "publishedPrice": "Weblium від 500 USD; шаблон WordPress від 700; унікальний дизайн WordPress від 1 500; магазин від 2 000.",
+      "scopeNotes": "Заголовок також називає 20 000 грн; платформи й індивідуальний дизайн мають різні межі робіт.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    },
+    {
+      "id": 50,
+      "company": "SPRAVA",
+      "sourceUrl": "https://sprava.ua/sprava-in-odessa",
+      "checkedAt": "2026-09-12T19:34:48.086311+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "c7b5757dcb11f4cfe17051e90c30eba91ad548b9ca090dbc7293caa9bf73f62a",
+      "priceKind": "not-found",
+      "currencies": [],
+      "publishedPrice": "Ціну розробки на перевіреній сторінці не зафіксовано.",
+      "scopeNotes": "Вартість ліда в кейсі не є ціною сайту й виключена з дослідження.",
+      "publishedTiming": "Не нормалізовано в цій вибірці."
+    }
+  ]
+}

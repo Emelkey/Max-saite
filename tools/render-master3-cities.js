@@ -11,6 +11,8 @@ for (const city of cities.filter(city => city.priority === 1)) {
   if (!data || !city.index || city.state !== 'published') throw Error(`Missing approved published data: ${city.slug}`);
   const file = path.join(root, `mista/stvorennya-sajtiv-${city.slug}/index.html`);
   let html = fs.readFileSync(file, 'utf8');
+  // Preserve the curated, source-backed budget section across city-only refreshes.
+  const budgetEvidence = html.match(/<section\b[^>]*id="kyiv-budget-evidence"[^>]*>[\s\S]*?<\/section>/)?.[0] || '';
   const form = html.match(/<form\b[\s\S]*?<\/form>/i)?.[0];
   if (!form) throw Error(`Missing existing lead form: ${city.slug}`);
   const breadcrumbs = `<nav class="breadcrumbs" aria-label="Навігаційний ланцюжок"><a href="/">Головна</a><span> / </span><a href="/mista/">Міста</a><span> / ${esc(city.nominative)}</span></nav>`;
@@ -29,7 +31,7 @@ for (const city of cities.filter(city => city.priority === 1)) {
   const articles = data.articles?.length ? `<section class="seo-band" data-seo-city-specific="true"><h2>Що прочитати перед замовленням</h2><div class="seo-columns">${data.articles.map(([slug,title,copy])=>{if(!fs.existsSync(path.join(root,'blog',slug,'index.html')))throw Error(`Missing related article ${slug}`);return `<article class="seo-mini-card"><h3><a href="/blog/${esc(slug)}/">${esc(title)}</a></h3>${paragraph(copy)}</article>`;}).join('')}</div></section>` : '';
   const related = `<section class="seo-links" data-seo-shared="navigation"><h2>Інші міські сторінки</h2><div class="link-grid">${city.relatedCitySlugs.map(slug=>{const target=cities.find(item=>item.slug===slug && item.index);if(!target)throw Error(`Unpublished related city ${slug}`);return `<a href="/mista/stvorennya-sajtiv-${slug}/">${esc(target.nominative)}: задачі й формати сайту</a>`;}).join('')}</div></section>`;
   const lead = `<section class="seo-lead" id="lead" data-seo-shared="cta"><div><span class="eyebrow">Перший крок</span><h2>Обговорімо ваш проєкт</h2>${paragraph(data.cta)}<p><a href="tel:+380972692322">097 269 23 22</a> · <a href="https://t.me/MaxMytt">Telegram</a></p></div>${form}</section>`;
-  html = html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/i, `<main class="section seo-page">\n${[breadcrumbs,hero,reviewed,...data.order.map(key=>blocks[key]),services,articles,related,lead].filter(Boolean).join('\n')}\n</main>`);
+  html = html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/i, `<main class="section seo-page">\n${[breadcrumbs,hero,reviewed,...data.order.map(key=>blocks[key]),services,articles,related,budgetEvidence,lead].filter(Boolean).join('\n')}\n</main>`);
   fs.writeFileSync(file, html);
   city.contentKey = city.slug;
   city.updatedAt = data.reviewedAt || city.updatedAt;
