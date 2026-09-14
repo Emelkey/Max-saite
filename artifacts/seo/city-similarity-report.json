@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-12T18:48:09.910Z",
+  "generatedAt": "2026-09-14T17:04:05.179Z",
   "method": "All published city main bodies; 5-gram Jaccard; only complete shared pricing/process/CTA/navigation sections excluded; proof retained",
   "threshold": 0.55,
   "pages": {
     "kyiv": {
-      "words": 971,
-      "grams": 967
+      "words": 1147,
+      "grams": 1143
     },
     "lviv": {
       "words": 841,
@@ -36,41 +36,41 @@
     {
       "a": "kyiv",
       "b": "lviv",
-      "similarity": 0.0581,
+      "similarity": 0.0526,
       "intersection": 99,
-      "union": 1705,
+      "union": 1881,
       "pass": true
     },
     {
       "a": "kyiv",
       "b": "odesa",
-      "similarity": 0.0576,
+      "similarity": 0.0522,
       "intersection": 98,
-      "union": 1702,
+      "union": 1878,
       "pass": true
     },
     {
       "a": "kyiv",
       "b": "dnipro",
-      "similarity": 0.0554,
+      "similarity": 0.0502,
       "intersection": 94,
-      "union": 1697,
+      "union": 1873,
       "pass": true
     },
     {
       "a": "kyiv",
       "b": "kharkiv",
-      "similarity": 0.0551,
+      "similarity": 0.0499,
       "intersection": 94,
-      "union": 1706,
+      "union": 1882,
       "pass": true
     },
     {
       "a": "kyiv",
       "b": "cherkasy",
-      "similarity": 0.0006,
+      "similarity": 0.0005,
       "intersection": 1,
-      "union": 1662,
+      "union": 1838,
       "pass": true
     },
     {
@@ -78,7 +78,7 @@
       "b": "ukrayina",
       "similarity": 0,
       "intersection": 0,
-      "union": 1289,
+      "union": 1465,
       "pass": true
     },
     {

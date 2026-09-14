@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-12T18:48:10.043Z",
+  "generatedAt": "2026-09-14T17:04:05.338Z",
   "observations": {
     "htmlFiles": 112,
-    "imageElements": 264,
-    "vectorImages": 222,
+    "imageElements": 265,
+    "vectorImages": 223,
     "rasterImages": 42,
-    "intentionalEmptyAlt": 6,
+    "intentionalEmptyAlt": 4,
     "srcsetCandidates": 414,
     "manifestSources": 23
   },

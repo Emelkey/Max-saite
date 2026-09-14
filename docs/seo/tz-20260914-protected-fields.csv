@@ -1,0 +1,13 @@
+scope,field,before,after,status,evidence
+https://maxsite.com.ua/mista/,title,Створення сайтів по містах України | MAX SITE,Створення сайтів по містах України | MAX SITE,UNCHANGED,mista/index.html
+https://maxsite.com.ua/mista/,h1,Створення сайтів по містах України,Створення сайтів по містах України,UNCHANGED,mista/index.html
+https://maxsite.com.ua/mista/,canonical,https://maxsite.com.ua/mista/,https://maxsite.com.ua/mista/,UNCHANGED,mista/index.html
+https://maxsite.com.ua/mista/,robots,"index, follow","index, follow",UNCHANGED,mista/index.html
+https://maxsite.com.ua/mista/,published-city-links,6 cities plus Ukraine,6 cities plus Ukraine,UNCHANGED,mista/index.html
+https://maxsite.com.ua/mista/,deferred-city-robots,16 noindex,16 noindex,UNCHANGED,seo/city-readiness-register.csv
+site-wide,phone,tel:+380972692322,tel:+380972692322,UNCHANGED,script.js and HTML QA
+site-wide,telegram,https://t.me/MaxMytt,https://t.me/MaxMytt,UNCHANGED,script.js and HTML QA
+site-wide,ga4,G-TS8DMMKK34,G-TS8DMMKK34,UNCHANGED,assets/analytics-config.js
+site-wide,lead-success-gate,"HTTP 2xx plus ok true","HTTP 2xx plus ok true",UNCHANGED,script.js and tests/unit/lead-delivery.test.js
+site-wide,contact-analytics,legacy channel-specific events,contact_click with safe channel plus legacy compatibility events,ADDED,script.js
+site-wide,analytics-pii,"name phone comment excluded","name phone comment excluded",UNCHANGED,trackEvent allowlist and tests

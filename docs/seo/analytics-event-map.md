@@ -1,6 +1,6 @@
 # MAX SITE — карта подій і lead attribution
 
-**Оновлено:** 02.09.2026
+**Оновлено:** 14.09.2026
 
 **GA4 у поточному коді:** `G-TS8DMMKK34`. Зіставлення з потрібним ресурсом у кабінеті — окрема перевірка перед релізом; історичний скриншот містив інший ID. Не замінювати навмання.
 **Заборона:** ім’я, телефон, текст коментаря та інші PII не передаються у GA4.
@@ -11,6 +11,7 @@
 | `lead_form_submit` | валідована спроба відправки | `form_type`, `page_type`, `page_path` |
 | `lead_form_success` | успішна відповідь endpoint, один раз | `form_type`, `page_type`, `delivery_method` |
 | `lead_form_error` | validation, honeypot або delivery error | `form_type`, `page_type`, `error_type` |
+| `contact_click` | клік на прямий контакт | `channel`, `link_location`, `page_type`, `city`, `service`, `page_path` |
 | `click_phone` | клік `tel:` | `link_location`, `page_path` |
 | `click_telegram` | клік `t.me` | `page_path` |
 | `click_viber` | клік `viber:` | `page_path` |
@@ -27,7 +28,7 @@ Endpoint отримує контактні дані через HTTPS POST; во�
 
 GA4 отримує лише дозволений перелік параметрів. URL сторінки/реферера очищені від query/hash, телефон, ім’я й коментар не додаються до подій. Не передавайте особисті дані також у самих рекламних UTM. Consent Mode використовує початковий denied до конфігурації Google; advanced mode може надсилати cookieless сигнали. Це не твердження про повну відсутність мережевих запитів до згоди.
 
-`click_phone` означає натискання, не підтверджений дзвінок. `lead_form_success` означає HTTP success + `{ok:true}` від endpoint, не продаж. Старі сумісні `generate_lead`/`phone_click` ще існують: не імпортувати їх разом із новими як дублікати однієї конверсії. Ключові події та імпорт у Ads перевіряються у відповідних кабінетах окремо від тестів коду.
+`contact_click` уніфікує прямі контакти через `channel=phone|telegram|viber|whatsapp|instagram|email`; він не містить адреси або значення контакту. `click_phone` означає натискання, не підтверджений дзвінок. `lead_form_success` означає HTTP success + `{ok:true}` від endpoint, не продаж. Старі сумісні `generate_lead`/`phone_click` ще існують: не імпортувати їх разом із новими як дублікати однієї конверсії. Ключові події та імпорт у Ads перевіряються у відповідних кабінетах окремо від тестів коду.
 
 ## Spam та зовнішня межа
 

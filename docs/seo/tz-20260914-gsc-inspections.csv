@@ -1,0 +1,5 @@
+checked_at,url,live_http,live_canonical,live_robots,gsc_verdict,gsc_coverage,gsc_indexing_state,last_google_crawl,status,next_action
+2026-09-14,https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/,200,self,index-follow,NEUTRAL,Excluded by noindex tag,BLOCKED_BY_META_TAG,2026-08-03T09:39:27Z,PENDING_GOOGLE_RECRAWL,Wait for a new Google crawl; do not toggle robots again
+2026-09-14,https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/,200,self,index-follow,NEUTRAL,Excluded by noindex tag,BLOCKED_BY_META_TAG,2026-08-03T10:04:33Z,PENDING_GOOGLE_RECRAWL,Wait for a new Google crawl; do not toggle robots again
+2026-09-14,https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/,200,self,index-follow,NEUTRAL,Excluded by noindex tag,BLOCKED_BY_META_TAG,2026-08-03T16:38:06Z,PENDING_GOOGLE_RECRAWL,Wait for a new Google crawl; do not toggle robots again
+2026-09-14,https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/,200,self,index-follow,NEUTRAL,Excluded by noindex tag,BLOCKED_BY_META_TAG,2026-08-03T10:50:01Z,PENDING_GOOGLE_RECRAWL,Wait for a new Google crawl; do not toggle robots again

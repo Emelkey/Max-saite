@@ -39,7 +39,10 @@ test('analytics event payload never includes contact PII',()=>{
   const script=fs.readFileSync(path.join(root,'script.js'),'utf8');
   assert.doesNotMatch(script,/phone_number\s*:/);
   assert.doesNotMatch(script,/user_name\s*:/);
-  for (const event of ['lead_form_success','click_phone','click_telegram','city_service_click']) assert.match(script,new RegExp(`"${event}"`));
+  for (const event of ['lead_form_success','contact_click','click_phone','click_telegram','city_service_click']) assert.match(script,new RegExp(`"${event}"`));
+  assert.match(script,/trackContactClick\("phone"\)/);
+  assert.match(script,/trackContactClick\("telegram"\)/);
+  assert.match(script,/\bchannel\b/);
 });
 
 test('every document has one consent bootstrap and one Google tag',()=>{
