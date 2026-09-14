@@ -224,6 +224,19 @@ test('phone and messengers retain safe destinations',async({page})=>{
   expect(await page.locator('a[href^="viber://"]').count()).toBeGreaterThan(0);
 });
 
+test('direct contact clicks emit one normalized event per action without contact values',async({page})=>{
+  await page.goto('/');
+  for(const [href,channel] of [['tel:+380972692322','phone'],['https://t.me/MaxMytt','telegram']]){
+    const link=page.locator(`a[href="${href}"]:visible`).first();
+    await link.evaluate(element=>element.addEventListener('click',event=>event.preventDefault()));
+    await link.click();
+    const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event'&&item[1]==='contact_click').map(item=>Array.from(item)));
+    expect(events.filter(item=>item[2].channel===channel)).toHaveLength(1);
+  }
+  const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event'&&item[1]==='contact_click').map(item=>Array.from(item)));
+  expect(JSON.stringify(events)).not.toMatch(/0972692322|MaxMytt|t\.me|tel:/);
+});
+
 test('404 document is useful and noindex',async({page})=>{
   await page.goto('/404.html');
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',/noindex/i);

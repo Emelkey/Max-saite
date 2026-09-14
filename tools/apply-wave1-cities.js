@@ -195,7 +195,7 @@ const cityHubFile = path.join(root, "mista/index.html");
 let cityHub = fs.readFileSync(cityHubFile, "utf8");
 const publishedLinks = allCities.filter((city) => city.index).map((city) => `<a href="/mista/stvorennya-sajtiv-${city.slug}/">Створення сайтів — ${city.nominative}</a>`).join("");
 const roadmap = allCities.filter((city) => !city.index).map((city) => city.nominative).join(", ");
-const publishedSection = `<section class="seo-links" id="published-city-hubs"><h2>Опубліковані міські сторінки</h2><p>Індексуємо лише сторінки, що мають окремий бізнес-контекст, коректну мову та пройшли similarity/QA gates.</p><div class="link-grid">${publishedLinks}</div><p><strong>На перевірці, без SEO-посилань:</strong> ${roadmap}. Ці URL залишаються noindex до Wave 2/3 review.</p></section>`;
+const publishedSection = `<section class="seo-links" id="published-city-hubs"><h2>Опубліковані міські сторінки</h2><p>Публікуємо окрему міську сторінку, коли можемо пояснити релевантні бізнес-сценарії, формат дистанційної співпраці та корисний шлях до послуги.</p><div class="link-grid">${publishedLinks}</div><p><strong>Наступні міста готуємо поступово:</strong> ${roadmap}. Додаємо їх до пошуку лише після перевірки попиту, змісту та реальної готовності обслуговувати клієнтів.</p></section>`;
 cityHub = cityHub.replace(/<section class="seo-links"><h2>Міста України<\/h2>[\s\S]*?<\/section>/, publishedSection);
 fs.writeFileSync(cityHubFile, cityHub);
 

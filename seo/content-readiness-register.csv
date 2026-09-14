@@ -1,0 +1,19 @@
+scope,url,intent,current_gap,evidence_source,decision
+niche,https://maxsite.com.ua/nishi/sajt-dlya-kliningovoyi-kompaniyi/,Cleaning services structure and qualified enquiry,None confirmed in current acceptance,"Formula Chystoty case; seo/niche-scenarios.json",keep-and-monitor
+niche,https://maxsite.com.ua/nishi/sajt-dlya-dezinfekciyi/,Disinfection service scenarios and geography,Client testimonial and business metrics need permission,"FO-DEZ case; seo/niche-scenarios.json",keep-no-fabrication
+niche,https://maxsite.com.ua/nishi/sajt-dlya-budivelnoyi-kompaniyi/,Construction catalogue and quote flow,No additional verified client result,"seo/niche-scenarios.json",keep-and-monitor
+niche,https://maxsite.com.ua/nishi/sajt-dlya-vyrobnytstva/,Manufacturing B2B catalogue and specification request,No additional verified client result,"seo/niche-scenarios.json",keep-and-monitor
+niche,https://maxsite.com.ua/nishi/sajt-dlya-avtoservisu/,Service pricing location and booking flow,Automatic booking must remain conditional,"seo/niche-scenarios.json",keep-and-monitor
+niche,https://maxsite.com.ua/nishi/sajt-dlya-salonu-krasy/,Beauty service and booking flow,Automatic booking must remain conditional,"seo/niche-scenarios.json",keep-and-monitor
+niche,https://maxsite.com.ua/nishi/sajt-dlya-medychnyh-poslug/,Medical service trust and contact structure,Licences and medical claims require owner evidence,"seo/niche-scenarios.json",keep-no-fabrication
+niche,https://maxsite.com.ua/nishi/sajt-dlya-stomatologiyi/,Dentistry trust and appointment structure,Licences and medical claims require owner evidence,"seo/niche-scenarios.json",keep-no-fabrication
+niche,https://maxsite.com.ua/nishi/sajt-dlya-eksperta/,Expert service programme and enquiry,Named expert facts require owner evidence,"seo/niche-scenarios.json",keep-no-fabrication
+niche,https://maxsite.com.ua/nishi/sajt-dlya-kursiv/,Course structure and access scenario,Actual learning platform access requires product evidence,"seo/niche-content.json",keep-no-fabrication
+niche,https://maxsite.com.ua/nishi/sajt-dlya-lokalnogo-biznesu/,Local contact or catalogue scenario,Physical office must not be implied,"seo/niche-content.json",keep-and-monitor
+niche,https://maxsite.com.ua/nishi/sajt-dlya-magazynu/,Store catalogue distinct from full ecommerce,No additional verified client result,"seo/niche-content.json",keep-distinct-from-ecommerce
+priority-page,https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/,Cherkasy business website service,None confirmed in current acceptance,"Formula Chystoty case; live page",accepted-existing-content
+priority-page,https://maxsite.com.ua/stvorennya-saytu-dlya-biznesu/,Multi-page SMB website,None confirmed in current acceptance,"Formula Chystoty and FO-DEZ cases; live page",accepted-existing-content
+priority-page,https://maxsite.com.ua/stvorennya-landing-page/,Single-offer landing page,None confirmed in current acceptance,"Formula Chystoty and FO-DEZ cases; live page",accepted-existing-content
+case,https://maxsite.com.ua/portfolio/formula-chystoty/,Verified cleaning-site implementation,Launch date testimonial and business outcomes require owner source,"Public HTTP and preserved screenshots",accepted-with-explicit-limitations
+case,https://maxsite.com.ua/portfolio/fo-dez/,Verified specialised-service implementation,Launch date testimonial and business outcomes require owner source,"Public HTTP and preserved screenshots",accepted-with-explicit-limitations
+authority,https://maxsite.com.ua/portfolio/,Independent proof and profile placements,15 targets researched but not contacted,"docs/seo/top1-authority-targets-2026-09-12.csv",owner-approval-required-before-outreach

@@ -52,7 +52,7 @@ const trackEvent = (eventName, parameters = {}) => {
   if (!analyticsEnabled) return;
 
   // Explicit schema prevents future callers from leaking form fields or arbitrary URLs.
-  const allowedParameters = new Set(["page_type", "city", "service", "form_type", "error_type", "delivery_method", "lead_source", "link_location", "messenger", "plan_name", "case_name", "destination_path", "lead_id"]);
+  const allowedParameters = new Set(["page_type", "city", "service", "form_type", "error_type", "delivery_method", "lead_source", "link_location", "channel", "messenger", "plan_name", "case_name", "destination_path", "lead_id"]);
   const safeParameters = {
     page_path: window.location.pathname,
     ...Object.fromEntries(Object.entries(parameters).filter(([key]) => allowedParameters.has(key)).map(([key, value]) => [key, String(value).split(/[?#]/)[0].slice(0, 100)])),
@@ -160,41 +160,49 @@ document.addEventListener("click", (event) => {
   if (!link) return;
 
   const href = link.getAttribute("href") || "";
+  const linkLocation = link.closest(".floating-contact")
+    ? "mobile_sticky_bar"
+    : link.closest(".main-nav")
+      ? "mobile_navigation"
+      : link.closest("header")
+        ? "header"
+        : "page";
+  const trackContactClick = (channel) => trackEvent("contact_click", {
+    channel,
+    page_type: PAGE_CONTEXT.page_type,
+    city: PAGE_CONTEXT.city,
+    service: PAGE_CONTEXT.service,
+    link_location: linkLocation,
+  });
 
   if (href.startsWith("tel:")) {
+    trackContactClick("phone");
     trackEvent("click_phone", {
       page_type: PAGE_CONTEXT.page_type,
       city: PAGE_CONTEXT.city,
       service: PAGE_CONTEXT.service,
-      link_location: link.closest(".floating-contact")
-        ? "mobile_sticky_bar"
-        : link.closest(".main-nav")
-          ? "mobile_navigation"
-          : link.closest("header")
-            ? "header"
-            : "page",
+      link_location: linkLocation,
     });
     trackEvent("phone_click", {
-      link_location: link.closest(".floating-contact")
-        ? "mobile_sticky_bar"
-        : link.closest(".main-nav")
-          ? "mobile_navigation"
-          : link.closest("header")
-            ? "header"
-            : "page",
+      link_location: linkLocation,
     });
   } else if (href.startsWith("viber:")) {
+    trackContactClick("viber");
     trackEvent("click_viber");
     trackEvent("messenger_click", { messenger: "viber" });
   } else if (href.includes("wa.me/") || href.includes("api.whatsapp.com/")) {
+    trackContactClick("whatsapp");
     trackEvent("click_whatsapp");
     trackEvent("messenger_click", { messenger: "whatsapp" });
   } else if (href.includes("t.me/")) {
+    trackContactClick("telegram");
     trackEvent("click_telegram");
     trackEvent("messenger_click", { messenger: "telegram" });
   } else if (href.includes("instagram.com/")) {
+    trackContactClick("instagram");
     trackEvent("click_instagram");
   } else if (href.startsWith("mailto:")) {
+    trackContactClick("email");
     trackEvent("click_email");
   } else if (link.closest(".price-card, .shop-card")) {
     const planCard = link.closest(".price-card, .shop-card");

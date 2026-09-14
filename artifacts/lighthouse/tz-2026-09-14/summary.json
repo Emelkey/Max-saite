@@ -1,0 +1,138 @@
+{
+  "generatedAt": "2026-09-14T16:58:06.652Z",
+  "source": "local production build",
+  "method": "Lighthouse mobile simulated throttling; median gate across independent lab runs; not field CWV",
+  "runsPerRoute": 3,
+  "routes": [
+    "/",
+    "/mista/",
+    "/blog/analiz-google-stvorennya-sajtiv-kyiv/"
+  ],
+  "thresholds": {
+    "performance": 0.9,
+    "accessibility": 0.9,
+    "best-practices": 0.9,
+    "seo": 0.95
+  },
+  "results": [
+    {
+      "route": "/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 0.99,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    },
+    {
+      "route": "/mista/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 1,
+            "accessibility": 0.96,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 0.99,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    },
+    {
+      "route": "/blog/analiz-google-stvorennya-sajtiv-kyiv/",
+      "samples": [
+        {
+          "run": 1,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.97,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 2,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.97,
+            "best-practices": 1,
+            "seo": 1
+          }
+        },
+        {
+          "run": 3,
+          "scores": {
+            "performance": 0.99,
+            "accessibility": 0.97,
+            "best-practices": 1,
+            "seo": 1
+          }
+        }
+      ],
+      "medians": {
+        "performance": 0.99,
+        "accessibility": 0.97,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "failures": []
+    }
+  ],
+  "failures": [],
+  "passed": true
+}

@@ -1,0 +1,23 @@
+city,url,current_robots,content_readiness,experience_evidence,html_link,gsc_status,last_google_crawl,decision,blocker
+Київ,https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/,index,ready,national-case,published-link,indexed,2026-09-08,keep-indexable-monitor,none
+Черкаси,https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/,index,ready,local-case-formula-chystoty,published-link,indexed,2026-09-08,keep-indexable-monitor,none
+Львів,https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/,index,ready,national-case,published-link,excluded-stale-noindex,2026-08-03,pending-google-recrawl,Google has not refreshed the live indexable state
+Одеса,https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/,index,ready,national-case,published-link,excluded-stale-noindex,2026-08-03,pending-google-recrawl,Google has not refreshed the live indexable state
+Дніпро,https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/,index,ready,national-case,published-link,excluded-stale-noindex,2026-08-03,pending-google-recrawl,Google has not refreshed the live indexable state
+Харків,https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/,index,ready,national-case,published-link,excluded-stale-noindex,2026-08-03,pending-google-recrawl,Google has not refreshed the live indexable state
+Вінниця,https://maxsite.com.ua/mista/stvorennya-sajtiv-vinnytsya/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Івано-Франківськ,https://maxsite.com.ua/mista/stvorennya-sajtiv-ivano-frankivsk/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Тернопіль,https://maxsite.com.ua/mista/stvorennya-sajtiv-ternopil/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Хмельницький,https://maxsite.com.ua/mista/stvorennya-sajtiv-khmelnytskyi/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Рівне,https://maxsite.com.ua/mista/stvorennya-sajtiv-rivne/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Луцьк,https://maxsite.com.ua/mista/stvorennya-sajtiv-lutsk/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Полтава,https://maxsite.com.ua/mista/stvorennya-sajtiv-poltava/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Чернівці,https://maxsite.com.ua/mista/stvorennya-sajtiv-chernivtsi/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Житомир,https://maxsite.com.ua/mista/stvorennya-sajtiv-zhytomyr/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Чернігів,https://maxsite.com.ua/mista/stvorennya-sajtiv-chernihiv/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Херсон,https://maxsite.com.ua/mista/stvorennya-sajtiv-kherson/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Кропивницький,https://maxsite.com.ua/mista/stvorennya-sajtiv-kropyvnytskyi/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Миколаїв,https://maxsite.com.ua/mista/stvorennya-sajtiv-mykolaiv/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Суми,https://maxsite.com.ua/mista/stvorennya-sajtiv-sumy/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Ужгород,https://maxsite.com.ua/mista/stvorennya-sajtiv-uzhhorod/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability
+Запоріжжя,https://maxsite.com.ua/mista/stvorennya-sajtiv-zaporizhzhya/,noindex,not-ready,none,not-linked,n/d,n/d,defer-noindex,Need demand evidence and confirmed serviceability

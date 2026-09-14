@@ -11,10 +11,12 @@ if (!/^[a-z0-9-]+$/.test(version)) throw Error('Invalid capture version');
 const outDir=path.join(root,'artifacts','screenshots',version);
 const pages={
   home:'/',
+  cityIndex:'/mista/',
   service:'/stvorennya-saytiv/',
   city:'/mista/stvorennya-sajtiv-kyiv/',
   case:'/portfolio/formula-chystoty/',
   blog:'/blog/skilky-koshtuye-stvorennya-sajtu/',
+  kyivSerp:'/blog/analiz-google-stvorennya-sajtiv-kyiv/',
   priceTable:'/blog/skilky-koshtuye-stvorennya-sajtu/#studio-price-table',
   nicheB2b:'/nishi/sajt-dlya-b2b-kompaniyi/',
   nicheClinic:'/nishi/sajt-dlya-stomatologiyi/',

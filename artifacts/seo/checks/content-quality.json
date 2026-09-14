@@ -1,11 +1,10 @@
 {
   "check": "content-quality",
-  "generatedAt": "2026-09-12T18:48:10.750Z",
+  "generatedAt": "2026-09-14T17:04:06.198Z",
   "pages": 112,
   "indexable": 90,
   "errors": [],
   "warnings": [
-    "/blog/analiz-google-stvorennya-sajtiv-kyiv/: no identifiable references section with an external citation; review factual claims and add relevant sources",
     "Worker Durable Object rate limiting/idempotency are configured and unit-tested; production bindings and real Telegram delivery still require separate live verification."
   ],
   "editorialReview": [
@@ -13,11 +12,9 @@
       "route": "/blog/analiz-google-stvorennya-sajtiv-kyiv/",
       "hasAuthor": true,
       "hasVisibleDate": true,
-      "hasReferences": false,
+      "hasReferences": true,
       "duplicateParagraphs": 0,
-      "findings": [
-        "no identifiable references section with an external citation; review factual claims and add relevant sources"
-      ]
+      "findings": []
     },
     {
       "route": "/blog/canonical-url-prostymy-slovamy/",
