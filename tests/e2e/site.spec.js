@@ -442,18 +442,18 @@ test('mobile ad landing price and primary action stay above the open consent pan
       await page.emulateMedia({reducedMotion:'reduce'});
       await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
       for(const fallback of [false,true]){
-      if(fallback) await page.addStyleTag({content:'body { font-family: Georgia, serif; }'});
-      await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
-      const panel=await page.locator('.consent-panel').boundingBox();
-      const cta=await page.locator('.cro-hero .hero-buttons .btn').first().boundingBox();
-      const price=await page.locator('.cro-price').boundingBox();
-      expect(cta.y+cta.height,`${route} ${width}px primary CTA`).toBeLessThan(panel.y-4);
-      expect(price.y+price.height,`${route} ${width}px price`).toBeLessThan(cta.y);
-      for(const button of await page.locator('.consent-panel button').all()){
-        const box=await button.boundingBox();
-        expect(box.height).toBeGreaterThanOrEqual(44);
-      }
-      expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
+        if(fallback) await page.addStyleTag({content:'body { font-family: Georgia, serif; }'});
+        await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+        const panel=await page.locator('.consent-panel').boundingBox();
+        const cta=await page.locator('.cro-hero .hero-buttons .btn').first().boundingBox();
+        const price=await page.locator('.cro-price').boundingBox();
+        expect(cta.y+cta.height,`${route} ${width}px ${fallback ? "Georgia fallback" : "system font"} primary CTA`).toBeLessThan(panel.y-4);
+        expect(price.y+price.height,`${route} ${width}px price`).toBeLessThan(cta.y);
+        for(const button of await page.locator('.consent-panel button').all()){
+          const box=await button.boundingBox();
+          expect(box.height).toBeGreaterThanOrEqual(44);
+        }
+        expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
       }
     }
   }
