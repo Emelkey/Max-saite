@@ -441,6 +441,8 @@ test('mobile ad landing price and primary action stay above the open consent pan
       await page.goto(route);
       await page.emulateMedia({reducedMotion:'reduce'});
       await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+      for(const fallback of [false,true]){
+      if(fallback) await page.addStyleTag({content:'body { font-family: Georgia, serif; }'});
       await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
       const panel=await page.locator('.consent-panel').boundingBox();
       const cta=await page.locator('.cro-hero .hero-buttons .btn').first().boundingBox();
@@ -452,6 +454,7 @@ test('mobile ad landing price and primary action stay above the open consent pan
         expect(box.height).toBeGreaterThanOrEqual(44);
       }
       expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
+      }
     }
   }
 });
