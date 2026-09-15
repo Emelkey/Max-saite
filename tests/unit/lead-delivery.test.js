@@ -140,14 +140,14 @@ test('analytics allowlist rejects form PII and strips destination queries', () =
   assert.equal(JSON.stringify(events).includes('Private'), false);
   assert.deepEqual(JSON.parse(JSON.stringify(events.at(-1)[2])), {page_path:'/stvorennya-saytiv/',destination_path:'/page/'});
 });
-test('client success requires both HTTP success and explicit ok:true', async () => {
+test('client success requires HTTP success, explicit ok:true and matching server lead_id', async () => {
   const {context} = browserContext();
   vm.runInContext('telegramConfig.endpoint="https://worker.test/"', context);
-  for (const body of [{ok:false}, {}, null]) {
+  for (const body of [{ok:false,lead_id:'lead-123'}, {}, null, {ok:true}, {ok:true,lead_id:''}, {ok:true,lead_id:'another-lead'}, {ok:true,lead_id:123}]) {
     context.fetch = async () => Response.json(body);
-    await assert.rejects(vm.runInContext('sendLead({})', context), /not acknowledged/);
+    await assert.rejects(vm.runInContext('sendLead({requestId:"lead-123"})', context), error => error.code === 'endpoint_unacknowledged');
   }
-  context.fetch = async () => Response.json({ok:true});
+  context.fetch = async () => Response.json({ok:true,lead_id:'lead-123'});
   assert.deepEqual(
     JSON.parse(JSON.stringify(await vm.runInContext('sendLead({requestId:"lead-123"})', context))),
     {ok:true, lead_id:'lead-123'}

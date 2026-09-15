@@ -8,7 +8,9 @@ const isValidGa4Id = (value) => /^G-[A-Z0-9]+$/i.test(value || "");
 const isValidGtmId = (value) => /^GTM-[A-Z0-9]+$/i.test(value || "");
 
 const loadAnalytics = () => {
-  if (!analyticsEnabled) return;
+  // The synchronous consent guard also disables the HTML Google tag. Keep the
+  // fallback loader off on local/preview origins; their dataLayer is QA-only.
+  if (!analyticsEnabled || window.location.origin !== "https://maxsite.com.ua") return;
 
   if (isValidGtmId(analyticsConfig.tagManagerId)) {
     window.dataLayer = window.dataLayer || [];
@@ -73,6 +75,7 @@ const PAGE_CONTEXT = (() => {
   const cityMatch = path.match(/^\/mista\/stvorennya-sajtiv-([^/]+)\//);
   const serviceMap = [
     ["/stvorennya-saytiv/", "website_development"],
+    ["/stvorennya-sajtiv-pid-klyuch/", "website_development"],
     ["/stvorennya-saytu-dlya-biznesu/", "business_website"],
     ["/stvorennya-landing-page/", "landing_page"],
     ["/stvorennya-internet-mahazynu/", "ecommerce"],
@@ -133,6 +136,11 @@ const getAttribution = () => {
 
   return attribution;
 };
+
+// Capture a permitted landing identifier before navigating to another page,
+// including pages without a lead form and consent granted after page load.
+getAttribution();
+window.addEventListener("max-site:consent-change", getAttribution);
 
 loadAnalytics();
 
@@ -442,15 +450,14 @@ const sendLead = async (payload) => {
   }
 
   const result = await response.json().catch(() => null);
-  if (result?.ok !== true) {
+  if (result?.ok !== true || typeof payload.requestId !== "string" || !payload.requestId || result.lead_id !== payload.requestId) {
     const deliveryError = new Error("Lead delivery was not acknowledged");
     deliveryError.code = "endpoint_unacknowledged";
     throw deliveryError;
   }
   return {
-    ...result,
-    // Backward-compatible while the strengthened Worker is being deployed.
-    lead_id: result.lead_id || payload.requestId,
+    ok: true,
+    lead_id: result.lead_id,
   };
 };
 
