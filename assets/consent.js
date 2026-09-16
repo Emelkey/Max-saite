@@ -3,7 +3,7 @@
   // QA/preview visits must never enter the production GA4 property. This file
   // executes synchronously before the Google tag, including automatic pageviews.
   // https://developers.google.com/tag-platform/security/guides/privacy
-  if (location.hostname !== "maxsite.com.ua") {
+  if (location.origin !== "https://maxsite.com.ua") {
     window["ga-disable-G-TS8DMMKK34"] = true;
   }
   const key = "max_site_consent_v1";
@@ -41,7 +41,7 @@
     const panel = document.createElement("section");
     panel.className = "consent-panel";
     panel.setAttribute("aria-label", "Налаштування приватності");
-    panel.innerHTML = '<strong>Ваш вибір приватності</strong><p>Аналітика допомагає покращувати сайт, рекламні cookies — вимірювати рекламу. Заявка працює за будь-якого вибору. <a href="/polityka-konfidentsijnosti/">Докладніше</a></p><div><button type="button" data-choice="necessary">Лише необхідні</button><button type="button" data-choice="analytics">Лише аналітика</button><button type="button" data-choice="all">Дозволити всі</button></div>';
+    panel.innerHTML = '<strong>Ваш вибір cookies</strong><p>Аналітика й реклама — за вашим вибором. Форма працює завжди. <a href="/polityka-konfidentsijnosti/">Докладніше</a></p><div><button type="button" data-choice="necessary">Лише необхідні</button><button type="button" data-choice="analytics">Лише аналітика</button><button type="button" data-choice="all">Дозволити всі</button></div>';
     panel.hidden = Boolean(saved);
     document.body.append(panel);
     const settings = document.createElement("button");
@@ -58,6 +58,7 @@
       window.gtag("consent", "update", window.MAX_SITE_CONSENT);
       try { localStorage.setItem(key, JSON.stringify(saved)); } catch {}
       purgeAttribution();
+      window.dispatchEvent(new Event("max-site:consent-change"));
       panel.hidden = true;
       if (panel.contains(document.activeElement)) settings.focus({preventScroll: true});
     });

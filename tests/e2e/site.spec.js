@@ -4,7 +4,9 @@ test.beforeEach(async({page})=>{
   // Keep synthetic QA interactions out of the real Analytics/Ads property.
   await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
   await page.route(/https:\/\/(?:[a-z0-9-]+\.)?google-analytics\.com\//,route=>route.fulfill({status:204,body:''}));
-  await page.addInitScript(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()})));
+  await page.addInitScript(()=>{
+    if (!localStorage.getItem('max_site_consent_v1')) localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()}));
+  });
 });
 
 const keyRoutes=[
@@ -248,8 +250,9 @@ for (const ok of [true,false]) test(`lead response ok:${ok} is reflected honestl
   await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__copiedLead=text;}}}));
   await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
   await page.route('https://max-site-leads.emelkey777.workers.dev/**',async route=>{
-    requests.push(route.request().postDataJSON());
-    await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok})});
+    const payload=route.request().postDataJSON();
+    requests.push(payload);
+    await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok,lead_id:payload.requestId})});
   });
   await page.goto('/stvorennya-saytiv/?gclid=do-not-send&email=private@example.test');
   const form=page.locator('form').first();
@@ -292,6 +295,80 @@ for (const ok of [true,false]) test(`lead response ok:${ok} is reflected honestl
   expect(JSON.stringify(events)).not.toMatch(/Private test person|380000000000|private@example/);
 });
 
+for (const mode of ['missing lead id','mismatched lead id','HTTP 500','timeout']) test(`lead ${mode} preserves the form and records no success`,async({page})=>{
+  const requests=[];
+  if(mode==='timeout') await page.addInitScript(()=>{
+    // Exercise the native abort path without making every browser run wait 15 seconds.
+    const nativeTimeout=AbortSignal.timeout.bind(AbortSignal);
+    AbortSignal.timeout=()=>nativeTimeout(100);
+  });
+  await page.route('https://max-site-leads.emelkey777.workers.dev/**',async route=>{
+    const payload=route.request().postDataJSON();
+    requests.push(payload);
+    if(mode==='timeout') await new Promise(resolve=>setTimeout(resolve,300));
+    const body=mode==='missing lead id'?{ok:true}:mode==='mismatched lead id'?{ok:true,lead_id:'unrelated-response'}:{ok:true,lead_id:payload.requestId};
+    await route.fulfill({status:mode==='HTTP 500'?500:200,contentType:'application/json',body:JSON.stringify(body)}).catch(error=>{
+      // An intentionally aborted route can already be closed by the browser.
+      if(mode!=='timeout') throw error;
+    });
+  });
+  await page.goto('/stvorennya-sajtiv-pid-klyuch/?email=private@example.test');
+  const form=page.locator('form').first();
+  await form.locator('[name=name]').fill('Private failure person');
+  await form.locator('[name=phone]').fill('+380000000000');
+  await form.locator('[name=consent]').check();
+  await form.locator('button[type=submit]').click();
+  await expect(form.locator('.form-status')).toHaveAttribute('data-state','error');
+  await expect(form.locator('[name=name]')).toHaveValue('Private failure person');
+  await expect(form.locator('[name=phone]')).toHaveValue('+380000000000');
+  await expect(form.locator('button[type=submit]')).toBeEnabled();
+  await expect(form.getByRole('link',{name:'Відкрити Telegram',exact:true})).toHaveAttribute('href','https://t.me/MaxMytt');
+  expect(requests).toHaveLength(1);
+  expect(requests[0].context.page_type).toBe('service');
+  expect(requests[0].context.service).toBe('website_development');
+  expect(requests[0].pageUrl).not.toContain('?');
+  expect(await form.getAttribute('data-request-id')).toBe(requests[0].requestId);
+  const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>Array.from(item)));
+  expect(events.filter(item=>['generate_lead','lead_form_success','brief_complete'].includes(item[1]))).toHaveLength(0);
+  const errors=events.filter(item=>item[1]==='lead_form_error');
+  expect(errors).toHaveLength(1);
+  expect(errors[0][2].error_type).toBe(mode==='timeout'?'endpoint_timeout':mode==='HTTP 500'?'endpoint_5xx':'endpoint_unacknowledged');
+  expect(JSON.stringify(events)).not.toMatch(/Private failure person|380000000000|private@example|unrelated-response/);
+});
+
+test('concurrent submits send once and only a matching acknowledgement completes the lead',async({page})=>{
+  const requests=[];
+  let acknowledge;
+  const pending=new Promise(resolve=>{acknowledge=resolve;});
+  await page.route('https://max-site-leads.emelkey777.workers.dev/**',async route=>{
+    const payload=route.request().postDataJSON();
+    requests.push(payload);
+    await pending;
+    await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,lead_id:payload.requestId})});
+  });
+  await page.goto('/stvorennya-sajtiv-pid-klyuch/');
+  const form=page.locator('form').first();
+  await form.locator('[name=name]').fill('Private duplicate person');
+  await form.locator('[name=phone]').fill('+380000000000');
+  await form.locator('[name=consent]').check();
+  // Two immediate submit attempts model a double click before the request completes.
+  await form.evaluate(element=>{element.requestSubmit();element.requestSubmit();});
+  await expect.poll(()=>requests.length).toBe(1);
+  await expect(form.locator('button[type=submit]')).toBeDisabled();
+  await expect(form.locator('.form-status')).toHaveAttribute('data-state','sending');
+  const before=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>Array.from(item)));
+  expect(before.filter(item=>['generate_lead','lead_form_success','brief_complete'].includes(item[1]))).toHaveLength(0);
+  acknowledge();
+  await expect(form.locator('.form-status')).toHaveAttribute('data-state','success');
+  await expect(form.locator('[name=phone]')).toHaveValue('');
+  expect(requests).toHaveLength(1);
+  const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>Array.from(item)));
+  for(const name of ['lead_form_submit','lead_form_success','generate_lead','brief_complete']) expect(events.filter(item=>item[1]===name)).toHaveLength(1);
+  const success=events.find(item=>item[1]==='generate_lead');
+  expect(success[2]).toMatchObject({lead_id:requests[0].requestId,page_type:'service',service:'website_development'});
+  expect(JSON.stringify(events)).not.toMatch(/Private duplicate person|380000000000/);
+});
+
 test('missing endpoint offers manual fallback without PII URLs or false delivery',async({page})=>{
   await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('Clipboard unavailable');}}}));
   await page.route('https://www.googletagmanager.com/**',route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
@@ -332,6 +409,54 @@ test('consent choices are independent from form consent and revocable',async({pa
   expect(await page.evaluate(()=>sessionStorage.getItem('max_site_gclid'))).toBeNull();
   expect(await page.evaluate(()=>sessionStorage.getItem('max_site_utm_source'))).toBeNull();
   await expect(page.locator('.consent-panel')).toBeHidden();
+});
+
+test('landing attribution persists only after its consent, survives navigation and revokes without extra pageviews',async({page})=>{
+  await page.goto('/polityka-konfidentsijnosti/?gclid=qa-click-id&utm_source=qa-google&utm_campaign=qa-consent&email=private@example.test');
+  expect(await page.evaluate(()=>window['ga-disable-G-TS8DMMKK34'])).toBe(true);
+  const read=()=>page.evaluate(()=>({gclid:sessionStorage.getItem('max_site_gclid'),source:sessionStorage.getItem('max_site_utm_source'),campaign:sessionStorage.getItem('max_site_utm_campaign')}));
+  expect(await read()).toEqual({gclid:null,source:null,campaign:null});
+  const pageviews=()=>page.evaluate(()=>window.dataLayer.filter(e=>e[0]==='config'||(e[0]==='event'&&e[1]==='page_view')).length);
+  const before=await pageviews();
+  await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+  await page.getByRole('button',{name:'Лише аналітика',exact:true}).click();
+  expect(await read()).toEqual({gclid:null,source:'qa-google',campaign:'qa-consent'});
+  await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+  await page.getByRole('button',{name:'Дозволити всі',exact:true}).click();
+  expect(await read()).toEqual({gclid:'qa-click-id',source:'qa-google',campaign:'qa-consent'});
+  expect(await pageviews()).toBe(before);
+  await page.goto('/stvorennya-saytiv/');
+  expect(await read()).toEqual({gclid:'qa-click-id',source:'qa-google',campaign:'qa-consent'});
+  await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+  await page.getByRole('button',{name:'Лише необхідні',exact:true}).click();
+  expect(await read()).toEqual({gclid:null,source:null,campaign:null});
+  expect(await page.evaluate(()=>JSON.stringify(window.MAX_SITE_GOOGLE_PAGE))).not.toContain('private@example.test');
+});
+
+test('mobile ad landing price and primary action stay above the open consent panel',async({page,isMobile})=>{
+  test.skip(!isMobile,'mobile first-fold regression');
+  for(const width of [320,375,390,412]){
+    await page.setViewportSize({width,height:width===320?740:844});
+    for(const route of ['/stvorennya-saytiv/','/stvorennya-sajtiv-pid-klyuch/']){
+      await page.goto(route);
+      await page.emulateMedia({reducedMotion:'reduce'});
+      await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+      for(const fallback of [false,true]){
+        if(fallback) await page.addStyleTag({content:'body { font-family: Georgia, serif; }'});
+        await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+        const panel=await page.locator('.consent-panel').boundingBox();
+        const cta=await page.locator('.cro-hero .hero-buttons .btn').first().boundingBox();
+        const price=await page.locator('.cro-price').boundingBox();
+        expect(cta.y+cta.height,`${route} ${width}px ${fallback ? "Georgia fallback" : "system font"} primary CTA`).toBeLessThan(panel.y-4);
+        expect(price.y+price.height,`${route} ${width}px price`).toBeLessThan(cta.y);
+        for(const button of await page.locator('.consent-panel button').all()){
+          const box=await button.boundingBox();
+          expect(box.height).toBeGreaterThanOrEqual(44);
+        }
+        expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
+      }
+    }
+  }
 });
 
 test('budget estimator and editable resources work without sending personal data',async({page})=>{

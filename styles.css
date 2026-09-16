@@ -2696,3 +2696,56 @@ main [id] { scroll-margin-top: 110px; }
     overflow-wrap: normal;
   }
 }
+
+/* Ads landing offer, price and first action share the primary hero column. */
+.cro-landing .cro-hero h1 { font-size: clamp(30px, 3.8vw, 54px); line-height: 1.08; text-transform: none; letter-spacing: -.035em; }
+.cro-hero .cro-price { display: grid; gap: 5px; margin: 20px 0; }
+.cro-price strong { color: var(--green); font-size: clamp(21px, 2.2vw, 28px); line-height: 1.2; }
+.cro-price span { color: var(--muted); font-size: 14px; line-height: 1.4; }
+.cro-hero .seo-hero-card strong { font-size: 24px; line-height: 1.25; }
+.cro-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+.cro-proof-card { padding: 0; overflow: hidden; }
+.cro-proof-media, .cro-proof-media picture { display: block; }
+.cro-proof-media img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 760; object-fit: cover; }
+.cro-proof-body { padding: 22px; }
+.cro-proof-body h3 { margin-top: 0; }
+.cro-proof-body p { font-size: 16px; line-height: 1.55; }
+.cro-proof-body a { display: inline-block; padding: 10px 0; text-decoration: underline; }
+.cro-proof .cro-proof-note { margin-top: 20px; font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+/* All three consent choices retain equal prominence and 44px touch targets. */
+.consent-panel { padding: 14px; line-height: 1.35; }
+.consent-panel p { margin: 5px 0 10px; font-size: 13px; line-height: 1.4; }
+.consent-panel > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.consent-panel button { padding: 7px; font-size: 13px; line-height: 1.25; }
+@media (max-width: 760px) {
+  .cro-proof-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .cro-page .site-header { padding: 7px 14px; min-height: 58px; }
+  .cro-page .brand-header img { width: 150px; }
+  .cro-landing.seo-page { padding-top: 14px; }
+  .cro-landing .breadcrumbs { gap: 4px 6px; margin-bottom: 10px; font-size: 12px; line-height: 1.35; }
+  .cro-landing .cro-hero { padding: 16px; gap: 18px; }
+  .cro-landing .cro-hero .eyebrow { margin-bottom: 0; font-size: 11px; }
+  .cro-landing .cro-hero h1 { margin: 8px 0 10px; font-size: clamp(24px, 7vw, 30px); line-height: 1.08; overflow-wrap: normal; }
+  .cro-landing .cro-hero > div > p:not(.cro-price) { font-size: 15px; line-height: 1.4; margin-bottom: 12px; }
+  .cro-hero .cro-price { margin: 12px 0; gap: 4px; }
+  .cro-price strong { font-size: 21px; }
+  .cro-price span { font-size: 12px; line-height: 1.35; }
+  .cro-hero .hero-buttons { margin-top: 12px; gap: 8px; }
+  .cro-hero .hero-buttons .btn { min-height: 44px; padding: 11px 12px; font-size: 14px; }
+  .cro-hero .seo-hero-card { padding: 16px; gap: 8px; }
+  .cro-hero .seo-hero-card strong { font-size: 20px; }
+  .cro-hero .seo-hero-card p { font-size: 15px; line-height: 1.45; }
+  .cro-proof-body { padding: 18px; }
+  .cro-proof h2, .cro-scope h2 { font-size: clamp(25px, 7vw, 32px); line-height: 1.15; text-transform: none; overflow-wrap: normal; }
+  .consent-panel { padding: 12px; }
+  .consent-panel button { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .cro-landing.seo-page { padding-top: 10px; }
+  .cro-landing .breadcrumbs { margin-bottom: 8px; }
+  .cro-landing .cro-hero { padding: 12px; }
+  .cro-landing .cro-hero h1 { margin-top: 6px; }
+}
