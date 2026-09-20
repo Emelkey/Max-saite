@@ -17,6 +17,30 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Observe live HTML and HTTP without modifying production
+        id: live
+        continue-on-error: true
+        run: >-
+          node tools/verify-live-seo.js
+          --version=top1-pr20-${{ github.run_id }}-${{ github.run_attempt }}
+          --phase=pre-release
+      - name: Compare production receipt with the PR base revision
+        id: receipt
+        continue-on-error: true
+        run: >-
+          node tools/verify-production-release.js
+          --base-url https://maxsite.com.ua
+          --expected-revision "${{ github.event.pull_request.base.sha }}"
+          --attempts 1 --delay-ms 0
+          --output artifacts/seo/live/top1-base-release.json
+      - name: Upload live observations separately from code QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: top1-live-observation
+          path: artifacts/seo/live/top1-*.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Export tracked sources without credentials or history
         run: |
           mkdir -p /tmp/top1-review

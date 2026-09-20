@@ -1,0 +1,46 @@
+name: Apply reviewed TOP1 home correction once
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  apply-reviewed-home:
+    if: github.repository == 'Emelkey/Max-saite' && github.event.pull_request.number == 20 && github.event.pull_request.head.repo.full_name == 'Emelkey/Max-saite' && github.head_ref == 'seo/top1-execution-2026-09-20'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply only the reviewed two-file correction
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),crypto=require('node:crypto');
+          const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+          let html=fs.readFileSync('index.html','utf8'),css=fs.readFileSync('styles.css','utf8');
+          if(html.includes('Умовна ілюстрація, не показники клієнтського проєкту.')&&css.includes('.dash-caption {'))process.exit(0);
+          if(hash(html)!=='1fb8f7427b212506e0c4956b476b4155a92cabc59f33a3c086775afdf0db07ba'||hash(css)!=='66a04010e889a6a2bc3ae563f4c9425f98cca28b231567978825a9e5b39b38e7')throw Error('Source changed; manual reconciliation required');
+          html=html.replace('<div class="dashboard reveal" aria-label="SEO dashboard">','<div class="dashboard reveal" role="group" aria-label="Ілюстрація SEO-аналітики">').replace('<div class="dash-head"><span>','<div class="dash-head" aria-hidden="true"><span>').replace('<div class="chart"><i>','<div class="chart" aria-hidden="true"><i>').replace('<div class="dash-metrics"><b>+68%</b><b>SEO</b><b>GSC</b></div>','<div class="dash-metrics"><b>GA4</b><b>SEO</b><b>GSC</b></div>\n          <p class="dash-caption">Умовна ілюстрація, не показники клієнтського проєкту.</p>');
+          css=css.replace('.promotion-section {\n','.dash-caption {\n  position: relative;\n  margin: 18px 0 0;\n  color: var(--muted);\n  font-size: 0.875rem;\n  line-height: 1.5;\n}\n\n.promotion-section {\n');
+          fs.writeFileSync('index.html',html);fs.writeFileSync('styles.css',css);
+          NODE
+      - name: Validate corrected source before commit
+        run: npm run seo:check && git diff --check
+      - name: Commit only to the isolated review branch
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          test "$(git ls-remote origin refs/heads/seo/top1-execution-2026-09-20 | cut -f1)" = "$EXPECTED_HEAD"
+          git add index.html styles.css
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'fix(seo): label illustrative dashboard and remove unsupported growth claim'
+          git push origin HEAD:refs/heads/seo/top1-execution-2026-09-20
