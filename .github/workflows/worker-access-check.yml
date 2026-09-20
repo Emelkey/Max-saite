@@ -1,0 +1,55 @@
+name: MAX SITE Worker access check
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/worker-access-check.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  access:
+    if: github.repository == 'Emelkey/Max-saite' && github.ref == 'refs/heads/main'
+    environment: github-pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Read Worker settings without exposing values or modifying infrastructure
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const report = { checkedAt: new Date().toISOString(), scope: 'main, repository + existing github-pages environment', targetWorker: 'max-site-leads', tokenConfigured: Boolean(process.env.CF_TOKEN), accountConfigured: Boolean(process.env.CF_ACCOUNT), status: 'AUTH_UNAVAILABLE', changesMade: false, testLeadSent: false };
+          (async () => {
+            try {
+              if (process.env.CF_TOKEN && process.env.CF_ACCOUNT) {
+                const url = `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(process.env.CF_ACCOUNT)}/workers/scripts/max-site-leads/settings`;
+                const r = await fetch(url, { redirect: 'error', headers: { Authorization: `Bearer ${process.env.CF_TOKEN}` }, signal: AbortSignal.timeout(15000) });
+                const body = await r.json().catch(() => null);
+                report.httpStatus = r.status;
+                report.status = r.ok && body?.success === true ? 'SETTINGS_READ_AVAILABLE' : 'AUTH_OR_RESOURCE_REJECTED';
+                report.hasDurableDeliveryBinding = Boolean(body?.result?.bindings?.some(x => x.name === 'LEAD_DELIVERY_GATE'));
+                report.hasDurableRateBinding = Boolean(body?.result?.bindings?.some(x => x.name === 'LEAD_RATE_GATE'));
+                report.hasTelegramSecretBinding = Boolean(body?.result?.bindings?.some(x => x.name === 'TELEGRAM_BOT_TOKEN' && x.type === 'secret_text'));
+                report.hasTelegramChatBinding = Boolean(body?.result?.bindings?.some(x => x.name === 'TELEGRAM_CHAT_ID'));
+              }
+            } catch (error) { report.status = 'ACCESS_CHECK_FAILED'; report.error = error.name; }
+            fs.writeFileSync('/tmp/maxsite-worker-access.json', JSON.stringify(report, null, 2));
+            console.log(JSON.stringify(report, null, 2));
+            if (report.status !== 'SETTINGS_READ_AVAILABLE') process.exitCode = 1;
+          })();
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: maxsite-worker-access
+          path: /tmp/maxsite-worker-access.json
+          retention-days: 7
+          if-no-files-found: error
