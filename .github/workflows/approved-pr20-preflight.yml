@@ -1,0 +1,62 @@
+name: Owner-approved PR20 live lead preflight
+
+on:
+  push:
+    branches: [ops/release-pr20-20260920]
+    paths: [.github/workflows/approved-pr20-preflight.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    if: github.repository == 'Emelkey/Max-saite' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check live response and send exactly one clearly labelled TEST lead
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const out = '/tmp/pr20-preflight.json';
+          const report = { checkedAt: new Date().toISOString(), approvedAction: 'User requested push and deploy after TEST-lead release condition', pr: 20, head: '9f74863cf36c8071b5c7b7022045d74eda97d439', testId: '5e8c56ca-c134-4c49-a128-762a6d73e455', ok: false };
+          const base = 'https://maxsite.com.ua';
+          const endpoint = 'https://max-site-leads.emelkey777.workers.dev';
+          (async () => {
+            try {
+              const marker = await fetch(base + '/.well-known/max-site-release.json', { signal: AbortSignal.timeout(15000), headers: { 'Cache-Control': 'no-cache' } });
+              report.productionMarkerStatus = marker.status;
+              report.productionMarker = await marker.json();
+              const cors = await fetch(endpoint, { method: 'OPTIONS', headers: { Origin: base, 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type' }, signal: AbortSignal.timeout(15000) });
+              report.preflight = { status: cors.status, allowedOrigin: cors.headers.get('access-control-allow-origin') };
+              if (!cors.ok || report.preflight.allowedOrigin !== base) throw Error('Production origin CORS validation failed; TEST not sent');
+              const payload = {
+                requestId: report.testId,
+                pageTitle: 'TEST MAX SITE: release PR20, NOT a customer lead',
+                pageUrl: base + '/stvorennya-saytiv/',
+                website: '', formStartedAt: Date.now() - 5000,
+                fields: { name: 'TEST MAX SITE PR20', phone: '+12025550100', business: 'Internal release QA only', comment: 'TEST ONLY. Owner-approved release check. Fictional reserved phone; do not contact. Do not count as a customer or conversion. Verify lead_id before PR20 release.' },
+                context: { consent: true, consent_state: 'necessary', landing_path: '/stvorennya-saytiv/', page_type: 'service', service: 'release-test', timestamp: new Date().toISOString(), is_test: true }
+              };
+              report.testSentAt = new Date().toISOString();
+              const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: base }, body: JSON.stringify(payload), signal: AbortSignal.timeout(20000), redirect: 'error' });
+              const body = await response.json().catch(() => null);
+              report.delivery = { status: response.status, serverOk: body?.ok === true, matchingLeadId: body?.lead_id === report.testId, lead_id: body?.lead_id || null, error: body?.error || null, allowedOrigin: response.headers.get('access-control-allow-origin') };
+              report.ok = response.ok && body?.ok === true && body?.lead_id === report.testId && report.delivery.allowedOrigin === base;
+              report.deliveryEvidence = 'Server acknowledgement only. No direct Telegram inbox read. No browser analytics executed.';
+              if (!report.ok) throw Error('Live lead endpoint does not satisfy the strict acknowledgement contract; release blocked');
+            } catch (error) { report.error = error.message; process.exitCode = 1; }
+            finally { fs.writeFileSync(out, JSON.stringify(report, null, 2)); console.log(JSON.stringify(report, null, 2)); }
+          })();
+          NODE
+      - name: Retain non-secret release gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr20-live-lead-preflight
+          path: /tmp/pr20-preflight.json
+          retention-days: 14
+          if-no-files-found: error
