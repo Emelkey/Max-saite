@@ -1693,6 +1693,14 @@ p {
   text-align: center;
 }
 
+.dash-caption {
+  position: relative;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 .promotion-section {
   position: relative;
 }
