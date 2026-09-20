@@ -51,7 +51,7 @@ function summarize(rows, expectedRoutes) {
     htmlHttpFailed: pages.filter(r => !r.htmlHttpPass).length,
     missingRoutes: missing, fetchErrors: rows.filter(r => r.error).length,
     issues: pages.flatMap(r => (r.issues || []).map(issue => ({ route: r.route, issue }))),
-    ok: !missing.length && pages.length === expectedRoutes.size && pages.every(r => r.htmlHttpPass) && !rows.some(r => r.error),
+    ok: expectedRoutes.size > 0 && !missing.length && pages.length === expectedRoutes.size && pages.every(r => r.htmlHttpPass) && !rows.some(r => r.error),
     googleIndexStatus: 'NOT_CHECKED', robotsTxtPolicyStatus: 'NOT_EVALUATED' };
 }
 module.exports = { inspectHtml, googleHeaderNoindex, evaluateObservation, summarize, sha256 };
