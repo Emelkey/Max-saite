@@ -411,20 +411,22 @@ test('consent choices are independent from form consent and revocable',async({pa
   await expect(page.locator('.consent-panel')).toBeHidden();
 });
 
-test('landing attribution persists only after its consent, survives navigation and revokes without extra pageviews',async({page})=>{
+test('landing attribution persists only after its consent, survives navigation and revokes without duplicate pageviews',async({page})=>{
   await page.goto('/polityka-konfidentsijnosti/?gclid=qa-click-id&utm_source=qa-google&utm_campaign=qa-consent&email=private@example.test');
   expect(await page.evaluate(()=>window['ga-disable-G-TS8DMMKK34'])).toBe(true);
   const read=()=>page.evaluate(()=>({gclid:sessionStorage.getItem('max_site_gclid'),source:sessionStorage.getItem('max_site_utm_source'),campaign:sessionStorage.getItem('max_site_utm_campaign')}));
   expect(await read()).toEqual({gclid:null,source:null,campaign:null});
   const pageviews=()=>page.evaluate(()=>window.dataLayer.filter(e=>(e[0]==='config'&&e[2]?.send_page_view!==false)||(e[0]==='event'&&e[1]==='page_view')).length);
   const before=await pageviews();
+  expect(before).toBe(0);
   await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
   await page.getByRole('button',{name:'Лише аналітика',exact:true}).click();
   expect(await read()).toEqual({gclid:null,source:'qa-google',campaign:'qa-consent'});
+  expect(await pageviews()).toBe(1);
   await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
   await page.getByRole('button',{name:'Дозволити всі',exact:true}).click();
   expect(await read()).toEqual({gclid:'qa-click-id',source:'qa-google',campaign:'qa-consent'});
-  expect(await pageviews()).toBe(before);
+  expect(await pageviews()).toBe(1);
   await page.goto('/stvorennya-saytiv/');
   expect(await read()).toEqual({gclid:'qa-click-id',source:'qa-google',campaign:'qa-consent'});
   await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
@@ -445,6 +447,7 @@ test('Google config preserves permitted campaign URL fields on both ad landings'
       const base=`http://127.0.0.1:4173${route}`;
       const campaign='?utm_source=google&utm_medium=cpc&utm_campaign=maxsite_search';
       expect(config.page_location).toBe(`${base}${choice==='necessary'?'':campaign}${choice==='all'?'&gclid=qa-click-id&gbraid=qa-braid':''}`);
+      expect(config.send_page_view).toBe(choice==='necessary'?false:undefined);
       expect(config.page_location).not.toContain('private%40example.test');
       expect(config.page_location).not.toContain('email=');
     }
