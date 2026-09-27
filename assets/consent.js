@@ -20,10 +20,34 @@
   window.gtag("consent", "default", window.MAX_SITE_CONSENT);
   window.gtag("set", "ads_data_redaction", true);
   window.gtag("set", "url_passthrough", false);
-  window.MAX_SITE_GOOGLE_PAGE = {
-    page_location: `${location.origin}${location.pathname}`,
-    page_referrer: (() => { try { const url = new URL(document.referrer); return `${url.origin}${url.pathname}`; } catch { return ""; } })()
+  const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_source_platform", "utm_term", "utm_content"];
+  const clickKeys = ["gclid", "gbraid", "wbraid", "gad_source", "gad_campaignid", "gclsrc"];
+  const looksLikePhone = value => /(?:^|\D)(?:\+?380\d{9}|0\d{9})(?:$|\D)/.test(value.replace(/[ ().-]/g, ""));
+  const safeCampaignValue = value => value.length <= 180
+    && /^[\p{L}\p{N}][\p{L}\p{N} _.,:/+%~-]*$/u.test(value)
+    && !looksLikePhone(value);
+  const safeClickValue = value => /^[A-Za-z0-9._~-]{1,250}$/.test(value) && !looksLikePhone(value);
+  const googlePage = () => {
+    const url = new URL(`${location.origin}${location.pathname}`);
+    const source = new URLSearchParams(location.search || "");
+    if (window.MAX_SITE_CONSENT.analytics_storage === "granted") {
+      for (const key of campaignKeys) {
+        const value = source.get(key);
+        if (value && safeCampaignValue(value)) url.searchParams.set(key, value);
+      }
+      if (window.MAX_SITE_CONSENT.ad_storage === "granted" && window.MAX_SITE_CONSENT.ad_user_data === "granted") {
+        for (const key of clickKeys) {
+          const value = source.get(key);
+          if (value && safeClickValue(value)) url.searchParams.set(key, value);
+        }
+      }
+    }
+    return {
+      page_location: url.href,
+      page_referrer: (() => { try { const referrer = new URL(document.referrer); return `${referrer.origin}${referrer.pathname}`; } catch { return ""; } })()
+    };
   };
+  window.MAX_SITE_GOOGLE_PAGE = googlePage();
   const purgeAttribution = () => {
     try {
       if (window.MAX_SITE_CONSENT.ad_storage !== "granted") {
@@ -56,6 +80,13 @@
       saved = {choice, timestamp: Date.now()};
       window.MAX_SITE_CONSENT = states(choice);
       window.gtag("consent", "update", window.MAX_SITE_CONSENT);
+      const previousPageLocation = window.MAX_SITE_GOOGLE_PAGE.page_location;
+      window.MAX_SITE_GOOGLE_PAGE = googlePage();
+      if (window.MAX_SITE_GOOGLE_PAGE.page_location !== previousPageLocation) {
+        // Refresh later event context after an on-page consent change, without
+        // creating a second pageview or reattributing the initial session.
+        window.gtag("config", "G-TS8DMMKK34", {...window.MAX_SITE_GOOGLE_PAGE, send_page_view: false});
+      }
       try { localStorage.setItem(key, JSON.stringify(saved)); } catch {}
       purgeAttribution();
       window.dispatchEvent(new Event("max-site:consent-change"));

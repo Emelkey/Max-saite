@@ -14,7 +14,7 @@ test('hosting audit permits GitHub evidence but rejects obsolete production base
 test('local and preview hosts disable production GA before automatic pageviews',()=>{
   const vm=require('node:vm'),source=fs.readFileSync(path.join(root,'assets/consent.js'),'utf8');
   for(const origin of ['http://127.0.0.1:4173','https://localhost','https://preview.example','http://maxsite.com.ua','https://maxsite.com.ua:8443','https://maxsite.com.ua']){
-    const window={};const context={window,location:{hostname:new URL(origin).hostname,origin,pathname:'/'},localStorage:{getItem:()=>null},sessionStorage:{removeItem(){}},document:{referrer:'',addEventListener(){}},URL,Date};
+    const window={};const context={window,location:{hostname:new URL(origin).hostname,origin,pathname:'/'},localStorage:{getItem:()=>null},sessionStorage:{removeItem(){}},document:{referrer:'',addEventListener(){}},URL,URLSearchParams,Date};
     vm.runInNewContext(source,context);
     assert.equal(window['ga-disable-G-TS8DMMKK34'],origin==='https://maxsite.com.ua'?undefined:true);
     assert.equal(window.MAX_SITE_CONSENT.analytics_storage,'denied');

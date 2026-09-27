@@ -1,0 +1,1456 @@
+{
+  "source": "Windsor.ai Google Ads connector",
+  "accountFromGetConnectors": {
+    "id": "778-225-5000",
+    "name": "MAX SITE"
+  },
+  "assembledAtUtc": "2026-09-27T12:54:34Z",
+  "metricWindow": {
+    "from": "2026-08-30",
+    "to": "2026-09-26",
+    "inclusive": true,
+    "timezone": "Europe/Kiev",
+    "currency": "UAH"
+  },
+  "note": "Rows are unmodified connector results. Entity views can omit no-traffic ad groups and ads; see README. No Ads writes were made.",
+  "accountMetadata": [
+    {
+      "customer_descriptive_name": "MAX SITE",
+      "account_currency_code": "UAH",
+      "account_time_zone": "Europe/Kiev",
+      "customer_auto_tagging_enabled": "True",
+      "customer_conversion_tracking_setting_google_ads_conversion_customer": "customers/7782255000"
+    }
+  ],
+  "campaign28d": [
+    {
+      "campaign_id": "24122973025",
+      "campaign": "MAXSITE WEB",
+      "campaign_status": "ENABLED",
+      "campaign_primary_status": "ELIGIBLE",
+      "campaign_primary_status_reasons": null,
+      "bidding_strategy_type": "TARGET_SPEND",
+      "campaign_target_spend_cpc_bid_ceiling_micros": null,
+      "campaign_budget": 300,
+      "budget_amount": 300,
+      "is_budget_explicitly_shared": false,
+      "campaign_budget_reference_count": 1,
+      "clicks": 160,
+      "impressions": 1827,
+      "cost": 11537.4643,
+      "conversions": 0,
+      "all_conversions": 0,
+      "search_impression_share": 0.293,
+      "search_rank_lost_impression_share": 0.4833,
+      "search_budget_lost_impression_share": 0.2238
+    }
+  ],
+  "campaignSettings": [
+    {
+      "campaign_id": "24122973025",
+      "campaign": "MAXSITE WEB",
+      "campaign_status": "ENABLED",
+      "campaign_primary_status": "ELIGIBLE",
+      "campaign_network_settings_target_google_search": true,
+      "campaign_network_settings_target_partner_search_network": false,
+      "campaign_network_settings_target_content_network": false,
+      "campaign_geo_target_type_setting_positive_geo_target_type": "PRESENCE",
+      "campaign_geo_target_type_setting_negative_geo_target_type": "PRESENCE",
+      "campaign_bidding_strategy_system_status": "ENABLED",
+      "campaign_selective_optimization_conversion_actions": null,
+      "campaign_target_spend_cpc_bid_ceiling_micros": null,
+      "budget_amount": 300,
+      "is_budget_explicitly_shared": false
+    }
+  ],
+  "adGroups28d": [
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "ad_group_status": "ENABLED",
+      "ad_group_primary_status": "ELIGIBLE",
+      "ad_group_primary_status_reasons": null,
+      "clicks": 160,
+      "cost": 11537.4643,
+      "impressions": 1827
+    }
+  ],
+  "responsiveSearchAds28d": [
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "ad_group_ad_ad_id": "820333812947",
+      "ad_group_ad_status": "ENABLED",
+      "ad_group_ad_primary_status": "ELIGIBLE",
+      "ad_group_ad_policy_summary_approval_status": "APPROVED",
+      "ad_group_ad_policy_summary_review_status": "REVIEWED",
+      "ad_group_ad_ad_final_urls": "[\"https://maxsite.com.ua/stvorennya-sajtiv-pid-klyuch/\"]",
+      "ad_group_ad_ad_strength": "AVERAGE",
+      "clicks": 156,
+      "cost": 11302.6443,
+      "impressions": 1810
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "ad_group_ad_ad_id": "825024420905",
+      "ad_group_ad_status": "ENABLED",
+      "ad_group_ad_primary_status": "ELIGIBLE",
+      "ad_group_ad_policy_summary_approval_status": "APPROVED",
+      "ad_group_ad_policy_summary_review_status": "REVIEWED",
+      "ad_group_ad_ad_final_urls": "[\"https://maxsite.com.ua/stvorennya-saytiv/\"]",
+      "ad_group_ad_ad_strength": "AVERAGE",
+      "clicks": 4,
+      "cost": 234.82,
+      "impressions": 17
+    }
+  ],
+  "keywords28d": [
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "заказать сайт",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "3985300474",
+      "clicks": 48,
+      "cost": 3725.0991,
+      "impressions": 308
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "розробка сайтів",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "295989391854",
+      "clicks": 21,
+      "cost": 1527.3353,
+      "impressions": 278
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "замовити сайт",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "296996758483",
+      "clicks": 2,
+      "cost": 235.14,
+      "impressions": 88
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "замовити сайт",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "298800043635",
+      "clicks": 31,
+      "cost": 2070.42,
+      "impressions": 436
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "створення інтернет магазину",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "298800044555",
+      "clicks": 4,
+      "cost": 328.77,
+      "impressions": 91
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "створення сайтів під ключ",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "303692035910",
+      "clicks": 7,
+      "cost": 464.19,
+      "impressions": 32
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "створення лендінгу",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "308295759978",
+      "clicks": 4,
+      "cost": 319.93,
+      "impressions": 23
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "корпоративний сайт під ключ",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "340802970234",
+      "clicks": 3,
+      "cost": 259.86,
+      "impressions": 5
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "сайт для бізнесу",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "400721850656",
+      "clicks": 7,
+      "cost": 399.72,
+      "impressions": 233
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "сайт для бізнесу",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "827317072933",
+      "clicks": 3,
+      "cost": 154.85,
+      "impressions": 23
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "створення лендінгу",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "308295759578",
+      "clicks": 11,
+      "cost": 664.35,
+      "impressions": 71
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "ведення гугл реклами",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "1641720920860",
+      "clicks": 2,
+      "cost": 124.54,
+      "impressions": 25
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "послуги google ads",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "1641720943620",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 50
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "ведення google ads",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "1674042824157",
+      "clicks": 1,
+      "cost": 53.12,
+      "impressions": 24
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "разработка сайтов для бизнеса",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "320571734074",
+      "clicks": 8,
+      "cost": 547.91,
+      "impressions": 50
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "розробка сайтів для бізнесу",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "799141485275",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 8
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "створення сайтів під ключ",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "315759088260",
+      "clicks": 2,
+      "cost": 160.06,
+      "impressions": 30
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "создание сайтов под ключ",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "4600529368",
+      "clicks": 6,
+      "cost": 502.17,
+      "impressions": 10
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "налаштування гугл реклами",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "866292193186",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 1
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "створення інтернет магазину",
+      "keyword_match_type": "EXACT",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "298800046075",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 9
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "создание сайтов для бизнеса",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "14279452733",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 9
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "замовити google ads",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "534521602514",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 5
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "створення сайтів для бізнесу",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "1638261996899",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 16
+    },
+    {
+      "campaign_id": "24122973025",
+      "ad_group": "customers/7782255000/adGroups/204759032331",
+      "ad_group_id": "204759032331",
+      "keyword_text": "налаштування google ads",
+      "keyword_match_type": "PHRASE",
+      "keyword_status": "ENABLED",
+      "keyword_criterion_id": "524672450316",
+      "clicks": 0,
+      "cost": 0,
+      "impressions": 2
+    }
+  ],
+  "adGroupCriteriaSnapshot": [
+    {
+      "ad_group_id": "199901337563",
+      "ad_group_criterion_keyword_text": "google merchant center",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337563",
+      "ad_group_criterion_keyword_text": "створення лендінгу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337563",
+      "ad_group_criterion_keyword_text": "створення лендінгу",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337563",
+      "ad_group_criterion_keyword_text": "adssettings google",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "создание сайтов для бизнеса",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "google merchant center",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "разработка сайтов для бизнеса",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "сайт для бізнесу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "розробка сайтів для бізнесу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "сайт для бізнесу",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "adssettings google",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337723",
+      "ad_group_criterion_keyword_text": "створення сайтів для бізнесу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337763",
+      "ad_group_criterion_keyword_text": "google merchant center",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337763",
+      "ad_group_criterion_keyword_text": "корпоративний сайт під ключ",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337763",
+      "ad_group_criterion_keyword_text": "adssettings google",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337803",
+      "ad_group_criterion_keyword_text": "google merchant center",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337803",
+      "ad_group_criterion_keyword_text": "створення інтернет магазину",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337803",
+      "ad_group_criterion_keyword_text": "створення інтернет магазину",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337803",
+      "ad_group_criterion_keyword_text": "adssettings google",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "google merchant center",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "налаштування google ads",
+      "ad_group_criterion_keyword_match_type": "BROAD",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "налаштування google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "налаштування google ads",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "замовити google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "adssettings google",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "налаштування гугл реклами",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "замовити google ads",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "ведення гугл реклами",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "послуги google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "ведення google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "199901337963",
+      "ad_group_criterion_keyword_text": "ведення google ads",
+      "ad_group_criterion_keyword_match_type": "BROAD",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "заказать сайт",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "создание сайтов под ключ",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "создание сайтов для бизнеса",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "розробка сайтів",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "google merchant center",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "замовити сайт",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "замовити сайт",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення інтернет магазину",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення інтернет магазину",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення сайтів під ключ",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "корпоративний сайт під ключ",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення лендінгу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення лендінгу",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення сайтів під ключ",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "разработка сайтов для бизнеса",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "корпоративний сайт під ключ",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "сайт для бізнесу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "налаштування google ads",
+      "ad_group_criterion_keyword_match_type": "BROAD",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "налаштування google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "налаштування google ads",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "замовити google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "adx google",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "розробка сайтів для бізнесу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "сайт для бізнесу",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "adssettings google",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": true,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "налаштування гугл реклами",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "замовити google ads",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення сайтів для бізнесу",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "ведення гугл реклами",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "послуги google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "створення сайтів для бізнесу",
+      "ad_group_criterion_keyword_match_type": "EXACT",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "ведення google ads",
+      "ad_group_criterion_keyword_match_type": "PHRASE",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    },
+    {
+      "ad_group_id": "204759032331",
+      "ad_group_criterion_keyword_text": "ведення google ads",
+      "ad_group_criterion_keyword_match_type": "BROAD",
+      "ad_group_criterion_status": null,
+      "ad_group_criterion_negative": false,
+      "ad_group_criterion_criterion_id": null
+    }
+  ],
+  "conversionActionsSnapshot": [
+    {
+      "conversion_action_name": "maxsite (web) close_convert_lead",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "HIDDEN",
+      "conversion_action_category": "CONVERTED_LEAD",
+      "conversion_action_type": "UNKNOWN",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "maxsite (web) qualify_lead",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "HIDDEN",
+      "conversion_action_category": "QUALIFIED_LEAD",
+      "conversion_action_type": "UNKNOWN",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "maxsite (web) purchase",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "HIDDEN",
+      "conversion_action_category": "PURCHASE",
+      "conversion_action_type": "GOOGLE_ANALYTICS_4_PURCHASE",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "Lead form - Submit",
+      "conversion_action_click_through_lookback_window_days": 1,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "SUBMIT_LEAD_FORM",
+      "conversion_action_type": "LEAD_FORM_SUBMIT",
+      "conversion_action_origin": "GOOGLE_HOSTED",
+      "conversion_action_primary_for_goal": true,
+      "conversion_action_counting_type": "ONE_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "manual_event_SUBMIT_LEAD_FORM",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "SUBMIT_LEAD_FORM",
+      "conversion_action_type": "GOOGLE_ANALYTICS_4_CUSTOM",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": true,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "Отправка формы для потенциальных клиентов",
+      "conversion_action_click_through_lookback_window_days": 30,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "SUBMIT_LEAD_FORM",
+      "conversion_action_type": "WEBPAGE",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": true,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "Рекомендуемая цель",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "PURCHASE",
+      "conversion_action_type": "GOOGLE_ANALYTICS_4_CUSTOM",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": true,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "MAX SITE (web) close_convert_lead",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "HIDDEN",
+      "conversion_action_category": "CONVERTED_LEAD",
+      "conversion_action_type": "UNKNOWN",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "MAX SITE (web) qualify_lead",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "HIDDEN",
+      "conversion_action_category": "QUALIFIED_LEAD",
+      "conversion_action_type": "UNKNOWN",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "MAX SITE (web) purchase",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "HIDDEN",
+      "conversion_action_category": "PURCHASE",
+      "conversion_action_type": "GOOGLE_ANALYTICS_4_PURCHASE",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "MAX SITE (web) click_phone",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "PHONE_CALL_LEAD",
+      "conversion_action_type": "GOOGLE_ANALYTICS_4_CUSTOM",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "MAX SITE (web) generate_lead",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "SUBMIT_LEAD_FORM",
+      "conversion_action_type": "UNKNOWN",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": false,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "Рекомендуемая цель (1)",
+      "conversion_action_click_through_lookback_window_days": 90,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "PURCHASE",
+      "conversion_action_type": "GOOGLE_ANALYTICS_4_CUSTOM",
+      "conversion_action_origin": "WEBSITE",
+      "conversion_action_primary_for_goal": true,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    },
+    {
+      "conversion_action_name": "Local actions - Directions",
+      "conversion_action_click_through_lookback_window_days": 30,
+      "conversion_action_status": "ENABLED",
+      "conversion_action_category": "GET_DIRECTIONS",
+      "conversion_action_type": "GOOGLE_HOSTED",
+      "conversion_action_origin": "GOOGLE_HOSTED",
+      "conversion_action_primary_for_goal": true,
+      "conversion_action_counting_type": "MANY_PER_CLICK",
+      "conversion_last_conversion_date": null
+    }
+  ],
+  "assets": {
+    "call": [
+      {
+        "asset_id": "402789148587",
+        "asset_type": "CALL",
+        "asset_call_asset_phone_number": null,
+        "asset_call_asset_country_code": "UA",
+        "asset_call_asset_ad_schedule_targets": null,
+        "asset_call_asset_call_conversion_reporting_state": "USE_ACCOUNT_LEVEL_CALL_CONVERSION_ACTION",
+        "asset_call_asset_call_conversion_action": "customers/7782255000/conversionActions/179",
+        "asset_policy_summary_approval_status": "APPROVED",
+        "asset_policy_summary_review_status": "REVIEWED"
+      }
+    ],
+    "sitelinks": [
+      {
+        "asset_id": "402623658398",
+        "asset_type": "SITELINK",
+        "asset_sitelink_asset_link_text": "Лендінги",
+        "asset_final_urls": "[\"https://maxsite.com.ua/stvorennya-lendingiv/\"]",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "402623755859",
+        "asset_type": "SITELINK",
+        "asset_sitelink_asset_link_text": "Портфоліо MAX SITE",
+        "asset_final_urls": "[\"https://maxsite.com.ua/portfolio/\"]",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "402623831735",
+        "asset_type": "SITELINK",
+        "asset_sitelink_asset_link_text": "Корпоративні сайти",
+        "asset_final_urls": "[\"https://maxsite.com.ua/korporatyvni-sajty/\"]",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "402726056638",
+        "asset_type": "SITELINK",
+        "asset_sitelink_asset_link_text": "Інтернет-магазини",
+        "asset_final_urls": "[\"https://maxsite.com.ua/internet-magazyn-pid-klyuch/\"]",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "402726056641",
+        "asset_type": "SITELINK",
+        "asset_sitelink_asset_link_text": "Ціни на створення сайтів",
+        "asset_final_urls": "[\"https://maxsite.com.ua/#pricing\"]",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "402726113395",
+        "asset_type": "SITELINK",
+        "asset_sitelink_asset_link_text": "SEO-сайт під Google",
+        "asset_final_urls": "[\"https://maxsite.com.ua/seo-sajt-pid-google/\"]",
+        "asset_policy_summary_approval_status": "APPROVED"
+      }
+    ],
+    "callouts": [
+      {
+        "asset_id": "421886899652",
+        "asset_type": "CALLOUT",
+        "asset_callout_asset_callout_text": "Аналіз конкурентів",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "421886899655",
+        "asset_type": "CALLOUT",
+        "asset_callout_asset_callout_text": "Оптимізація швидкості",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "422068130442",
+        "asset_type": "CALLOUT",
+        "asset_callout_asset_callout_text": "Тексти для вашого сайту",
+        "asset_policy_summary_approval_status": "APPROVED"
+      },
+      {
+        "asset_id": "422068278924",
+        "asset_type": "CALLOUT",
+        "asset_callout_asset_callout_text": "Підтримка після запуску",
+        "asset_policy_summary_approval_status": "APPROVED"
+      }
+    ]
+  },
+  "callReportingSettings": [
+    {
+      "customer_descriptive_name": "MAX SITE",
+      "customer_call_reporting_setting_call_reporting_enabled": "True",
+      "customer_call_reporting_setting_call_conversion_reporting_enabled": "True",
+      "customer_call_reporting_setting_call_conversion_action": "customers/7782255000/conversionActions/179"
+    }
+  ],
+  "segments28d": {
+    "device": [
+      {
+        "device": "DESKTOP",
+        "clicks": 103,
+        "cost": 6973.3853,
+        "impressions": 1153,
+        "conversions": 0,
+        "all_conversions": 0
+      },
+      {
+        "device": "MOBILE",
+        "clicks": 57,
+        "cost": 4564.0791,
+        "impressions": 671,
+        "conversions": 0,
+        "all_conversions": 0
+      },
+      {
+        "device": "TABLET",
+        "clicks": 0,
+        "cost": 0,
+        "impressions": 3,
+        "conversions": 0,
+        "all_conversions": 0
+      }
+    ],
+    "network": [
+      {
+        "ad_network_type": "SEARCH",
+        "clicks": 160,
+        "cost": 11537.4643,
+        "impressions": 1827,
+        "conversions": 0,
+        "all_conversions": 0
+      }
+    ],
+    "userLocationCountry": [
+      {
+        "user_location_view_geo_target_country": "Ukraine",
+        "clicks": 160,
+        "cost": 11537.4643,
+        "impressions": 1827
+      }
+    ],
+    "hourOfDay": [
+      {
+        "hour_of_day": 0,
+        "clicks": 8,
+        "cost": 515.16,
+        "impressions": 107
+      },
+      {
+        "hour_of_day": 1,
+        "clicks": 3,
+        "cost": 214.93,
+        "impressions": 44
+      },
+      {
+        "hour_of_day": 2,
+        "clicks": 0,
+        "cost": 0,
+        "impressions": 35
+      },
+      {
+        "hour_of_day": 3,
+        "clicks": 1,
+        "cost": 28.73,
+        "impressions": 45
+      },
+      {
+        "hour_of_day": 4,
+        "clicks": 1,
+        "cost": 65.75,
+        "impressions": 13
+      },
+      {
+        "hour_of_day": 5,
+        "clicks": 1,
+        "cost": 125.1,
+        "impressions": 45
+      },
+      {
+        "hour_of_day": 6,
+        "clicks": 1,
+        "cost": 60.25,
+        "impressions": 23
+      },
+      {
+        "hour_of_day": 7,
+        "clicks": 3,
+        "cost": 205.62,
+        "impressions": 36
+      },
+      {
+        "hour_of_day": 8,
+        "clicks": 8,
+        "cost": 666.15,
+        "impressions": 97
+      },
+      {
+        "hour_of_day": 9,
+        "clicks": 5,
+        "cost": 387.52,
+        "impressions": 89
+      },
+      {
+        "hour_of_day": 10,
+        "clicks": 9,
+        "cost": 537.56,
+        "impressions": 78
+      },
+      {
+        "hour_of_day": 11,
+        "clicks": 5,
+        "cost": 341.57,
+        "impressions": 128
+      },
+      {
+        "hour_of_day": 12,
+        "clicks": 16,
+        "cost": 1312.89,
+        "impressions": 144
+      },
+      {
+        "hour_of_day": 13,
+        "clicks": 8,
+        "cost": 522.29,
+        "impressions": 82
+      },
+      {
+        "hour_of_day": 14,
+        "clicks": 6,
+        "cost": 557.28,
+        "impressions": 78
+      },
+      {
+        "hour_of_day": 15,
+        "clicks": 17,
+        "cost": 1210.91,
+        "impressions": 127
+      },
+      {
+        "hour_of_day": 16,
+        "clicks": 12,
+        "cost": 884.9,
+        "impressions": 93
+      },
+      {
+        "hour_of_day": 17,
+        "clicks": 9,
+        "cost": 628.37,
+        "impressions": 112
+      },
+      {
+        "hour_of_day": 18,
+        "clicks": 12,
+        "cost": 955.9753,
+        "impressions": 97
+      },
+      {
+        "hour_of_day": 19,
+        "clicks": 8,
+        "cost": 537.9691,
+        "impressions": 95
+      },
+      {
+        "hour_of_day": 20,
+        "clicks": 6,
+        "cost": 370.87,
+        "impressions": 68
+      },
+      {
+        "hour_of_day": 21,
+        "clicks": 7,
+        "cost": 392.97,
+        "impressions": 98
+      },
+      {
+        "hour_of_day": 22,
+        "clicks": 8,
+        "cost": 568.05,
+        "impressions": 59
+      },
+      {
+        "hour_of_day": 23,
+        "clicks": 6,
+        "cost": 446.65,
+        "impressions": 34
+      }
+    ],
+    "dayOfWeek": [
+      {
+        "day_of_week": "SUNDAY",
+        "clicks": 27,
+        "cost": 1778.07,
+        "impressions": 267
+      },
+      {
+        "day_of_week": "MONDAY",
+        "clicks": 24,
+        "cost": 1803.38,
+        "impressions": 213
+      },
+      {
+        "day_of_week": "TUESDAY",
+        "clicks": 20,
+        "cost": 1631.47,
+        "impressions": 382
+      },
+      {
+        "day_of_week": "WEDNESDAY",
+        "clicks": 22,
+        "cost": 1609.79,
+        "impressions": 271
+      },
+      {
+        "day_of_week": "THURSDAY",
+        "clicks": 25,
+        "cost": 1683.0843,
+        "impressions": 237
+      },
+      {
+        "day_of_week": "FRIDAY",
+        "clicks": 16,
+        "cost": 1052.44,
+        "impressions": 180
+      },
+      {
+        "day_of_week": "SATURDAY",
+        "clicks": 26,
+        "cost": 1979.23,
+        "impressions": 277
+      }
+    ]
+  },
+  "changeEventsSep24to27": [
+    {
+      "change_event_change_date_time": "2026-09-24 20:48:50.949323",
+      "change_event_change_resource_name": "customers/7782255000/adGroupCriteria/199901337763~340802970234",
+      "change_event_change_resource_type": "AD_GROUP_CRITERION",
+      "change_event_resource_change_operation": "UPDATE",
+      "change_event_changed_fields": "status",
+      "change_event_old_resource": "{\"adGroupCriterion\": {\"status\": \"PAUSED\"}}",
+      "change_event_new_resource": "{\"adGroupCriterion\": {\"status\": \"ENABLED\"}}"
+    },
+    {
+      "change_event_change_date_time": "2026-09-24 20:46:31.366271",
+      "change_event_change_resource_name": "customers/7782255000/adGroupAds/204759032331~825024420905",
+      "change_event_change_resource_type": "AD_GROUP_AD",
+      "change_event_resource_change_operation": "UPDATE",
+      "change_event_changed_fields": "ad,status",
+      "change_event_old_resource": "{\"adGroupAd\": {\"status\": \"PAUSED\", \"ad\": {}}}",
+      "change_event_new_resource": "{\"adGroupAd\": {\"status\": \"ENABLED\", \"ad\": {}}}"
+    },
+    {
+      "change_event_change_date_time": "2026-09-24 20:46:26.698031",
+      "change_event_change_resource_name": "customers/7782255000/adGroupAds/199901337963~824944536212",
+      "change_event_change_resource_type": "AD_GROUP_AD",
+      "change_event_resource_change_operation": "UPDATE",
+      "change_event_changed_fields": "ad,status",
+      "change_event_old_resource": "{\"adGroupAd\": {\"status\": \"PAUSED\", \"ad\": {}}}",
+      "change_event_new_resource": "{\"adGroupAd\": {\"status\": \"ENABLED\", \"ad\": {}}}"
+    },
+    {
+      "change_event_change_date_time": "2026-09-24 20:46:16.950175",
+      "change_event_change_resource_name": "customers/7782255000/adGroupAds/199901337803~824944536209",
+      "change_event_change_resource_type": "AD_GROUP_AD",
+      "change_event_resource_change_operation": "UPDATE",
+      "change_event_changed_fields": "ad,status",
+      "change_event_old_resource": "{\"adGroupAd\": {\"status\": \"PAUSED\", \"ad\": {}}}",
+      "change_event_new_resource": "{\"adGroupAd\": {\"status\": \"ENABLED\", \"ad\": {}}}"
+    },
+    {
+      "change_event_change_date_time": "2026-09-24 20:46:06.503823",
+      "change_event_change_resource_name": "customers/7782255000/adGroupAds/199901337763~824944536206",
+      "change_event_change_resource_type": "AD_GROUP_AD",
+      "change_event_resource_change_operation": "UPDATE",
+      "change_event_changed_fields": "ad,status",
+      "change_event_old_resource": "{\"adGroupAd\": {\"status\": \"PAUSED\", \"ad\": {}}}",
+      "change_event_new_resource": "{\"adGroupAd\": {\"status\": \"ENABLED\", \"ad\": {}}}"
+    },
+    {
+      "change_event_change_date_time": "2026-09-24 20:46:01.864223",
+      "change_event_change_resource_name": "customers/7782255000/adGroupAds/199901337563~824944536200",
+      "change_event_change_resource_type": "AD_GROUP_AD",
+      "change_event_resource_change_operation": "UPDATE",
+      "change_event_changed_fields": "ad,status",
+      "change_event_old_resource": "{\"adGroupAd\": {\"status\": \"PAUSED\", \"ad\": {}}}",
+      "change_event_new_resource": "{\"adGroupAd\": {\"status\": \"ENABLED\", \"ad\": {}}}"
+    }
+  ]
+}

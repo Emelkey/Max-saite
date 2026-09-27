@@ -416,7 +416,7 @@ test('landing attribution persists only after its consent, survives navigation a
   expect(await page.evaluate(()=>window['ga-disable-G-TS8DMMKK34'])).toBe(true);
   const read=()=>page.evaluate(()=>({gclid:sessionStorage.getItem('max_site_gclid'),source:sessionStorage.getItem('max_site_utm_source'),campaign:sessionStorage.getItem('max_site_utm_campaign')}));
   expect(await read()).toEqual({gclid:null,source:null,campaign:null});
-  const pageviews=()=>page.evaluate(()=>window.dataLayer.filter(e=>e[0]==='config'||(e[0]==='event'&&e[1]==='page_view')).length);
+  const pageviews=()=>page.evaluate(()=>window.dataLayer.filter(e=>(e[0]==='config'&&e[2]?.send_page_view!==false)||(e[0]==='event'&&e[1]==='page_view')).length);
   const before=await pageviews();
   await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
   await page.getByRole('button',{name:'Лише аналітика',exact:true}).click();
@@ -431,6 +431,37 @@ test('landing attribution persists only after its consent, survives navigation a
   await page.getByRole('button',{name:'Лише необхідні',exact:true}).click();
   expect(await read()).toEqual({gclid:null,source:null,campaign:null});
   expect(await page.evaluate(()=>JSON.stringify(window.MAX_SITE_GOOGLE_PAGE))).not.toContain('private@example.test');
+});
+
+test('Google config preserves permitted campaign URL fields on both ad landings',async({page})=>{
+  const query='?utm_source=google&utm_medium=cpc&utm_campaign=maxsite_search&gclid=qa-click-id&gbraid=qa-braid&email=private%40example.test';
+  const configs=()=>page.evaluate(()=>window.dataLayer.filter(entry=>entry[0]==='config'&&entry[1]==='G-TS8DMMKK34').map(entry=>({...entry[2]})));
+  await page.goto('/');
+  for(const route of ['/stvorennya-saytiv/','/stvorennya-sajtiv-pid-klyuch/']){
+    for(const choice of ['necessary','analytics','all']){
+      await page.evaluate(choice=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice,timestamp:Date.now()})),choice);
+      await page.goto(`${route}${query}`);
+      const [config]=await configs();
+      const base=`http://127.0.0.1:4173${route}`;
+      const campaign='?utm_source=google&utm_medium=cpc&utm_campaign=maxsite_search';
+      expect(config.page_location).toBe(`${base}${choice==='necessary'?'':campaign}${choice==='all'?'&gclid=qa-click-id&gbraid=qa-braid':''}`);
+      expect(config.page_location).not.toContain('private%40example.test');
+      expect(config.page_location).not.toContain('email=');
+    }
+  }
+
+  await page.evaluate(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()})));
+  await page.goto(`/stvorennya-saytiv/${query}`);
+  await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+  await page.getByRole('button',{name:'Дозволити всі',exact:true}).click();
+  let calls=await configs();
+  expect(calls).toHaveLength(2);
+  expect(calls[1]).toMatchObject({page_location:'http://127.0.0.1:4173/stvorennya-saytiv/?utm_source=google&utm_medium=cpc&utm_campaign=maxsite_search&gclid=qa-click-id&gbraid=qa-braid',send_page_view:false});
+  await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+  await page.getByRole('button',{name:'Лише необхідні',exact:true}).click();
+  calls=await configs();
+  expect(calls).toHaveLength(3);
+  expect(calls[2]).toMatchObject({page_location:'http://127.0.0.1:4173/stvorennya-saytiv/',send_page_view:false});
 });
 
 test('mobile ad landing price and primary action stay above the open consent panel',async({page,isMobile})=>{
