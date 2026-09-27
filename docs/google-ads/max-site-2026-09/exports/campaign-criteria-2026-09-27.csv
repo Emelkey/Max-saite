@@ -1,0 +1,241 @@
+campaign_id,campaign_criterion_keyword_text,campaign_criterion_keyword_match_type,campaign_criterion_negative,campaign_criterion_location_country_code,campaign_criterion_location_name,campaign_criterion_language_language_constant,campaign_criterion_ad_schedule_day_of_week,campaign_criterion_ad_schedule_start_hour,campaign_criterion_ad_schedule_end_hour
+24122973025,,,False,,,languageConstants/1031,,0,0
+24122973025,,,False,,,languageConstants/1036,,0,0
+24122973025,,,False,UA,Ukraine,,,0,0
+24122973025,,,False,,,,,0,0
+24122973025,crack,BROAD,True,,,,,0,0
+24122973025,admanager,PHRASE,True,,,,,0,0
+24122973025,adwords,PHRASE,True,,,,,0,0
+24122973025,бесплатно,BROAD,True,,,,,0,0
+24122973025,скачать,BROAD,True,,,,,0,0
+24122973025,обучение,BROAD,True,,,,,0,0
+24122973025,my business,PHRASE,True,,,,,0,0
+24122973025,torrent,BROAD,True,,,,,0,0
+24122973025,работа,BROAD,True,,,,,0,0
+24122973025,реферат,BROAD,True,,,,,0,0
+24122973025,диплом,BROAD,True,,,,,0,0
+24122973025,doubleclick,PHRASE,True,,,,,0,0
+24122973025,шаблоны,BROAD,True,,,,,0,0
+24122973025,курсы,BROAD,True,,,,,0,0
+24122973025,analytics,PHRASE,True,,,,,0,0
+24122973025,вакансии,BROAD,True,,,,,0,0
+24122973025,бесплатный хостинг,PHRASE,True,,,,,0,0
+24122973025,business profile,PHRASE,True,,,,,0,0
+24122973025,google business,PHRASE,True,,,,,0,0
+24122973025,шаблон,BROAD,True,,,,,0,0
+24122973025,робота,BROAD,True,,,,,0,0
+24122973025,стажировка,BROAD,True,,,,,0,0
+24122973025,gtm,PHRASE,True,,,,,0,0
+24122973025,add google,PHRASE,True,,,,,0,0
+24122973025,безкоштовно,BROAD,True,,,,,0,0
+24122973025,google ppc agency,PHRASE,True,,,,,0,0
+24122973025,навчання,BROAD,True,,,,,0,0
+24122973025,gdn,PHRASE,True,,,,,0,0
+24122973025,google editor,BROAD,True,,,,,0,0
+24122973025,google company,PHRASE,True,,,,,0,0
+24122973025,google sites,PHRASE,True,,,,,0,0
+24122973025,google domains,PHRASE,True,,,,,0,0
+24122973025,google trends,PHRASE,True,,,,,0,0
+24122973025,конструктор сайтов,PHRASE,True,,,,,0,0
+24122973025,google partner,PHRASE,True,,,,,0,0
+24122973025,google partners,PHRASE,True,,,,,0,0
+24122973025,manager google,PHRASE,True,,,,,0,0
+24122973025,googleadservices,BROAD,True,,,,,0,0
+24122973025,курси,BROAD,True,,,,,0,0
+24122973025,скачати,BROAD,True,,,,,0,0
+24122973025,стажування,BROAD,True,,,,,0,0
+24122973025,demand gen,PHRASE,True,,,,,0,0
+24122973025,google web designer,PHRASE,True,,,,,0,0
+24122973025,вакансія,BROAD,True,,,,,0,0
+24122973025,youtube ads,PHRASE,True,,,,,0,0
+24122973025,merchant center,PHRASE,True,,,,,0,0
+24122973025,google forms,PHRASE,True,,,,,0,0
+24122973025,gclid,PHRASE,True,,,,,0,0
+24122973025,google keyword planner,PHRASE,True,,,,,0,0
+24122973025,ok google,PHRASE,True,,,,,0,0
+24122973025,планировщик ключевых слов гугл,PHRASE,True,,,,,0,0
+24122973025,гугл реклама,PHRASE,True,,,,,0,0
+24122973025,реклама гугл,PHRASE,True,,,,,0,0
+24122973025,merchant google,PHRASE,True,,,,,0,0
+24122973025,адвордс,PHRASE,True,,,,,0,0
+24122973025,sites google,PHRASE,True,,,,,0,0
+24122973025,google keyword,PHRASE,True,,,,,0,0
+24122973025,google keywords,PHRASE,True,,,,,0,0
+24122973025,подбор ключевых слов гугл,PHRASE,True,,,,,0,0
+24122973025,реклама в гугле,PHRASE,True,,,,,0,0
+24122973025,google planner keyword,BROAD,True,,,,,0,0
+24122973025,mybusiness,PHRASE,True,,,,,0,0
+24122973025,как сделать сайт самому,PHRASE,True,,,,,0,0
+24122973025,конструктор сайтів,PHRASE,True,,,,,0,0
+24122973025,google adx,PHRASE,True,,,,,0,0
+24122973025,google agency account,BROAD,True,,,,,0,0
+24122973025,сделать сайт самостоятельно,PHRASE,True,,,,,0,0
+24122973025,реклама ютуб,PHRASE,True,,,,,0,0
+24122973025,google academy,PHRASE,True,,,,,0,0
+24122973025,google marketing platform,PHRASE,True,,,,,0,0
+24122973025,business google,PHRASE,True,,,,,0,0
+24122973025,как разместить рекламу в гугле,EXACT,True,,,,,0,0
+24122973025,google mcc,BROAD,True,,,,,0,0
+24122973025,merchant center google,PHRASE,True,,,,,0,0
+24122973025,google designer,PHRASE,True,,,,,0,0
+24122973025,google admob,PHRASE,True,,,,,0,0
+24122973025,google page insights,PHRASE,True,,,,,0,0
+24122973025,новости гугл,PHRASE,True,,,,,0,0
+24122973025,google business profile,PHRASE,True,,,,,0,0
+24122973025,google assets,PHRASE,True,,,,,0,0
+24122973025,googleads g doubleclick net,PHRASE,True,,,,,0,0
+24122973025,как создать свой сайт в гугле,PHRASE,True,,,,,0,0
+24122973025,гугл мой бизнес,PHRASE,True,,,,,0,0
+24122973025,бесплатный домен,PHRASE,True,,,,,0,0
+24122973025,google tag,PHRASE,True,,,,,0,0
+24122973025,google map business,PHRASE,True,,,,,0,0
+24122973025,гкгл,PHRASE,True,,,,,0,0
+24122973025,гоогле мапс,EXACT,True,,,,,0,0
+24122973025,google merchant,PHRASE,True,,,,,0,0
+24122973025,тема wordpress,PHRASE,True,,,,,0,0
+24122973025,google мой бизнес,PHRASE,True,,,,,0,0
+24122973025,keyword planner google,PHRASE,True,,,,,0,0
+24122973025,googleadservices com,PHRASE,True,,,,,0,0
+24122973025,google review link,PHRASE,True,,,,,0,0
+24122973025,google display networks,PHRASE,True,,,,,0,0
+24122973025,гугл сайт,PHRASE,True,,,,,0,0
+24122973025,google page insight,PHRASE,True,,,,,0,0
+24122973025,google flc,PHRASE,True,,,,,0,0
+24122973025,wordstat google,PHRASE,True,,,,,0,0
+24122973025,ads реклама,PHRASE,True,,,,,0,0
+24122973025,admob,PHRASE,True,,,,,0,0
+24122973025,гугл бизнес,PHRASE,True,,,,,0,0
+24122973025,google keyword checker for website,PHRASE,True,,,,,0,0
+24122973025,создать сайт гугл,PHRASE,True,,,,,0,0
+24122973025,как дать рекламу в гугле,PHRASE,True,,,,,0,0
+24122973025,фвы,PHRASE,True,,,,,0,0
+24122973025,исходный код,PHRASE,True,,,,,0,0
+24122973025,google бизнес,PHRASE,True,,,,,0,0
+24122973025,seo starter guide google,PHRASE,True,,,,,0,0
+24122973025,google workspace,PHRASE,True,,,,,0,0
+24122973025,google biznes,PHRASE,True,,,,,0,0
+24122973025,гугл бізнес,PHRASE,True,,,,,0,0
+24122973025,бесплатная реклама в гугл,PHRASE,True,,,,,0,0
+24122973025,google uac,BROAD,True,,,,,0,0
+24122973025,www googleadservices com,PHRASE,True,,,,,0,0
+24122973025,localo,PHRASE,True,,,,,0,0
+24122973025,как работает контекстная реклама google,PHRASE,True,,,,,0,0
+24122973025,google shear,PHRASE,True,,,,,0,0
+24122973025,гугел,PHRASE,True,,,,,0,0
+24122973025,performance max,PHRASE,True,,,,,0,0
+24122973025,як зробити рекламу в гуглі,PHRASE,True,,,,,0,0
+24122973025,серч консоль,PHRASE,True,,,,,0,0
+24122973025,сколько стоит реклама в гугле украина,PHRASE,True,,,,,0,0
+24122973025,google мій бізнес,PHRASE,True,,,,,0,0
+24122973025,гугл мій бізнес,PHRASE,True,,,,,0,0
+24122973025,гугл реклама вход,PHRASE,True,,,,,0,0
+24122973025,гугл планировщик ключевых слов,PHRASE,True,,,,,0,0
+24122973025,гугл тренди,PHRASE,True,,,,,0,0
+24122973025,пошуком,PHRASE,True,,,,,0,0
+24122973025,google abs,PHRASE,True,,,,,0,0
+24122973025,мой бизнес гугл,PHRASE,True,,,,,0,0
+24122973025,google digital garage,PHRASE,True,,,,,0,0
+24122973025,гугл мерчант,PHRASE,True,,,,,0,0
+24122973025,бизнес гугл,PHRASE,True,,,,,0,0
+24122973025,ppc hub,PHRASE,True,,,,,0,0
+24122973025,google бізнес,PHRASE,True,,,,,0,0
+24122973025,пщщпду фвы,EXACT,True,,,,,0,0
+24122973025,google add,PHRASE,True,,,,,0,0
+24122973025,гугл адс,PHRASE,True,,,,,0,0
+24122973025,google flow,PHRASE,True,,,,,0,0
+24122973025,налаштування реклами гугл,PHRASE,True,,,,,0,0
+24122973025,гугл эдс,PHRASE,True,,,,,0,0
+24122973025,едвордс,PHRASE,True,,,,,0,0
+24122973025,як зробити сайт самому,PHRASE,True,,,,,0,0
+24122973025,adx google,PHRASE,True,,,,,0,0
+24122973025,business profile google,PHRASE,True,,,,,0,0
+24122973025,мерчант гугл,PHRASE,True,,,,,0,0
+24122973025,пщщпду фві,PHRASE,True,,,,,0,0
+24122973025,imasdk,PHRASE,True,,,,,0,0
+24122973025,хостинг безкоштовно,PHRASE,True,,,,,0,0
+24122973025,wordpress тема,PHRASE,True,,,,,0,0
+24122973025,готовый шаблон,PHRASE,True,,,,,0,0
+24122973025,готовий шаблон,PHRASE,True,,,,,0,0
+24122973025,гугл адс вход,PHRASE,True,,,,,0,0
+24122973025,google skillshop,PHRASE,True,,,,,0,0
+24122973025,гугл май бізнес,PHRASE,True,,,,,0,0
+24122973025,промокод для гугл рекламы,PHRASE,True,,,,,0,0
+24122973025,rich results test,PHRASE,True,,,,,0,0
+24122973025,skillshop google,PHRASE,True,,,,,0,0
+24122973025,пример кода,PHRASE,True,,,,,0,0
+24122973025,fldjhlc,PHRASE,True,,,,,0,0
+24122973025,гугл едс,PHRASE,True,,,,,0,0
+24122973025,ueuk flc,PHRASE,True,,,,,0,0
+24122973025,гугл єдс,PHRASE,True,,,,,0,0
+24122973025,мeet,EXACT,True,,,,,0,0
+24122973025,бизнес аккаунт гугл,PHRASE,True,,,,,0,0
+24122973025,labs google,PHRASE,True,,,,,0,0
+24122973025,мерчан центр,PHRASE,True,,,,,0,0
+24122973025,рекламный кабинет гугл,PHRASE,True,,,,,0,0
+24122973025,google core web vitals,PHRASE,True,,,,,0,0
+24122973025,міт,PHRASE,True,,,,,0,0
+24122973025,google search central,PHRASE,True,,,,,0,0
+24122973025,google rich results,PHRASE,True,,,,,0,0
+24122973025,фві пщщпду,PHRASE,True,,,,,0,0
+24122973025,гугл дисплей нетворк,PHRASE,True,,,,,0,0
+24122973025,ігри від google,EXACT,True,,,,,0,0
+24122973025,етапи створення інтернет магазину,PHRASE,True,,,,,0,0
+24122973025,гугладс,PHRASE,True,,,,,0,0
+24122973025,рекламний кабінет google,PHRASE,True,,,,,0,0
+24122973025,рекламний кабінет гугл,PHRASE,True,,,,,0,0
+24122973025,джімейл,PHRASE,True,,,,,0,0
+24122973025,гуглпочта,PHRASE,True,,,,,0,0
+24122973025,библиотека рекламы гугл,PHRASE,True,,,,,0,0
+24122973025,google pmax,PHRASE,True,,,,,0,0
+24122973025,перформанс макс,PHRASE,True,,,,,0,0
+24122973025,мій бізнес гугл,PHRASE,True,,,,,0,0
+24122973025,google site make,PHRASE,True,,,,,0,0
+24122973025,пщщпд фві,PHRASE,True,,,,,0,0
+24122973025,фві google,PHRASE,True,,,,,0,0
+24122973025,гугл адс це,PHRASE,True,,,,,0,0
+24122973025,looker studio,PHRASE,True,,,,,0,0
+24122973025,myadcenter google com,BROAD,True,,,,,0,0
+24122973025,google looker studio,PHRASE,True,,,,,0,0
+24122973025,seo meta in 1 click for chrome,PHRASE,True,,,,,0,0
+24122973025,гугал мепс,EXACT,True,,,,,0,0
+24122973025,google g4,PHRASE,True,,,,,0,0
+24122973025,домен безкоштовно,PHRASE,True,,,,,0,0
+24122973025,банер гугл,PHRASE,True,,,,,0,0
+24122973025,https myadcenter google com,BROAD,True,,,,,0,0
+24122973025,google indexing test,PHRASE,True,,,,,0,0
+24122973025,аккаунты гугл адс,PHRASE,True,,,,,0,0
+24122973025,google editor download,PHRASE,True,,,,,0,0
+24122973025,google adі,PHRASE,True,,,,,0,0
+24122973025,volume search google,PHRASE,True,,,,,0,0
+24122973025,центр управления рекламой гугл,PHRASE,True,,,,,0,0
+24122973025,бізнес акаунт гугл,PHRASE,True,,,,,0,0
+24122973025,тег гугл,PHRASE,True,,,,,0,0
+24122973025,google landing page template,PHRASE,True,,,,,0,0
+24122973025,google ppc это,PHRASE,True,,,,,0,0
+24122973025,бізнес гугл,PHRASE,True,,,,,0,0
+24122973025,бізнес профіль гугл,PHRASE,True,,,,,0,0
+24122973025,гугл тег,PHRASE,True,,,,,0,0
+24122973025,бібліотека реклами гугл,PHRASE,True,,,,,0,0
+24122973025,seo extension google chrome,PHRASE,True,,,,,0,0
+24122973025,google for woocommerce,PHRASE,True,,,,,0,0
+24122973025,google ai max,BROAD,True,,,,,0,0
+24122973025,google ads mcp server,BROAD,True,,,,,0,0
+24122973025,гугл флоу,PHRASE,True,,,,,0,0
+24122973025,pomelli google labs,PHRASE,True,,,,,0,0
+24122973025,ueuk tlc,PHRASE,True,,,,,0,0
+24122973025,google maps profile business,PHRASE,True,,,,,0,0
+24122973025,зробити сайт самостійно,PHRASE,True,,,,,0,0
+24122973025,гугл business,PHRASE,True,,,,,0,0
+24122973025,вихідний код,PHRASE,True,,,,,0,0
+24122973025,мой бизнес гугл карты,PHRASE,True,,,,,0,0
+24122973025,приклад коду,PHRASE,True,,,,,0,0
+24122973025,ігри від google,PHRASE,True,,,,,0,0
+24122973025,at least 1 landscape image is required,EXACT,True,,,,,0,0
+24122973025,юак,PHRASE,True,,,,,0,0
+24122973025,at least 1 landscape image is required,PHRASE,True,,,,,0,0
+24122973025,як на ютубі відключити рекламу,PHRASE,True,,,,,0,0
+24122973025,перформанс макс это,PHRASE,True,,,,,0,0
+24122973025,sp seo remarketing all in one pro 8.1,PHRASE,True,,,,,0,0
+24122973025,performance max це,PHRASE,True,,,,,0,0
+24122973025,служба підтримки гугл,PHRASE,True,,,,,0,0
+24122973025,пошук за зображенням гугл,PHRASE,True,,,,,0,0

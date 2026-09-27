@@ -1,0 +1,463 @@
+{
+  "retrieved_date": "2026-09-27",
+  "customer_id": "778-225-5000",
+  "source": "Windsor.ai_Google_Ads.get_data, connected read-only Google Ads data",
+  "date_from": "2026-08-30",
+  "date_to": "2026-09-26",
+  "date_boundaries": "inclusive, account time zone Europe/Kiev",
+  "transcription_note": "Selected tool responses transcribed into this evidence file. This is not a full Google Ads Editor export. Monetary decimal precision is preserved as strings for calculations.",
+  "campaign_response": {
+    "campaign": "MAXSITE WEB",
+    "campaign_id": "24122973025",
+    "campaign_status": "ENABLED",
+    "account_currency_code": "UAH",
+    "account_time_zone": "Europe/Kiev",
+    "campaign_budget_returned": 300.0,
+    "bidding_strategy_type": "TARGET_SPEND",
+    "campaign_target_spend_cpc_bid_ceiling_micros": null,
+    "impressions": 1827,
+    "clicks": 160,
+    "spend": "11537.4643",
+    "conversions": 0,
+    "all_conversions": 0,
+    "search_impression_share": "0.293",
+    "search_rank_lost_impression_share": "0.4833",
+    "search_budget_lost_impression_share": "0.2238"
+  },
+  "campaign_day_rows": [
+    {
+      "date": "2026-08-30",
+      "spend_ua_hryvnia": "560.67",
+      "clicks": 8,
+      "impressions": 64,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-08-31",
+      "spend_ua_hryvnia": "594.71",
+      "clicks": 7,
+      "impressions": 33,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-01",
+      "spend_ua_hryvnia": "660.04",
+      "clicks": 5,
+      "impressions": 126,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-02",
+      "spend_ua_hryvnia": "742.64",
+      "clicks": 8,
+      "impressions": 60,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-03",
+      "spend_ua_hryvnia": "605.94",
+      "clicks": 6,
+      "impressions": 56,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-04",
+      "spend_ua_hryvnia": "458.0",
+      "clicks": 5,
+      "impressions": 63,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-05",
+      "spend_ua_hryvnia": "1139.03",
+      "clicks": 12,
+      "impressions": 107,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-06",
+      "spend_ua_hryvnia": "486.42",
+      "clicks": 5,
+      "impressions": 88,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-07",
+      "spend_ua_hryvnia": "373.44",
+      "clicks": 4,
+      "impressions": 47,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-08",
+      "spend_ua_hryvnia": "294.97",
+      "clicks": 4,
+      "impressions": 49,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-09",
+      "spend_ua_hryvnia": "170.17",
+      "clicks": 3,
+      "impressions": 59,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-10",
+      "spend_ua_hryvnia": "479.9843",
+      "clicks": 7,
+      "impressions": 61,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-11",
+      "spend_ua_hryvnia": "238.51",
+      "clicks": 5,
+      "impressions": 36,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-12",
+      "spend_ua_hryvnia": "151.62",
+      "clicks": 3,
+      "impressions": 50,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-13",
+      "spend_ua_hryvnia": "387.98",
+      "clicks": 7,
+      "impressions": 72,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-14",
+      "spend_ua_hryvnia": "497.68",
+      "clicks": 6,
+      "impressions": 73,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-15",
+      "spend_ua_hryvnia": "331.7",
+      "clicks": 4,
+      "impressions": 113,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-16",
+      "spend_ua_hryvnia": "382.41",
+      "clicks": 5,
+      "impressions": 76,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-17",
+      "spend_ua_hryvnia": "283.86",
+      "clicks": 5,
+      "impressions": 53,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-18",
+      "spend_ua_hryvnia": "355.93",
+      "clicks": 6,
+      "impressions": 81,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-19",
+      "spend_ua_hryvnia": "415.04",
+      "clicks": 7,
+      "impressions": 69,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-20",
+      "spend_ua_hryvnia": "343.0",
+      "clicks": 7,
+      "impressions": 43,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-21",
+      "spend_ua_hryvnia": "337.55",
+      "clicks": 7,
+      "impressions": 60,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-22",
+      "spend_ua_hryvnia": "344.76",
+      "clicks": 7,
+      "impressions": 94,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-23",
+      "spend_ua_hryvnia": "314.57",
+      "clicks": 6,
+      "impressions": 76,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-24",
+      "spend_ua_hryvnia": "313.3",
+      "clicks": 7,
+      "impressions": 67,
+      "conversions": 0,
+      "all_conversions": 0
+    },
+    {
+      "date": "2026-09-26",
+      "spend_ua_hryvnia": "273.54",
+      "clicks": 4,
+      "impressions": 51,
+      "conversions": 0,
+      "all_conversions": 0
+    }
+  ],
+  "ad_period_rows": [
+    {
+      "ad_id": "820333812947",
+      "final_url": "https://maxsite.com.ua/stvorennya-sajtiv-pid-klyuch/",
+      "impressions": 1810,
+      "clicks": 156,
+      "spend": "11302.6443",
+      "conversions": 0
+    },
+    {
+      "ad_id": "825024420905",
+      "final_url": "https://maxsite.com.ua/stvorennya-saytiv/",
+      "impressions": 17,
+      "clicks": 4,
+      "spend": "234.82",
+      "conversions": 0
+    }
+  ],
+  "ad_day_rows_2026_09_20_to_26": [
+    {
+      "date": "2026-09-20",
+      "ad_id": "820333812947",
+      "clicks": 7,
+      "spend": "343.0",
+      "impressions": 43
+    },
+    {
+      "date": "2026-09-21",
+      "ad_id": "820333812947",
+      "clicks": 7,
+      "spend": "337.55",
+      "impressions": 60
+    },
+    {
+      "date": "2026-09-22",
+      "ad_id": "820333812947",
+      "clicks": 7,
+      "spend": "344.76",
+      "impressions": 94
+    },
+    {
+      "date": "2026-09-23",
+      "ad_id": "820333812947",
+      "clicks": 6,
+      "spend": "314.57",
+      "impressions": 76
+    },
+    {
+      "date": "2026-09-24",
+      "ad_id": "820333812947",
+      "clicks": 6,
+      "spend": "273.23",
+      "impressions": 66
+    },
+    {
+      "date": "2026-09-24",
+      "ad_id": "825024420905",
+      "clicks": 1,
+      "spend": "40.07",
+      "impressions": 1
+    },
+    {
+      "date": "2026-09-26",
+      "ad_id": "820333812947",
+      "clicks": 1,
+      "spend": "78.79",
+      "impressions": 35
+    },
+    {
+      "date": "2026-09-26",
+      "ad_id": "825024420905",
+      "clicks": 3,
+      "spend": "194.75",
+      "impressions": 16
+    }
+  ],
+  "selected_search_term_rows_NOT_COMPLETE_EXPORT": [
+    {
+      "search_term": "розробка сайтів",
+      "impressions": 272,
+      "clicks": 21,
+      "spend": "1527.3353",
+      "conversions": 0
+    },
+    {
+      "search_term": "заказать сайт",
+      "impressions": 63,
+      "clicks": 17,
+      "spend": "1186.2",
+      "conversions": 0
+    },
+    {
+      "search_term": "сайт под ключ",
+      "impressions": 39,
+      "clicks": 10,
+      "spend": "897.08",
+      "conversions": 0
+    },
+    {
+      "search_term": "разработка сайтов",
+      "impressions": 58,
+      "clicks": 8,
+      "spend": "604.97",
+      "conversions": 0
+    },
+    {
+      "search_term": "создание сайтов",
+      "impressions": 38,
+      "clicks": 4,
+      "spend": "328.82",
+      "conversions": 0
+    },
+    {
+      "search_term": "створення лендінгу",
+      "impressions": 23,
+      "clicks": 4,
+      "spend": "319.93",
+      "conversions": 0
+    },
+    {
+      "search_term": "створення лендінгу ціна",
+      "impressions": 11,
+      "clicks": 4,
+      "spend": "197.18",
+      "conversions": 0
+    },
+    {
+      "search_term": "создание сайтов заказы",
+      "impressions": 2,
+      "clicks": 1,
+      "spend": "93.83",
+      "conversions": 0
+    },
+    {
+      "search_term": "как создать сайт для продажи одежды",
+      "impressions": 1,
+      "clicks": 1,
+      "spend": "49.36",
+      "conversions": 0
+    },
+    {
+      "search_term": "google ads",
+      "impressions": 21,
+      "clicks": 0,
+      "spend": "0.0",
+      "conversions": 0
+    },
+    {
+      "search_term": "google ads mcp server",
+      "impressions": 1,
+      "clicks": 0,
+      "spend": "0.0",
+      "conversions": 0
+    },
+    {
+      "search_term": "google planner keyword",
+      "impressions": 1,
+      "clicks": 0,
+      "spend": "0.0",
+      "conversions": 0
+    },
+    {
+      "search_term": "сайт заказать москва",
+      "impressions": 1,
+      "clicks": 0,
+      "spend": "0.0",
+      "conversions": 0
+    }
+  ],
+  "calculated": {
+    "ctr_percent": "8.757525998905309250136836344",
+    "average_cpc_ua_hryvnia": "72.109151875",
+    "old_url_share_of_spend_percent": "97.96471742928816689816322985",
+    "daily_spend_sum": "11537.4643",
+    "daily_click_sum": 160,
+    "daily_impression_sum": 1827,
+    "ad_spend_sum": "11537.4643",
+    "avg_daily_budget_300_unchanged_full_month_illustration": "9120.0",
+    "typical_daily_billing_limit_300_illustration": "600",
+    "recent_7_day_window": {
+      "date_from": "2026-09-20",
+      "date_to": "2026-09-26",
+      "returned_date_rows": 6,
+      "spend": "1926.72",
+      "clicks": 38,
+      "impressions": 391,
+      "conversions": 0,
+      "cpc": "50.70315789473684210526315789",
+      "ctr_percent": "9.718670076726342710997442455"
+    },
+    "prior_7_day_window": {
+      "date_from": "2026-09-13",
+      "date_to": "2026-09-19",
+      "returned_date_rows": 7,
+      "spend": "2654.60",
+      "clicks": 40,
+      "impressions": 537,
+      "conversions": 0,
+      "cpc": "66.365",
+      "ctr_percent": "7.448789571694599627560521415"
+    }
+  },
+  "limitations": [
+    "No day row returned for 2026-09-25. It is not zero-filled. Returned campaign-day totals reconcile to the independently fetched full-period campaign aggregate.",
+    "Null CPC ceiling is an unknown value, not proof that no ceiling exists.",
+    "campaign_budget field metadata describes a resource name but the connector returned 300.0; prior 2026-09-15 document also reported 300 UAH/day. Verify native budget amount and change history before mutation.",
+    "Current budget must not be assumed to have applied to all historical dates. Served cost and billed cost can differ.",
+    "Aggregate conversion zeros do not establish absence of real leads or the root cause of missing attribution.",
+    "No current GA4 event export, conversion-action inventory, phone-call log or lead-quality export was obtained in this preparation.",
+    "Latest actual reported delivery was on 2026-09-26. Serving status as of every moment on 2026-09-27 is not proven.",
+    "HYPD google_ads_list_accounts returned an empty list; Windsor read access worked. Codex access must be discovered independently.",
+    "Search term rows here are selected examples, not a complete search-term report. Even a full available search-term report may omit terms."
+  ],
+  "owner_confirmation": {
+    "date": "2026-09-27",
+    "text": "форма заявки з сайту відправляється на телеграм все добре",
+    "interpretation": "Owner confirms working site-to-Telegram delivery. This is not confirmation that Ads attributes the lead correctly and not an independent test in this session."
+  }
+}

@@ -1,0 +1,5 @@
+level,campaign_id,ad_group,negative_keyword,match_type,reason,source_query,spend,decision,import_status
+CAMPAIGN,24122973025,,google ads mcp server,BROAD,Existing campaign negative in 2026-09-27 connector export; no duplicate import,google ads mcp server,0.0,KEEP,ALREADY_PRESENT_NO_IMPORT
+CAMPAIGN,24122973025,,google planner keyword,BROAD,Existing campaign negative in 2026-09-27 connector export; no duplicate import,google planner keyword,0.0,KEEP,ALREADY_PRESENT_NO_IMPORT
+CAMPAIGN,24122973025,,как создать сайт для продажи одежды,EXACT,"One exact DIY search-term click cost 49.36 UAH in prewrite export; native filters found no matching negative or positive keyword. First save was rejected by automatic approval review and canceled. After user specifically authorized 'робимо', native UI saved campaign exact negative; success banner and refreshed row confirmed; budget remained 300 UAH/day",как создать сайт для продажи одежды,49.36,KEEP,APPLIED_VERIFIED_NO_IMPORT
+CAMPAIGN,24122973025,,сайт заказать москва,EXACT,Possible out-of-market intent; verify current geo policy,сайт заказать москва,0.0,REVIEW,REVIEW_NO_IMPORT
