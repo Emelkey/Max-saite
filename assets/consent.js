@@ -47,7 +47,14 @@
       page_referrer: (() => { try { const referrer = new URL(document.referrer); return `${referrer.origin}${referrer.pathname}`; } catch { return ""; } })()
     };
   };
-  window.MAX_SITE_GOOGLE_PAGE = googlePage();
+  // A fresh denied visit must not consume its only automatic pageview before
+  // the visitor has chosen analytics. Saved analytics consent keeps the normal
+  // automatic pageview on navigation.
+  let pageViewSent = window.MAX_SITE_CONSENT.analytics_storage === "granted";
+  window.MAX_SITE_GOOGLE_PAGE = {
+    ...googlePage(),
+    ...(pageViewSent ? {} : {send_page_view: false})
+  };
   const purgeAttribution = () => {
     try {
       if (window.MAX_SITE_CONSENT.ad_storage !== "granted") {
@@ -77,15 +84,21 @@
     panel.addEventListener("click", event => {
       const choice = event.target.closest("button[data-choice]")?.dataset.choice;
       if (!choice) return;
+      const analyticsWasGranted = window.MAX_SITE_CONSENT.analytics_storage === "granted";
       saved = {choice, timestamp: Date.now()};
       window.MAX_SITE_CONSENT = states(choice);
       window.gtag("consent", "update", window.MAX_SITE_CONSENT);
       const previousPageLocation = window.MAX_SITE_GOOGLE_PAGE.page_location;
       window.MAX_SITE_GOOGLE_PAGE = googlePage();
       if (window.MAX_SITE_GOOGLE_PAGE.page_location !== previousPageLocation) {
-        // Refresh later event context after an on-page consent change, without
-        // creating a second pageview or reattributing the initial session.
+        // Refresh later event context without an automatic pageview.
         window.gtag("config", "G-TS8DMMKK34", {...window.MAX_SITE_GOOGLE_PAGE, send_page_view: false});
+      }
+      if (!analyticsWasGranted && window.MAX_SITE_CONSENT.analytics_storage === "granted" && !pageViewSent) {
+        // The first analytics grant on this page gets one consented pageview.
+        // Event-level location follows the same allowlist as later events.
+        window.gtag("event", "page_view", {...window.MAX_SITE_GOOGLE_PAGE, send_to: "G-TS8DMMKK34"});
+        pageViewSent = true;
       }
       try { localStorage.setItem(key, JSON.stringify(saved)); } catch {}
       purgeAttribution();
