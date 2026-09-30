@@ -24,8 +24,10 @@
   const ensureGoogleTag = (config = {}) => {
     if (location.origin !== "https://maxsite.com.ua") return false;
     const src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    let script = Array.from(document.scripts).find(item => item.src === src);
+    const scripts = document.scripts ? Array.from(document.scripts) : [];
+    let script = scripts.find(item => item.src === src);
     if (!script) {
+      if (!document.head?.appendChild || !document.createElement) return false;
       script = document.createElement("script");
       script.async = true;
       script.src = src;
