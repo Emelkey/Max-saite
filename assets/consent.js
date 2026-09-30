@@ -20,6 +20,23 @@
   window.gtag("consent", "default", window.MAX_SITE_CONSENT);
   window.gtag("set", "ads_data_redaction", true);
   window.gtag("set", "url_passthrough", false);
+  const measurementId = "G-TS8DMMKK34";
+  const ensureGoogleTag = (config = {}) => {
+    if (location.origin !== "https://maxsite.com.ua") return false;
+    const src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    let script = Array.from(document.scripts).find(item => item.src === src);
+    if (!script) {
+      script = document.createElement("script");
+      script.async = true;
+      script.src = src;
+      script.dataset.maxSiteGa4Fallback = "true";
+      document.head.appendChild(script);
+      window.gtag("js", new Date());
+      window.gtag("config", measurementId, {anonymize_ip: true, ...config});
+      return true;
+    }
+    return false;
+  };
   const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_source_platform", "utm_term", "utm_content"];
   const clickKeys = ["gclid", "gbraid", "wbraid", "gad_source", "gad_campaignid", "gclsrc"];
   const looksLikePhone = value => /(?:^|\D)(?:\+?380\d{9}|0\d{9})(?:$|\D)/.test(value.replace(/[ ().-]/g, ""));
@@ -67,6 +84,12 @@
     } catch {}
   };
   purgeAttribution();
+  // Production must remain measurable even if an HTML-level Google tag is
+  // removed by a cache, optimizer or stale template. consent.js is the
+  // first-party source of truth and only self-heals after analytics consent.
+  if (window.MAX_SITE_CONSENT.analytics_storage === "granted") {
+    ensureGoogleTag(window.MAX_SITE_GOOGLE_PAGE);
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const panel = document.createElement("section");
@@ -90,6 +113,9 @@
       window.gtag("consent", "update", window.MAX_SITE_CONSENT);
       const previousPageLocation = window.MAX_SITE_GOOGLE_PAGE.page_location;
       window.MAX_SITE_GOOGLE_PAGE = googlePage();
+      if (window.MAX_SITE_CONSENT.analytics_storage === "granted") {
+        ensureGoogleTag({...window.MAX_SITE_GOOGLE_PAGE, send_page_view: false});
+      }
       if (window.MAX_SITE_GOOGLE_PAGE.page_location !== previousPageLocation) {
         // Refresh later event context without an automatic pageview.
         window.gtag("config", "G-TS8DMMKK34", {...window.MAX_SITE_GOOGLE_PAGE, send_page_view: false});
