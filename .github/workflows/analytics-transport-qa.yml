@@ -1,0 +1,35 @@
+name: MAX SITE analytics transport evidence
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/verify-live-ga4.js'
+      - '.github/workflows/analytics-transport-qa.yml'
+  workflow_run:
+    workflows: ['MAX SITE quality gate and explicit production release']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  observe:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success' && contains(github.event.workflow_run.display_title, '[production-release]'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Observe one consented page view; never submit a lead
+        run: node tools/verify-live-ga4.js
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analytics-transport-evidence
+          path: artifacts/analytics-live
+          retention-days: 7
