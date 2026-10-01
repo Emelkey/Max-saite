@@ -1,0 +1,31 @@
+/* Scoped to the paid website-development landing; no global layout changes. */
+.cro-landing .cro-quote-hero { grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); align-items: start; }
+.cro-quote-hero > * { min-width: 0; }
+.cro-landing .cro-quote-hero h1 { font-size: clamp(30px, 3.4vw, 46px); }
+.cro-quote-hero .cro-price .cro-business-price { color: var(--green); font-size: 20px; font-weight: 750; }
+.cro-quote-hero .cro-offer .cro-price-note { margin-top: 18px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.cro-offer-points { padding-left: 20px; margin: 16px 0; display: grid; gap: 8px; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.cro-landing .cro-quote-card { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 22px; border-color: rgba(24, 244, 91, .3); box-shadow: none; scroll-margin-top: 100px; }
+.cro-quote-card h2 { margin: 0 0 8px; font-size: 26px; line-height: 1.15; text-transform: none; letter-spacing: -.02em; }
+.cro-quote-card p { margin: 0; font-size: 14px; line-height: 1.5; }
+.cro-quote-card .compact-form { gap: 10px; }
+.cro-quote-card .compact-form label { gap: 5px; font-size: 14px; }
+.cro-quote-card .compact-form input:not([type="checkbox"]):not([type="hidden"]),
+.cro-quote-card .compact-form textarea { font-size: 16px; min-width: 0; }
+.cro-quote-card .compact-form textarea { min-height: 70px; resize: vertical; }
+.cro-quote-card .compact-form .form-consent { font-size: 12px; }
+.cro-quote-card .compact-form .btn { min-height: 46px; width: 100%; }
+.cro-quote-card .cro-direct-contact { font-size: 13px; }
+.cro-quote-card .cro-direct-contact a { color: var(--green); text-decoration: underline; display: inline-block; padding-block: 5px; }
+.cro-bottom-cta h2 { text-transform: none; }
+@media (max-width: 1000px) {
+  .cro-landing .cro-quote-hero { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .cro-landing .cro-quote-hero h1 { font-size: clamp(24px, 7vw, 30px); }
+  .cro-quote-hero .cro-price .cro-business-price { font-size: 16px; }
+  .cro-landing .cro-quote-card { padding: 16px; gap: 12px; scroll-margin-top: 90px; }
+  .cro-quote-card h2 { font-size: 24px; }
+  .cro-offer-points { font-size: 14px; gap: 6px; }
+  .cro-quote-hero .hero-buttons .btn { white-space: normal; }
+}
