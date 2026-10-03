@@ -32,14 +32,16 @@ test('Worker validates phone, consent, media type, actual bytes and spam', async
   assert.equal(response.headers.get('X-Content-Type-Options'), 'nosniff');
 });
 
-test('Worker passes allowed context, strips URL queries, and deduplicates concurrent retries', async t => {
+test('Worker sends only essential contact details and deduplicates concurrent retries', async t => {
   const api = await worker(); const body = payload(); const sent = [];
   t.mock.method(globalThis, 'fetch', async (_url, options) => { sent.push(JSON.parse(options.body)); return Response.json({ok:true}); });
   const responses = await Promise.all([api.fetch(request(body), env), api.fetch(request(body), env)]);
   assert.deepEqual(await Promise.all(responses.map(response => response.json())), [{ok:true, lead_id:body.requestId}, {ok:true, lead_id:body.requestId}]);
   assert.equal(sent.length, 1);
-  assert.match(sent[0].text, new RegExp(`lead_id: ${body.requestId}`));
-  assert.match(sent[0].text, /city: kyiv/);
+  assert.equal(sent[0].text, "MAX SITE • нова заявка\nІм'я: Test only\nТелефон: +380000000000");
+  assert.equal(sent[0].chat_id, env.TELEGRAM_CHAT_ID);
+  assert.equal(sent[0].disable_web_page_preview, true);
+  assert.equal(sent[0].parse_mode, undefined);
   assert.doesNotMatch(sent[0].text, /private@example|forbidden-without/);
   assert.equal((await api.fetch(request({...body, fields: {phone:'+380111111111'}}), env)).status, 409);
 });
@@ -108,6 +110,7 @@ test('Durable Object gates enforce distributed rate limiting and idempotent deli
     {ok:true, lead_id:body.requestId},
   ]);
   assert.equal(sent.length, 1);
+  assert.equal(sent[0].text, "MAX SITE • нова заявка\nІм'я: Test only\nТелефон: +380000000000");
   assert.equal((await delivery.fetch(internal({...input, digest:'different'}))).status, 409);
 
   const rate = new LeadRateGate(memoryState());
@@ -178,4 +181,43 @@ test('client classifies endpoint failure modes without leaking response bodies',
     vm.runInContext('sendLead({requestId:"lead-123"})', context),
     error => error.code === 'endpoint_timeout'
   );
+});
+
+test('compact Worker and manual fallback preserve requests without exposing metadata', async t => {
+  const {context} = browserContext();
+  const cases = [
+    {fields: {name: '  Олена  ', phone: '+380000000000', business: 'Каталог', comment: 'Потрібен пошук\nі фільтри'}, expected: "Ім'я: Олена\nТелефон: +380000000000\nЗапит: Каталог\nПотрібен пошук\nі фільтри"},
+    {fields: {phone: '@example_user', business: ' Створення сайту ', comment: 'Створення сайту'}, expected: 'Телефон: @example_user\nЗапит: Створення сайту'},
+    {fields: {name: ' ', phone: '+380000000000', business: ' ', comment: '\n '}, expected: 'Телефон: +380000000000'},
+    {fields: {phone: '+380000000000', business: 'Інтернет-магазин'}, expected: 'Телефон: +380000000000\nЗапит: Інтернет-магазин'},
+    {fields: {phone: '+380000000000', comment: '<b>Текст</b> & _символи_ https://example.test/brief'}, expected: 'Телефон: +380000000000\nЗапит: <b>Текст</b> & _символи_ https://example.test/brief'},
+    {fields: {phone: '+380000000000', comment: 'я'.repeat(1990) + '\nКІНЕЦЬ!!!'}, expected: 'Телефон: +380000000000\nЗапит: ' + 'я'.repeat(1990) + '\nКІНЕЦЬ!!!'},
+  ];
+  // The API accepts 2,000 characters, all of which must reach Telegram.
+  assert.equal(cases[5].fields.comment.length, 2000);
+  const sent = [];
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    sent.push(JSON.parse(options.body));
+    return Response.json({ok: true});
+  });
+  for (const {fields, expected} of cases) {
+    const api = await worker();
+    const body = {
+      ...payload(), fields, pageTitle: 'PRIVATE_PAGE_TITLE',
+      context: {consent: true, consent_state: 'ads_granted', gclid: 'PRIVATE_GCLID',
+        landing_path: '/PRIVATE_PATH/', page_type: 'PRIVATE_TYPE', city: 'PRIVATE_CITY', service: 'PRIVATE_SERVICE',
+        utm_source: 'PRIVATE_SOURCE', utm_medium: 'PRIVATE_MEDIUM', utm_campaign: 'PRIVATE_CAMPAIGN',
+        utm_term: 'PRIVATE_TERM', utm_content: 'PRIVATE_CONTENT', timestamp: 'PRIVATE_TIME',
+        referrer: 'https://referrer.example.test/PRIVATE_REFERRER'},
+    };
+    const original = JSON.stringify(body);
+    const response = await api.fetch(request(body), env);
+    assert.deepEqual(await response.json(), {ok: true, lead_id: body.requestId});
+    const expectedText = `MAX SITE • нова заявка\n${expected}`;
+    assert.equal(sent.at(-1).text, expectedText);
+    assert.doesNotMatch(sent.at(-1).text, /PRIVATE_|lead_id:|consent|utm_|gclid|page_type|landing_path/);
+    context.leadForFormatting = body;
+    assert.equal(vm.runInContext('buildTelegramText(leadForFormatting)', context), expectedText);
+    assert.equal(JSON.stringify(body), original, 'Formatting must not mutate lead or attribution');
+  }
 });

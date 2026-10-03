@@ -351,14 +351,15 @@ const buildLeadPayload = (form) => {
 };
 
 const buildTelegramText = (payload) => {
+  const fields = payload.fields || {};
+  const value = (field) => String(field || "").trim();
+  // Keep the full accepted request; attribution stays in the lead payload.
+  const request = [...new Set([value(fields.business), value(fields.comment)].filter(Boolean))];
   const rows = [
-    "Нова заявка з сайту MAX SITE",
-    `Сторінка: ${payload.pageTitle}`,
-    `URL: ${payload.pageUrl}`,
-    payload.fields.name ? `Ім'я: ${payload.fields.name}` : "",
-    payload.fields.phone ? `Телефон: ${payload.fields.phone}` : "",
-    payload.fields.business ? `Ніша: ${payload.fields.business}` : "",
-    payload.fields.comment ? `Коментар: ${payload.fields.comment}` : "",
+    "MAX SITE • нова заявка",
+    value(fields.name) ? `Ім'я: ${value(fields.name)}` : "",
+    value(fields.phone) ? `Телефон: ${value(fields.phone)}` : "",
+    request.length ? `Запит: ${request.join("\n")}` : "",
   ];
 
   return rows.filter(Boolean).join("\n");
