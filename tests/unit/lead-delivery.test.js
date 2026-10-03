@@ -190,7 +190,7 @@ test('compact Worker and manual fallback preserve requests without exposing meta
     {fields: {phone: '@example_user', business: ' Створення сайту ', comment: 'Створення сайту'}, expected: 'Телефон: @example_user\nЗапит: Створення сайту'},
     {fields: {name: ' ', phone: '+380000000000', business: ' ', comment: '\n '}, expected: 'Телефон: +380000000000'},
     {fields: {phone: '+380000000000', business: 'Інтернет-магазин'}, expected: 'Телефон: +380000000000\nЗапит: Інтернет-магазин'},
-    {fields: {phone: '+380000000000', comment: '<b>Текст</b> & _символи_ https://example.test/brief'}, expected: 'Телефон: +380000000000\nЗапит: <b>Текст</b> & _символи_ https://example.test/brief'},
+    {fields: {phone: '+380000000000', comment: '<b>Текст</b> & _символи_ 🧩 https://example.test/brief'}, expected: 'Телефон: +380000000000\nЗапит: <b>Текст</b> & _символи_ 🧩 https://example.test/brief'},
     {fields: {phone: '+380000000000', comment: 'я'.repeat(1990) + '\nКІНЕЦЬ!!!'}, expected: 'Телефон: +380000000000\nЗапит: ' + 'я'.repeat(1990) + '\nКІНЕЦЬ!!!'},
   ];
   // The API accepts 2,000 characters, all of which must reach Telegram.
