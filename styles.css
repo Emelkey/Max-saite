@@ -3074,3 +3074,13 @@ body:has(> .site-header) .top1-context li a {
     border: 0;
   }
 }
+
+/* Preserve the compact first fold of the two Google Ads landing pages. */
+@media (max-width: 600px) {
+  body:has(> .site-header).cro-page .site-header { min-height: 58px; }
+  body:has(> .site-header) .cro-landing .cro-hero h1 {
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.08;
+    margin: 8px 0 10px;
+  }
+}
