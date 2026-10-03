@@ -168,9 +168,13 @@ document.addEventListener("click", (event) => {
   if (!link) return;
 
   const href = link.getAttribute("href") || "";
+  let destination = null;
+  try { destination = new URL(href, window.location.href); } catch { /* Invalid links cannot be analytics destinations. */ }
+  const planCard = link.closest(".price-card, .shop-card, .mx-price, .mx-shop");
+  const caseCard = link.closest(".work-card, .case-study, .portfolio-case, .mx-case");
   const linkLocation = link.closest(".floating-contact")
     ? "mobile_sticky_bar"
-    : link.closest(".main-nav")
+    : link.closest(".main-nav, .mx-mobile-menu")
       ? "mobile_navigation"
       : link.closest("header")
         ? "header"
@@ -212,23 +216,22 @@ document.addEventListener("click", (event) => {
   } else if (href.startsWith("mailto:")) {
     trackContactClick("email");
     trackEvent("click_email");
-  } else if (link.closest(".price-card, .shop-card")) {
-    const planCard = link.closest(".price-card, .shop-card");
+  } else if (planCard) {
     const planName = planCard?.querySelector("h3")?.textContent?.trim().slice(0, 60) || "unknown";
     trackEvent("select_plan", { plan_name: planName });
     trackEvent("price_cta", { plan_name: planName });
     trackEvent("pricing_cta_click", { plan_name: planName });
   } else if (
-    link.closest(".work-card, .case-study, .portfolio-case") &&
-    /^https?:\/\//i.test(href)
+    caseCard &&
+    /^https?:\/\//i.test(href) &&
+    !(destination?.origin === window.location.origin && /^\/portfolio\//.test(destination.pathname))
   ) {
-    const caseCard = link.closest(".work-card, .case-study, .portfolio-case");
     const caseName = caseCard?.querySelector("h1, h2, h3")?.textContent?.trim().slice(0, 80) || "case";
     trackEvent("outbound_case_click", { case_name: caseName });
     trackEvent("portfolio_click", { case_name: caseName });
     trackEvent("case_live_site_click", { case_name: caseName });
-  } else if (/^\/portfolio\//.test(href)) {
-    trackEvent("portfolio_open", { destination_path: new URL(href, window.location.origin).pathname });
+  } else if (href && !href.startsWith("#") && destination?.origin === window.location.origin && /^\/portfolio\//.test(destination.pathname)) {
+    trackEvent("portfolio_open", { destination_path: destination.pathname });
   } else if (
     PAGE_CONTEXT.page_type === "city_hub" &&
     /^\/(?:stvorennya|sajty|seo|google-ads)/.test(href)
@@ -290,7 +293,7 @@ const observeAnalyticsView = (selector, eventName, parameterBuilder = () => ({})
 };
 
 observeAnalyticsView("#pricing", "view_pricing");
-observeAnalyticsView(".work-card, .case-study", "view_case", (card) => ({
+observeAnalyticsView(".work-card, .case-study, .mx-case", "view_case", (card) => ({
   case_name: card.querySelector("h2, h3")?.textContent?.trim().slice(0, 80) || "case",
 }));
 
@@ -606,4 +609,12 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
       setButtonState(button, defaultText, false);
     }, 2600);
   });
+
+  // The redesigned homepage starts with this button disabled so a missing
+  // handler cannot fall back to a browser GET containing the lead's details.
+  // Enable it only after the real submit handler is attached.
+  if (form.id === "leadForm") {
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) submitButton.disabled = false;
+  }
 });

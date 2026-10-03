@@ -6,7 +6,7 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const origin = 'https://maxsite.com.ua';
-const ignored = new Set(['.git','.github','node_modules','release','artifacts','docs','tools','tests','seo','edge','assets']);
+const ignored = new Set(['.git','.github','.qa-tmp','node_modules','release','artifacts','docs','tools','tests','seo','edge','assets','prototype']);
 const attr = (tag,name) => tag.match(new RegExp(`\\b${name}=["']([^"']*)["']`,'i'))?.[1] || '';
 const text = html => html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&(?:nbsp|amp|quot|#39);/g,' ').replace(/\s+/g,' ').trim();
 const route = file => file === 'index.html' ? '/' : `/${file.replace(/index\.html$/, '')}`;
@@ -23,13 +23,13 @@ function csv(content) {
   return data.map(values=>Object.fromEntries(headers.map((h,i)=>[h,values[i]||''])));
 }
 function collect(dir='') {
-  return fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flatMap(e=>ignored.has(e.name)?[]:e.isDirectory()?collect(path.join(dir,e.name)):e.name.endsWith('.html')?[path.join(dir,e.name)]:[]);
+  return fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flatMap(e=>((e.isDirectory() && e.name.startsWith('.')) || ignored.has(e.name))?[]:e.isDirectory()?collect(path.join(dir,e.name)):e.name.endsWith('.html')?[path.join(dir,e.name)]:[]);
 }
 function grams(value) { const words=value.toLowerCase().match(/[\p{L}\p{N}]+/gu)||[];return new Set(words.slice(4).map((_,i)=>words.slice(i,i+5).join(' '))); }
 function similarity(a,b) {let n=0;for(const v of a)if(b.has(v))n++;return a.size+b.size-n ? n/(a.size+b.size-n):0;}
 function audit({revision, output}={}) {
   const read=file=>revision?execFileSync('git',['show',`${revision}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:10e6}):fs.readFileSync(path.join(root,file),'utf8');
-  const files=revision?execFileSync('git',['ls-tree','-r','--name-only',revision],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(f=>f.endsWith('.html')&&!f.split('/').some(s=>ignored.has(s))):collect();
+  const files=revision?execFileSync('git',['ls-tree','-r','--name-only',revision],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(f=>f.endsWith('.html')&&!f.split('/').some(s=>s.startsWith('.')||ignored.has(s))):collect();
   const baseline=JSON.parse(fs.readFileSync(path.join(root,'seo/evidence/top1-20260910-gsc-baseline.json'),'utf8'));
   const owners=JSON.parse(fs.readFileSync(path.join(root,'seo/top1-intent-map.json'),'utf8')).owners;
   const fullMap=revision?null:JSON.parse(fs.readFileSync(path.join(root,'seo/full-intent-map.json'),'utf8'));

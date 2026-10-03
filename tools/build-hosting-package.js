@@ -81,15 +81,18 @@ const excludedDirectories = new Set([
   ".git",
   ".github",
   ".wrangler",
+  ".qa-tmp",
   "artifacts",
   "docs",
   "edge",
   "node_modules",
+  "prototype",
   "release",
   "seo",
   "tests",
   "tools",
 ]);
+const isExcludedDirectory = (name) => name.startsWith(".") || excludedDirectories.has(name);
 
 const isTextFile = (file) => /\.(?:html|js|css|xml|txt)$/i.test(file);
 
@@ -99,6 +102,8 @@ const copyEntry = (source, destination) => {
   if (stat.isDirectory()) {
     fs.mkdirSync(destination, { recursive: true });
     for (const name of fs.readdirSync(source)) {
+      if (name.startsWith(".")) continue;
+      if (excludedDirectories.has(name) && fs.statSync(path.join(source, name)).isDirectory()) continue;
       copyEntry(path.join(source, name), path.join(destination, name));
     }
     return;
@@ -145,7 +150,7 @@ for (const name of fs.readdirSync(root)) {
   const stat = fs.statSync(source);
 
   if (stat.isDirectory()) {
-    if (!excludedDirectories.has(name)) copyEntry(source, path.join(outputDirectory, name));
+    if (!isExcludedDirectory(name)) copyEntry(source, path.join(outputDirectory, name));
   } else if (publicRootFiles.has(name) || /^sitemap-[a-z-]+\.xml$/i.test(name)) {
     copyEntry(source, path.join(outputDirectory, name));
   }

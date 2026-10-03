@@ -60,10 +60,10 @@ test('read-only live command is explicit about pre-release scope and fails valid
  assert.match(code,/Pre-release evidence is NOT verification of unpublished changes/);
  assert.doesNotMatch(code,/method:\s*['"]POST['"]/i);
 });
-test('home dashboard is illustrative and does not invent numerical SEO gains',()=>{
+test('homepage labels the cinematic concept and portfolio covers without invented SEO gains',()=>{
  const html=fs.readFileSync(path.join(__dirname,'../../index.html'),'utf8');
- const dashboard=html.match(/<div class="dashboard reveal"[\s\S]*?<\/section>/)?.[0]||'';
- assert.ok(dashboard.includes('Умовна ілюстрація, не показники клієнтського проєкту.'));
- assert.doesNotMatch(dashboard,/[+]\s*\d+(?:[.,]\d+)?\s*%/);
- assert.ok(dashboard.includes('class="chart" aria-hidden="true"'));
+ assert.match(html,/Типографічні обкладинки не є скриншотами сайтів/);
+ assert.match(html,/FORMA у першій сцені залишається окремим демонстраційним концептом/);
+ assert.match(html,/id="infoOverlay" role="dialog"/);
+ assert.doesNotMatch(html,/[+]\s*\d+(?:[.,]\d+)?\s*%/);
 });
