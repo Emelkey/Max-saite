@@ -42,6 +42,9 @@ The request contains the business/project field and the complete accepted commen
 Empty fields and identical business/comment values are omitted. Page metadata,
 URLs, lead IDs, attribution, timestamps and consent are not displayed. The lead
 payload, consent handling, analytics and delivery acknowledgement are unchanged.
+The Worker does not persist the full lead payload. Once metadata is removed
+from the Telegram notification, that notification cannot be used for manual
+click-level Ads attribution; use consent-aware analytics for campaign reporting.
 
 ## Test
 
