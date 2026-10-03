@@ -267,6 +267,42 @@ test('lead form controls are reachable by keyboard',async({page})=>{
   await expect(phone).toBeFocused();
 });
 
+test('homepage lead fields match Worker limits before a conversion is recorded',async({page})=>{
+  const requests=[];
+  await page.route('https://max-site-leads.emelkey777.workers.dev/**',async route=>{
+    const payload=route.request().postDataJSON();
+    requests.push(payload);
+    await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,lead_id:payload.requestId})});
+  });
+  await page.goto('/');
+  const form=page.locator('.lead-form');
+  const contact=form.locator('[name=phone]');
+  const business=form.locator('[name=business]');
+  await expect(business).toHaveAttribute('maxlength','160');
+  await form.locator('[name=name]').fill('QA LOCAL ONLY');
+  await business.fill('Сайт для компанії');
+  await form.locator('[name=consent]').check();
+
+  await contact.fill('12345678');
+  await form.locator('button[type=submit]').click();
+  await expect(form.locator('.form-status')).toHaveAttribute('data-state','error');
+  expect(requests).toHaveLength(0);
+
+  await contact.fill('@maxsite_test');
+  await business.evaluate(input=>{input.value='А'.repeat(161);});
+  await form.locator('button[type=submit]').click();
+  await expect(form.locator('.form-status')).toContainText('160 символів');
+  expect(requests).toHaveLength(0);
+
+  await business.fill('Сайт для компанії');
+  await form.locator('button[type=submit]').click();
+  await expect(form.locator('.form-status')).toHaveAttribute('data-state','success');
+  expect(requests).toHaveLength(1);
+  expect(requests[0].fields.phone).toBe('@maxsite_test');
+  const conversions=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event'&&item[1]==='generate_lead'));
+  expect(conversions).toHaveLength(1);
+});
+
 test('phone and messengers retain safe destinations',async({page})=>{
   await page.goto('/');
   await expect(page.locator('a[href="tel:+380972692322"]:visible').first()).toBeVisible();

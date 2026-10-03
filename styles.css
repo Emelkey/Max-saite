@@ -3084,3 +3084,9 @@ body:has(> .site-header) .top1-context li a {
     margin: 8px 0 10px;
   }
 }
+
+/* Keep the offer details readable on the cream MAX SITE 2.0 hero. */
+body:has(> .site-header) .cro-quote-hero .cro-offer .cro-price-note,
+body:has(> .site-header) .cro-quote-hero .cro-offer-points {
+  color: #4d5b4d;
+}
