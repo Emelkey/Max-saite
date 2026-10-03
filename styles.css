@@ -3109,3 +3109,27 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
     display: none;
   }
 }
+
+/* Leave room for both 44px actions when a 320px-wide short phone uses
+   wider fallback fonts than the design system. */
+@media (max-width: 360px) and (max-height: 700px) {
+  body:has(> .site-header).cro-page .cro-hero .eyebrow {
+    padding-block: 5px;
+  }
+
+  body:has(> .site-header).cro-page .cro-landing .cro-hero h1 {
+    margin: 4px 0;
+  }
+
+  body:has(> .site-header).cro-page .cro-landing .cro-hero > div > p:first-of-type {
+    margin-bottom: 6px;
+  }
+
+  body:has(> .site-header).cro-page .cro-hero .cro-price {
+    margin: 6px 0;
+  }
+
+  body:has(> .site-header).cro-page .cro-hero .hero-buttons {
+    margin-top: 6px;
+  }
+}
