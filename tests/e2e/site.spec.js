@@ -577,6 +577,29 @@ test('mobile ad landing price and primary action stay above the open consent pan
   }
 });
 
+test('short mobile ad landings keep both hero actions clear of consent',async({page,isMobile})=>{
+  test.skip(!isMobile,'short mobile viewport regression');
+  for(const width of [320,390]){
+    await page.setViewportSize({width,height:640});
+    for(const route of ['/google-ads/','/stvorennya-saytiv/','/stvorennya-sajtiv-pid-klyuch/']){
+      await page.goto(route);
+      await page.getByRole('button',{name:'Налаштування cookies',exact:true}).click();
+      await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+      const panel=await page.locator('.consent-panel').boundingBox();
+      for(const [index,action] of (await page.locator('.cro-hero .hero-buttons .btn').all()).entries()){
+        const cta=await action.boundingBox();
+        expect(panel.y-cta.y-cta.height,`${route} ${width}x640 CTA ${index+1} clearance`).toBeGreaterThanOrEqual(4);
+      }
+      await expect(page.locator('.floating-contact')).toBeHidden();
+      for(const button of await page.locator('.consent-panel button').all()){
+        expect((await button.boundingBox()).height).toBeGreaterThanOrEqual(44);
+      }
+    }
+  }
+  await page.locator('.consent-panel button[data-choice="necessary"]').click();
+  await expect(page.locator('.floating-contact')).toBeVisible();
+});
+
 test('budget estimator and editable resources work without sending personal data',async({page})=>{
   await page.goto('/qa-checklist/');
   await page.locator('#budget-format').selectOption('store');
