@@ -467,6 +467,10 @@ const sendLead = async (payload) => {
 document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
   form.dataset.formStartedAt = String(Date.now());
   const formType = form.classList.contains("compact-form") ? "compact" : "main";
+  const contactField = form.elements.phone;
+  const businessField = form.elements.business;
+  if (businessField instanceof HTMLInputElement && businessField.type !== "hidden") businessField.maxLength = 160;
+  contactField?.addEventListener("input", () => contactField.setCustomValidity(""));
 
   const statusElement = document.createElement("p");
   statusElement.className = "form-status";
@@ -539,6 +543,24 @@ document.querySelectorAll(".lead-form, .compact-form").forEach((form) => {
         page_type: PAGE_CONTEXT.page_type,
         error_type: "validation",
       });
+      return;
+    }
+
+    const contact = getFormValue(form, "phone");
+    const digits = contact.replace(/\D/g, "");
+    const validPhone = /^\+?[\d\s().-]{9,25}$/.test(contact) && digits.length >= 9 && digits.length <= 15;
+    const validMessenger = /^@[a-z][a-z0-9_]{4,31}$/i.test(contact);
+    if (!validPhone && !validMessenger) {
+      contactField?.setCustomValidity("Вкажіть номер із 9–15 цифрами або Telegram @username.");
+      contactField?.reportValidity();
+      trackEvent("lead_form_error", { form_type: formType, page_type: PAGE_CONTEXT.page_type, error_type: "validation" });
+      setFormStatus(statusElement, "Перевірте телефон або Telegram @username.", "error");
+      return;
+    }
+    if (getFormValue(form, "business").length > 160) {
+      businessField?.focus();
+      trackEvent("lead_form_error", { form_type: formType, page_type: PAGE_CONTEXT.page_type, error_type: "validation" });
+      setFormStatus(statusElement, "Опишіть нішу до 160 символів, а деталі додайте в опис задачі.", "error");
       return;
     }
 
