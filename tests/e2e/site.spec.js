@@ -169,6 +169,32 @@ test('mobile contact buttons do not expand into neighbouring actions on focus',a
   expect(boxes[0].x+boxes[0].width).toBeLessThanOrEqual(boxes[1].x);
 });
 
+test('mobile homepage lead form keeps readable labels and placeholders',async({page,isMobile})=>{
+  test.skip(!isMobile,'mobile lead-form contrast');
+  await page.goto('/');
+  const appearance=await page.evaluate(()=>{
+    const form=document.querySelector('#leadForm');
+    const section=document.querySelector('#lead');
+    const label=form.querySelector('label');
+    const input=form.querySelector('input[name="name"]');
+    const rgb=value=>value.match(/[0-9]+/g).slice(0,3).map(Number);
+    const luminance=value=>{
+      const [r,g,b]=rgb(value).map(v=>{const c=v/255;return c<=0.04045?c/12.92:Math.pow((c+0.055)/1.055,2.4)});
+      return 0.2126*r+0.7152*g+0.0722*b;
+    };
+    const contrast=(a,b)=>{const values=[luminance(a),luminance(b)].sort((x,y)=>y-x);return (values[0]+0.05)/(values[1]+0.05)};
+    const background=getComputedStyle(section).backgroundColor;
+    return {
+      panelImage:getComputedStyle(form).backgroundImage,
+      labelContrast:contrast(getComputedStyle(label).color,background),
+      placeholderContrast:contrast(getComputedStyle(input,'::placeholder').color,background)
+    };
+  });
+  expect(appearance.panelImage).toBe('none');
+  expect(appearance.labelContrast).toBeGreaterThanOrEqual(4.5);
+  expect(appearance.placeholderContrast).toBeGreaterThanOrEqual(4.5);
+});
+
 test('mobile homepage header actions stay separate on focus',async({page,isMobile})=>{
   test.skip(!isMobile,'mobile homepage navigation');
   await page.goto('/');

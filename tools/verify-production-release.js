@@ -26,6 +26,8 @@ const RELEASE_FILES = [
   ...['robots.txt', 'sitemap.xml', ...SITEMAPS, 'styles.css', 'script.js',
     'assets/consent.js', 'assets/analytics-config.js', 'assets/telegram-config.js',
     'assets/site-cost-calculator.js', 'assets/logo-full-dark.svg',
+    'assets/maxsite-2/site.css', 'assets/maxsite-2/site.js',
+    'assets/maxsite-2/motion.css', 'assets/maxsite-2/motion.js',
     'assets/downloads/top1/ecommerce-checkout-qa.md',
     'assets/downloads/top1/service-lead-acceptance.md',
     'assets/downloads/top1/seo-intent-owner-template.md',

@@ -44,6 +44,20 @@ test('production smoke checks matching release bytes, canonical routes, assets a
   }
 });
 
+test('cinematic homepage assets are covered by the release receipt', async () => {
+  const required = ['site.css', 'site.js', 'motion.css', 'motion.js'];
+  for (const name of required) {
+    const route = `/assets/maxsite-2/${name}`;
+    assert.ok(RELEASE_FILES.some(item => item.route === route && item.page === false), route);
+  }
+  const data = fixture();
+  data.bodies.set('/assets/maxsite-2/motion.js', 'stale motion bytes');
+  await assert.rejects(
+    verifyProductionRelease({ baseUrl: site, expectedRevision: revision, request: data.request }),
+    /motion\.js.*differ/,
+  );
+});
+
 test('release receipt rejects stale revision, staging mode, missing hashes and a different site', () => {
   const data = fixture();
   for (const patch of [{ revision: 'b'.repeat(40) }, { mode: 'staging' }, { files: {} }, { site: 'https://elsewhere.example' }]) {
