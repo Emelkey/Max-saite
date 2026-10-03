@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const DEFAULT_ROOT = path.resolve(__dirname, "..");
-const ignored = new Set([".git", ".github", "node_modules", "release", "artifacts", "docs", "tools", "tests", "seo"]);
+const ignored = new Set([".git", ".github", ".qa-tmp", "node_modules", "release", "artifacts", "docs", "tools", "tests", "seo", "prototype"]);
 
 function dimensions(file) {
   const b = fs.readFileSync(file);
@@ -73,7 +73,7 @@ function auditResponsiveImages(root = DEFAULT_ROOT, options = {}) {
       if (/fetchpriority=["']high/i.test(tag)&&/loading=["']lazy/i.test(tag)) errors.push(`${route}: LCP image is lazy-loaded: ${src}`); if (!/fetchpriority=["']high/i.test(tag)&&!/loading=["']lazy/i.test(tag)) errors.push(`${route}: non-LCP raster image is not lazy-loaded: ${src}`);
     }
   }
-  function collect(dir) { for (const entry of fs.readdirSync(dir,{withFileTypes:true})) { if (ignored.has(entry.name)) continue; const file=path.join(dir,entry.name); if (entry.isDirectory()) collect(file); else if (entry.name.endsWith(".html")) audit(file); } } collect(root);
+  function collect(dir) { for (const entry of fs.readdirSync(dir,{withFileTypes:true})) { if ((entry.isDirectory() && entry.name.startsWith(".")) || ignored.has(entry.name)) continue; const file=path.join(dir,entry.name); if (entry.isDirectory()) collect(file); else if (entry.name.endsWith(".html")) audit(file); } } collect(root);
   for (const source of referencedSources) if (!rows.has(source)) errors.push(`manifest: referenced raster source is not covered: ${source}`); for (const source of rows.keys()) if (!referencedSources.has(source)) errors.push(`manifest: stale unreferenced source entry: ${source}`);
   const responsiveRoot=path.join(root,"assets/responsive"); if (fs.existsSync(responsiveRoot)) { const walk=(dir)=>{ for (const entry of fs.readdirSync(dir,{withFileTypes:true})) { const file=path.join(dir,entry.name); if (entry.isDirectory()) walk(file); else if (entry.name!=="manifest.json") { const rel=path.relative(root,file).replaceAll(path.sep,"/"); if (!expectedVariants.has(rel)) errors.push(`manifest: orphan candidate file: ${rel}`); } } }; walk(responsiveRoot); }
   const result={generatedAt:new Date().toISOString(),observations,errors}; if (options.writeOutput!==false) { const output=path.join(root,"artifacts/seo/responsive-images.json"); fs.mkdirSync(path.dirname(output),{recursive:true}); fs.writeFileSync(output,`${JSON.stringify(result,null,2)}\n`); } return result;

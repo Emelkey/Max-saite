@@ -8,13 +8,13 @@ const root=path.resolve(__dirname,'../..');
 
 const htmlFiles=()=>{
   const result=[];
-  const excluded=new Set(['.git','artifacts','node_modules','release']);
+  const excluded=new Set(['.git','.qa-tmp','artifacts','node_modules','release','prototype']);
   const walk=directory=>{
     for(const name of fs.readdirSync(directory)){
       const file=path.join(directory,name);
       const stat=fs.statSync(file);
       if(stat.isDirectory()){
-        if(!excluded.has(name)) walk(file);
+        if(!name.startsWith('.')&&!excluded.has(name)) walk(file);
       }else if(file.endsWith('.html')) result.push(file);
     }
   };

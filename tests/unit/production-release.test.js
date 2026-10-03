@@ -2,6 +2,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const os = require('node:os');
+const { spawnSync } = require('node:child_process');
 const { RELEASE_FILES, RELEASE_MARKER, SITEMAPS, sha256, validateManifest, verifyProductionRelease } = require('../../tools/verify-production-release');
 const revision = 'a'.repeat(40);
 const site = 'https://maxsite.com.ua';
@@ -93,4 +95,63 @@ test('future edge configuration is excluded and deployment workflow verifies aft
   const workflow = fs.readFileSync(path.join(root, '.github/workflows/pages.yml'), 'utf8');
   assert.ok(workflow.indexOf('actions/deploy-pages@v4') < workflow.indexOf('node tools/verify-production-release.js'));
   assert.match(workflow, /--expected-revision "\$GITHUB_SHA"/);
+});
+
+test('non-public prototypes are excluded from the release build and SEO route scans', () => {
+  const root = path.resolve(__dirname, '../..');
+  const build = fs.readFileSync(path.join(root, 'tools/build-hosting-package.js'), 'utf8');
+  assert.match(build, /excludedDirectories = new Set\([\s\S]*?"prototype"/, 'build-hosting-package.js must exclude prototype/');
+  const seoCheck = fs.readFileSync(path.join(root, 'tools/seo-check.js'), 'utf8');
+  assert.match(seoCheck, /ignored = new Set\(\[[^\]]*'prototype'/, 'seo-check.js must ignore prototype/ when discovering routes');
+  const seoContractTest = fs.readFileSync(path.join(root, 'tests/unit/seo-contract.test.js'), 'utf8');
+  assert.match(seoContractTest, /excluded=new Set\(\[[^\]]*'prototype'/, 'seo-contract.test.js must ignore prototype/ when walking HTML files');
+});
+
+test('QA files are absent from the built folder and ZIP, including nested private directories', () => {
+  const root = path.resolve(__dirname, '../..');
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'max-site-private-build-'));
+  const skipped = new Set(['.git', '.github', '.claude', '.qa-tmp', 'artifacts', 'docs', 'node_modules', 'prototype', 'release', 'seo', 'tests']);
+  try {
+    fs.cpSync(root, fixtureRoot, {
+      recursive: true,
+      filter: (source) => {
+        const relative = path.relative(root, source);
+        return !relative || !skipped.has(relative.split(path.sep)[0]);
+      },
+    });
+    for (const directory of ['.qa-tmp', '.claude', 'assets/.qa-tmp', 'assets/.private']) {
+      const target = path.join(fixtureRoot, directory);
+      fs.mkdirSync(target, { recursive: true });
+      fs.writeFileSync(path.join(target, 'qa-private-probe.html'), '<h1>Private QA fixture</h1>');
+    }
+    fs.writeFileSync(path.join(fixtureRoot, 'assets/.private-probe.txt'), 'Private QA fixture');
+
+    for (const [script, arg] of [['seo-check.js', 'routes'], ['generate-sitemaps.js', '--check']]) {
+      const scan = spawnSync(process.execPath, [`tools/${script}`, arg], { cwd: fixtureRoot, encoding: 'utf8' });
+      assert.equal(scan.status, 0, `${script} included a private route:\n${scan.stdout}\n${scan.stderr}`);
+    }
+
+    const build = spawnSync(process.execPath, ['tools/build-hosting-package.js', '--site-url', site], {
+      cwd: fixtureRoot,
+      env: { ...process.env, GITHUB_SHA: revision },
+      encoding: 'utf8',
+      timeout: 120000,
+    });
+    assert.equal(build.status, 0, `${build.stdout}\n${build.stderr}`);
+
+    const releaseRoot = path.join(fixtureRoot, 'release/max-site-production');
+    assert.ok(fs.existsSync(path.join(releaseRoot, 'index.html')));
+    assert.ok(fs.existsSync(path.join(releaseRoot, 'assets/maxsite-2/motion.js')));
+    for (const directory of ['.qa-tmp', '.claude', 'assets/.qa-tmp', 'assets/.private']) {
+      assert.equal(fs.existsSync(path.join(releaseRoot, directory)), false, `${directory} leaked into release folder`);
+    }
+    assert.equal(fs.existsSync(path.join(releaseRoot, 'assets/.private-probe.txt')), false);
+
+    const archive = spawnSync('unzip', ['-Z1', path.join(fixtureRoot, 'release/max-site-production.zip')], { encoding: 'utf8' });
+    assert.equal(archive.status, 0, archive.stderr);
+    assert.match(archive.stdout, /max-site-production\/index\.html/);
+    assert.doesNotMatch(archive.stdout, /\/(?:\.qa-tmp|\.claude|\.private)(?:\/|-probe\.txt)/);
+  } finally {
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
 });

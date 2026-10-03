@@ -5,12 +5,12 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const responsiveRoot = path.join(root, "assets", "responsive");
-const ignored = new Set([".git", ".github", "node_modules", "release", "artifacts", "docs", "tools", "tests", "seo"]);
+const ignored = new Set([".git", ".github", ".qa-tmp", "node_modules", "release", "artifacts", "docs", "tools", "tests", "seo", "prototype"]);
 
 function collectHtml(directory) {
   const files = [];
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (ignored.has(entry.name)) continue;
+    if ((entry.isDirectory() && entry.name.startsWith(".")) || ignored.has(entry.name)) continue;
     const file = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...collectHtml(file));
     else if (entry.name.endsWith(".html")) files.push(file);

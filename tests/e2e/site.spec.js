@@ -111,10 +111,16 @@ for (const route of keyRoutes) {
 test('mobile navigation exposes phone contact',async({page,isMobile})=>{
   test.skip(!isMobile,'mobile-only interaction');
   await page.goto('/');
-  await page.locator('.nav-toggle').focus();
+  await page.locator('#menuToggle').focus();
   await page.keyboard.press('Enter');
-  await expect(page.locator('.main-nav')).toBeVisible();
-  await expect(page.locator('.mobile-nav-phone')).toHaveAttribute('href','tel:+380972692322');
+  await expect(page.locator('#menuToggle')).toHaveAttribute('aria-expanded','true');
+  await expect(page.locator('#mobileMenu')).toBeVisible();
+  const phone=page.locator('.mobile-nav-phone');
+  await expect(phone).toHaveAttribute('href','tel:+380972692322');
+  await phone.evaluate(link=>link.addEventListener('click',event=>event.preventDefault(),{once:true}));
+  await phone.click();
+  const locations=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event'&&item[1]==='contact_click').map(item=>item[2].link_location));
+  expect(locations).toContain('mobile_navigation');
 });
 
 test('mobile footer privacy settings stay reachable above the contact bar',async({page,isMobile})=>{
@@ -152,7 +158,7 @@ test('mobile city headings fit with a wider fallback font',async({page,isMobile}
 test('mobile contact buttons do not expand into neighbouring actions on focus',async({page,isMobile})=>{
   test.skip(!isMobile,'mobile fixed contact bar');
   await page.emulateMedia({reducedMotion:'reduce'});
-  await page.goto('/');
+  await page.goto('/stvorennya-saytiv/');
   const phone=page.locator('.floating-action[href^="tel:"]');
   const telegram=page.locator('.floating-action[href*="t.me/"]');
   const originalWidth=await phone.evaluate(element=>element.getBoundingClientRect().width);
@@ -163,37 +169,53 @@ test('mobile contact buttons do not expand into neighbouring actions on focus',a
   expect(boxes[0].x+boxes[0].width).toBeLessThanOrEqual(boxes[1].x);
 });
 
+test('mobile homepage header actions stay separate on focus',async({page,isMobile})=>{
+  test.skip(!isMobile,'mobile homepage navigation');
+  await page.goto('/');
+  const cta=page.locator('.mx-nav-cta');
+  const menu=page.locator('#menuToggle');
+  await expect(cta).toBeVisible();
+  await expect(menu).toBeVisible();
+  const originalWidth=await cta.evaluate(element=>element.getBoundingClientRect().width);
+  await cta.focus();
+  await expect(cta).toBeFocused();
+  await expect.poll(()=>cta.evaluate(element=>element.getBoundingClientRect().width)).toBeLessThanOrEqual(originalWidth+1);
+  const boxes=await Promise.all([cta.boundingBox(),menu.boundingBox()]);
+  expect(boxes[0].x+boxes[0].width).toBeLessThanOrEqual(boxes[1].x+1);
+});
+
 test('desktop header labels remain readable',async({page,isMobile})=>{
   test.skip(isMobile,'desktop-only layout');
   await page.goto('/');
-  const callButton=page.locator('.call-button');
-  const aboutLink=page.locator('.main-nav > a',{hasText:'Про нас'});
-  await expect(callButton).toBeVisible();
-  await expect(aboutLink).toBeVisible();
+  const cta=page.locator('.mx-nav-cta');
+  const pricingLink=page.locator('.mx-site-links > a',{hasText:'Ціни'});
+  await expect(cta).toBeVisible();
+  await expect(pricingLink).toBeVisible();
 
   const layout=await page.evaluate(()=>{
-    const call=document.querySelector('.call-button');
-    const label=call.querySelector('span');
-    const about=[...document.querySelectorAll('.main-nav > a')].find(link=>link.textContent.trim()==='Про нас');
-    const callRect=call.getBoundingClientRect();
-    const labelRect=label.getBoundingClientRect();
+    const cta=document.querySelector('.mx-nav-cta');
+    const pricing=[...document.querySelectorAll('.mx-site-links > a')].find(link=>link.textContent.trim()==='Ціни');
+    const ctaRect=cta.getBoundingClientRect();
+    const pricingRect=pricing.getBoundingClientRect();
+    const pricingText=document.createRange();
+    pricingText.selectNodeContents(pricing);
     return {
-      callOverflow:call.scrollWidth-call.clientWidth,
-      labelInside:labelRect.left>=callRect.left-1 && labelRect.right<=callRect.right+1,
-      aboutWhiteSpace:getComputedStyle(about).whiteSpace
+      ctaOverflow:cta.scrollWidth-cta.clientWidth,
+      separate:pricingRect.right<=ctaRect.left+1,
+      pricingTextLines:pricingText.getClientRects().length
     };
   });
 
-  expect(layout.callOverflow).toBeLessThanOrEqual(1);
-  expect(layout.labelInside).toBe(true);
-  expect(layout.aboutWhiteSpace).toBe('nowrap');
+  expect(layout.ctaOverflow).toBeLessThanOrEqual(1);
+  expect(layout.separate).toBe(true);
+  expect(layout.pricingTextLines).toBe(1);
 });
 
 test('desktop wheel scrolling stays native and responsive',async({page,isMobile})=>{
   test.skip(isMobile,'desktop mouse-wheel behavior');
   await page.goto('/');
   expect(await page.locator('html').evaluate(element=>getComputedStyle(element).scrollBehavior)).toBe('auto');
-  expect(await page.locator('.site-header').evaluate(element=>getComputedStyle(element).backdropFilter)).toBe('none');
+  expect(await page.locator('.mx-global-nav').evaluate(element=>getComputedStyle(element).backdropFilter)).toBe('none');
   await page.mouse.wheel(0,700);
   await expect.poll(()=>page.evaluate(()=>window.scrollY),{timeout:1000}).toBeGreaterThan(300);
 });
@@ -527,6 +549,35 @@ test('case link records the actual project name',async({page})=>{
   await page.locator('.case-actions a').first().click();
   const names=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event' && item[1]==='case_live_site_click').map(item=>item[2].case_name));
   expect(names).toEqual(['MAX SITE']);
+});
+
+test('MAX SITE 2.0 homepage cards retain analytics events and the lead form fails closed',async({page})=>{
+  await page.route('**/script.js*',route=>route.abort());
+  await page.goto('/');
+  await expect(page.locator('#leadForm')).toHaveAttribute('method','post');
+  await expect(page.locator('#leadForm button[type="submit"]')).toBeDisabled();
+
+  await page.unroute('**/script.js*');
+  await page.reload();
+  await expect(page.locator('#leadForm button[type="submit"]')).toBeEnabled();
+
+  await page.locator('.mx-case').first().scrollIntoViewIfNeeded();
+  await expect.poll(()=>page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event'&&item[1]==='view_case').map(item=>item[2].case_name))).toContain('Формула Чистоти');
+
+  await page.locator('.mx-price .mx-pill').first().click();
+  await page.locator('.mx-shop a[data-package]').click();
+  await page.locator('.mx-case a[href^="portfolio/"]').first().evaluate(link=>{
+    link.setAttribute('href','portfolio/formula-chystoty/?phone=private-test-value');
+    link.addEventListener('click',event=>event.preventDefault(),{once:true});
+    link.click();
+  });
+
+  const events=await page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event').map(item=>({name:item[1],parameters:item[2]})));
+  for(const name of ['select_plan','price_cta','pricing_cta_click']) {
+    expect(events.filter(event=>event.name===name).map(event=>event.parameters.plan_name)).toEqual(['Старт','Інтернет-магазин']);
+  }
+  expect(events.filter(event=>event.name==='portfolio_open').map(event=>event.parameters.destination_path)).toContain('/portfolio/formula-chystoty/');
+  expect(JSON.stringify(events)).not.toContain('private-test-value');
 });
 
 for (const width of [360,390,430,768]) test(`contact controls fit ${width}px`,async({page})=>{

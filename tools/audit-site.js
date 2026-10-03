@@ -18,6 +18,8 @@ const repoBasePath = configuredPublicPath
     : `/${configuredPublicPath.replace(/^\/+|\/+$/g, "")}`
   : new URL(publicBase).pathname.replace(/\/$/, "");
 const errors = [];
+const redesignedHeaderCss = path.join(root, "assets/maxsite-2/site.css");
+const hasFixedRedesignHeader = fs.existsSync(redesignedHeaderCss) && /\.mx-global-nav\s*\{[^}]*position\s*:\s*fixed/.test(fs.readFileSync(redesignedHeaderCss, "utf8"));
 const titleOwners = new Map();
 const descriptionOwners = new Map();
 const auditedFiles = new Set();
@@ -90,7 +92,12 @@ for (const url of urls) {
   if (!html.includes('class="mobile-nav-phone"') || !html.includes('href="tel:+380972692322"')) {
     errors.push(`Missing mobile navigation phone link: ${fileRoute(file)}`);
   }
-  if (!html.includes('class="floating-contact"')) {
+  const redesignedPersistentContact = hasFixedRedesignHeader &&
+    html.includes('class="nav mx-global-nav"') &&
+    html.includes('class="mx-nav-cta" href="#lead"') &&
+    html.includes('id="lead"') &&
+    html.includes('class="mobile-nav-phone"');
+  if (!html.includes('class="floating-contact"') && !redesignedPersistentContact) {
     errors.push(`Missing persistent mobile contact panel: ${fileRoute(file)}`);
   }
   if (googleTagCount !== 1) errors.push(`Expected one Google tag, found ${googleTagCount}: ${fileRoute(file)}`);
@@ -182,7 +189,7 @@ for (const url of urls) {
 const collectHtml = (directory) => {
   const files = [];
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if ([".git", "artifacts", "release", "node_modules"].includes(entry.name)) continue;
+    if ((entry.isDirectory() && entry.name.startsWith(".")) || [".git", "artifacts", "release", "node_modules", "prototype"].includes(entry.name)) continue;
     const file = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...collectHtml(file));
     else if (entry.name.endsWith(".html")) files.push(file);

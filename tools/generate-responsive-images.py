@@ -18,13 +18,13 @@ ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
 OUTPUT = ASSETS / "responsive"
 TARGET_WIDTHS = (480, 768, 1200, 1600)
-PUBLIC_HTML_SKIP = {".git", ".github", "node_modules", "release", "artifacts", "docs", "tools", "tests", "seo"}
+PUBLIC_HTML_SKIP = {".git", ".github", ".qa-tmp", "node_modules", "release", "artifacts", "docs", "tools", "tests", "seo", "prototype"}
 RASTER_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".avif"}
 
 
 def public_html_files(directory: Path):
     for child in directory.iterdir():
-        if child.name in PUBLIC_HTML_SKIP:
+        if child.name in PUBLIC_HTML_SKIP or (child.is_dir() and child.name.startswith(".")):
             continue
         if child.is_dir():
             yield from public_html_files(child)
