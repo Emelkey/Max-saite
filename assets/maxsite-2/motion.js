@@ -8,7 +8,7 @@
  const smooth=(a,b,p)=>{const t=clamp((p-a)/(b-a));return t*t*(3-2*t)};
  const pulse=(a,b,c,d,p)=>smooth(a,b,p)*(1-smooth(c,d,p));
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
- let W=0,H=0,range=1,raf=0,autoRaf=0,playing=false,current=0,pausedAt=0,lastPhase='',frameCount=0,lastRendered=-1;
+ let W=0,H=0,range=1,raf=0,autoRaf=0,playing=false,current=0,autoStartPending=false,lastPhase='',frameCount=0,lastRendered=-1;
  const metrics={frames:0,maxRenderMs:0,errors:[]};
  // Additional devices use the same HTML structure, not screenshots.
  for(const host of [els.desktop,els.tablet]){const clone=els.browser.cloneNode(true);clone.removeAttribute('id');clone.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));clone.querySelectorAll('.build-line,.code-plane,.layer-title').forEach(n=>n.remove());host.appendChild(clone)}
@@ -60,16 +60,28 @@
  }
  function measure(){lastRendered=-1;W=els.stage.clientWidth;H=els.stage.clientHeight;range=Math.max(1,els.journey.offsetHeight-H);render(reduced.matches?0:clamp((window.scrollY-els.journey.offsetTop)/range))}
  function queue(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;if(!playing)render(reduced.matches?0:clamp((window.scrollY-els.journey.offsetTop)/range))})}
- function stop(){playing=false;cancelAnimationFrame(autoRaf);els.playText.textContent=current>=.998?'Повторити':'Показати рух';els.play.querySelector('.play-icon').textContent='▶';els.play.setAttribute('aria-pressed','false')}
+ function stop(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf);els.playText.textContent=current>=.998?'Повторити':'Показати рух';els.play.querySelector('.play-icon').textContent='▶';els.play.setAttribute('aria-pressed','false')}
  function setProgress(p){p=clamp(Number(p)||0);if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
- function play(){if(reduced.matches)return;if(playing){stop();return}playing=true;els.playText.textContent='Пауза';els.play.querySelector('.play-icon').textContent='Ⅱ';els.play.setAttribute('aria-pressed','true');const from=current>.98?0:current;setProgress(from);const start=performance.now(),duration=22000*(1-from);
+ function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;els.playText.textContent='Пауза';els.play.querySelector('.play-icon').textContent='Ⅱ';els.play.setAttribute('aria-pressed','true');const from=current>.98?0:current;setProgress(from);const start=performance.now(),duration=22000*(1-from);
   const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);setProgress(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else stop()};autoRaf=requestAnimationFrame(tick)}
  function onMotionChange(){stop();els.play.disabled=reduced.matches;els.progress.disabled=reduced.matches;document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);document.querySelector('.scrubber label').textContent=reduced.matches?'РУХ ВИМКНЕНО':'ГОРТАЙТЕ';measure()}
- window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('touchstart',stop,{passive:true});window.addEventListener('keydown',e=>{if(['PageDown','PageUp','ArrowDown','ArrowUp','Home','End'].includes(e.key))stop()});document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
- els.progress.addEventListener('input',()=>{stop();setProgress(els.progress.value/1000)});els.play.addEventListener('click',play);document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>{stop();setProgress(Number(n.dataset.go))}));
+ function maybeAutoStart(){
+  if(!autoStartPending||document.hidden||reduced.matches)return;
+  if((location.hash&&location.hash!=='#journey')||window.scrollY>Math.max(60,window.innerHeight*.1)){autoStartPending=false;return}
+  requestAnimationFrame(()=>{
+   if(!autoStartPending||document.hidden||reduced.matches)return;
+   if((location.hash&&location.hash!=='#journey')||window.scrollY>Math.max(60,window.innerHeight*.1)){autoStartPending=false;return}
+   autoStartPending=false;play();
+  });
+ }
+ function stopForPointer(e){if(e.target instanceof Element&&e.target.closest('#playButton'))return;stop()}
+ window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stopForPointer,{passive:true});window.addEventListener('touchstart',stopForPointer,{passive:true});window.addEventListener('keydown',e=>{if(['PageDown','PageUp','ArrowDown','ArrowUp','Home','End','Tab'].includes(e.key))stop()});document.addEventListener('visibilitychange',()=>{if(document.hidden){if(playing)stop()}else maybeAutoStart()});
+ els.progress.addEventListener('input',()=>{stop();setProgress(els.progress.value/1000)});els.play.addEventListener('click',()=>{autoStartPending=false;play()});document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>{stop();setProgress(Number(n.dataset.go))}));
  const info=$('infoOverlay');function closeInfo(){info.classList.remove('open');info.setAttribute('aria-hidden','true');$('infoOpen').focus()}
  $('infoOpen').onclick=()=>{stop();info.classList.add('open');info.setAttribute('aria-hidden','false');$('infoClose').focus()};$('infoClose').onclick=closeInfo;info.addEventListener('click',e=>{if(e.target===info)closeInfo()});info.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo();if(e.key==='Tab'){e.preventDefault();$('infoClose').focus()}});
  reduced.addEventListener?reduced.addEventListener('change',onMotionChange):reduced.addListener(onMotionChange);
  window.demoController={setProgress,play,stop,getProgress:()=>current,getState:()=>({progress:current,playing,width:W,height:H,range,reducedMotion:reduced.matches,cameraTransform:els.camera.style.transform,metrics:{...metrics}})};
  onMotionChange();
+ autoStartPending=!reduced.matches;
+ window.addEventListener('pageshow',maybeAutoStart,{once:true});
 })();
