@@ -9,8 +9,21 @@
  const menu=document.getElementById('mobileMenu');
  const form=document.getElementById('leadForm');
  let ticking=false;
- function updateHeader(){ticking=false;header.classList.toggle('mx-scrolled',window.scrollY>45)}
+ let lastScrollY=window.scrollY;
+ let hasUpdated=false;
+ function updateHeader(){
+  ticking=false;
+  const y=window.scrollY;
+  header.classList.toggle('mx-scrolled',y>45);
+  if(y<window.innerHeight*.9||!menu.hidden)header.classList.remove('mx-hidden');
+  else if(!hasUpdated||y>lastScrollY+3)header.classList.add('mx-hidden');
+  else if(y<lastScrollY-3)header.classList.remove('mx-hidden');
+  lastScrollY=y;
+  hasUpdated=true;
+ }
  window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(updateHeader)}},{passive:true});
+ window.addEventListener('pageshow',updateHeader);
+ header.addEventListener('focusin',()=>header.classList.remove('mx-hidden'));
  updateHeader();
  function closeMenu(restoreFocus=false){menu.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Відкрити меню');if(restoreFocus)toggle.focus()}
  toggle.addEventListener('click',()=>{const open=menu.hidden;menu.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Закрити меню':'Відкрити меню')});
