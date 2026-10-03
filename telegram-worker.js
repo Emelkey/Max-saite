@@ -72,20 +72,14 @@ const isRateLimited = (request) => {
 
 const buildTelegramText = (payload) => {
   const fields = payload.fields || {};
-  const context = payload.context || {};
-  const safeUrl = value => { try { const url = new URL(value); return `${url.origin}${url.pathname}`; } catch { return ""; } };
+  const value = (field) => String(field || "").trim();
+  // Keep the full accepted request; attribution stays in the lead payload.
+  const request = [...new Set([value(fields.business), value(fields.comment)].filter(Boolean))];
   const rows = [
-    "Нова заявка з сайту MAX SITE",
-    payload.requestId ? `lead_id: ${clean(payload.requestId)}` : "",
-    `Сторінка: ${clean(payload.pageTitle)}`,
-    `URL: ${safeUrl(payload.pageUrl)}`,
-    fields.name ? `Ім'я: ${clean(fields.name)}` : "",
-    fields.phone ? `Телефон: ${clean(fields.phone)}` : "",
-    fields.business ? `Ніша: ${clean(fields.business)}` : "",
-    fields.comment ? `Коментар: ${clean(fields.comment)}` : "",
-    ...["landing_path", "page_type", "city", "service", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "timestamp", "consent_state"].map(key => context[key] ? `${key}: ${clean(context[key]).slice(0, 180)}` : ""),
-    context.referrer ? `referrer: ${safeUrl(context.referrer)}` : "",
-    context.consent_state === "ads_granted" && context.gclid ? `gclid: ${clean(context.gclid).slice(0, 180)}` : "",
+    "MAX SITE • нова заявка",
+    value(fields.name) ? `Ім'я: ${value(fields.name)}` : "",
+    value(fields.phone) ? `Телефон: ${value(fields.phone)}` : "",
+    request.length ? `Запит: ${request.join("\n")}` : "",
   ];
 
   return rows.filter(Boolean).join("\n");

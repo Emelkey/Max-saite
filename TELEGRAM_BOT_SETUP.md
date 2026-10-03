@@ -26,13 +26,29 @@ window.MAX_SITE_TELEGRAM = {
 };
 ```
 
+## Message format
+
+Notifications and the manual-copy fallback show only the essentials:
+
+```text
+MAX SITE • нова заявка
+Ім'я: Тест
+Телефон: +380000000000
+Запит: Створення сайту
+Потрібен каталог товарів
+```
+
+The request contains the business/project field and the complete accepted comment.
+Empty fields and identical business/comment values are omitted. Page metadata,
+URLs, lead IDs, attribution, timestamps and consent are not displayed. The lead
+payload, consent handling, analytics and delivery acknowledgement are unchanged.
+The Worker does not persist the full lead payload. Once metadata is removed
+from the Telegram notification, that notification cannot be used for manual
+click-level Ads attribution; use consent-aware analytics for campaign reporting.
+
 ## Test
 
-Submit any form on the site. The message in Telegram should include:
-
-- page title
-- page URL
-- name
-- phone
-- business niche, if present
-- comment
+Run `node --test tests/unit/lead-delivery.test.js`. Telegram calls are mocked;
+this does not submit live leads. The formatter change requires a separate
+Cloudflare Worker deployment after review; publishing the static site alone
+only updates the manual-copy fallback.
