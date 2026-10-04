@@ -75,7 +75,7 @@ test('12-second intro reveals pricing as the first content section',async({page}
   expect(completed.progress).toBe(1);
   expect(completed.scrollY).toBeGreaterThan(completed.sceneEnd+5);
   expect(completed.pricingTop).toBeGreaterThanOrEqual(0);
-  expect(completed.pricingTop).toBeLessThan(120);
+  expect(completed.pricingTop).toBeLessThan(1);
   await expect(page.getByText('01 / ЦІНИ НА ПОСЛУГИ')).toBeInViewport();
   await testInfo.attach('pricing-after-short-intro',{body:await page.screenshot(),contentType:'image/png'});
 });
@@ -102,6 +102,7 @@ test('skipping active autoplay stays at pricing after the intro deadline',async(
   await expect(page.locator('#pricing')).toBeFocused();
   await expect(page.getByText('01 / ЦІНИ НА ПОСЛУГИ')).toBeInViewport();
   const skipped=await motionSnapshot(page);
+  expect(Math.abs(skipped.pricingTop)).toBeLessThan(1);
   await page.clock.runFor(13_000);
   const after=await motionSnapshot(page);
   expect(after.playing).toBe(false);
@@ -134,7 +135,7 @@ test('visibility pause resumes only the remaining intro before revealing pricing
   const completed=await motionSnapshot(page);
   expect(completed.playing).toBe(false);
   expect(completed.progress).toBe(1);
-  expect(completed.pricingTop).toBeLessThan(120);
+  expect(completed.pricingTop).toBeLessThan(1);
 });
 
 test('desktop ArrowDown after a manually completed scene enters pricing',async({page,isMobile})=>{
@@ -146,7 +147,7 @@ test('desktop ArrowDown after a manually completed scene enters pricing',async({
   await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(before.sceneEnd+5);
   const after=await motionSnapshot(page);
   expect(after.progress).toBe(1);
-  expect(after.pricingTop).toBeLessThan(120);
+  expect(after.pricingTop).toBeLessThan(1);
 });
 
 test('desktop wheel hands autoplay progress to scrolling without rewinding',async({page,isMobile})=>{
