@@ -2,8 +2,7 @@ const {test, expect}=require('@playwright/test');
 
 const cases=[
   ['formula','/portfolio/formula-chystoty/'],
-  ['fodez','/portfolio/fo-dez/'],
-  ['selfcase','/portfolio/max-site/']
+  ['fodez','/portfolio/fo-dez/']
 ];
 
 test.beforeEach(async({page})=>{
@@ -22,6 +21,9 @@ test('portfolio presents a featured real case and loaded visual assets without o
 
     const articles=page.locator('#work .mx-case');
     await expect(articles).toHaveCount(3);
+    await expect(page.locator('#work .mx-project-media img')).toHaveCount(3);
+    await expect(page.locator('#work .mx-case-b2b h3')).toHaveText('B2B CLEAN UKRAINE');
+    await expect(page.locator('#work .mx-case-selfcase')).toHaveCount(0);
     for(const image of await page.locator('#work .mx-project-media img').all()){
       await image.scrollIntoViewIfNeeded();
       await expect.poll(()=>image.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
@@ -58,6 +60,41 @@ test('each cover and explicit case action opens the matching local page',async({
       await expect(page.locator('h1')).toHaveCount(1);
     }
   }
+});
+
+test('B2B project has a real screenshot and opens the verified site from both portfolio surfaces',async({page,context})=>{
+  const site='https://b2bcleanukraine.com/';
+  // Stub the external destination only; verify the browser actually opens it.
+  await context.route('https://b2bcleanukraine.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<h1>B2B CLEAN UKRAINE</h1>'}));
+  for(const [path,cardSelector,linkSelectors] of [
+    ['/#work','#work .mx-case-b2b',['.mx-project-art','.mx-case-cta']],
+    ['/portfolio/','#b2b-clean-ukraine',['.case-main-media','.case-actions .btn:first-child']]
+  ]){
+    await page.goto(path);
+    const card=page.locator(cardSelector);
+    await card.scrollIntoViewIfNeeded();
+    const screenshot=card.locator('img');
+    await expect(screenshot).toHaveAttribute('src',/b2b-clean-home-20261004\.jpg$/);
+    await expect.poll(()=>screenshot.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
+    for(const selector of linkSelectors){
+      const link=card.locator(selector);
+      await expect(link).toHaveAttribute('href',site);
+      await expect(link).toHaveAttribute('target','_blank');
+      await expect(link).toHaveAttribute('rel','noopener noreferrer');
+      const [opened]=await Promise.all([page.waitForEvent('popup'),link.click()]);
+      await expect(opened).toHaveURL(site);
+      await expect(opened.locator('h1')).toHaveText('B2B CLEAN UKRAINE');
+      await opened.close();
+    }
+  }
+  const schema=await page.locator('script[type="application/ld+json"]').evaluate(el=>JSON.parse(el.textContent));
+  expect(schema['@graph'].find(node=>node['@type']==='ItemList').itemListElement).toContainEqual({
+    '@type':'ListItem',position:3,name:'B2B CLEAN UKRAINE — сайт для B2B-клінінгу',url:site
+  });
+  // Replacing the card must not break the historical case's indexed URL.
+  await page.goto('/portfolio/max-site/');
+  await expect(page.locator('h1')).toContainText('MAX SITE');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://maxsite.com.ua/portfolio/max-site/');
 });
 
 test('portfolio links retain keyboard focus and calm reduced-motion behavior',async({page})=>{

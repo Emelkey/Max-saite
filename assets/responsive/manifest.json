@@ -38,6 +38,25 @@
     }
   },
   {
+    "source": "assets/portfolio/b2b-clean-home-20261004.jpg",
+    "sourceSha256": "8362c6d42c90d2535a997cba1a596c7ad1309cfd96b38534f734b89c5c83e5f8",
+    "width": 1150,
+    "height": 660,
+    "candidates": [
+      480,
+      768,
+      1150
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/b2b-clean-home-20261004-480.avif": "063c76936043f216d6b5f3fc4738c90c864c7a945d4bbcc048b88c092f151119",
+      "assets/responsive/portfolio/b2b-clean-home-20261004-480.webp": "e4a36adba2caa183bb92febd6f4f88fe8ffeaac66a96c7cc54349c5063f934b5",
+      "assets/responsive/portfolio/b2b-clean-home-20261004-768.avif": "cb13073045924849daaf55d4a1863cc53d645274c8accaf010c93e4dac9461ac",
+      "assets/responsive/portfolio/b2b-clean-home-20261004-768.webp": "fd1fe0bc6e34ae503bbda2febfa4a1e6e916252d216989e7a8bfb891d0728517",
+      "assets/responsive/portfolio/b2b-clean-home-20261004-1150.avif": "5aa052ca8748eacdea23ddc26810ac6ba76ae6299ba2d50c5bda1c89a5332363",
+      "assets/responsive/portfolio/b2b-clean-home-20261004-1150.webp": "be21958b2fbfdb27b4e92d4e36046b0626e1ee8d592449f6cd6273a135df5695"
+    }
+  },
+  {
     "source": "assets/portfolio/fodez-cta.webp",
     "sourceSha256": "78d2f8a4610711bfe08c787d7c5af1c7c20afc08f3a8dc8cf74a4dfff9f4144d",
     "width": 1200,

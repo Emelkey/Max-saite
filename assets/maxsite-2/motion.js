@@ -9,8 +9,10 @@
  const pulse=(a,b,c,d,p)=>smooth(a,b,p)*(1-smooth(c,d,p));
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const autoplayDuration=12000;
- function showPricing(){stop();setDetached(false);$('pricing').scrollIntoView({block:'start',behavior:'instant'});render(1)}
+ function showPricing(){stop();manualAnchor=null;$('pricing').scrollIntoView({block:'start',behavior:'instant'});render(1)}
  let W=0,H=0,range=1,raf=0,autoRaf=0,autoStartTimer=0,playing=false,current=0,autoStartPending=false,resumeOnVisible=false,detachedAutoplay=false,frameCount=0,lastRendered=-1;
+ let userControlled=false,manualAnchor=null,lastScrollY=window.scrollY;
+ const touchViewport=window.matchMedia('(pointer:coarse)');
  const metrics={frames:0,maxRenderMs:0,errors:[]};
  // Additional devices use the same HTML structure, not screenshots.
  for(const host of [els.desktop,els.tablet]){const clone=els.browser.cloneNode(true);clone.removeAttribute('id');clone.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));clone.querySelectorAll('.build-line,.code-plane,.layer-title').forEach(n=>n.remove());host.appendChild(clone)}
@@ -67,52 +69,63 @@
   els.stage.dataset.progress=p.toFixed(3);els.stage.dataset.phase=phase[1];
   frameCount++;metrics.frames=frameCount;metrics.maxRenderMs=Math.max(metrics.maxRenderMs,performance.now()-started);
  }
- function scrollProgress(){return clamp((window.scrollY-els.journey.offsetTop)/range)}
- function measure(){lastRendered=-1;W=els.stage.clientWidth;H=els.stage.clientHeight;range=Math.max(1,els.journey.offsetHeight-H);render(reduced.matches?0:(playing?current:scrollProgress()))}
+ function scrollProgress(){
+  const y=clamp(window.scrollY-els.journey.offsetTop,0,range);
+  if(!manualAnchor)return y/range;
+  // Autoplay never moves the document. Continue from its visible frame when a
+  // finger/wheel takes over, without scrollTo, canceling the gesture or rewind.
+  const {y:start,p}=manualAnchor;
+  return y>=start?p+(1-p)*clamp((y-start)/Math.max(1,range-start)):p*clamp(y/Math.max(1,start));
+ }
+ function measure(){
+  const width=els.stage.clientWidth;
+  // iOS toolbar and keyboard changes must not resize the pinned scene or its
+  // spacer during a gesture. Re-measure only for a genuine width/orientation change.
+  if(touchViewport.matches&&W===width&&H)return;
+  if(touchViewport.matches){
+   els.stage.style.removeProperty('height');
+   H=els.stage.clientHeight;
+   els.stage.style.height=H+'px';
+   els.journey.style.height=(reduced.matches?H:H*(width<=700?4.8:6.5))+'px';
+  }else H=els.stage.clientHeight;
+  lastRendered=-1;W=width;range=Math.max(1,els.journey.offsetHeight-H);
+  if(manualAnchor)manualAnchor.y=Math.min(manualAnchor.y,range);
+  render(reduced.matches?0:(playing?current:scrollProgress()));
+ }
  function queue(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;if(!playing)render(reduced.matches?0:scrollProgress())})}
- function stop(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf);clearTimeout(autoStartTimer)}
- function setProgress(p){p=clamp(Number(p)||0);setDetached(false);if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
- function setDetached(value){
-  if(detachedAutoplay===value)return;
-  detachedAutoplay=value;
-  if(value)window.addEventListener('wheel',wheelHandoff,{passive:false});
-  else window.removeEventListener('wheel',wheelHandoff);
+ function pause(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf);clearTimeout(autoStartTimer)}
+ function stop(){
+  // A passive wheel event can arrive after the compositor has already moved.
+  // Anchor to the last observed position so its first native delta still counts.
+  if(detachedAutoplay)manualAnchor={p:current,y:clamp(lastScrollY-els.journey.offsetTop,0,range)};
+  pause();setDetached(false);resumeOnVisible=false;userControlled=true;
  }
- function wheelHandoff(e){
-  // WebKit may discard the native delta when scrollTo runs inside a wheel
-  // listener. Apply that first delta ourselves, then restore passive scrolling.
-  const panel=e.target.closest?.('.consent-panel');
-  if(!detachedAutoplay||modalOpen()||(panel&&panel.scrollHeight>panel.clientHeight+1)||window.scrollY>els.journey.offsetTop+range+1||!e.deltaY||e.ctrlKey||e.metaKey)return;
-  const delta=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?window.innerHeight:1);
-  const target=clamp(els.journey.offsetTop+current*range+delta,0,document.scrollingElement.scrollHeight-window.innerHeight);
-  if(e.cancelable)e.preventDefault();
-  stop();setDetached(false);window.scrollTo({top:target,left:0,behavior:'instant'});render(scrollProgress());
- }
+ function setProgress(p){p=clamp(Number(p)||0);stop();manualAnchor=null;if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
+ function setDetached(value){detachedAutoplay=value}
  function modalOpen(){return info.classList.contains('open')||!!document.querySelector('dialog[open],[aria-modal="true"]:not([aria-hidden="true"]):not(#infoOverlay)')||!$('mobileMenu').hidden}
- function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;setDetached(true);const from=current>.98?0:current;render(from);const start=performance.now(),duration=autoplayDuration*(1-from);
+ function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}userControlled=false;manualAnchor=null;playing=true;setDetached(true);const from=current>.98?0:current;render(from);const start=performance.now(),duration=autoplayDuration*(1-from);
   // Keep the document still during the intro, then reveal the first content
   // section. Any user interaction cancels autoplay before this handoff.
   const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);render(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else showPricing()};autoRaf=requestAnimationFrame(tick)}
- function onMotionChange(){stop();setDetached(false);document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure()}
+ function onMotionChange(){stop();manualAnchor=null;W=0;document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure()}
  function maybeAutoStart(){
-  if(!autoStartPending||document.hidden||reduced.matches)return;
+  if(!autoStartPending||userControlled||document.hidden||reduced.matches)return;
   // Safari and Chromium restore a reloaded page's scroll at different times.
   // Sample the settled position before starting instead of stopping mid-frame.
   clearTimeout(autoStartTimer);
   autoStartTimer=setTimeout(()=>{
-   if(!autoStartPending||document.hidden||reduced.matches)return;
-   if((location.hash&&location.hash!=='#journey')||window.scrollY>els.journey.offsetTop+range+1){autoStartPending=false;return}
+   if(!autoStartPending||userControlled||document.hidden||reduced.matches)return;
+   if((location.hash&&location.hash!=='#journey')||window.scrollY>els.journey.offsetTop+1){autoStartPending=false;return}
    autoStartPending=false;render(scrollProgress());play();
   },120);
  }
- function stopForPointer(){stop()}
  window.addEventListener('scroll',()=>{
   // A visitor may scroll without a wheel or pointer event (for example via a
   // browser anchor or accessibility action). Hand control to the scroll scene.
-  if(playing&&window.scrollY>0)stop();
-  setDetached(false);
+  if((playing||resumeOnVisible)&&window.scrollY>els.journey.offsetTop+1)stop();
+  lastScrollY=window.scrollY;
   queue();
- },{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stopForPointer,{passive:true});window.addEventListener('touchstart',stopForPointer,{passive:true});
+ },{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stop,{passive:true,capture:true});window.addEventListener('touchstart',stop,{passive:true,capture:true});window.addEventListener('touchmove',stop,{passive:true,capture:true});document.addEventListener('focusin',stop,{passive:true});
  const keyboardStops=[0,.25,.42,.58,.77,1];
  window.addEventListener('keydown',e=>{
   if(['Home','End','Tab'].includes(e.key)){stop();return}
@@ -131,13 +144,15 @@
   if(next===undefined){showPricing();queue()}
   else setProgress(next);
  });
- document.addEventListener('visibilitychange',()=>{if(document.hidden){resumeOnVisible=playing;if(playing)stop()}else if(resumeOnVisible){resumeOnVisible=false;play()}else maybeAutoStart()});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){resumeOnVisible=playing&&!userControlled;if(playing)pause()}else if(resumeOnVisible&&!userControlled){resumeOnVisible=false;play()}else maybeAutoStart()});
+ window.addEventListener('pagehide',stop);
+ window.addEventListener('pageshow',e=>{if(e.persisted)stop()});
  document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>{stop();setProgress(Number(n.dataset.go))}));
  const info=$('infoOverlay');function closeInfo(){info.classList.remove('open');info.setAttribute('aria-hidden','true');$('infoOpen').focus()}
  $('infoOpen').onclick=()=>{stop();info.classList.add('open');info.setAttribute('aria-hidden','false');$('infoClose').focus()};$('infoClose').onclick=closeInfo;info.addEventListener('click',e=>{if(e.target===info)closeInfo()});info.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo();if(e.key==='Tab'){e.preventDefault();$('infoClose').focus()}});
  reduced.addEventListener?reduced.addEventListener('change',onMotionChange):reduced.addListener(onMotionChange);
- window.demoController={setProgress,play,stop,getProgress:()=>current,getState:()=>({progress:current,playing,width:W,height:H,range,reducedMotion:reduced.matches,cameraTransform:els.camera.style.transform,metrics:{...metrics}})};
- onMotionChange();
+ window.demoController={setProgress,play,stop,getProgress:()=>current,getState:()=>({progress:current,playing,userControlled,width:W,height:H,range,reducedMotion:reduced.matches,cameraTransform:els.camera.style.transform,metrics:{...metrics}})};
+ document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure();
  autoStartPending=!reduced.matches;
  window.addEventListener('pageshow',maybeAutoStart,{once:true});
 })();

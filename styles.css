@@ -3188,7 +3188,7 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
   color: #f1f5e8;
 }
 
-#work .mx-case-selfcase {
+#work .mx-case-b2b {
   grid-column: auto;
   background: #d9eac7;
   color: #203f2d;
@@ -3222,9 +3222,9 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
   background: #10241a;
 }
 
-#work .mx-case-selfcase .mx-project-art {
-  background: radial-gradient(circle at 78% 68%, #b4db9b 0, transparent 43%), #d9eac7;
-  color: #183b29;
+#work .mx-case-b2b .mx-project-art {
+  background: #071214;
+  color: #e9f3df;
 }
 
 #work .mx-project-art::before {
@@ -3236,7 +3236,7 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
   pointer-events: none;
 }
 
-#work .mx-case-selfcase .mx-project-art::before,
+#work .mx-case-b2b .mx-project-art::before,
 #work .mx-project-art::after {
   content: none;
 }
@@ -3263,6 +3263,28 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
 
 #work .mx-case-fodez .mx-project-media img {
   object-position: 63% center;
+}
+
+/* Show the captured website as a full frame, without inventing a mock-up. */
+#work .mx-case-b2b .mx-project-media {
+  inset: 62px 16px 42px;
+  width: calc(100% - 32px);
+  height: auto;
+}
+
+#work .mx-case-b2b .mx-project-media img {
+  object-fit: contain;
+}
+
+.portfolio-case-b2b .case-main-media {
+  align-self: start;
+}
+
+.portfolio-case-b2b .case-main-media > picture > img {
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 #work .mx-project-top,
@@ -3293,11 +3315,6 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
 
 #work .mx-project-foot > span {
   color: #c9eda8;
-}
-
-#work .mx-case-selfcase .mx-project-foot,
-#work .mx-case-selfcase .mx-project-foot > span {
-  color: #294832;
 }
 
 #work .mx-project-arrow {
