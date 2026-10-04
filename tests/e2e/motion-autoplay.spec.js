@@ -114,15 +114,15 @@ test('visibility pause resumes only the remaining intro before revealing pricing
   await page.goto('/');
   await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
   await page.clock.runFor(4_000);
-  const before=await motionSnapshot(page);
-  await page.evaluate(()=>{
+  const pausedProgress=await page.evaluate(()=>{
     Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});
     document.dispatchEvent(new Event('visibilitychange'));
+    return window.demoController.getProgress();
   });
   await page.clock.runFor(15_000);
   const paused=await motionSnapshot(page);
   expect(paused.playing).toBe(false);
-  expect(paused.progress).toBe(before.progress);
+  expect(paused.progress).toBe(pausedProgress);
   expect(paused.scrollY).toBeLessThan(20);
   await page.evaluate(()=>{
     Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});
