@@ -28,7 +28,11 @@
   else{
    cx=mix(cx,W*.69,morph);cy=mix(cy,H*.53,morph);
    // Keep the page mockup beside the chapter text while both are visible.
-   cx+=W*.19*chapter;scale*=1-.42*chapter;
+   cx+=W*.19*chapter;
+   // Ease the chapter mockup back into the viewport as its heading appears.
+   // The offset ends before the responsive-device chapter begins.
+   cx-=W*.14*smooth(.16,.20,p)*(1-smooth(.53,.62,p));
+   scale*=1-.42*chapter;
   }
   const rx=mix(15,0,approach)+(mobile?25:42)*explode,ry=(mobile?-6:-17)*explode,rz=mix(-5,0,approach)-(mobile?8:15)*explode;
   place(els.camera,cx,cy,bw,bh,scale,rx,ry,rz);
@@ -61,12 +65,14 @@
   els.stage.dataset.progress=p.toFixed(3);els.stage.dataset.phase=phase[1];
   frameCount++;metrics.frames=frameCount;metrics.maxRenderMs=Math.max(metrics.maxRenderMs,performance.now()-started);
  }
- function measure(){lastRendered=-1;W=els.stage.clientWidth;H=els.stage.clientHeight;range=Math.max(1,els.journey.offsetHeight-H);render(reduced.matches?0:clamp((window.scrollY-els.journey.offsetTop)/range))}
+ function measure(){lastRendered=-1;W=els.stage.clientWidth;H=els.stage.clientHeight;range=Math.max(1,els.journey.offsetHeight-H);render(reduced.matches?0:(playing?current:clamp((window.scrollY-els.journey.offsetTop)/range)))}
  function queue(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;if(!playing)render(reduced.matches?0:clamp((window.scrollY-els.journey.offsetTop)/range))})}
  function stop(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf)}
  function setProgress(p){p=clamp(Number(p)||0);if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
- function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;const from=current>.98?0:current;setProgress(from);const start=performance.now(),duration=22000*(1-from);
-  const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);setProgress(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else stop()};autoRaf=requestAnimationFrame(tick)}
+ function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;const from=current>.98?0:current;render(from);const start=performance.now(),duration=22000*(1-from);
+  // Autoplay animates the scene without scrolling the document. This keeps
+  // links, footer controls and browser navigation stable during the motion.
+  const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);render(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else stop()};autoRaf=requestAnimationFrame(tick)}
  function onMotionChange(){stop();document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure()}
  function maybeAutoStart(){
   if(!autoStartPending||document.hidden||reduced.matches)return;
@@ -78,7 +84,12 @@
   });
  }
  function stopForPointer(){stop()}
- window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stopForPointer,{passive:true});window.addEventListener('touchstart',stopForPointer,{passive:true});window.addEventListener('keydown',e=>{if(['PageDown','PageUp','ArrowDown','ArrowUp','Home','End','Tab'].includes(e.key))stop()});document.addEventListener('visibilitychange',()=>{if(document.hidden){if(playing)stop()}else maybeAutoStart()});
+ window.addEventListener('scroll',()=>{
+  // A visitor may scroll without a wheel or pointer event (for example via a
+  // browser anchor or accessibility action). Hand control to the scroll scene.
+  if(playing&&window.scrollY>0)stop();
+  queue();
+ },{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stopForPointer,{passive:true});window.addEventListener('touchstart',stopForPointer,{passive:true});window.addEventListener('keydown',e=>{if(['PageDown','PageUp','ArrowDown','ArrowUp','Home','End','Tab'].includes(e.key))stop()});document.addEventListener('visibilitychange',()=>{if(document.hidden){if(playing)stop()}else maybeAutoStart()});
  document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>{stop();setProgress(Number(n.dataset.go))}));
  const info=$('infoOverlay');function closeInfo(){info.classList.remove('open');info.setAttribute('aria-hidden','true');$('infoOpen').focus()}
  $('infoOpen').onclick=()=>{stop();info.classList.add('open');info.setAttribute('aria-hidden','false');$('infoClose').focus()};$('infoClose').onclick=closeInfo;info.addEventListener('click',e=>{if(e.target===info)closeInfo()});info.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo();if(e.key==='Tab'){e.preventDefault();$('infoClose').focus()}});
