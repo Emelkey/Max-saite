@@ -1451,6 +1451,7 @@ p {
 
 .portfolio-hero-visual img {
   width: 100%;
+  height: auto;
   border: 1px solid rgba(24, 244, 91, 0.28);
   border-radius: 8px;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
@@ -1496,6 +1497,19 @@ p {
   border: 1px solid rgba(24, 244, 91, 0.25);
   border-radius: 8px;
   object-fit: cover;
+}
+
+/* Case-detail screenshots contain interface copy, so show their full frame. */
+.portfolio-case > figure.case-main-media {
+  margin: 0;
+  align-self: start;
+}
+
+.portfolio-case > figure.case-main-media > picture > img {
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .case-main-media .site-shot {
@@ -3509,5 +3523,11 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
   #work .mx-project-arrow,
   #work .mx-case-cta span {
     transition: none;
+  }
+}
+
+@media (max-width: 330px) {
+  body:has(> .site-header) .seo-hero h1.privacy-heading {
+    font-size: 28px;
   }
 }
