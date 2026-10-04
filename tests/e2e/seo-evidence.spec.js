@@ -11,8 +11,8 @@ test('portfolio and cinematic demo clearly disclose illustrative content',async(
   const disclosure=page.locator('#work .mx-disclosure');
   await disclosure.scrollIntoViewIfNeeded();
   await expect(disclosure).toBeVisible();
-  await expect(disclosure).toContainText('Типографічні обкладинки не є скриншотами сайтів');
-  await expect(disclosure).toContainText('FORMA у першій сцені залишається окремим демонстраційним концептом');
+  await expect(disclosure).toContainText('B2B CLEAN UKRAINE представлено скриншотом чинного сайту');
+  await expect(disclosure).toContainText('FORMA у першій сцені залишається демонстраційним концептом');
   expect(await disclosure.evaluate(el=>el.scrollWidth-el.clientWidth)).toBeLessThanOrEqual(1);
   expect(await page.locator('main').innerText()).not.toMatch(/[+]\s*\d+(?:[.,]\d+)?\s*%/);
   await testInfo.attach('portfolio-and-demo-disclosure',{body:await disclosure.screenshot(),contentType:'image/png'});

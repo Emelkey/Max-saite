@@ -401,3 +401,22 @@ test('touch while paused and restored history cannot resume or redirect autoplay
   expect(restored.scrollY).toBe(stopped.scrollY);
   expect(restored.progress).toBe(stopped.progress);
 });
+
+
+test('active autoplay cannot resume after a persisted page restoration',async({page})=>{
+  await page.clock.install();
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.clock.runFor(3_000);
+  const active=await motionSnapshot(page);
+  expect(active.playing).toBe(true);
+  await page.evaluate(()=>{
+    window.dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}));
+    window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
+  });
+  await page.clock.runFor(15_000);
+  const restored=await motionSnapshot(page);
+  expect(restored.playing).toBe(false);
+  expect(restored.scrollY).toBe(active.scrollY);
+  expect(restored.progress).toBe(active.progress);
+});
