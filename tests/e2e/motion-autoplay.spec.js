@@ -150,7 +150,7 @@ test('desktop ArrowDown after a manually completed scene enters pricing',async({
   expect(after.pricingTop).toBeLessThan(1);
 });
 
-test('desktop wheel hands autoplay progress to scrolling without rewinding',async({page,isMobile})=>{
+test('desktop wheel continues the visible scene with only native scrolling',async({page,isMobile})=>{
   test.skip(isMobile,'Desktop scroll motion');
   await page.clock.install();
   await page.goto('/');
@@ -165,7 +165,8 @@ test('desktop wheel hands autoplay progress to scrolling without rewinding',asyn
   await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(false);
   await expect.poll(()=>page.evaluate(()=>window.demoController.getProgress())).toBeGreaterThan(before.progress+.02);
   const after=await motionSnapshot(page);
-  expect(after.scrollY).toBeGreaterThan(before.range*before.progress);
+  expect(after.scrollY).toBeGreaterThan(0);
+  expect(after.scrollY).toBeLessThan(700);
 });
 
 test('visible cookie choices do not block scrolling the desktop scene',async({page,isMobile})=>{
@@ -183,7 +184,7 @@ test('visible cookie choices do not block scrolling the desktop scene',async({pa
   await expect.poll(()=>page.evaluate(()=>window.demoController.getProgress())).toBeGreaterThan(before.progress+.02);
 });
 
-test('desktop reload within the journey resumes autoplay from restored scroll',async({page,isMobile})=>{
+test('desktop reload within the journey leaves the restored scroll under user control',async({page,isMobile})=>{
   test.skip(isMobile,'Desktop scroll motion');
   await page.goto('/');
   await page.mouse.wheel(0,2_500);
@@ -197,7 +198,8 @@ test('desktop reload within the journey resumes autoplay from restored scroll',a
 
   await page.reload();
   await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(before.range*.35);
-  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.waitForTimeout(300);
+  expect(await page.evaluate(()=>window.demoController.getState().playing)).toBe(false);
   const resumed=await motionSnapshot(page);
   expect(resumed.progress).toBeGreaterThan(.35);
   expect(resumed.scrollY).toBeGreaterThan(before.range*.35);
@@ -304,10 +306,98 @@ test('portfolio covers open their case pages',async({page})=>{
   await page.goto('/#work');
   const covers=page.locator('.mx-project-art');
   await expect(covers).toHaveCount(3);
-  for(const [index,route] of ['/portfolio/formula-chystoty/','/portfolio/fo-dez/','/portfolio/max-site/'].entries()){
-    await expect(covers.nth(index)).toHaveAttribute('href',route.slice(1));
+  for(const [index,route] of ['/portfolio/formula-chystoty/','/portfolio/fo-dez/','https://b2bcleanukraine.com/'].entries()){
+    await expect(covers.nth(index)).toHaveAttribute('href',route.startsWith('/')?route.slice(1):route);
   }
   await covers.nth(1).click();
   await expect(page).toHaveURL(/\/portfolio\/fo-dez\/$/);
   await expect(page.locator('h1')).toHaveCount(1);
+});
+
+
+test('touch takeover never rewinds, cancels the gesture or jumps after its deadline',async({page,isMobile})=>{
+  test.skip(!isMobile,'Native touch scene');
+  await page.clock.install();
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.clock.runFor(6_000);
+  const before=await motionSnapshot(page);
+  const gesture=await page.evaluate(()=>{
+    const target=document.querySelector('#stage');
+    const events=['touchstart','touchmove'].map(type=>{
+      const event=new Event(type,{bubbles:true,cancelable:true});
+      target.dispatchEvent(event);
+      return {type,prevented:event.defaultPrevented};
+    });
+    return {events,y:window.scrollY,progress:window.demoController.getProgress()};
+  });
+  expect(gesture.events.every(e=>!e.prevented)).toBe(true);
+  expect(gesture.y).toBe(before.scrollY);
+  expect(gesture.progress).toBe(before.progress);
+  // Model the scroll/inertia events delivered by the browser after touchmove;
+  // this intentionally asserts document position separately from scene progress.
+  for(const y of [120,300,520,650]){
+    await page.evaluate(y=>window.scrollTo(0,y),y);
+    await page.clock.runFor(60);
+    expect(await page.evaluate(()=>window.scrollY)).toBe(y);
+    expect(await page.evaluate(()=>window.demoController.getProgress())).toBeGreaterThanOrEqual(before.progress);
+  }
+  const settled=await motionSnapshot(page);
+  await page.clock.runFor(15_000);
+  const after=await motionSnapshot(page);
+  expect(after.playing).toBe(false);
+  expect(after.scrollY).toBe(settled.scrollY);
+  expect(after.progress).toBe(settled.progress);
+});
+
+test('mobile toolbar and keyboard height changes keep scene geometry and native scroll stable',async({page,isMobile})=>{
+  test.skip(!isMobile,'Mobile viewport changes');
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.locator('#stage').dispatchEvent('touchstart');
+  await page.evaluate(()=>window.scrollTo(0,500));
+  await page.waitForTimeout(100);
+  const before=await motionSnapshot(page);
+  const original=page.viewportSize();
+  for(const height of [original.height+70,original.height-80,original.height]){
+    await page.setViewportSize({width:original.width,height});
+    await page.waitForTimeout(100);
+    const resized=await motionSnapshot(page);
+    expect(resized.range).toBe(before.range);
+    expect(resized.scrollY).toBe(before.scrollY);
+    expect(resized.progress).toBe(before.progress);
+    expect(resized.playing).toBe(false);
+  }
+  await page.goto('/#lead');
+  await page.locator('#lead-name').focus();
+  const focused=await motionSnapshot(page);
+  await page.setViewportSize({width:original.width,height:original.height-280});
+  await page.waitForTimeout(200);
+  await expect(page.locator('#lead-name')).toBeFocused();
+  expect((await motionSnapshot(page)).range).toBe(focused.range);
+  expect((await motionSnapshot(page)).playing).toBe(false);
+  await page.setViewportSize(original);
+  await expect(page.locator('#lead-name')).toBeFocused();
+});
+
+test('touch while paused and restored history cannot resume or redirect autoplay',async({page})=>{
+  await page.clock.install();
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.clock.runFor(3_000);
+  await page.evaluate(()=>{
+    Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});
+    document.dispatchEvent(new Event('visibilitychange'));
+    document.querySelector('#stage').dispatchEvent(new Event('touchstart',{bubbles:true}));
+    Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});
+    document.dispatchEvent(new Event('visibilitychange'));
+    window.dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}));
+    window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
+  });
+  const stopped=await motionSnapshot(page);
+  await page.clock.runFor(15_000);
+  const restored=await motionSnapshot(page);
+  expect(restored.playing).toBe(false);
+  expect(restored.scrollY).toBe(stopped.scrollY);
+  expect(restored.progress).toBe(stopped.progress);
 });
