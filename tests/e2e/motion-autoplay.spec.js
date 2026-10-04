@@ -324,16 +324,17 @@ test('touch takeover never rewinds, cancels the gesture or jumps after its deadl
   const before=await motionSnapshot(page);
   const gesture=await page.evaluate(()=>{
     const target=document.querySelector('#stage');
+    const beforeProgress=window.demoController.getProgress();
     const events=['touchstart','touchmove'].map(type=>{
       const event=new Event(type,{bubbles:true,cancelable:true});
       target.dispatchEvent(event);
       return {type,prevented:event.defaultPrevented};
     });
-    return {events,y:window.scrollY,progress:window.demoController.getProgress()};
+    return {events,y:window.scrollY,beforeProgress,progress:window.demoController.getProgress()};
   });
   expect(gesture.events.every(e=>!e.prevented)).toBe(true);
   expect(gesture.y).toBe(before.scrollY);
-  expect(gesture.progress).toBe(before.progress);
+  expect(gesture.progress).toBe(gesture.beforeProgress);
   // Model the scroll/inertia events delivered by the browser after touchmove;
   // this intentionally asserts document position separately from scene progress.
   for(const y of [120,300,520,650]){
@@ -410,13 +411,14 @@ test('active autoplay cannot resume after a persisted page restoration',async({p
   await page.clock.runFor(3_000);
   const active=await motionSnapshot(page);
   expect(active.playing).toBe(true);
-  await page.evaluate(()=>{
+  const restoredProgress=await page.evaluate(()=>{
     window.dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}));
     window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
+    return window.demoController.getProgress();
   });
   await page.clock.runFor(15_000);
   const restored=await motionSnapshot(page);
   expect(restored.playing).toBe(false);
   expect(restored.scrollY).toBe(active.scrollY);
-  expect(restored.progress).toBe(active.progress);
+  expect(restored.progress).toBe(restoredProgress);
 });

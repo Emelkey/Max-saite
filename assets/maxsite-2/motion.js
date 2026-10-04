@@ -11,7 +11,7 @@
  const autoplayDuration=12000;
  function showPricing(){stop();manualAnchor=null;$('pricing').scrollIntoView({block:'start',behavior:'instant'});render(1)}
  let W=0,H=0,range=1,raf=0,autoRaf=0,autoStartTimer=0,playing=false,current=0,autoStartPending=false,resumeOnVisible=false,detachedAutoplay=false,frameCount=0,lastRendered=-1;
- let userControlled=false,manualAnchor=null;
+ let userControlled=false,manualAnchor=null,lastScrollY=window.scrollY;
  const touchViewport=window.matchMedia('(pointer:coarse)');
  const metrics={frames:0,maxRenderMs:0,errors:[]};
  // Additional devices use the same HTML structure, not screenshots.
@@ -95,7 +95,9 @@
  function queue(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;if(!playing)render(reduced.matches?0:scrollProgress())})}
  function pause(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf);clearTimeout(autoStartTimer)}
  function stop(){
-  if(detachedAutoplay)manualAnchor={p:current,y:clamp(window.scrollY-els.journey.offsetTop,0,range)};
+  // A passive wheel event can arrive after the compositor has already moved.
+  // Anchor to the last observed position so its first native delta still counts.
+  if(detachedAutoplay)manualAnchor={p:current,y:clamp(lastScrollY-els.journey.offsetTop,0,range)};
   pause();setDetached(false);resumeOnVisible=false;userControlled=true;
  }
  function setProgress(p){p=clamp(Number(p)||0);stop();manualAnchor=null;if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
@@ -121,6 +123,7 @@
   // A visitor may scroll without a wheel or pointer event (for example via a
   // browser anchor or accessibility action). Hand control to the scroll scene.
   if((playing||resumeOnVisible)&&window.scrollY>els.journey.offsetTop+1)stop();
+  lastScrollY=window.scrollY;
   queue();
  },{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stop,{passive:true,capture:true});window.addEventListener('touchstart',stop,{passive:true,capture:true});window.addEventListener('touchmove',stop,{passive:true,capture:true});document.addEventListener('focusin',stop,{passive:true});
  const keyboardStops=[0,.25,.42,.58,.77,1];
