@@ -1451,6 +1451,7 @@ p {
 
 .portfolio-hero-visual img {
   width: 100%;
+  height: auto;
   border: 1px solid rgba(24, 244, 91, 0.28);
   border-radius: 8px;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
@@ -1496,6 +1497,19 @@ p {
   border: 1px solid rgba(24, 244, 91, 0.25);
   border-radius: 8px;
   object-fit: cover;
+}
+
+/* Case-detail screenshots contain interface copy, so show their full frame. */
+.portfolio-case > figure.case-main-media {
+  margin: 0;
+  align-self: start;
+}
+
+.portfolio-case > figure.case-main-media > picture > img {
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .case-main-media .site-shot {
@@ -3131,5 +3145,389 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
 
   body:has(> .site-header).cro-page .cro-hero .hero-buttons {
     margin-top: 6px;
+  }
+}
+
+/* Homepage portfolio: an editorial feature and two real case previews.
+   The homepage loads site.css after this file, so scope these selectors to
+   #work to keep the new composition intentional at every breakpoint. */
+#work.mx-work {
+  background: #151d17;
+}
+
+#work .mx-section-intro {
+  margin-bottom: 42px;
+}
+
+#work .mx-cases {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+#work .mx-case {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #52634a;
+  border-radius: 22px;
+  background: #e6e9d9;
+  color: #233b2b;
+}
+
+#work .mx-case-formula {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  min-height: 440px;
+}
+
+#work .mx-case-fodez {
+  background: #24372a;
+  color: #f1f5e8;
+}
+
+#work .mx-case-selfcase {
+  grid-column: auto;
+  background: #d9eac7;
+  color: #203f2d;
+}
+
+#work .mx-project-art {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 280px;
+  min-height: 280px;
+  min-width: 0;
+  padding: 23px 25px;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #b9cfad;
+  color: #f5f7ec;
+  text-decoration: none;
+}
+
+#work .mx-case-formula .mx-project-art {
+  height: 100%;
+  min-height: 440px;
+}
+
+#work .mx-case-fodez .mx-project-art {
+  background: #10241a;
+}
+
+#work .mx-case-selfcase .mx-project-art {
+  background: radial-gradient(circle at 78% 68%, #b4db9b 0, transparent 43%), #d9eac7;
+  color: #183b29;
+}
+
+#work .mx-project-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(7, 25, 16, .48), transparent 32%, transparent 52%, rgba(7, 25, 16, .72));
+  pointer-events: none;
+}
+
+#work .mx-case-selfcase .mx-project-art::before,
+#work .mx-project-art::after {
+  content: none;
+}
+
+#work .mx-project-media,
+#work .mx-project-media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#work .mx-project-media {
+  z-index: -2;
+  overflow: hidden;
+}
+
+#work .mx-project-media img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform .45s ease;
+}
+
+#work .mx-case-fodez .mx-project-media img {
+  object-position: 63% center;
+}
+
+#work .mx-project-top,
+#work .mx-project-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .09em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+#work .mx-project-top > span:first-child {
+  max-width: calc(100% - 52px);
+}
+
+#work .mx-project-foot {
+  flex-wrap: wrap;
+  color: #e1eed7;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+#work .mx-project-foot > span {
+  color: #c9eda8;
+}
+
+#work .mx-case-selfcase .mx-project-foot,
+#work .mx-case-selfcase .mx-project-foot > span {
+  color: #294832;
+}
+
+#work .mx-project-arrow {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0;
+  transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+
+#work .mx-selfcase-wordmark {
+  align-self: center;
+  max-width: 100%;
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 700;
+  letter-spacing: -.095em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#work .mx-selfcase-wordmark > span:first-child {
+  display: inline-block;
+  margin: 0 .09em;
+  color: #1e9d57;
+  font-weight: 400;
+  transform: translateY(-.03em);
+}
+
+#work .mx-selfcase-dot {
+  color: #1e9d57;
+}
+
+#work .mx-case-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 30px 34px 28px;
+}
+
+#work .mx-case-formula .mx-case-copy {
+  justify-content: center;
+  padding: 42px 46px;
+}
+
+#work .mx-category {
+  color: #42634c;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  line-height: 1.5;
+}
+
+#work .mx-case-fodez .mx-category {
+  color: #b1daa4;
+}
+
+#work .mx-case h3 {
+  margin: 15px 0 0;
+  font-size: clamp(31px, 3.3vw, 52px);
+  font-weight: 550;
+  letter-spacing: -.045em;
+  line-height: 1.06;
+}
+
+#work .mx-case h3 em {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+}
+
+#work .mx-case p {
+  max-width: 440px;
+  min-height: 0;
+  margin: 16px 0 0;
+  color: #405448;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+#work .mx-case-fodez p {
+  color: #d3e0d0;
+}
+
+#work .mx-tags {
+  margin: 24px 0 25px;
+}
+
+#work .mx-tags span {
+  border-color: #9bb196;
+  color: #36543f;
+}
+
+#work .mx-case-fodez .mx-tags span {
+  border-color: #789873;
+  color: #d6ebcf;
+}
+
+#work .mx-case-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 50px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #9eaf98;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#work .mx-case-fodez .mx-case-cta {
+  border-color: #6f8d6d;
+}
+
+#work .mx-case-cta span {
+  font-size: 24px;
+  font-weight: 400;
+  transition: transform .25s ease;
+}
+
+#work .mx-project-art:hover .mx-project-media img,
+#work .mx-project-art:focus-visible .mx-project-media img {
+  transform: scale(1.045);
+}
+
+#work .mx-project-art:hover .mx-project-arrow,
+#work .mx-project-art:focus-visible .mx-project-arrow,
+#work .mx-case-cta:hover span,
+#work .mx-case-cta:focus-visible span {
+  transform: translate(3px, -3px);
+}
+
+#work .mx-project-art:focus-visible,
+#work .mx-case-cta:focus-visible {
+  outline: 3px solid #8dcf5a;
+  outline-offset: -5px;
+}
+
+#work .mx-case-cta:focus-visible {
+  outline-offset: 2px;
+}
+
+#work .mx-disclosure {
+  max-width: 1050px;
+  margin-top: 24px;
+  color: #b4c4ad;
+}
+
+@media (max-width: 760px) {
+  #work .mx-cases {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  #work .mx-case-formula {
+    grid-column: auto;
+    display: flex;
+    min-height: 0;
+  }
+
+  #work .mx-project-art,
+  #work .mx-case-formula .mx-project-art {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  #work .mx-case-formula .mx-project-art {
+    height: 320px;
+    min-height: 320px;
+  }
+
+  #work .mx-case-copy,
+  #work .mx-case-formula .mx-case-copy {
+    padding: 27px 26px 22px;
+  }
+
+  #work .mx-case h3 {
+    font-size: clamp(31px, 9vw, 42px);
+  }
+
+  #work .mx-case p {
+    font-size: 13px;
+  }
+
+  #work .mx-tags {
+    margin: 18px 0 20px;
+  }
+}
+
+@media (max-width: 365px) {
+  #work .mx-project-art,
+  #work .mx-case-formula .mx-project-art {
+    height: 250px;
+    min-height: 250px;
+    padding: 18px;
+  }
+
+  #work .mx-project-top,
+  #work .mx-project-foot {
+    font-size: 9px;
+  }
+
+  #work .mx-selfcase-wordmark {
+    font-size: 36px;
+  }
+
+  #work .mx-case-copy,
+  #work .mx-case-formula .mx-case-copy {
+    padding: 25px 22px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #work .mx-project-media img,
+  #work .mx-project-arrow,
+  #work .mx-case-cta span {
+    transition: none;
+  }
+}
+
+@media (max-width: 330px) {
+  body:has(> .site-header) .seo-hero h1.privacy-heading {
+    font-size: 28px;
   }
 }
