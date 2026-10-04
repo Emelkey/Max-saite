@@ -8,6 +8,8 @@
  const smooth=(a,b,p)=>{const t=clamp((p-a)/(b-a));return t*t*(3-2*t)};
  const pulse=(a,b,c,d,p)=>smooth(a,b,p)*(1-smooth(c,d,p));
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const autoplayDuration=12000;
+ function showPricing(){stop();setDetached(false);$('pricing').scrollIntoView({block:'start',behavior:'instant'});render(1)}
  let W=0,H=0,range=1,raf=0,autoRaf=0,autoStartTimer=0,playing=false,current=0,autoStartPending=false,resumeOnVisible=false,detachedAutoplay=false,frameCount=0,lastRendered=-1;
  const metrics={frames:0,maxRenderMs:0,errors:[]};
  // Additional devices use the same HTML structure, not screenshots.
@@ -87,10 +89,10 @@
   stop();setDetached(false);window.scrollTo({top:target,left:0,behavior:'instant'});render(scrollProgress());
  }
  function modalOpen(){return info.classList.contains('open')||!!document.querySelector('dialog[open],[aria-modal="true"]:not([aria-hidden="true"]):not(#infoOverlay)')||!$('mobileMenu').hidden}
- function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;setDetached(true);const from=current>.98?0:current;render(from);const start=performance.now(),duration=22000*(1-from);
-  // Autoplay animates the scene without scrolling the document. This keeps
-  // links, footer controls and browser navigation stable during the motion.
-  const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);render(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else stop()};autoRaf=requestAnimationFrame(tick)}
+ function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;setDetached(true);const from=current>.98?0:current;render(from);const start=performance.now(),duration=autoplayDuration*(1-from);
+  // Keep the document still during the intro, then reveal the first content
+  // section. Any user interaction cancels autoplay before this handoff.
+  const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);render(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else showPricing()};autoRaf=requestAnimationFrame(tick)}
  function onMotionChange(){stop();setDetached(false);document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure()}
  function maybeAutoStart(){
   if(!autoStartPending||document.hidden||reduced.matches)return;
@@ -126,7 +128,7 @@
   const next=down?keyboardStops.find(p=>p>progress+.025):keyboardStops.slice().reverse().find(p=>p<progress-.025);
   if(next===undefined&&!(down&&progress>=.975))return;
   e.preventDefault();stop();setDetached(false);
-  if(next===undefined){$('work').scrollIntoView({block:'start',behavior:'instant'});queue()}
+  if(next===undefined){showPricing();queue()}
   else setProgress(next);
  });
  document.addEventListener('visibilitychange',()=>{if(document.hidden){resumeOnVisible=playing;if(playing)stop()}else if(resumeOnVisible){resumeOnVisible=false;play()}else maybeAutoStart()});
