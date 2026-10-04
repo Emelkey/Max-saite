@@ -8,7 +8,7 @@
  const smooth=(a,b,p)=>{const t=clamp((p-a)/(b-a));return t*t*(3-2*t)};
  const pulse=(a,b,c,d,p)=>smooth(a,b,p)*(1-smooth(c,d,p));
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
- let W=0,H=0,range=1,raf=0,autoRaf=0,playing=false,current=0,autoStartPending=false,frameCount=0,lastRendered=-1;
+ let W=0,H=0,range=1,raf=0,autoRaf=0,autoStartTimer=0,playing=false,current=0,autoStartPending=false,resumeOnVisible=false,detachedAutoplay=false,frameCount=0,lastRendered=-1;
  const metrics={frames:0,maxRenderMs:0,errors:[]};
  // Additional devices use the same HTML structure, not screenshots.
  for(const host of [els.desktop,els.tablet]){const clone=els.browser.cloneNode(true);clone.removeAttribute('id');clone.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));clone.querySelectorAll('.build-line,.code-plane,.layer-title').forEach(n=>n.remove());host.appendChild(clone)}
@@ -65,31 +65,71 @@
   els.stage.dataset.progress=p.toFixed(3);els.stage.dataset.phase=phase[1];
   frameCount++;metrics.frames=frameCount;metrics.maxRenderMs=Math.max(metrics.maxRenderMs,performance.now()-started);
  }
- function measure(){lastRendered=-1;W=els.stage.clientWidth;H=els.stage.clientHeight;range=Math.max(1,els.journey.offsetHeight-H);render(reduced.matches?0:(playing?current:clamp((window.scrollY-els.journey.offsetTop)/range)))}
- function queue(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;if(!playing)render(reduced.matches?0:clamp((window.scrollY-els.journey.offsetTop)/range))})}
- function stop(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf)}
- function setProgress(p){p=clamp(Number(p)||0);if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
- function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;const from=current>.98?0:current;render(from);const start=performance.now(),duration=22000*(1-from);
+ function scrollProgress(){return clamp((window.scrollY-els.journey.offsetTop)/range)}
+ function measure(){lastRendered=-1;W=els.stage.clientWidth;H=els.stage.clientHeight;range=Math.max(1,els.journey.offsetHeight-H);render(reduced.matches?0:(playing?current:scrollProgress()))}
+ function queue(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;if(!playing)render(reduced.matches?0:scrollProgress())})}
+ function stop(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf);clearTimeout(autoStartTimer)}
+ function setProgress(p){p=clamp(Number(p)||0);setDetached(false);if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
+ function setDetached(value){
+  if(detachedAutoplay===value)return;
+  detachedAutoplay=value;
+  if(value)window.addEventListener('wheel',wheelHandoff,{passive:false});
+  else window.removeEventListener('wheel',wheelHandoff);
+ }
+ function wheelHandoff(e){
+  // WebKit may discard the native delta when scrollTo runs inside a wheel
+  // listener. Apply that first delta ourselves, then restore passive scrolling.
+  const panel=e.target.closest?.('.consent-panel');
+  if(!detachedAutoplay||modalOpen()||(panel&&panel.scrollHeight>panel.clientHeight+1)||window.scrollY>els.journey.offsetTop+range+1||!e.deltaY||e.ctrlKey||e.metaKey)return;
+  const delta=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?window.innerHeight:1);
+  const target=clamp(els.journey.offsetTop+current*range+delta,0,document.scrollingElement.scrollHeight-window.innerHeight);
+  if(e.cancelable)e.preventDefault();
+  stop();setDetached(false);window.scrollTo({top:target,left:0,behavior:'instant'});render(scrollProgress());
+ }
+ function modalOpen(){return info.classList.contains('open')||!!document.querySelector('dialog[open],[aria-modal="true"]:not([aria-hidden="true"]):not(#infoOverlay)')||!$('mobileMenu').hidden}
+ function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;setDetached(true);const from=current>.98?0:current;render(from);const start=performance.now(),duration=22000*(1-from);
   // Autoplay animates the scene without scrolling the document. This keeps
   // links, footer controls and browser navigation stable during the motion.
   const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);render(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else stop()};autoRaf=requestAnimationFrame(tick)}
- function onMotionChange(){stop();document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure()}
+ function onMotionChange(){stop();setDetached(false);document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure()}
  function maybeAutoStart(){
   if(!autoStartPending||document.hidden||reduced.matches)return;
-  if((location.hash&&location.hash!=='#journey')||window.scrollY>Math.max(60,window.innerHeight*.1)){autoStartPending=false;return}
-  requestAnimationFrame(()=>{
+  // Safari and Chromium restore a reloaded page's scroll at different times.
+  // Sample the settled position before starting instead of stopping mid-frame.
+  clearTimeout(autoStartTimer);
+  autoStartTimer=setTimeout(()=>{
    if(!autoStartPending||document.hidden||reduced.matches)return;
-   if((location.hash&&location.hash!=='#journey')||window.scrollY>Math.max(60,window.innerHeight*.1)){autoStartPending=false;return}
-   autoStartPending=false;play();
-  });
+   if((location.hash&&location.hash!=='#journey')||window.scrollY>els.journey.offsetTop+range+1){autoStartPending=false;return}
+   autoStartPending=false;render(scrollProgress());play();
+  },120);
  }
  function stopForPointer(){stop()}
  window.addEventListener('scroll',()=>{
   // A visitor may scroll without a wheel or pointer event (for example via a
   // browser anchor or accessibility action). Hand control to the scroll scene.
   if(playing&&window.scrollY>0)stop();
+  setDetached(false);
   queue();
- },{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stopForPointer,{passive:true});window.addEventListener('touchstart',stopForPointer,{passive:true});window.addEventListener('keydown',e=>{if(['PageDown','PageUp','ArrowDown','ArrowUp','Home','End','Tab'].includes(e.key))stop()});document.addEventListener('visibilitychange',()=>{if(document.hidden){if(playing)stop()}else maybeAutoStart()});
+ },{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stopForPointer,{passive:true});window.addEventListener('touchstart',stopForPointer,{passive:true});
+ const keyboardStops=[0,.25,.42,.58,.77,1];
+ window.addEventListener('keydown',e=>{
+  if(['Home','End','Tab'].includes(e.key)){stop();return}
+  if(!['PageDown','PageUp','ArrowDown','ArrowUp'].includes(e.key))return;
+  if(e.defaultPrevented||e.isComposing||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||reduced.matches)return;
+  const active=document.activeElement;
+  if(active?.closest('input,textarea,select,[contenteditable],[role="slider"],[role="spinbutton"],[role="listbox"],[role="combobox"],[role="menu"],[role="tablist"],[role="grid"]'))return;
+  if(modalOpen()||active?.closest('.consent-panel'))return;
+  const box=els.journey.getBoundingClientRect();
+  if(box.bottom<=0||box.top>=window.innerHeight)return;
+  const progress=detachedAutoplay?current:scrollProgress();
+  const down=e.key==='PageDown'||e.key==='ArrowDown';
+  const next=down?keyboardStops.find(p=>p>progress+.025):keyboardStops.slice().reverse().find(p=>p<progress-.025);
+  if(next===undefined&&!(down&&progress>=.975))return;
+  e.preventDefault();stop();setDetached(false);
+  if(next===undefined){$('work').scrollIntoView({block:'start',behavior:'instant'});queue()}
+  else setProgress(next);
+ });
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){resumeOnVisible=playing;if(playing)stop()}else if(resumeOnVisible){resumeOnVisible=false;play()}else maybeAutoStart()});
  document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>{stop();setProgress(Number(n.dataset.go))}));
  const info=$('infoOverlay');function closeInfo(){info.classList.remove('open');info.setAttribute('aria-hidden','true');$('infoOpen').focus()}
  $('infoOpen').onclick=()=>{stop();info.classList.add('open');info.setAttribute('aria-hidden','false');$('infoClose').focus()};$('infoClose').onclick=closeInfo;info.addEventListener('click',e=>{if(e.target===info)closeInfo()});info.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo();if(e.key==='Tab'){e.preventDefault();$('infoClose').focus()}});
