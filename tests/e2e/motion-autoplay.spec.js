@@ -8,7 +8,7 @@ async function motionSnapshot(page){
   return page.evaluate(()=>{
     const journey=document.querySelector('#journey');
     const stage=document.querySelector('#stage');
-    const work=document.querySelector('#work');
+    const pricing=document.querySelector('#pricing');
     const state=window.demoController.getState();
     return {
       progress:state.progress,
@@ -16,7 +16,7 @@ async function motionSnapshot(page){
       range:state.range,
       scrollY:window.scrollY,
       sceneEnd:journey.offsetTop+journey.offsetHeight-stage.clientHeight,
-      workTop:work.getBoundingClientRect().top,
+      pricingTop:pricing.getBoundingClientRect().top,
       viewportHeight:window.innerHeight,
       phase:stage.dataset.phase,
       layerOpacity:Number(getComputedStyle(document.querySelector('#layerHeading')).opacity),
@@ -34,7 +34,7 @@ test('homepage motion starts automatically without a player and stops on interac
   await page.keyboard.press('Tab');
   await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(false);
   await page.getByRole('link',{name:'Пропустити анімацію ↓'}).click();
-  await expect(page.locator('#work')).toBeFocused();
+  await expect(page.locator('#pricing')).toBeFocused();
   await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(100);
 });
 
@@ -45,30 +45,108 @@ test('reduced motion and direct section links do not trigger autoplay',async({pa
   expect(await page.evaluate(()=>window.demoController.getState().playing)).toBe(false);
 
   await page.emulateMedia({reducedMotion:'no-preference'});
-  await page.goto('/#work');
-  await page.waitForTimeout(250);
-  expect(await page.evaluate(()=>window.demoController.getState().playing)).toBe(false);
+  for(const section of ['pricing','work','services','lead']){
+    await page.goto('about:blank');
+    await page.goto('/#'+section);
+    await page.waitForTimeout(250);
+    expect(await page.evaluate(()=>window.demoController.getState().playing)).toBe(false);
+    await expect(page.locator('#'+section)).toBeInViewport();
+  }
 });
 
-test('desktop autoplay leaves the document still, then ArrowDown enters page content',async({page,isMobile})=>{
-  test.skip(isMobile,'Desktop keyboard motion');
+test('12-second intro reveals pricing as the first content section',async({page},testInfo)=>{
   await page.clock.install();
   await page.goto('/');
   await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  expect(await page.locator('.mx-content > section').evaluateAll(sections=>sections.map(section=>section.id)))
+    .toEqual(['pricing','work','services','process','faq','lead']);
 
-  // Exercise the real requestAnimationFrame timeline without a 22-second wall-clock wait.
-  await page.clock.runFor(23_000);
+  // The real animation timeline stays on the intro until the shorter duration ends.
+  await page.clock.runFor(11_500);
+  const before=await motionSnapshot(page);
+  expect(before.playing).toBe(true);
+  expect(before.progress).toBeGreaterThan(.95);
+  expect(before.scrollY).toBeLessThan(20);
+  expect(before.pricingTop).toBeGreaterThan(before.viewportHeight);
+
+  await page.clock.runFor(700);
   await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(false);
   const completed=await motionSnapshot(page);
-  expect(completed.progress).toBeGreaterThan(.98);
-  expect(completed.scrollY).toBeLessThan(20);
-  expect(completed.workTop).toBeGreaterThan(completed.viewportHeight);
+  expect(completed.progress).toBe(1);
+  expect(completed.scrollY).toBeGreaterThan(completed.sceneEnd+5);
+  expect(completed.pricingTop).toBeGreaterThanOrEqual(0);
+  expect(completed.pricingTop).toBeLessThan(120);
+  await expect(page.getByText('01 / ЦІНИ НА ПОСЛУГИ')).toBeInViewport();
+  await testInfo.attach('pricing-after-short-intro',{body:await page.screenshot(),contentType:'image/png'});
+});
 
-  await page.keyboard.press('ArrowDown');
-  await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(completed.sceneEnd+5);
+test('interrupted autoplay never forces a later jump to pricing',async({page})=>{
+  await page.clock.install();
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.clock.runFor(1_000);
+  await page.keyboard.press('Tab');
+  const interrupted=await motionSnapshot(page);
+  await page.clock.runFor(13_000);
   const after=await motionSnapshot(page);
-  expect(after.progress).toBeGreaterThan(.98);
-  expect(after.workTop).toBeLessThan(after.viewportHeight);
+  expect(after.playing).toBe(false);
+  expect(after.scrollY).toBe(interrupted.scrollY);
+  expect(after.progress).toBe(interrupted.progress);
+});
+
+test('skipping active autoplay stays at pricing after the intro deadline',async({page})=>{
+  await page.clock.install();
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.getByRole('link',{name:'Пропустити анімацію ↓'}).click();
+  await expect(page.locator('#pricing')).toBeFocused();
+  await expect(page.getByText('01 / ЦІНИ НА ПОСЛУГИ')).toBeInViewport();
+  const skipped=await motionSnapshot(page);
+  await page.clock.runFor(13_000);
+  const after=await motionSnapshot(page);
+  expect(after.playing).toBe(false);
+  expect(after.scrollY).toBe(skipped.scrollY);
+  await expect(page.locator('#pricing')).toBeFocused();
+});
+
+test('visibility pause resumes only the remaining intro before revealing pricing',async({page})=>{
+  await page.clock.install();
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
+  await page.clock.runFor(4_000);
+  const before=await motionSnapshot(page);
+  await page.evaluate(()=>{
+    Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.clock.runFor(15_000);
+  const paused=await motionSnapshot(page);
+  expect(paused.playing).toBe(false);
+  expect(paused.progress).toBe(before.progress);
+  expect(paused.scrollY).toBeLessThan(20);
+  await page.evaluate(()=>{
+    Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.clock.runFor(7_500);
+  expect((await motionSnapshot(page)).playing).toBe(true);
+  await page.clock.runFor(700);
+  const completed=await motionSnapshot(page);
+  expect(completed.playing).toBe(false);
+  expect(completed.progress).toBe(1);
+  expect(completed.pricingTop).toBeLessThan(120);
+});
+
+test('desktop ArrowDown after a manually completed scene enters pricing',async({page,isMobile})=>{
+  test.skip(isMobile,'Desktop keyboard motion');
+  await page.goto('/');
+  await page.evaluate(()=>{window.demoController.stop();window.demoController.setProgress(1)});
+  const before=await motionSnapshot(page);
+  await page.keyboard.press('ArrowDown');
+  await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(before.sceneEnd+5);
+  const after=await motionSnapshot(page);
+  expect(after.progress).toBe(1);
+  expect(after.pricingTop).toBeLessThan(120);
 });
 
 test('desktop wheel hands autoplay progress to scrolling without rewinding',async({page,isMobile})=>{
@@ -130,7 +208,7 @@ for(const key of ['ArrowDown','PageDown']){
     await page.clock.install();
     await page.goto('/');
     await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
-    await page.clock.runFor(1_800);
+    await page.clock.runFor(900);
     const before=await motionSnapshot(page);
     expect(before.progress).toBeGreaterThan(.04);
     expect(before.progress).toBeLessThan(.18);
