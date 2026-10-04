@@ -2,13 +2,13 @@
 (()=>{'use strict';
  document.documentElement.classList.add('js');
  const $=id=>document.getElementById(id);
- const els={stage:$('stage'),journey:$('journey'),camera:$('camera'),browser:$('primaryBrowser'),intro:$('intro'),layerHeading:$('layerHeading'),responsiveHeading:$('responsiveHeading'),paper:$('paperPlane'),image:$('imagePlane'),copy:$('copyPlane'),nav:$('navPlane'),foot:$('footPlane'),code:$('codePlane'),line:$('buildLine'),notch:$('phoneNotch'),desktop:$('desktopEcho'),tablet:$('tabletEcho'),phase:$('phaseNum'),phaseName:$('phaseName'),progress:$('progress'),progressText:$('progressText'),play:$('playButton'),playText:$('playText'),focus:$('focusLabel'),floor:$('floor'),hint:$('scrollHint')};
+ const els={stage:$('stage'),journey:$('journey'),camera:$('camera'),browser:$('primaryBrowser'),intro:$('intro'),layerHeading:$('layerHeading'),responsiveHeading:$('responsiveHeading'),paper:$('paperPlane'),image:$('imagePlane'),copy:$('copyPlane'),nav:$('navPlane'),foot:$('footPlane'),code:$('codePlane'),line:$('buildLine'),notch:$('phoneNotch'),desktop:$('desktopEcho'),tablet:$('tabletEcho'),focus:$('focusLabel'),floor:$('floor'),hint:$('scrollHint')};
  const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
  const mix=(a,b,t)=>a+(b-a)*t;
  const smooth=(a,b,p)=>{const t=clamp((p-a)/(b-a));return t*t*(3-2*t)};
  const pulse=(a,b,c,d,p)=>smooth(a,b,p)*(1-smooth(c,d,p));
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
- let W=0,H=0,range=1,raf=0,autoRaf=0,playing=false,current=0,autoStartPending=false,lastPhase='',frameCount=0,lastRendered=-1;
+ let W=0,H=0,range=1,raf=0,autoRaf=0,playing=false,current=0,autoStartPending=false,frameCount=0,lastRendered=-1;
  const metrics={frames:0,maxRenderMs:0,errors:[]};
  // Additional devices use the same HTML structure, not screenshots.
  for(const host of [els.desktop,els.tablet]){const clone=els.browser.cloneNode(true);clone.removeAttribute('id');clone.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));clone.querySelectorAll('.build-line,.code-plane,.layer-title').forEach(n=>n.remove());host.appendChild(clone)}
@@ -16,15 +16,20 @@
  function heading(node,opacity,dy=0){node.style.opacity=clamp(opacity).toFixed(3);node.style.transform=`translate3d(0,${dy.toFixed(1)}px,0)`;node.setAttribute('aria-hidden',opacity<.12?'true':'false');node.inert=opacity<.12}
  function render(p){const started=performance.now();p=clamp(p);if(p===lastRendered)return;lastRendered=p;current=p;const mobile=W<=700;const baseW=mobile?1000:Math.min(1060,W*.80),baseH=mobile?530:baseW*.51;
   const approach=smooth(.015,.18,p),explode=pulse(.21,.34,.45,.57,p),finish=smooth(.52,.62,p),morph=smooth(.64,.84,p),showFamily=smooth(.84,.96,p);
-  let cx=mix(W*.5,W*(mobile?.53:.65),smooth(.18,.30,p));
-  let cy=mix(H*(mobile?.59:.76),H*(mobile?.56:.535),approach);
+  let cx=mix(W*(mobile?.5:.76),W*(mobile?.53:.65),smooth(.18,.30,p));
+  let cy=mix(H*(mobile?.70:.64),H*(mobile?.56:.535),approach);
   let bw=mix(baseW,mobile?286:306,morph),bh=mix(baseH,mobile?500:570,morph);
-  let scale=mobile?mix(W*.88/baseW,.92, morph):mix(.80,Math.min(1,(H-210)/baseH),approach);
+  let scale=mobile?mix(W*.88/baseW,.92, morph):mix(.52,Math.min(1,(H-210)/baseH),approach);
   if(!mobile)scale=mix(scale,.76,smooth(.20,.32,p))*(1-.08*explode);
   else scale*=1-.12*explode;
   if(!mobile)scale=mix(scale,Math.min(1,(H-250)/570),morph);
-  if(mobile){scale=mix(scale,Math.min(.90,(H-355)/500),morph);cx=mix(cx,W*.64,showFamily);cy=mix(cy,H*.555,morph)}
-  else{cx=mix(cx,W*.69,morph);cy=mix(cy,H*.53,morph)}
+  const chapter=smooth(.16,.25,p)*(1-smooth(.53,.62,p));
+  if(mobile){scale=mix(scale,Math.min(.90,(H-355)/500),morph);cx=mix(cx,W*.64,showFamily);cy=mix(cy,H*.555,morph)+65*chapter}
+  else{
+   cx=mix(cx,W*.69,morph);cy=mix(cy,H*.53,morph);
+   // Keep the page mockup beside the chapter text while both are visible.
+   cx+=W*.19*chapter;scale*=1-.42*chapter;
+  }
   const rx=mix(15,0,approach)+(mobile?25:42)*explode,ry=(mobile?-6:-17)*explode,rz=mix(-5,0,approach)-(mobile?8:15)*explode;
   place(els.camera,cx,cy,bw,bh,scale,rx,ry,rz);
   const lift=mobile?90:185;
@@ -53,18 +58,16 @@
   place(els.tablet,W*(mobile?.80:.86)+100*(1-showFamily),H*(mobile?.51:.52),540,610,tabletScale,0,-10,7);
   els.desktop.style.opacity=(showFamily*(mobile?.70:.90)).toFixed(3);els.tablet.style.opacity=(showFamily*(mobile?.55:.82)).toFixed(3);
   const phase=p<.18?['01','ЗНАЙОМСТВО']:p<.55?['02','ДИЗАЙН У ШАРАХ']:p<.66?['03','ГОТОВИЙ ІНТЕРФЕЙС']:['04','АДАПТИВНІСТЬ'];
-  if(phase[1]!==lastPhase){els.phase.textContent=phase[0];els.phaseName.innerHTML=phase[1]+'<span>ІДЕЯ → ДИЗАЙН → АДАПТИВНІСТЬ</span>';lastPhase=phase[1]}
-  els.progress.value=Math.round(p*1000);els.progress.style.setProperty('--progress',p);els.progressText.textContent=Math.round(p*100)+'%';els.progress.setAttribute('aria-valuetext',Math.round(p*100)+'%, '+phase[1]);
   els.stage.dataset.progress=p.toFixed(3);els.stage.dataset.phase=phase[1];
   frameCount++;metrics.frames=frameCount;metrics.maxRenderMs=Math.max(metrics.maxRenderMs,performance.now()-started);
  }
  function measure(){lastRendered=-1;W=els.stage.clientWidth;H=els.stage.clientHeight;range=Math.max(1,els.journey.offsetHeight-H);render(reduced.matches?0:clamp((window.scrollY-els.journey.offsetTop)/range))}
  function queue(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;if(!playing)render(reduced.matches?0:clamp((window.scrollY-els.journey.offsetTop)/range))})}
- function stop(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf);els.playText.textContent=current>=.998?'Повторити':'Показати рух';els.play.querySelector('.play-icon').textContent='▶';els.play.setAttribute('aria-pressed','false')}
+ function stop(){autoStartPending=false;playing=false;cancelAnimationFrame(autoRaf)}
  function setProgress(p){p=clamp(Number(p)||0);if(reduced.matches){render(0);return}window.scrollTo({top:els.journey.offsetTop+p*range,left:0,behavior:'instant'});render(p)}
- function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;els.playText.textContent='Пауза';els.play.querySelector('.play-icon').textContent='Ⅱ';els.play.setAttribute('aria-pressed','true');const from=current>.98?0:current;setProgress(from);const start=performance.now(),duration=22000*(1-from);
+ function play(){if(reduced.matches||document.hidden)return;if(playing){stop();return}playing=true;const from=current>.98?0:current;setProgress(from);const start=performance.now(),duration=22000*(1-from);
   const tick=now=>{if(!playing||document.hidden)return;const t=clamp((now-start)/duration);setProgress(from+(1-from)*t);if(t<1)autoRaf=requestAnimationFrame(tick);else stop()};autoRaf=requestAnimationFrame(tick)}
- function onMotionChange(){stop();els.play.disabled=reduced.matches;els.progress.disabled=reduced.matches;document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);document.querySelector('.scrubber label').textContent=reduced.matches?'РУХ ВИМКНЕНО':'ГОРТАЙТЕ';measure()}
+ function onMotionChange(){stop();document.querySelectorAll('[data-go]').forEach(n=>n.disabled=reduced.matches);measure()}
  function maybeAutoStart(){
   if(!autoStartPending||document.hidden||reduced.matches)return;
   if((location.hash&&location.hash!=='#journey')||window.scrollY>Math.max(60,window.innerHeight*.1)){autoStartPending=false;return}
@@ -74,9 +77,9 @@
    autoStartPending=false;play();
   });
  }
- function stopForPointer(e){if(e.target instanceof Element&&e.target.closest('#playButton'))return;stop()}
+ function stopForPointer(){stop()}
  window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',measure,{passive:true});window.addEventListener('wheel',stop,{passive:true});window.addEventListener('pointerdown',stopForPointer,{passive:true});window.addEventListener('touchstart',stopForPointer,{passive:true});window.addEventListener('keydown',e=>{if(['PageDown','PageUp','ArrowDown','ArrowUp','Home','End','Tab'].includes(e.key))stop()});document.addEventListener('visibilitychange',()=>{if(document.hidden){if(playing)stop()}else maybeAutoStart()});
- els.progress.addEventListener('input',()=>{stop();setProgress(els.progress.value/1000)});els.play.addEventListener('click',()=>{autoStartPending=false;play()});document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>{stop();setProgress(Number(n.dataset.go))}));
+ document.querySelectorAll('[data-go]').forEach(n=>n.addEventListener('click',()=>{stop();setProgress(Number(n.dataset.go))}));
  const info=$('infoOverlay');function closeInfo(){info.classList.remove('open');info.setAttribute('aria-hidden','true');$('infoOpen').focus()}
  $('infoOpen').onclick=()=>{stop();info.classList.add('open');info.setAttribute('aria-hidden','false');$('infoClose').focus()};$('infoClose').onclick=closeInfo;info.addEventListener('click',e=>{if(e.target===info)closeInfo()});info.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo();if(e.key==='Tab'){e.preventDefault();$('infoClose').focus()}});
  reduced.addEventListener?reduced.addEventListener('change',onMotionChange):reduced.addListener(onMotionChange);
