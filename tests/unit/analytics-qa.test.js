@@ -15,7 +15,7 @@ const run=(search='',storage=new Map(),broken=false)=>{
 };
 
 test('only deliberate QA is excluded, with tab-local navigation persistence',()=>{
-  for(const query of ['?maxsite_qa=1','?utm_source=codex_qa&utm_medium=test']){
+  for(const query of ['?maxsite_qa=1','?utm_source=codex_qa&utm_medium=test','?utm_source=codex_qa&utm_medium=qa']){
     const storage=new Map();
     assert.equal(run(query,storage).MAX_SITE_QA,true);
     assert.equal(run('',storage)['ga-disable-G-TS8DMMKK34'],true);
@@ -40,6 +40,7 @@ test('generic test labels and storage failure do not suppress genuine visits',()
     assert.equal(run(query).MAX_SITE_QA,false,query);
   }
   assert.equal(run('?maxsite_qa=1',new Map(),true).MAX_SITE_QA,true);
+  assert.equal(run('?maxsite_qa=0&utm_source=codex_qa&utm_medium=qa',new Map(),true).MAX_SITE_QA,false);
   assert.equal(run('?utm_source=google&utm_medium=cpc',new Map(),true).MAX_SITE_QA,false);
 });
 

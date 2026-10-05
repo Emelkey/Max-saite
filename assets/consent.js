@@ -8,7 +8,7 @@
   // an ad click. This changes analytics only; the lead endpoint is untouched.
   const qaKey = "max_site_qa_v1";
   const params = new URLSearchParams(location.search || "");
-  const qaCampaign = params.get("utm_source") === "codex_qa" && params.get("utm_medium") === "test";
+  const qaCampaign = params.get("utm_source") === "codex_qa" && ["test", "qa"].includes(params.get("utm_medium"));
   const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_source_platform", "utm_term", "utm_content"];
   const clickKeys = ["gclid", "gbraid", "wbraid", "gad_source", "gad_campaignid", "gclsrc"];
   const realCampaign = clickKeys.some(key => params.has(key))
@@ -16,8 +16,8 @@
   let qaVisit = !realCampaign && (params.get("maxsite_qa") === "1" || qaCampaign);
   try {
     if (realCampaign || params.get("maxsite_qa") === "0") {
-      sessionStorage.removeItem(qaKey);
       qaVisit = false;
+      sessionStorage.removeItem(qaKey);
     } else if (qaVisit) {
       sessionStorage.setItem(qaKey, "1");
     } else {
