@@ -25,7 +25,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Observe one consented page view; never submit a lead
+      - name: Inspect consented pageview generation; block production collection
         run: node tools/verify-live-ga4.js
       - uses: actions/upload-artifact@v4
         if: always()

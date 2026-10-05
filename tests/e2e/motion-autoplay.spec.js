@@ -315,6 +315,18 @@ test('portfolio covers open their case pages',async({page})=>{
 });
 
 
+// Native scroll events can arrive after the compositor has updated scrollY,
+// especially in WebKit. Wait for the anchored scene frame before testing that
+// later time/viewport changes leave it stable; a fixed delay samples stale state.
+function expectedTouchProgress(anchor,scrollY){
+  const sceneStart=anchor.sceneEnd-anchor.range;
+  const start=Math.max(0,Math.min(anchor.range,anchor.scrollY-sceneStart));
+  const y=Math.max(0,Math.min(anchor.range,scrollY-sceneStart));
+  return y>=start
+    ? anchor.progress+(1-anchor.progress)*(y-start)/Math.max(1,anchor.range-start)
+    : anchor.progress*y/Math.max(1,start);
+}
+
 test('touch takeover never rewinds, cancels the gesture or jumps after its deadline',async({page,isMobile})=>{
   test.skip(!isMobile,'Native touch scene');
   await page.clock.install();
@@ -339,7 +351,11 @@ test('touch takeover never rewinds, cancels the gesture or jumps after its deadl
   // this intentionally asserts document position separately from scene progress.
   for(const y of [120,300,520,650]){
     await page.evaluate(y=>window.scrollTo(0,y),y);
-    await page.clock.runFor(60);
+    const anchor={...before,scrollY:gesture.y,progress:gesture.beforeProgress};
+    await expect.poll(async()=>{
+      await page.clock.runFor(32);
+      return page.evaluate(()=>window.demoController.getProgress());
+    }).toBeCloseTo(expectedTouchProgress(anchor,y),10);
     expect(await page.evaluate(()=>window.scrollY)).toBe(y);
     expect(await page.evaluate(()=>window.demoController.getProgress())).toBeGreaterThanOrEqual(before.progress);
   }
@@ -356,8 +372,10 @@ test('mobile toolbar and keyboard height changes keep scene geometry and native 
   await page.goto('/');
   await expect.poll(()=>page.evaluate(()=>window.demoController.getState().playing)).toBe(true);
   await page.locator('#stage').dispatchEvent('touchstart');
+  const anchor=await motionSnapshot(page);
   await page.evaluate(()=>window.scrollTo(0,500));
-  await page.waitForTimeout(100);
+  await expect.poll(()=>page.evaluate(()=>window.demoController.getProgress()))
+    .toBeCloseTo(expectedTouchProgress(anchor,500),10);
   const before=await motionSnapshot(page);
   const original=page.viewportSize();
   for(const height of [original.height+70,original.height-80,original.height]){

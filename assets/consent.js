@@ -3,7 +3,29 @@
   // QA/preview visits must never enter the production GA4 property. This file
   // executes synchronously before the Google tag, including automatic pageviews.
   // https://developers.google.com/tag-platform/security/guides/privacy
-  if (location.origin !== "https://maxsite.com.ua") {
+  // Only an explicit, unambiguously non-marketing QA visit can opt out.
+  // Carry it through this tab's navigation, but never hide a later campaign or
+  // an ad click. This changes analytics only; the lead endpoint is untouched.
+  const qaKey = "max_site_qa_v1";
+  const params = new URLSearchParams(location.search || "");
+  const qaCampaign = params.get("utm_source") === "codex_qa" && ["test", "qa"].includes(params.get("utm_medium"));
+  const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_source_platform", "utm_term", "utm_content"];
+  const clickKeys = ["gclid", "gbraid", "wbraid", "gad_source", "gad_campaignid", "gclsrc"];
+  const realCampaign = clickKeys.some(key => params.has(key))
+    || (!qaCampaign && campaignKeys.some(key => params.has(key)));
+  let qaVisit = !realCampaign && (params.get("maxsite_qa") === "1" || qaCampaign);
+  try {
+    if (realCampaign || params.get("maxsite_qa") === "0") {
+      qaVisit = false;
+      sessionStorage.removeItem(qaKey);
+    } else if (qaVisit) {
+      sessionStorage.setItem(qaKey, "1");
+    } else {
+      qaVisit = sessionStorage.getItem(qaKey) === "1";
+    }
+  } catch { /* Storage denial must not break the form or normal analytics. */ }
+  window.MAX_SITE_QA = qaVisit;
+  if (location.origin !== "https://maxsite.com.ua" || qaVisit) {
     window["ga-disable-G-TS8DMMKK34"] = true;
   }
   const key = "max_site_consent_v1";
@@ -22,7 +44,7 @@
   window.gtag("set", "url_passthrough", false);
   const measurementId = "G-TS8DMMKK34";
   const ensureGoogleTag = (config = {}) => {
-    if (location.origin !== "https://maxsite.com.ua") return false;
+    if (location.origin !== "https://maxsite.com.ua" || window.MAX_SITE_QA) return false;
     const src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
     const scripts = document.scripts ? Array.from(document.scripts) : [];
     let script = scripts.find(item => item.src === src);
@@ -33,14 +55,17 @@
       script.src = src;
       script.dataset.maxSiteGa4Fallback = "true";
       document.head.appendChild(script);
-      window.gtag("js", new Date());
-      window.gtag("config", measurementId, {anonymize_ip: true, ...config});
+      // A missing script does not imply a missing inline configuration.
+      // Reuse the parsed HTML's config instead of creating another pageview.
+      const configured = window.dataLayer.some(entry => entry[0] === "config" && entry[1] === measurementId);
+      if (!configured) {
+        window.gtag("js", new Date());
+        window.gtag("config", measurementId, {anonymize_ip: true, ...config});
+      }
       return true;
     }
     return false;
   };
-  const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_source_platform", "utm_term", "utm_content"];
-  const clickKeys = ["gclid", "gbraid", "wbraid", "gad_source", "gad_campaignid", "gclsrc"];
   const looksLikePhone = value => /(?:^|\D)(?:\+?380\d{9}|0\d{9})(?:$|\D)/.test(value.replace(/[ ().-]/g, ""));
   const safeCampaignValue = value => value.length <= 180
     && /^[\p{L}\p{N}][\p{L}\p{N} _.,:/+%~-]*$/u.test(value)
@@ -86,14 +111,13 @@
     } catch {}
   };
   purgeAttribution();
-  // Production must remain measurable even if an HTML-level Google tag is
-  // removed by a cache, optimizer or stale template. consent.js is the
-  // first-party source of truth and only self-heals after analytics consent.
-  if (window.MAX_SITE_CONSENT.analytics_storage === "granted") {
-    ensureGoogleTag(window.MAX_SITE_GOOGLE_PAGE);
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
+    // Wait until the following HTML tag/config have been parsed. Running this
+    // synchronously on saved consent races the parser and initializes GA twice.
+    // Still recover a genuinely missing tag, only after analytics consent.
+    if (window.MAX_SITE_CONSENT.analytics_storage === "granted") {
+      ensureGoogleTag(window.MAX_SITE_GOOGLE_PAGE);
+    }
     const panel = document.createElement("section");
     panel.className = "consent-panel";
     panel.setAttribute("aria-label", "Налаштування приватності");
