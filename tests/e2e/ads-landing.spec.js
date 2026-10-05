@@ -64,3 +64,18 @@ for(const acknowledgement of ['matching','mismatched']) test(`hero quote ${ackno
   expect(JSON.stringify(events)).not.toMatch(/QA LOCAL ONLY|380000000000/);
   if(acknowledgement==='mismatched') await expect(form.locator('[name=phone]')).toHaveValue('+380000000000');
 });
+
+test('combined contact supports phone and Telegram text entry without mobile capitalization',async({page})=>{
+  for(const url of ['/#lead','/stvorennya-saytiv/#lead']){
+    await page.goto(url);
+    const contact=page.locator('form [name=phone]');
+    await expect(contact).toHaveAttribute('type','text');
+    await expect(contact).toHaveAttribute('inputmode','text');
+    await expect(contact).toHaveAttribute('autocapitalize','none');
+    await expect(contact).toHaveAttribute('spellcheck','false');
+    await contact.fill('@local_qa');
+    await expect(contact).toHaveValue('@local_qa');
+    await contact.fill('+380000000000');
+    await expect(contact).toHaveValue('+380000000000');
+  }
+});

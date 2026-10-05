@@ -1,0 +1,8 @@
+# Analytics QA without contaminating production
+
+- Prefer the built local site and mocked lead responses. Block all outbound analytics and lead requests in browser tests. Never send a synthetic customer lead to production.
+- To inspect the production UI manually, use a fresh isolated browser context and append `?maxsite_qa=1`. This disables this tab's production Google collection and custom analytics, including `generate_lead`, across same-tab navigation. It does not change lead delivery, validation or server acknowledgement. Do not submit a real form as a test.
+- The reserved legacy attribution pair `utm_source=codex_qa&utm_medium=test` also identifies QA. Generic `test` labels alone do not. Any ordinary campaign attribution or supported ad-click parameter takes precedence, clears the test session and allows normal measurement. `?maxsite_qa=0` explicitly exits the test session. Closing the isolated context discards it.
+- `tools/verify-live-ga4.js` downloads the live Google tag but intercepts collector requests locally, blocks other external destinations and never submits a form. Its report confirms only request generation; it does not claim transport, GA4 processing or Ads import. Historical QA records remain untouched.
+- Use `lead_form_start`, `lead_form_submit` and `lead_form_success` as the custom funnel. Do not add the legacy `form_start`/`form_submit` aliases to those counts; GA4 enhanced measurement may also produce those names. `click_phone` is intent, not a verified telephone call.
+- The production-origin browser suite serves local build bytes under an intercepted production URL so parser timing, saved consent and QA guards are tested without contacting production.

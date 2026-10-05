@@ -10,7 +10,7 @@ const isValidGtmId = (value) => /^GTM-[A-Z0-9]+$/i.test(value || "");
 const loadAnalytics = () => {
   // The synchronous consent guard also disables the HTML Google tag. Keep the
   // fallback loader off on local/preview origins; their dataLayer is QA-only.
-  if (!analyticsEnabled || window.location.origin !== "https://maxsite.com.ua") return;
+  if (!analyticsEnabled || window.MAX_SITE_QA || window.location.origin !== "https://maxsite.com.ua") return;
 
   if (isValidGtmId(analyticsConfig.tagManagerId)) {
     window.dataLayer = window.dataLayer || [];
@@ -36,12 +36,15 @@ const loadAnalytics = () => {
     if (existingGoogleTag && typeof window.gtag === "function") return;
 
     window.dataLayer = window.dataLayer || [];
-    window.gtag = (...args) => window.dataLayer.push(args);
-    window.gtag("js", new Date());
-    window.gtag("config", analyticsConfig.measurementId, {
-      anonymize_ip: true,
-      ...window.MAX_SITE_GOOGLE_PAGE,
-    });
+    window.gtag = window.gtag || ((...args) => window.dataLayer.push(args));
+    const configured = window.dataLayer.some(entry => entry[0] === "config" && entry[1] === analyticsConfig.measurementId);
+    if (!configured) {
+      window.gtag("js", new Date());
+      window.gtag("config", analyticsConfig.measurementId, {
+        anonymize_ip: true,
+        ...window.MAX_SITE_GOOGLE_PAGE,
+      });
+    }
 
     const script = document.createElement("script");
     script.async = true;
@@ -51,7 +54,7 @@ const loadAnalytics = () => {
 };
 
 const trackEvent = (eventName, parameters = {}) => {
-  if (!analyticsEnabled) return;
+  if (!analyticsEnabled || window.MAX_SITE_QA) return;
 
   // Explicit schema prevents future callers from leaking form fields or arbitrary URLs.
   const allowedParameters = new Set(["page_type", "city", "service", "form_type", "error_type", "delivery_method", "lead_source", "link_location", "channel", "messenger", "plan_name", "case_name", "destination_path", "lead_id"]);
