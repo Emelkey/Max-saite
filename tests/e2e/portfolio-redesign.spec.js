@@ -13,7 +13,7 @@ test.beforeEach(async({page})=>{
   await page.addInitScript(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()})));
 });
 
-test('portfolio presents a featured real case and loaded visual assets without overflow',async({page},testInfo)=>{
+test('portfolio presents three real cases with loaded visual assets and no overflow',async({page},testInfo)=>{
   for(const width of [1440,1024,768,760,390,320]){
     await page.setViewportSize({width,height:900});
     await page.goto('/#work');
@@ -33,10 +33,16 @@ test('portfolio presents a featured real case and loaded visual assets without o
       const box=el.getBoundingClientRect();
       return {left:box.left,top:box.top,width:box.width,bottom:box.bottom};
     }));
-    expect(rects[0].top).toBeLessThan(rects[1].top);
-    if(width>760){
-      expect(rects[0].width).toBeGreaterThan(rects[1].width*1.8);
+    // 2026-10 layout: three equal live previews on desktop, two plus a
+    // full-width B2B card on tablets, one column on phones.
+    if(width>1100){
+      expect(Math.abs(rects[0].top-rects[1].top)).toBeLessThan(2);
       expect(Math.abs(rects[1].top-rects[2].top)).toBeLessThan(2);
+      expect(Math.abs(rects[0].width-rects[2].width)).toBeLessThan(2);
+    }else if(width>760){
+      expect(Math.abs(rects[0].top-rects[1].top)).toBeLessThan(2);
+      expect(rects[2].top).toBeGreaterThanOrEqual(rects[0].bottom);
+      expect(rects[2].width).toBeGreaterThan(rects[0].width*1.8);
     }else{
       expect(rects[1].top).toBeGreaterThanOrEqual(rects[0].bottom);
       expect(rects[2].top).toBeGreaterThanOrEqual(rects[1].bottom);
