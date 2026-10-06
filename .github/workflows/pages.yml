@@ -101,10 +101,30 @@ jobs:
           --expected-revision "$GITHUB_SHA"
           --attempts 8 --delay-ms 15000
 
+      - name: Install read-only live UI verification dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium webkit
+
+      - name: Verify live desktop and mobile interactions without submitting leads
+        env:
+          EXPECTED_RELEASE_REVISION: ${{ github.sha }}
+        run: npx playwright test --config=playwright.live.config.js
+
       - name: Upload production verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: production-release-smoke
           path: artifacts/seo/production-release-smoke.json
+          if-no-files-found: warn
+
+      - name: Upload read-only live UI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-ui-smoke
+          path: |
+            artifacts/playwright/live-results
+            artifacts/playwright/live-report
           if-no-files-found: warn
