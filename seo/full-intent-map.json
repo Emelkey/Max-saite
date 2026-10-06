@@ -2497,6 +2497,22 @@
       "queryBasis": "editorial assignment; not search-volume evidence",
       "priority": "P2",
       "observedQueries": []
+    },
+    {
+      "url": "/blog/sajt-katalog-chy-internet-magazyn/",
+      "cluster": "blog-sajt-katalog-chy-internet-magazyn",
+      "primary": "сайт-каталог чи інтернет-магазин",
+      "secondary": [
+        "що обрати каталог чи магазин",
+        "каталог із заявкою або кошик"
+      ],
+      "intent": "Вибір формату продажу: індивідуальний запит менеджеру чи самостійне оформлення; відмінний від кошторису, складу розробки та landing versus multipage",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": [],
+      "reviewedAt": "2026-10-06"
     }
   ]
 }
