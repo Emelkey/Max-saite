@@ -202,10 +202,18 @@ test('mobile homepage header actions stay separate on focus',async({page,isMobil
   const menu=page.locator('#menuToggle');
   await expect(cta).toBeVisible();
   await expect(menu).toBeVisible();
-  const originalWidth=await cta.evaluate(element=>element.getBoundingClientRect().width);
+  const originalWidth=await cta.evaluate(element=>element.offsetWidth);
   await cta.focus();
   await expect(cta).toBeFocused();
-  await expect.poll(()=>cta.evaluate(element=>element.getBoundingClientRect().width)).toBeLessThanOrEqual(originalWidth+1);
+  await cta.evaluate(async element=>{
+    // The focus spring changes painted bounds, never the layout width. Check
+    // separation after it settles rather than accidentally sampling frame zero.
+    getComputedStyle(element).transform;
+    await Promise.all(element.getAnimations()
+      .filter(animation=>animation.transitionProperty==='transform')
+      .map(animation=>animation.finished.catch(()=>{})));
+  });
+  expect(await cta.evaluate(element=>element.offsetWidth)).toBe(originalWidth);
   const boxes=await Promise.all([cta.boundingBox(),menu.boundingBox()]);
   expect(boxes[0].x+boxes[0].width).toBeLessThanOrEqual(boxes[1].x+1);
 });
