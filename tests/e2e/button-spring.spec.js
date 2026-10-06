@@ -151,13 +151,20 @@ test('touch scroll cancels a press without activating the CTA or sticking',async
   const before=await page.evaluate(()=>scrollY);
   const client=await context.newCDPSession(page);
   const x=box.x+box.width/2,y=box.y+box.height/2;
+  await button.evaluate(el=>{
+    el.addEventListener('pointerdown',()=>{el.dataset.touchStarted='true';},{once:true,passive:true});
+    el.addEventListener('pointercancel',()=>{el.dataset.touchCancelled='true';},{once:true,passive:true});
+  });
   await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});
-  await settled(button,.97);
+  await expect(button).toHaveAttribute('data-touch-started','true');
+  // Start a real swipe promptly. Waiting for a held :active style turns this
+  // into a long press; native touch browsers defer that style during gestures.
   for(let step=1;step<=6;step++){
     await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:y-step*24}]});
     await page.waitForTimeout(20);
   }
   await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  await expect(button).toHaveAttribute('data-touch-cancelled','true');
   await settled(button);
   await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(before+30);
   await expect(page.locator('#lead-comment')).toHaveValue('');
