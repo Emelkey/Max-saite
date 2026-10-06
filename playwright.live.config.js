@@ -5,7 +5,7 @@ const base=require('./playwright.config');
 // against the exact approved release. There is no local server in this run.
 module.exports=defineConfig({
   testDir:'./tests/e2e',
-  testMatch:/read-only-ui-smoke\.spec\.js/,
+  testMatch:/(read-only-ui-smoke|catalog-article)\.spec\.js/,
   outputDir:'artifacts/playwright/live-results',
   reporter:[['list'],['html',{outputFolder:'artifacts/playwright/live-report',open:'never'}]],
   use:{...base.use,baseURL:'https://maxsite.com.ua'},
