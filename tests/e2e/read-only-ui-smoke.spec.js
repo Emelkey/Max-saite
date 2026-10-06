@@ -1,10 +1,12 @@
 const {test,expect}=require('@playwright/test');
 test.use({serviceWorkers:'block'});
 
-const settle=locator=>locator.evaluate(async el=>{
+// A touch press can keep :active for a frame or two after the tap gesture;
+// wait for the browser to release it before sampling the settled spring.
+const settle=async locator=>{await expect.poll(()=>locator.evaluate(el=>el.matches(':active'))).toBe(false);return locator.evaluate(async el=>{
   getComputedStyle(el).transform;
   await Promise.all(el.getAnimations().filter(a=>a.transitionProperty==='transform').map(a=>a.finished.catch(()=>{})));
-});
+});};
 const activate=(locator,isMobile)=>isMobile?locator.tap():locator.click();
 
 test.beforeEach(async({page,baseURL})=>{

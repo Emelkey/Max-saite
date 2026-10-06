@@ -30,97 +30,117 @@
     <meta name="twitter:image" content="https://maxsite.com.ua/assets/og-max-site.webp" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css?v=20260902-master3" />
-    <link rel="stylesheet" href="assets/maxsite-2/motion.css?v=integrate-v1" />
-    <link rel="stylesheet" href="assets/maxsite-2/site.css?v=integrate-v1" />
+    <link rel="preload" href="assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/maxsite-2/motion.css?v=redesign-20261006" />
+    <link rel="stylesheet" href="assets/maxsite-2/site.css?v=redesign-20261006" />
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://maxsite.com.ua/#organization","name":"MAX SITE","url":"https://maxsite.com.ua/","telephone":"+380972692322","logo":"https://maxsite.com.ua/assets/logo-full-dark.svg","image":"https://maxsite.com.ua/assets/logo-social.png","contactPoint":{"@type":"ContactPoint","telephone":"+380972692322","contactType":"customer service","areaServed":"UA","availableLanguage":"uk"},"areaServed":"UA","sameAs":["https://t.me/MaxMytt","https://www.instagram.com/maxlab.ai/"]},{"@type":"WebSite","@id":"https://maxsite.com.ua/#website","url":"https://maxsite.com.ua/","name":"MAX SITE","publisher":{"@id":"https://maxsite.com.ua/#organization"},"inLanguage":"uk-UA"},{"@type":"WebPage","@id":"https://maxsite.com.ua/#webpage","url":"https://maxsite.com.ua/","name":"MAX SITE — сайти, SEO та Google Ads для бізнесу","description":"MAX SITE створює сайти, налаштовує SEO, аналітику та Google Ads для бізнесу в Україні. Один відповідальний за структуру, запуск і розвиток.","inLanguage":"uk-UA","isPartOf":{"@id":"https://maxsite.com.ua/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://maxsite.com.ua/"}]},{"@type":"FAQPage","@id":"https://maxsite.com.ua/#faq","mainEntity":[{"@type":"Question","name":"Скільки часу займає створення сайту?","acceptedAnswer":{"@type":"Answer","text":"Залежить від типу сайту. Простий лендінг можна запустити швидше, корпоративний сайт або сайт з SEO-структурою потребує більше часу."}},{"@type":"Question","name":"Чи буде сайт адаптований під телефон?","acceptedAnswer":{"@type":"Answer","text":"Так, сайт обов’язково адаптується під мобільні телефони, планшети та комп’ютери."}},{"@type":"Question","name":"Чи допомагаєте з текстами?","acceptedAnswer":{"@type":"Answer","text":"Так, ми можемо підготувати структуру текстів, заголовки, описи послуг, FAQ та SEO-блоки."}},{"@type":"Question","name":"Чи буде сайт просуватись у Google?","acceptedAnswer":{"@type":"Answer","text":"Ми закладаємо правильну SEO-структуру з самого початку. Для сильного росту потрібне подальше SEO-просування."}},{"@type":"Question","name":"Чи можна підключити рекламу?","acceptedAnswer":{"@type":"Answer","text":"Так, сайт можна підготувати під Google Ads, Instagram/Facebook рекламу та інші джерела трафіку."}},{"@type":"Question","name":"Чи можна буде змінювати інформацію на сайті?","acceptedAnswer":{"@type":"Answer","text":"Так, залежно від реалізації можна зробити зручне редагування контенту або передбачити подальшу підтримку."}}]}]}</script>
   </head>
-  <body>
+  <body class="mx-home">
 <a class="skip" href="#services">Перейти до послуг</a>
 <header class="nav mx-global-nav" id="siteNav">
  <a class="mx-logo" href="#journey" aria-label="MAX SITE, на початок"><img src="assets/logo-header.svg" width="248" height="64" alt="MAX SITE — Сайти під ключ для бізнесу" fetchpriority="high"></a>
- <nav class="mx-site-links" aria-label="Основна навігація"><a href="#work">Роботи</a><a href="#services">Послуги</a><a href="#process">Процес</a><a href="#pricing">Ціни</a></nav>
- <div class="mx-nav-actions"><button id="infoOpen" type="button" class="mx-info" aria-label="Інформація про демонстраційну сцену FORMA">i</button><a class="mx-nav-cta" href="#lead">Обговорити проєкт <span aria-hidden="true">↗</span></a><button class="mx-menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Відкрити меню"><span></span><span></span></button></div>
+ <nav class="mx-site-links" aria-label="Основна навігація"><a href="#work">Роботи</a><a href="#pricing">Ціни</a><a href="#services">Послуги</a><a href="#process">Процес</a><a href="#faq">Питання</a></nav>
+ <div class="mx-nav-actions"><a class="mx-nav-phone" href="tel:+380972692322">097 269 23 22</a><a class="mx-nav-cta" href="#lead">Обговорити проєкт <span aria-hidden="true">↗</span></a><button class="mx-menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Відкрити меню"><span></span><span></span></button></div>
 </header>
-<nav id="mobileMenu" class="mx-mobile-menu" aria-label="Мобільна навігація" hidden><a href="#work">Роботи</a><a href="#services">Послуги</a><a href="#process">Процес</a><a href="#pricing">Ціни</a><a href="#lead">Обговорити проєкт</a><a class="mobile-nav-phone" href="tel:+380972692322">Зателефонувати: 097 269 23 22</a></nav>
-<main id="main-content"><section id="journey" aria-label="Демонстрація дизайну та адаптивності">
- <div class="stage" id="stage">
-
-  <section class="intro" id="intro"><div class="eyebrow">Професійна розробка. Виразний дизайн.</div><h1><span>Створюємо сайти.</span><em>Вражаємо досвідом.</em><small class="mx-hero-scope">Сайти, SEO та Google Ads для бізнесу.<br>Від ідеї до запуску вашого сайту.</small></h1><div class="touch">Сцена рухається сама. Прокрутіть, щоб керувати ↓</div></section>
-  <section class="scene-head" id="layerHeading"><span class="kicker">01 / ЗА ЛАШТУНКАМИ ДИЗАЙНУ</span><h2>Краса зовні.<br><em>Система всередині.</em></h2><p>Композиція, типографіка й взаємодія.<br>Кожна деталь має своє місце.</p><div class="strokes"><span><i></i>Зрозуміла структура</span><span><i></i>Виразна візуальна мова</span><span><i></i>Продумана розробка</span></div></section>
-  <section class="scene-head final-head" id="responsiveHeading"><span class="kicker">02 / ОДИН ДИЗАЙН. РІЗНІ ЕКРАНИ.</span><h2>Великий задум.<br><em>У кожному форматі.</em></h2><p>Інтерфейс перебудовується,<br>а характер залишається.</p></section>
-  <div class="floor" id="floor"></div>
-  <div class="world" id="world" aria-label="Анімована демонстрація створення сайту">
-   <div class="satellite desktop" id="desktopEcho" aria-hidden="true"></div>
-   <div class="satellite tablet" id="tabletEcho" aria-hidden="true"></div>
-   <div class="camera" id="camera"><div class="browser" id="primaryBrowser">
-    <div class="chassis"></div><div class="chrome"><div class="dots"><b></b><b></b><b></b></div><span class="chrome-label"><span class="lock">◇</span>FORMA · демонстраційний концепт</span></div><div class="phone-notch" id="phoneNotch"></div>
-    <div class="page-body">
-     <div class="code-plane" id="codePlane" aria-hidden="true"><b>&lt;div class="browser"&gt;</b><br>  &lt;div class="page-body"&gt;<br>    &lt;h2 class="specimen-title"&gt;…&lt;/h2&gt;<br>    &lt;div class="interior"&gt;…&lt;/div&gt;<br>  &lt;/div&gt;<br><b>&lt;/div&gt;</b></div>
-     <div class="plane paper-plane" id="paperPlane"><span class="layer-title">СТРУКТУРА</span></div>
-     <div class="plane image-plane" id="imagePlane"><div class="interior"></div><div class="design-glaze"></div><span class="layer-title">ОБРАЗ</span></div>
-     <div class="plane nav-plane" id="navPlane"><span class="specimen-brand">FORMA<small>ПРОСТІР<br>ДЛЯ ЖИТТЯ</small></span><div class="specimen-links"><span>Філософія</span><span>Простори</span><span class="specimen-link-pill">Знайти натхнення ↗</span></div><span class="mobile-menu"></span></div>
-     <div class="plane copy-plane" id="copyPlane"><div class="mini-kicker">ГАРМОНІЯ У КОЖНІЙ ДЕТАЛІ</div><h2 class="specimen-title">Простір,<br>у якому<br><em>хочеться жити.</em></h2><div class="specimen-cta"><span class="round-arrow">↗</span><span>Відчути простір</span></div><div class="specimen-side"><i>f.</i>Світло. Матеріали. Тиша.<br>Дизайн, що залишає<br>місце для вас.</div><span class="layer-title">ТИПОГРАФІКА + ВЗАЄМОДІЯ</span></div>
-     <div class="foot-plane" id="footPlane"><span>ДЕМОНСТРАЦІЙНИЙ КОНЦЕПТ / НЕ КЛІЄНТСЬКИЙ КЕЙС</span><span>DESIGNED FOR THIS MOTION STUDY ↗</span></div>
-    </div><div class="build-line" id="buildLine"><span class="build-label">Дизайн → готовий інтерфейс</span></div>
-   </div><div class="focus-label" id="focusLabel">АДАПТИВНИЙ ІНТЕРФЕЙС</div></div>
+<nav id="mobileMenu" class="mx-mobile-menu" aria-label="Мобільна навігація" hidden><a href="#work">Роботи <span aria-hidden="true">01</span></a><a href="#pricing">Ціни <span aria-hidden="true">02</span></a><a href="#services">Послуги <span aria-hidden="true">03</span></a><a href="#process">Процес <span aria-hidden="true">04</span></a><a href="#faq">Питання <span aria-hidden="true">05</span></a><a href="#lead">Обговорити проєкт</a><a class="mobile-nav-phone" href="tel:+380972692322">Зателефонувати: 097 269 23 22</a></nav>
+<main id="main-content">
+<section class="mx-hero" id="journey" aria-labelledby="heroTitle">
+ <div class="mx-hero-bg" aria-hidden="true"><span class="mx-blob mx-blob-a"></span><span class="mx-blob mx-blob-b"></span><span class="mx-grid"></span><span class="mx-spot"></span></div>
+ <div class="mx-hero-in">
+  <div class="mx-hero-copy">
+   <p class="mx-badge mx-fu"><span class="mx-dot" aria-hidden="true"></span>Професійна розробка. Виразний дизайн.</p>
+   <h1 id="heroTitle"><span class="mx-h1-line">Створюємо</span> <span class="mx-h1-line mx-accent"><span class="mx-rotor" data-words="сайти.|лендінги.|магазини.|SEO-основу.">сайти.</span></span> <em class="mx-h1-line">Вражаємо досвідом.</em></h1>
+   <p class="mx-lede mx-fu">Сайти, SEO, аналітика та Google Ads для бізнесу в Україні. Один відповідальний за структуру, запуск і розвиток — від ідеї до запуску вашого сайту.</p>
+   <div class="mx-hero-actions mx-fu"><a class="mx-btn mx-btn-primary" href="#lead">Обговорити проєкт <span aria-hidden="true">↗</span></a><a class="mx-btn mx-btn-ghost" href="kalkulyator-vartosti-saytu/">Калькулятор вартості</a></div>
+   <div class="mx-stats mx-fu"><a href="#pricing"><strong>від 10 500 ₴</strong><span>усі ціни ↓</span></a><div><strong>Вся Україна</strong><span>працюємо дистанційно</span></div><div><strong>1 контакт</strong><span>на весь проєкт</span></div></div>
   </div>
-  <div class="hint" id="scrollHint"><i class="vline"></i>ПРОКРУТКА КЕРУЄ СЦЕНОЮ</div>
-  <div class="demo-note"><a href="#pricing">Пропустити анімацію ↓</a></div>
+  <div class="mx-scene-wrap" aria-hidden="true">
+   <div class="mx-scene">
+    <span class="mx-orbit"></span><span class="mx-orbit-dot"></span>
+    <div class="mx-browser a-float">
+     <div class="mx-bar"><i></i><i></i><i></i><span>ваш-бізнес.com.ua</span></div>
+     <div class="mx-viewport">
+      <div class="mx-wire a-wire"><div class="w-row"><b style="width:60px"></b><b style="width:120px"></b></div><div class="w-split"><div><u style="width:90%"></u><u style="width:70%"></u><b style="width:80%;margin-top:6px"></b><b style="width:60%"></b><u class="w-btn"></u></div><div class="w-img"></div></div><div class="w-tiles"><u></u><u></u><u></u></div></div>
+      <div class="mx-design a-design"><div class="d-nav"><strong>ВАШ БІЗНЕС</strong><span>Послуги · Ціни · Контакти</span></div><div class="d-split"><div><strong class="d-h">Ваш бізнес.<br>Його цифрова форма.</strong><span class="d-p">Послуги, ціни та заявка — в один дотик.</span><span class="d-btn">Залишити заявку</span></div><div class="d-img"><i class="d-hill"></i><i class="d-sun"></i><span>Нова заявка ✓</span></div></div><div class="d-tiles"><span>Послуги</span><span>Ціни</span><span class="on">Заявка</span></div></div>
+     </div>
+    </div>
+    <div class="mx-code a-floatB"><code><span class="c-tag">&lt;section</span> <span class="c-attr">class</span>=<span class="c-str">"hero"</span><span class="c-tag">&gt;</span></code><code class="c-indent"><span class="a-type">&lt;h1&gt;Ваш бізнес&lt;/h1&gt;</span><span class="a-blink">▍</span></code><code><span class="c-tag">&lt;/section&gt;</span></code></div>
+    <div class="mx-check a-float"><span class="mx-mono">ПЕРЕВІРКА Й ЗАПУСК</span><span class="a-tick">Адаптація під телефон</span><span class="a-tick" style="animation-delay:.7s">SEO-структура</span><span class="a-tick" style="animation-delay:1.4s">Google Analytics / Tag</span><span class="a-tick" style="animation-delay:2.1s">Форма та месенджери</span></div>
+    <div class="mx-phone a-floatB"><div><strong>ВАШ БІЗНЕС</strong><b>Його цифрова форма.</b><i></i><span>Залишити заявку</span><u></u><u></u></div></div>
+    <div class="mx-cursor a-cursor"><span class="a-ring"></span><svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 3l7.5 18 2.4-7.4L21 11.2z"/></svg><em>MAX SITE</em></div>
+   </div>
+  </div>
  </div>
 </section>
+<div class="mx-ticker" aria-hidden="true"><div class="a-marquee"><span>Формула Чистоти · Черкаси</span><i>✦</i><span>FO-DEZ · спеціалізовані послуги</span><i>✦</i><span>B2B Clean Ukraine · клінінг великих об’єктів</span><i>✦</i><em>ваш бізнес — наступний</em><i>✦</i><span>Формула Чистоти · Черкаси</span><i>✦</i><span>FO-DEZ · спеціалізовані послуги</span><i>✦</i><span>B2B Clean Ukraine · клінінг великих об’єктів</span><i>✦</i><em>ваш бізнес — наступний</em><i>✦</i></div></div>
 
 <div class="mx-content">
- <section class="mx-section mx-pricing" id="pricing" aria-labelledby="priceTitle">
-  <div class="mx-section-top"><span class="mx-kicker">01 / ЦІНИ НА ПОСЛУГИ</span><span class="mx-side-label">СТАРТОВА ВАРТІСТЬ ПРОЄКТУ</span></div>
-  <div class="mx-section-intro"><h2 id="priceTitle">Чіткий обсяг.<br><em>Зрозумілий старт.</em></h2><p>Фінальна вартість залежить від задачі. Після короткого брифу фіксуємо обсяг та ціну.</p></div>
-  <div class="mx-prices"><article class="mx-price"><span class="mx-category">ЛЕНДІНГ</span><h3>Старт</h3><strong><small>від</small> 10 500 <small>грн</small></strong><p>Одна послуга, рекламна кампанія або перевірка бізнес-ідеї.</p><ul><li>До 5–7 блоків</li><li>Адаптація під телефон</li><li>Форма та месенджери</li><li>Базові SEO-метадані</li></ul><a class="mx-pill" href="#lead" data-package="Старт">Обговорити Старт <span>↗</span></a></article>
-  <article class="mx-price mx-price-featured"><span class="mx-category">КОРПОРАТИВНИЙ САЙТ</span><h3>Бізнес</h3><strong><small>від</small> 19 700 <small>грн</small></strong><p>Повноцінний сайт компанії з послугами, заявками та підготовкою під Google.</p><ul><li>Головна та до 5 внутрішніх сторінок</li><li>Сторінки послуг і SEO-структура</li><li>Адаптивний дизайн та форми</li><li>Google Analytics / Tag</li></ul><a class="mx-pill" href="#lead" data-package="Бізнес">Обговорити Бізнес <span>↗</span></a></article>
-  <article class="mx-price"><span class="mx-category">ОСНОВА ДЛЯ ПРОСУВАННЯ</span><h3>SEO Pro</h3><strong><small>від</small> 29 000 <small>грн</small></strong><p>Структура сайту під послуги й ніші, підготовлена для подальшого SEO.</p><ul><li>До 10 сторінок на старті</li><li>Метадані й структура заголовків</li><li>FAQ та структуровані дані</li><li>Search Console і підготовка блогу</li></ul><a class="mx-pill" href="#lead" data-package="SEO Pro">Обговорити SEO Pro <span>↗</span></a></article></div>
-  <div class="mx-shop"><div><span class="mx-category">ЕЛЕКТРОННА КОМЕРЦІЯ</span><h3>Інтернет-магазин</h3><p>Каталог, картки товарів, форма замовлення або кошик.</p></div><strong>від 34 300 грн</strong><a class="mx-text-link" href="#lead" data-package="Інтернет-магазин">Обговорити магазин ↗</a></div>
-  <p class="mx-disclosure">Це стартові ціни для зазначеного обсягу робіт. Кількість сторінок, інтеграції, товари, фільтри, оплата й доставка впливають на остаточну вартість. Рекламний бюджет Google оплачується окремо.</p>
- </section>
  <section class="mx-section mx-work" id="work" aria-labelledby="workTitle">
-  <div class="mx-section-top"><span class="mx-kicker">02 / РЕАЛЬНІ ПРОЄКТИ</span><a class="mx-text-link" href="portfolio/">Усе портфоліо <span aria-hidden="true">↗</span></a></div>
-  <div class="mx-section-intro"><h2 id="workTitle">Не лише враження.<br><em>Реалізовані сайти.</em></h2><p>Від першого екрана до сторінок послуг і заявки. Приклади робіт з портфоліо MAX SITE.</p></div>
+  <div class="mx-head mx-rv"><div><span class="mx-kicker">01 — РЕАЛЬНІ ПРОЄКТИ</span><h2 id="workTitle">Не лише враження.<br><em>Реалізовані сайти.</em></h2><p>Від першого екрана до сторінок послуг і заявки. Приклади робіт з портфоліо MAX SITE.</p></div><a class="mx-btn mx-btn-ghost" href="portfolio/">Усе портфоліо <span aria-hidden="true">↗</span></a></div>
   <div class="mx-cases">
-   <article class="mx-case mx-case-formula">
+   <article class="mx-case mx-case-formula mx-rv">
     <a class="mx-project-art" href="portfolio/formula-chystoty/" aria-label="Відкрити кейс «Формула Чистоти»">
-     <picture class="mx-project-media" aria-hidden="true"><source type="image/avif" srcset="assets/responsive/portfolio/formula-homepage-photo-480.avif 480w, assets/responsive/portfolio/formula-homepage-photo-768.avif 768w, assets/responsive/portfolio/formula-homepage-photo-1200.avif 1200w, assets/responsive/portfolio/formula-homepage-photo-1448.avif 1448w" sizes="(max-width: 760px) 100vw, 60vw"><source type="image/webp" srcset="assets/responsive/portfolio/formula-homepage-photo-480.webp 480w, assets/responsive/portfolio/formula-homepage-photo-768.webp 768w, assets/responsive/portfolio/formula-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/formula-homepage-photo-1448.webp 1448w" sizes="(max-width: 760px) 100vw, 60vw"><img src="assets/portfolio/formula-homepage-photo.webp" srcset="assets/responsive/portfolio/formula-homepage-photo-480.webp 480w, assets/responsive/portfolio/formula-homepage-photo-768.webp 768w, assets/responsive/portfolio/formula-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/formula-homepage-photo-1448.webp 1448w" sizes="(max-width: 760px) 100vw, 60vw" width="1448" height="1086" alt="" loading="lazy" decoding="async" data-responsive="true"></picture>
+     <span class="mx-frame"><span class="mx-bar"><i></i><i></i><i></i><span><b class="mx-live"></b>formula-chistoty.ck.ua</span></span><span class="mx-shot">
+     <picture class="mx-project-media" aria-hidden="true"><source type="image/avif" srcset="assets/responsive/portfolio/formula-homepage-photo-480.avif 480w, assets/responsive/portfolio/formula-homepage-photo-768.avif 768w, assets/responsive/portfolio/formula-homepage-photo-1200.avif 1200w, assets/responsive/portfolio/formula-homepage-photo-1448.avif 1448w" sizes="(max-width: 760px) 100vw, 34vw"><source type="image/webp" srcset="assets/responsive/portfolio/formula-homepage-photo-480.webp 480w, assets/responsive/portfolio/formula-homepage-photo-768.webp 768w, assets/responsive/portfolio/formula-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/formula-homepage-photo-1448.webp 1448w" sizes="(max-width: 760px) 100vw, 34vw"><img src="assets/portfolio/formula-homepage-photo.webp" srcset="assets/responsive/portfolio/formula-homepage-photo-480.webp 480w, assets/responsive/portfolio/formula-homepage-photo-768.webp 768w, assets/responsive/portfolio/formula-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/formula-homepage-photo-1448.webp 1448w" sizes="(max-width: 760px) 100vw, 34vw" width="1448" height="1086" alt="" loading="lazy" decoding="async" data-responsive="true"></picture>
+     <span class="mx-overlay"><span class="o-kicker">КЛІНІНГ · ЧЕРКАСИ</span><span class="o-title">Формула Чистоти</span><span class="o-btn">Залишити заявку</span></span>
+     <span class="mx-toast c-toast"><b>✓</b><span>Нова заявка з сайту<small>щойно</small></span></span>
+     <span class="mx-ccur c-cursor"><span class="c-ring"></span><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 3l7.5 18 2.4-7.4L21 11.2z"/></svg></span>
+     </span></span>
+     <span class="mx-mini a-float"><span><strong>ФОРМУЛА ЧИСТОТИ</strong><b>Клінінг у Черкасах</b><i></i><em>Залишити заявку</em><u></u><u></u></span></span>
      <span class="mx-project-top"><span>01 / КЛІНІНГ · ЧЕРКАСИ</span><span class="mx-project-arrow" aria-hidden="true">↗</span></span>
-     <span class="mx-project-foot">Візуал із галереї кейсу <span>formula-chistoty.ck.ua</span></span>
     </a>
     <div class="mx-case-copy"><span class="mx-category">САЙТ ДЛЯ КЛІНІНГОВОЇ КОМПАНІЇ</span><h3>Формула <em>Чистоти</em></h3><p>Послуги, фото робіт, заявки, SEO-структура та зручна навігація для клієнтів.</p><div class="mx-tags"><span>Структура</span><span>Послуги</span><span>Заявки</span></div><a class="mx-case-cta" href="portfolio/formula-chystoty/">Відкрити кейс <span aria-hidden="true">↗</span></a></div>
    </article>
-   <article class="mx-case mx-case-fodez">
+   <article class="mx-case mx-case-fodez mx-rv">
     <a class="mx-project-art" href="portfolio/fo-dez/" aria-label="Відкрити кейс FO-DEZ">
-     <picture class="mx-project-media" aria-hidden="true"><source type="image/avif" srcset="assets/responsive/portfolio/fodez-homepage-photo-480.avif 480w, assets/responsive/portfolio/fodez-homepage-photo-768.avif 768w, assets/responsive/portfolio/fodez-homepage-photo-1200.avif 1200w, assets/responsive/portfolio/fodez-homepage-photo-1672.avif 1672w" sizes="(max-width: 760px) 100vw, 48vw"><source type="image/webp" srcset="assets/responsive/portfolio/fodez-homepage-photo-480.webp 480w, assets/responsive/portfolio/fodez-homepage-photo-768.webp 768w, assets/responsive/portfolio/fodez-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/fodez-homepage-photo-1672.webp 1672w" sizes="(max-width: 760px) 100vw, 48vw"><img src="assets/portfolio/fodez-homepage-photo.webp" srcset="assets/responsive/portfolio/fodez-homepage-photo-480.webp 480w, assets/responsive/portfolio/fodez-homepage-photo-768.webp 768w, assets/responsive/portfolio/fodez-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/fodez-homepage-photo-1672.webp 1672w" sizes="(max-width: 760px) 100vw, 48vw" width="1672" height="941" alt="" loading="lazy" decoding="async" data-responsive="true"></picture>
+     <span class="mx-frame"><span class="mx-bar"><i></i><i></i><i></i><span><b class="mx-live"></b>fodez.com.ua</span></span><span class="mx-shot">
+     <picture class="mx-project-media" aria-hidden="true"><source type="image/avif" srcset="assets/responsive/portfolio/fodez-homepage-photo-480.avif 480w, assets/responsive/portfolio/fodez-homepage-photo-768.avif 768w, assets/responsive/portfolio/fodez-homepage-photo-1200.avif 1200w, assets/responsive/portfolio/fodez-homepage-photo-1672.avif 1672w" sizes="(max-width: 760px) 100vw, 34vw"><source type="image/webp" srcset="assets/responsive/portfolio/fodez-homepage-photo-480.webp 480w, assets/responsive/portfolio/fodez-homepage-photo-768.webp 768w, assets/responsive/portfolio/fodez-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/fodez-homepage-photo-1672.webp 1672w" sizes="(max-width: 760px) 100vw, 34vw"><img src="assets/portfolio/fodez-homepage-photo.webp" srcset="assets/responsive/portfolio/fodez-homepage-photo-480.webp 480w, assets/responsive/portfolio/fodez-homepage-photo-768.webp 768w, assets/responsive/portfolio/fodez-homepage-photo-1200.webp 1200w, assets/responsive/portfolio/fodez-homepage-photo-1672.webp 1672w" sizes="(max-width: 760px) 100vw, 34vw" width="1672" height="941" alt="" loading="lazy" decoding="async" data-responsive="true"></picture>
+     <span class="mx-overlay"><span class="o-kicker">СПЕЦІАЛІЗОВАНІ ПОСЛУГИ</span><span class="o-title">FO-DEZ</span><span class="o-btn">Залишити заявку</span></span>
+     <span class="mx-toast c-toast" style="animation-delay:-2.7s"><b>✓</b><span>Нова заявка з сайту<small>щойно</small></span></span>
+     <span class="mx-ccur c-cursor" style="animation-delay:-2.7s"><span class="c-ring" style="animation-delay:-2.7s"></span><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 3l7.5 18 2.4-7.4L21 11.2z"/></svg></span>
+     </span></span>
+     <span class="mx-mini a-float" style="animation-delay:-2s"><span><strong>FO-DEZ</strong><b>Сайт спеціалізованих послуг</b><i></i><em>Залишити заявку</em><u></u><u></u></span></span>
      <span class="mx-project-top"><span>02 / СПЕЦІАЛІЗОВАНІ ПОСЛУГИ</span><span class="mx-project-arrow" aria-hidden="true">↗</span></span>
-     <span class="mx-project-foot">Візуал із галереї кейсу <span>fodez.com.ua</span></span>
     </a>
-    <div class="mx-case-copy"><span class="mx-category">САЙТ СПЕЦІАЛІЗОВАНИХ ПОСЛУГ</span><h3>FO-DEZ</h3><p>Темний дизайн, сторінки послуг, форми заявок і структура під пошук Google.</p><div class="mx-tags"><span>Дизайн</span><span>Послуги</span><span>Google</span></div><a class="mx-case-cta" href="portfolio/fo-dez/">Відкрити кейс <span aria-hidden="true">↗</span></a></div>
+    <div class="mx-case-copy"><span class="mx-category">САЙТ СПЕЦІАЛІЗОВАНИХ ПОСЛУГ</span><h3>FO-<em>DEZ</em></h3><p>Темний дизайн, сторінки послуг, форми заявок і структура під пошук Google.</p><div class="mx-tags"><span>Дизайн</span><span>Послуги</span><span>Google</span></div><a class="mx-case-cta" href="portfolio/fo-dez/">Відкрити кейс <span aria-hidden="true">↗</span></a></div>
    </article>
-   <article class="mx-case mx-case-b2b">
+   <article class="mx-case mx-case-b2b mx-rv">
     <a class="mx-project-art" href="https://b2bcleanukraine.com/" target="_blank" rel="noopener noreferrer" aria-label="Відкрити сайт B2B CLEAN UKRAINE у новій вкладці">
-     <picture class="mx-project-media" aria-hidden="true"><source type="image/avif" srcset="assets/responsive/portfolio/b2b-clean-home-20261004-480.avif 480w, assets/responsive/portfolio/b2b-clean-home-20261004-768.avif 768w, assets/responsive/portfolio/b2b-clean-home-20261004-1150.avif 1150w" sizes="(max-width: 760px) 100vw, 48vw"><source type="image/webp" srcset="assets/responsive/portfolio/b2b-clean-home-20261004-480.webp 480w, assets/responsive/portfolio/b2b-clean-home-20261004-768.webp 768w, assets/responsive/portfolio/b2b-clean-home-20261004-1150.webp 1150w" sizes="(max-width: 760px) 100vw, 48vw"><img src="assets/portfolio/b2b-clean-home-20261004.jpg" srcset="assets/responsive/portfolio/b2b-clean-home-20261004-480.webp 480w, assets/responsive/portfolio/b2b-clean-home-20261004-768.webp 768w, assets/responsive/portfolio/b2b-clean-home-20261004-1150.webp 1150w" sizes="(max-width: 760px) 100vw, 48vw" width="1150" height="660" alt="" loading="lazy" decoding="async" data-responsive="true"></picture>
+     <span class="mx-frame"><span class="mx-bar"><i></i><i></i><i></i><span><b class="mx-live"></b>b2bcleanukraine.com</span></span><span class="mx-shot mx-shot-site">
+     <picture class="mx-project-media" aria-hidden="true"><source type="image/avif" srcset="assets/responsive/portfolio/b2b-clean-home-20261004-480.avif 480w, assets/responsive/portfolio/b2b-clean-home-20261004-768.avif 768w, assets/responsive/portfolio/b2b-clean-home-20261004-1150.avif 1150w" sizes="(max-width: 760px) 100vw, 34vw"><source type="image/webp" srcset="assets/responsive/portfolio/b2b-clean-home-20261004-480.webp 480w, assets/responsive/portfolio/b2b-clean-home-20261004-768.webp 768w, assets/responsive/portfolio/b2b-clean-home-20261004-1150.webp 1150w" sizes="(max-width: 760px) 100vw, 34vw"><img src="assets/portfolio/b2b-clean-home-20261004.jpg" srcset="assets/responsive/portfolio/b2b-clean-home-20261004-480.webp 480w, assets/responsive/portfolio/b2b-clean-home-20261004-768.webp 768w, assets/responsive/portfolio/b2b-clean-home-20261004-1150.webp 1150w" sizes="(max-width: 760px) 100vw, 34vw" width="1150" height="660" alt="" loading="lazy" decoding="async" data-responsive="true"></picture>
+     <span class="mx-toast c-toast" style="animation-delay:-5.3s"><b>✓</b><span>Нова тендерна заявка<small>щойно</small></span></span>
+     <span class="mx-ccur c-cursor" style="animation-delay:-5.3s"><span class="c-ring" style="animation-delay:-5.3s"></span><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 3l7.5 18 2.4-7.4L21 11.2z"/></svg></span>
+     </span></span>
+     <span class="mx-mini a-float" style="animation-delay:-4s"><span><strong>B2B CLEAN UKRAINE</strong><b>Клінінг великих об’єктів</b><i></i><em>Розрахувати</em><u></u><u></u></span></span>
      <span class="mx-project-top"><span>03 / B2B-КЛІНІНГ · УКРАЇНА</span><span class="mx-project-arrow" aria-hidden="true">↗</span></span>
-     <span class="mx-project-foot">Скриншот сайту <span>b2bcleanukraine.com</span></span>
     </a>
-    <div class="mx-case-copy"><span class="mx-category">САЙТ ДЛЯ B2B-КЛІНІНГУ</span><h3>B2B CLEAN <em>UKRAINE</em></h3><p>Сайт клінінгу великих об’єктів: сторінки послуг і міст, калькулятор вартості та тендерні заявки.</p><div class="mx-tags"><span>Послуги</span><span>Калькулятор</span><span>Тендери</span></div><a class="mx-case-cta" href="https://b2bcleanukraine.com/" target="_blank" rel="noopener noreferrer" aria-label="Відкрити сайт B2B CLEAN UKRAINE у новій вкладці">Відкрити сайт <span aria-hidden="true">↗</span></a></div>
+    <div class="mx-case-copy"><span class="mx-category">САЙТ ДЛЯ B2B-КЛІНІНГУ</span><h3>B2B CLEAN UKRAINE</h3><p>Сайт клінінгу великих об’єктів: сторінки послуг і міст, калькулятор вартості та тендерні заявки.</p><div class="mx-tags"><span>Послуги</span><span>Калькулятор</span><span>Тендери</span></div><a class="mx-case-cta" href="https://b2bcleanukraine.com/" target="_blank" rel="noopener noreferrer" aria-label="Відкрити сайт B2B CLEAN UKRAINE у новій вкладці">Відкрити сайт <span aria-hidden="true">↗</span></a></div>
    </article>
   </div>
-  <p class="mx-disclosure">Тут показані проєкти з портфоліо студії. Фото в обкладинках «Формула Чистоти» та FO-DEZ — зображення з галерей кейсів. B2B CLEAN UKRAINE представлено скриншотом чинного сайту. <a href="portfolio/max-site/">Технічний self-case MAX SITE</a> доступний окремо. FORMA у першій сцені залишається демонстраційним концептом.</p>
+  <p class="mx-disclosure">Тут показані проєкти з портфоліо студії. Фото в обкладинках «Формула Чистоти» та FO-DEZ — зображення з галерей кейсів. B2B CLEAN UKRAINE представлено скриншотом чинного сайту. Анімовані вікна браузера, курсор і сповіщення про заявки — ілюстрація роботи сайту, а не статистика. <a href="portfolio/max-site/">Технічний self-case MAX SITE</a> доступний окремо.</p>
  </section>
- <section class="mx-section mx-services" id="services" aria-labelledby="servicesTitle">
-  <div class="mx-section-top"><span class="mx-kicker">03 / ЩО МИ РОБИМО</span><span class="mx-side-label">ВІД СТРУКТУРИ ДО ЗАПУСКУ</span></div>
-  <div class="mx-section-intro"><h2 id="servicesTitle">Ваш бізнес.<br><em>Його цифрова форма.</em></h2><p>Сайти, SEO та Google Ads для росту бізнесу. Погоджуємо обсяг робіт до старту.</p></div>
-  <div class="mx-service-list">
-   <a class="mx-service" href="stvorennya-saytiv/"><span class="mx-service-num">01</span><h3>Розробка сайтів</h3><p>Лендінги, корпоративні сайти, сайти послуг та інтернет-магазини.</p><span class="mx-service-arrow" aria-hidden="true">↗</span></a>
-   <a class="mx-service" href="seo-sajt-pid-google/"><span class="mx-service-num">02</span><h3>SEO-основа</h3><p>Структура сторінок, метадані, перелінковка та підготовка до індексації.</p><span class="mx-service-arrow" aria-hidden="true">↗</span></a>
-   <a class="mx-service" href="google-ads/"><span class="mx-service-num">03</span><h3>Google Ads</h3><p>Налаштування й ведення рекламних кампаній під задачі бізнесу.</p><span class="mx-service-arrow" aria-hidden="true">↗</span></a>
-   <a class="mx-service" href="google-analytics-search-console/"><span class="mx-service-num">04</span><h3>Аналітика</h3><p>Google Analytics і Search Console для контролю трафіку та індексації.</p><span class="mx-service-arrow" aria-hidden="true">↗</span></a>
-   <a class="mx-service" href="stvorennya-program/"><span class="mx-service-num">05</span><h3>Програми для бізнесу</h3><p>Розробка під задачі та автоматизацію процесів.</p><span class="mx-service-arrow" aria-hidden="true">↗</span></a>
+
+ <section class="mx-section mx-pricing" id="pricing" aria-labelledby="priceTitle">
+  <div class="mx-head mx-rv"><div><span class="mx-kicker">02 — ЦІНИ НА ПОСЛУГИ</span><h2 id="priceTitle">Чіткий обсяг.<br><em>Зрозумілий старт.</em></h2></div><p>Фінальна вартість залежить від задачі. Після короткого брифу фіксуємо обсяг та ціну.</p></div>
+  <div class="mx-prices">
+   <article class="mx-price mx-rv"><span class="mx-category">ЛЕНДІНГ</span><h3>Старт</h3><strong><small>від</small> 10 500 <small>грн</small></strong><p>Одна послуга, рекламна кампанія або перевірка бізнес-ідеї.</p><ul><li>До 5–7 блоків</li><li>Адаптація під телефон</li><li>Форма та месенджери</li><li>Базові SEO-метадані</li></ul><a class="mx-pill" href="#lead" data-package="Старт">Обговорити Старт <span>↗</span></a></article>
+   <div class="mx-ring mx-rv"><article class="mx-price mx-price-featured"><span class="mx-category">КОРПОРАТИВНИЙ САЙТ</span><h3>Бізнес</h3><strong><small>від</small> 19 700 <small>грн</small></strong><p>Повноцінний сайт компанії з послугами, заявками та підготовкою під Google.</p><ul><li>Головна та до 5 внутрішніх сторінок</li><li>Сторінки послуг і SEO-структура</li><li>Адаптивний дизайн та форми</li><li>Google Analytics / Tag</li></ul><a class="mx-pill" href="#lead" data-package="Бізнес">Обговорити Бізнес <span>↗</span></a></article></div>
+   <article class="mx-price mx-rv"><span class="mx-category">ОСНОВА ДЛЯ ПРОСУВАННЯ</span><h3>SEO Pro</h3><strong><small>від</small> 29 000 <small>грн</small></strong><p>Структура сайту під послуги й ніші, підготовлена для подальшого SEO.</p><ul><li>До 10 сторінок на старті</li><li>Метадані й структура заголовків</li><li>FAQ та структуровані дані</li><li>Search Console і підготовка блогу</li></ul><a class="mx-pill" href="#lead" data-package="SEO Pro">Обговорити SEO Pro <span>↗</span></a></article>
+   <article class="mx-price mx-shop mx-rv"><span class="mx-category">ЕЛЕКТРОННА КОМЕРЦІЯ</span><h3>Інтернет-магазин</h3><strong><small>від</small> 34 300 <small>грн</small></strong><p>Каталог, картки товарів, форма замовлення або кошик.</p><a class="mx-pill" href="#lead" data-package="Інтернет-магазин">Обговорити магазин <span>↗</span></a></article>
   </div>
-  <div class="mx-pathways" aria-label="Докладніше про напрямки MAX SITE">
+  <p class="mx-disclosure">Це стартові ціни для зазначеного обсягу робіт. Кількість сторінок, інтеграції, товари, фільтри, оплата й доставка впливають на остаточну вартість. Рекламний бюджет Google оплачується окремо. <a href="kalkulyator-vartosti-saytu/">Калькулятор вартості сайту ↗</a></p>
+ </section>
+
+ <section class="mx-section mx-services" id="services" aria-labelledby="servicesTitle">
+  <div class="mx-head mx-rv"><div><span class="mx-kicker">03 — ЩО МИ РОБИМО</span><h2 id="servicesTitle">Ваш бізнес.<br><em>Його цифрова форма.</em></h2></div><p>Сайти, SEO та Google Ads для росту бізнесу. Погоджуємо обсяг робіт до старту.</p></div>
+  <div class="mx-bento">
+   <a class="mx-service mx-service-wide mx-rv" href="stvorennya-saytiv/"><span class="mx-service-copy"><span class="mx-service-num">01</span><h3>Розробка сайтів</h3><p>Лендінги, корпоративні сайти, сайти послуг та інтернет-магазини.</p><span class="mx-more">Детальніше ↗</span></span><span class="mx-ill mx-ill-dev" aria-hidden="true"><i></i><i></i><i></i><b class="a-barX" style="width:75%"></b><b class="a-barX on" style="width:55%;animation-delay:.2s"></b><b class="a-barX thin" style="width:85%;animation-delay:.4s"></b><b class="a-barX thin" style="width:65%;animation-delay:.5s"></b><span><u class="a-bar" style="animation-delay:.6s"></u><u class="a-bar" style="animation-delay:.75s"></u><u class="a-bar on" style="animation-delay:.9s"></u></span></span></a>
+   <a class="mx-service mx-rv" href="seo-sajt-pid-google/"><span class="mx-ill mx-ill-seo" aria-hidden="true"><u class="a-bar" style="height:30%"></u><u class="a-bar" style="height:48%;animation-delay:.15s"></u><u class="a-bar" style="height:62%;animation-delay:.3s"></u><u class="a-bar" style="height:80%;animation-delay:.45s"></u><u class="a-bar on" style="height:100%;animation-delay:.6s"></u></span><span class="mx-service-num">02</span><h3>SEO-основа</h3><p>Структура сторінок, метадані, перелінковка та підготовка до індексації.</p></a>
+   <a class="mx-service mx-rv" href="google-ads/"><span class="mx-ill mx-ill-ads" aria-hidden="true"><svg viewBox="0 0 220 80" preserveAspectRatio="none"><path class="a-dash" d="M2 70 L40 58 L75 62 L110 38 L145 44 L180 18 L218 8"/><path class="base" d="M2 78 H218"/></svg><span class="a-ripple"></span></span><span class="mx-service-num">03</span><h3>Google Ads</h3><p>Налаштування й ведення рекламних кампаній під задачі бізнесу.</p></a>
+   <a class="mx-service mx-rv" href="google-analytics-search-console/"><span class="mx-ill mx-ill-ga" aria-hidden="true"><svg viewBox="0 0 76 76"><circle cx="38" cy="38" r="28" class="track"/><circle cx="38" cy="38" r="28" class="a-ringFill"/></svg><span><b class="a-barX" style="width:90%"></b><b class="a-barX" style="width:65%;animation-delay:.2s"></b><b class="a-barX on" style="width:45%;animation-delay:.4s"></b></span></span><span class="mx-service-num">04</span><h3>Аналітика</h3><p>Google Analytics і Search Console для контролю трафіку та індексації.</p></a>
+   <a class="mx-service mx-rv" href="stvorennya-program/"><span class="mx-ill mx-ill-app" aria-hidden="true"><svg class="a-spinF g1" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" class="teeth"/><circle cx="32" cy="32" r="13" class="hub"/></svg><svg class="a-spinR g2" viewBox="0 0 44 44"><circle cx="22" cy="22" r="15" class="teeth"/><circle cx="22" cy="22" r="7" class="hub"/></svg></span><span class="mx-service-num">05</span><h3>Програми для бізнесу</h3><p>Розробка під задачі та автоматизацію процесів.</p></a>
+  </div>
+  <div class="mx-pathways mx-rv" aria-label="Докладніше про напрямки MAX SITE">
    <div class="mx-pathway"><h3>Формат сайту й просування</h3><p>Оберіть сторінку з деталями послуги або розрахуйте орієнтовну вартість проєкту.</p><ul>
     <li><a href="stvorennya-landing-page/">Лендінг для послуги чи реклами</a></li><li><a href="stvorennya-korporatyvnoho-saytu/">Корпоративний сайт</a></li><li><a href="stvorennya-internet-mahazynu/">Інтернет-магазин</a></li><li><a href="stvorennya-saytu-dlya-biznesu/">Сайт для бізнесу</a></li><li><a href="sajty-dlya-poslug/">Сайт для послуг</a></li><li><a href="seo-prosuvannya/">SEO-просування</a></li><li><a href="kalkulyator-vartosti-saytu/">Калькулятор вартості сайту</a></li>
    </ul></div>
@@ -132,15 +152,35 @@
    </ul></div>
   </div>
  </section>
- <section class="mx-section mx-process" id="process" aria-labelledby="processTitle">
-  <div class="mx-section-top"><span class="mx-kicker">04 / ПРОЦЕС</span><span class="mx-side-label">ПРОЗОРО НА КОЖНОМУ ЕТАПІ</span></div>
-  <div class="mx-section-intro"><h2 id="processTitle">Від задуму<br><em>до вашого сайту.</em></h2><p>Працюємо дистанційно з бізнесом по всій Україні. Структуру, ціну й етапи погоджуємо до старту.</p></div>
-  <div class="mx-steps"><article><span>01</span><h3>Обговорення</h3><p>Розбираємо задачу бізнесу, формат сайту та потрібні функції.</p></article><article><span>02</span><h3>Структура й дизайн</h3><p>Продумуємо сторінки, контент і візуальну подачу.</p></article><article><span>03</span><h3>Розробка</h3><p>Збираємо адаптивний сайт та погоджені інтеграції.</p></article><article><span>04</span><h3>Перевірка й запуск</h3><p>Перевіряємо відображення, форми та технічну основу перед публікацією.</p></article></div>
-  <div class="mx-responsibility"><div><span class="mx-kicker">ОСОБИСТА ВІДПОВІДАЛЬНІСТЬ</span><h3>Один контакт.<br>Цілісний результат.</h3></div><div><p>Засновник MAX SITE відповідає за комунікацію, структуру проєкту та контроль запуску.</p><a class="mx-text-link" href="pro-nas/">Більше про студію ↗</a></div></div>
+
+ <section class="mx-section mx-founder" id="founder" aria-labelledby="founderTitle">
+  <div class="mx-founder-vis mx-rv">
+   <span class="mx-founder-orbit" aria-hidden="true"></span>
+   <picture class="mx-founder-photo"><source type="image/avif" srcset="assets/responsive/founder-max-site-v2-480.avif 480w, assets/responsive/founder-max-site-v2-768.avif 768w, assets/responsive/founder-max-site-v2-1023.avif 1023w" sizes="(max-width: 760px) 90vw, 36vw"><source type="image/webp" srcset="assets/responsive/founder-max-site-v2-480.webp 480w, assets/responsive/founder-max-site-v2-768.webp 768w, assets/responsive/founder-max-site-v2-1023.webp 1023w" sizes="(max-width: 760px) 90vw, 36vw"><img src="assets/founder-max-site-v2.jpg" srcset="assets/responsive/founder-max-site-v2-480.webp 480w, assets/responsive/founder-max-site-v2-768.webp 768w, assets/responsive/founder-max-site-v2-1023.webp 1023w" sizes="(max-width: 760px) 90vw, 36vw" width="1023" height="1537" alt="Засновник MAX SITE" loading="lazy" decoding="async" data-responsive="true"></picture>
+   <span class="mx-chip mx-chip-a a-float" aria-hidden="true">Комунікація</span><span class="mx-chip mx-chip-b a-float" style="animation-delay:-2s" aria-hidden="true">Структура проєкту</span><span class="mx-chip mx-chip-c a-float" style="animation-delay:-4s" aria-hidden="true">Контроль запуску</span>
+  </div>
+  <div class="mx-founder-copy mx-rv">
+   <span class="mx-kicker">04 — ОСОБИСТА ВІДПОВІДАЛЬНІСТЬ</span>
+   <h2 id="founderTitle">Один контакт.<br><em>Цілісний результат.</em></h2>
+   <p>Засновник MAX SITE відповідає за комунікацію, структуру проєкту та контроль запуску. Працюємо дистанційно з бізнесом по всій Україні.</p>
+   <div class="mx-promises"><div><b>Ціна до старту</b><span>Структуру, ціну й етапи погоджуємо заздалегідь.</span></div><div><b>SEO з самого початку</b><span>Правильна SEO-структура закладена одразу.</span></div><div><b>Під усі екрани</b><span>Телефони, планшети й комп’ютери.</span></div><div><b>Допомога з текстами</b><span>Заголовки, описи послуг, FAQ та SEO-блоки.</span></div></div>
+   <a class="mx-btn mx-btn-ghost" href="pro-nas/">Більше про студію <span aria-hidden="true">↗</span></a>
+  </div>
  </section>
+
+ <section class="mx-section mx-process" id="process" aria-labelledby="processTitle">
+  <div class="mx-head mx-rv"><div><span class="mx-kicker">05 — ПРОЦЕС</span><h2 id="processTitle">Від задуму <em>до вашого сайту.</em></h2></div><p>Прозоро на кожному етапі. Структуру, ціну й етапи погоджуємо до старту.</p></div>
+  <div class="mx-steps mx-rv"><span class="mx-track" aria-hidden="true"><i class="a-draw"></i><b class="a-travel"></b></span>
+   <article><span>01</span><h3>Обговорення</h3><p>Розбираємо задачу бізнесу, формат сайту та потрібні функції.</p></article>
+   <article><span>02</span><h3>Структура й дизайн</h3><p>Продумуємо сторінки, контент і візуальну подачу.</p></article>
+   <article><span>03</span><h3>Розробка</h3><p>Збираємо адаптивний сайт та погоджені інтеграції.</p></article>
+   <article><span class="on">04</span><h3>Перевірка й запуск</h3><p>Перевіряємо відображення, форми та технічну основу перед публікацією.</p></article>
+  </div>
+ </section>
+
  <section class="mx-section mx-faq" id="faq" aria-labelledby="faqTitle">
-  <div class="mx-section-intro"><div><span class="mx-kicker">05 / ПИТАННЯ</span><h2 id="faqTitle">Перед<br><em>початком.</em></h2></div><div class="mx-faq-list faq-list">
-   <details><summary>Скільки часу займає створення сайту?<span aria-hidden="true">+</span></summary><p>Залежить від типу сайту. Простий лендінг можна запустити швидше, корпоративний сайт або сайт з SEO-структурою потребує більше часу.</p></details>
+  <div class="mx-faq-grid"><div class="mx-rv"><span class="mx-kicker">06 — ПИТАННЯ</span><h2 id="faqTitle">Перед<br><em>початком.</em></h2></div><div class="mx-faq-list faq-list mx-rv">
+   <details open><summary>Скільки часу займає створення сайту?<span aria-hidden="true">+</span></summary><p>Залежить від типу сайту. Простий лендінг можна запустити швидше, корпоративний сайт або сайт з SEO-структурою потребує більше часу.</p></details>
    <details><summary>Чи буде сайт адаптований під телефон?<span aria-hidden="true">+</span></summary><p>Так, сайт обов’язково адаптується під мобільні телефони, планшети та комп’ютери.</p></details>
    <details><summary>Чи допомагаєте з текстами?<span aria-hidden="true">+</span></summary><p>Так, ми можемо підготувати структуру текстів, заголовки, описи послуг, FAQ та SEO-блоки.</p></details>
    <details><summary>Чи буде сайт просуватись у Google?<span aria-hidden="true">+</span></summary><p>Ми закладаємо правильну SEO-структуру з самого початку. Для сильного росту потрібне подальше SEO-просування.</p></details>
@@ -148,9 +188,12 @@
    <details><summary>Чи можна буде змінювати інформацію на сайті?<span aria-hidden="true">+</span></summary><p>Так, залежно від реалізації можна зробити зручне редагування контенту або передбачити подальшу підтримку.</p></details>
   </div></div>
  </section>
+
  <section class="mx-section mx-lead" id="lead" aria-labelledby="leadTitle">
-  <span class="mx-kicker">06 / ВАШ НАСТУПНИЙ ПРОЄКТ</span>
-  <div class="mx-lead-grid"><div><h2 id="leadTitle">Почнемо<br><em>з розмови.</em></h2><p>Розкажіть про бізнес і задачу. Обговоримо структуру сайту та формат роботи.</p><a class="mx-phone" href="tel:+380972692322">097 269 23 22 ↗</a><div class="mx-messengers"><a href="https://t.me/MaxMytt" target="_blank" rel="noopener noreferrer">Telegram ↗</a><a href="viber://chat?number=%2B380972692322">Viber ↗</a><a href="kontakty/">Контакти ↗</a></div></div>
+  <div class="mx-lead-card">
+   <div class="mx-lead-intro"><span class="mx-kicker">07 — ВАШ НАСТУПНИЙ ПРОЄКТ</span><h2 id="leadTitle">Почнемо<br><em>з розмови.</em></h2><p>Розкажіть про бізнес і задачу. Обговоримо структуру сайту та формат роботи.</p><a class="mx-phone-big" href="tel:+380972692322">097 269 23 22 ↗</a><div class="mx-messengers"><a href="https://t.me/MaxMytt" target="_blank" rel="noopener noreferrer">Telegram ↗</a><a href="viber://chat?number=%2B380972692322">Viber ↗</a><a href="kontakty/">Контакти ↗</a></div></div>
+   <div class="mx-form-col">
+   <div class="mx-choice" role="group" aria-labelledby="leadChoiceLabel"><span id="leadChoiceLabel" class="mx-choice-label">Що потрібно?</span><div><button type="button" data-format="Лендінг">Лендінг</button><button type="button" data-format="Корпоративний сайт">Корпоративний сайт</button><button type="button" data-format="Інтернет-магазин">Інтернет-магазин</button><button type="button" data-format="SEO / Google Ads">SEO / Google Ads</button></div></div>
    <form id="leadForm" class="mx-form lead-form" method="post">
     <div class="mx-form-row"><label for="lead-name">Ім'я<input id="lead-name" name="name" autocomplete="name" required maxlength="100" placeholder="Ваше ім'я"></label><label for="lead-phone">Телефон або Telegram<input id="lead-phone" name="phone" type="text" inputmode="text" autocapitalize="none" spellcheck="false" autocomplete="tel" required maxlength="32" placeholder="+380 00 000 00 00 або @username"></label></div>
     <label for="lead-business">Ніша бізнесу<input id="lead-business" name="business" autocomplete="off" required maxlength="160" placeholder="Чим займається ваша компанія"></label>
@@ -159,14 +202,19 @@
     <p id="leadFormHelp" class="mx-form-notice">Якщо форма недоступна, зателефонуйте або напишіть у Telegram — контакти поруч.</p>
     <button class="mx-pill mx-submit" type="submit" aria-describedby="leadFormHelp" disabled>Обговорити проєкт <span aria-hidden="true">↗</span></button>
    </form>
+   </div>
   </div>
  </section>
- <footer class="mx-footer"><a class="mx-footer-mark" href="#journey" aria-label="MAX SITE, на початок">MAX<span>↗</span>SITE</a><div class="mx-footer-links"><a href="portfolio/">Портфоліо</a><a href="pro-nas/">Про нас</a><a href="blog/">Блог</a><a href="mista/">Міста</a><a href="polityka-konfidentsijnosti/">Конфіденційність</a></div><div class="mx-footer-bottom"><span>MAX SITE</span><a href="#journey">На початок ↑</a></div></footer>
-</div>
 
+ <footer class="mx-footer">
+  <div class="mx-footer-cols"><div><p>Сайти, SEO, аналітика та Google Ads для бізнесу в Україні.</p><a class="mx-footer-phone" href="tel:+380972692322">097 269 23 22</a></div><div class="mx-footer-links"><a href="portfolio/">Портфоліо</a><a href="pro-nas/">Про нас</a><a href="blog/">Блог</a><a href="mista/">Міста</a><a href="kontakty/">Контакти</a><a href="polityka-konfidentsijnosti/">Конфіденційність</a></div></div>
+  <a class="mx-footer-mark" href="#journey">MAX<span aria-hidden="true">↗</span>SITE</a>
+  <div class="mx-footer-bottom"><span>© 2026 MAX SITE · Україна</span><a href="#journey">На початок ↑</a></div>
+ </footer>
+</div>
 </main>
-<div class="info-overlay" id="infoOverlay" role="dialog" aria-modal="true" aria-labelledby="infoTitle" aria-hidden="true"><article class="info-card"><h2 id="infoTitle">Про сцену FORMA.</h2><p>Сайт FORMA всередині анімованої сцени вище — демонстраційний концепт, створений для показу адаптивного дизайну MAX SITE. Це не реальний клієнт і не результат окремого клієнтського проєкту.</p><p>Ілюстрацію інтер'єру використано лише для демонстрації верстки; це не фотографія виконаної роботи. Жодних вигаданих показників, відгуків або партнерств тут немає.</p><p>Портфоліо, послуги, процес і стартові ціни MAX SITE наведені нижче на цій сторінці.</p><button id="infoClose">Повернутися до сайту</button></article></div>
-<noscript><p class="nojs">Анімація вимкнена без JavaScript. Послуги, ціни та контакти доступні нижче.</p></noscript>
+<div class="mx-dock" aria-label="Швидкі контакти"><a href="tel:+380972692322"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Подзвонити</a><a class="mx-dock-tg" href="https://t.me/MaxMytt" target="_blank" rel="noopener noreferrer">Telegram ↗</a></div>
+<noscript><p class="nojs">Деякі анімації вимкнені без JavaScript. Послуги, ціни та контакти доступні на сторінці.</p></noscript>
 <script src="assets/telegram-config.js?v=20260718-telegram"></script><script src="assets/analytics-config.js?v=20260802-ga4-property"></script><script src="script.js?v=20260902-master3"></script>
-<script src="assets/maxsite-2/motion.js?v=integrate-v1" defer></script><script src="assets/maxsite-2/site.js?v=integrate-v1" defer></script>
+<script src="assets/maxsite-2/motion.js?v=redesign-20261006" defer></script><script src="assets/maxsite-2/site.js?v=redesign-20261006" defer></script>
 </body></html>
