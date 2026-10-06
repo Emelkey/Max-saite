@@ -3548,3 +3548,45 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
     font-size: 28px;
   }
 }
+
+/* One small, interruptible spring for primary actions on the homepage and
+   service pages. Transforms leave layout and native touch scrolling intact.
+   The browser owns press/cancel state; no timers, listeners or idle animation. */
+:is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill),
+:is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill):hover,
+:is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill):focus-visible {
+  transform: none;
+  transition: transform 360ms cubic-bezier(.22, 1.4, .36, 1),
+    box-shadow 180ms ease, background-color 180ms ease,
+    border-color 180ms ease, color 180ms ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill):not(:disabled):not([aria-disabled="true"]):focus-visible {
+    transform: translateY(-2px) scale(1.015);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill):not(:disabled):not([aria-disabled="true"]):hover {
+      transform: translateY(-2px) scale(1.015);
+    }
+  }
+
+  :is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill):not(:disabled):not([aria-disabled="true"]):active {
+    transform: translateY(0) scale(.97);
+    transition-duration: 90ms;
+    transition-timing-function: ease-out;
+  }
+}
+
+:is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill):is(:disabled, [aria-disabled="true"]) {
+  transform: none;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.btn, .call-button, .floating-request, .mx-nav-cta, .mx-pill) {
+    transform: none;
+    transition: none;
+  }
+}

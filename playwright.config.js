@@ -19,6 +19,6 @@ module.exports=defineConfig({
   projects:[
     {name:'desktop-chromium',use:{...devices['Desktop Chrome']}},
     {name:'mobile-chromium',use:{...devices['Pixel 7'],browserName:'chromium'}},
-    {name:'mobile-webkit',testMatch:/(motion-autoplay|ads-landing|consent-first-view|production-consent)\.spec\.js/,use:{...devices['iPhone 13'],browserName:'webkit'}}
+    {name:'mobile-webkit',testMatch:/(motion-autoplay|ads-landing|consent-first-view|production-consent|button-spring)\.spec\.js/,use:{...devices['iPhone 13'],browserName:'webkit'}}
   ]
 });
