@@ -62,13 +62,14 @@ test('read-only live command is explicit about pre-release scope and fails valid
 });
 test('homepage labels illustrative motion and portfolio covers without invented SEO gains',()=>{
  const html=fs.readFileSync(path.join(__dirname,'../../index.html'),'utf8');
- assert.match(html,/Фото в обкладинках «Формула Чистоти» та FO-DEZ — зображення з галерей кейсів/);
+ assert.match(html,/Фото в обкладинках «Формула Чистоти» та FO-DEZ — ілюстративні матеріали проєктів/);
  assert.match(html,/B2B CLEAN UKRAINE представлено скриншотом чинного сайту/);
  assert.match(html,/Анімовані вікна браузера, курсор і сповіщення про заявки — ілюстрація роботи сайту, а не статистика/);
  assert.doesNotMatch(html,/FORMA/);
  const b2bCard=html.match(/<article class="mx-case mx-case-b2b(?: [^"]*)?">([\s\S]*?)<\/article>/)?.[1]||'';
  assert.match(b2bCard,/b2b-clean-home-20261004\.jpg/);
- assert.equal((b2bCard.match(/href="https:\/\/b2bcleanukraine\.com\/"/g)||[]).length,2);
+ assert.equal((b2bCard.match(/href="https:\/\/b2bcleanukraine\.com\/"/g)||[]).length,1);
+ assert.match(b2bCard,/href="portfolio\/b2b-clean-ukraine\/"/);
  assert.doesNotMatch(html,/class="mx-case mx-case-selfcase"/);
  assert.match(html,/href="portfolio\/max-site\/"/);
  assert.doesNotMatch(html,/[+]\s*\d+(?:[.,]\d+)?\s*%/);

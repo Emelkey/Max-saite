@@ -73,8 +73,8 @@ test('B2B project has a real screenshot and opens the verified site from both po
   // Stub the external destination only; verify the browser actually opens it.
   await context.route('https://b2bcleanukraine.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<h1>B2B CLEAN UKRAINE</h1>'}));
   for(const [path,cardSelector,linkSelectors] of [
-    ['/#work','#work .mx-case-b2b',['.mx-project-art','.mx-case-cta']],
-    ['/portfolio/','#b2b-clean-ukraine',['.case-main-media','.case-actions .btn:first-child']]
+    ['/#work','#work .mx-case-b2b',['.mx-project-art']],
+    ['/portfolio/','#b2b-clean-ukraine',['.case-main-media']]
   ]){
     await page.goto(path);
     const card=page.locator(cardSelector);
@@ -95,7 +95,7 @@ test('B2B project has a real screenshot and opens the verified site from both po
   }
   const schema=await page.locator('script[type="application/ld+json"]').evaluate(el=>JSON.parse(el.textContent));
   expect(schema['@graph'].find(node=>node['@type']==='ItemList').itemListElement).toContainEqual({
-    '@type':'ListItem',position:3,name:'B2B CLEAN UKRAINE — сайт для B2B-клінінгу',url:site
+    '@type':'ListItem',position:3,name:'B2B CLEAN UKRAINE — сайт для B2B-клінінгу',url:'https://maxsite.com.ua/portfolio/b2b-clean-ukraine/'
   });
   // Replacing the card must not break the historical case's indexed URL.
   await page.goto('/portfolio/max-site/');

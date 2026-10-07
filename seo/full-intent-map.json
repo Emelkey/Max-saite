@@ -2513,6 +2513,20 @@
       "priority": "P2",
       "observedQueries": [],
       "reviewedAt": "2026-10-06"
+    },
+    {
+      "url": "/portfolio/b2b-clean-ukraine/",
+      "cluster": "case-b2b-clean",
+      "primary": "кейс B2B CLEAN UKRAINE MAX SITE",
+      "secondary": [
+        "сайт B2B CLEAN UKRAINE кейс"
+      ],
+      "intent": "Калькулятор, тендерний сценарій і перевірні функції B2B-сайту",
+      "searchIntent": "navigational",
+      "contentType": "case",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
     }
   ]
 }
