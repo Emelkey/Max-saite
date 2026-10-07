@@ -38,6 +38,25 @@
     }
   },
   {
+    "source": "assets/portfolio/b2b-calculator-fields-20261007.jpg",
+    "sourceSha256": "99578d2909444e34d869195bc829a0fe3e4d809fe17e63f7fac7a2c2efbac82c",
+    "width": 1165,
+    "height": 747,
+    "candidates": [
+      480,
+      768,
+      1165
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/b2b-calculator-fields-20261007-480.avif": "256b9d30b6fd9080c4a65ea99dc74887eba2df7212cdd4e0dcc585bcfc032dc4",
+      "assets/responsive/portfolio/b2b-calculator-fields-20261007-480.webp": "db72f91bf2167f65f93da4483035827ee8809aa0916751c488fbec04266e07f5",
+      "assets/responsive/portfolio/b2b-calculator-fields-20261007-768.avif": "0808d1007cb0c4881eba80d51c547c53c506b4bd5628864d98165a1e2c1e0f2a",
+      "assets/responsive/portfolio/b2b-calculator-fields-20261007-768.webp": "a18a69d2c75e6a65baba88193a46e6767b5d8c294b2dd01144a15f0b654a2ace",
+      "assets/responsive/portfolio/b2b-calculator-fields-20261007-1165.avif": "0d13671b3f47e528876e6b463259a3839c4dc96a6ab762bf8bded68e9bb3ef28",
+      "assets/responsive/portfolio/b2b-calculator-fields-20261007-1165.webp": "04d7fa720de9782de4f38c2b5ccb5761187c80412555f9bf1ba946725769baa4"
+    }
+  },
+  {
     "source": "assets/portfolio/b2b-clean-home-20261004.jpg",
     "sourceSha256": "8362c6d42c90d2535a997cba1a596c7ad1309cfd96b38534f734b89c5c83e5f8",
     "width": 1150,
@@ -57,6 +76,25 @@
     }
   },
   {
+    "source": "assets/portfolio/b2b-tender-checklist-20261007.jpg",
+    "sourceSha256": "8ed2384cd39131f61b2fe45e39b20cb9253d54534c4db1be305204e87349f0ec",
+    "width": 1165,
+    "height": 747,
+    "candidates": [
+      480,
+      768,
+      1165
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/b2b-tender-checklist-20261007-480.avif": "633b12018fda19389b85b2bb157b7a50dadbfc819da0fc6b435765ac2e56b9eb",
+      "assets/responsive/portfolio/b2b-tender-checklist-20261007-480.webp": "07d7eef2fa090cb977286ca69c36dc53f73b9e858a247f8fbd975f5972c0df8b",
+      "assets/responsive/portfolio/b2b-tender-checklist-20261007-768.avif": "c2fd32d2008575ea3b1886dcdb3642b28a3816f3bd87a082a5596a15639fbb16",
+      "assets/responsive/portfolio/b2b-tender-checklist-20261007-768.webp": "4969c514804b03e53530115340b64827d531843d5ec85aa3cac1babade8bda91",
+      "assets/responsive/portfolio/b2b-tender-checklist-20261007-1165.avif": "17140964b2da532148abc18ea42ae90af17f42e786cc217784d959d0a5ac205b",
+      "assets/responsive/portfolio/b2b-tender-checklist-20261007-1165.webp": "59fd1a0b8077ca098c274b3504e3089d30e9cf81d9eff0e579923376a70beac9"
+    }
+  },
+  {
     "source": "assets/portfolio/fodez-cta.webp",
     "sourceSha256": "78d2f8a4610711bfe08c787d7c5af1c7c20afc08f3a8dc8cf74a4dfff9f4144d",
     "width": 1200,
@@ -73,6 +111,25 @@
       "assets/responsive/portfolio/fodez-cta-768.webp": "655aabce5aff4c8334959217fee645d0be3df94aa26ae5b8948541e895f10bcd",
       "assets/responsive/portfolio/fodez-cta-1200.avif": "910705f1635be3df6e4afd837d04c2658b31802cab5774bc9a32b6dde64d9224",
       "assets/responsive/portfolio/fodez-cta-1200.webp": "fd484e828953c0ade40de83d86dc1ee8e1873d09322e6ccc1d1f0eee94e18eea"
+    }
+  },
+  {
+    "source": "assets/portfolio/fodez-home-20261007.jpg",
+    "sourceSha256": "fc90a0de0e8fad2154a727eff051cff7100e9c7d79e00cb596b60f241d0cba1f",
+    "width": 1165,
+    "height": 747,
+    "candidates": [
+      480,
+      768,
+      1165
+    ],
+    "variantSha256": {
+      "assets/responsive/portfolio/fodez-home-20261007-480.avif": "2377601f9e93d52ead7c6551fa9b5be8c5a4e58c33c76a9ce3d3c211f7209f4d",
+      "assets/responsive/portfolio/fodez-home-20261007-480.webp": "928a92a0fc1696bc88f0ce594cfe0b0dbf5d1242b594bb23928ae8a2d96af89d",
+      "assets/responsive/portfolio/fodez-home-20261007-768.avif": "55c7b4c8bf507e6aca23efe2b6bb62c8b264f765ee5296ead7c1b63f6f1f31fb",
+      "assets/responsive/portfolio/fodez-home-20261007-768.webp": "24ec3d4c8251da6c4c5d414b0f3bb354ba86352a1ee9ea5c08cecf2abfd01362",
+      "assets/responsive/portfolio/fodez-home-20261007-1165.avif": "41addf5cae702514523fc7abc30fe522f4e653d3d9f342464c55177f60124c1a",
+      "assets/responsive/portfolio/fodez-home-20261007-1165.webp": "eb4daa32dc2d2242cbc05959c760e6befa635bbb4ef7f2f74535d4d064094605"
     }
   },
   {
@@ -120,38 +177,22 @@
     }
   },
   {
-    "source": "assets/portfolio/fodez-mobile.webp",
-    "sourceSha256": "fbcfaa765010863a8bac7601adb6a69b616de423f8510ba0a16e01c3aba714c0",
-    "width": 620,
-    "height": 900,
-    "candidates": [
-      480,
-      620
-    ],
-    "variantSha256": {
-      "assets/responsive/portfolio/fodez-mobile-480.avif": "666b60534ef25a407e995b460a47bb8b91daa8188ad264ca41a61c29d5cff3b4",
-      "assets/responsive/portfolio/fodez-mobile-480.webp": "c66d8d9bea2a4164d2b474296be30a38f6117c461f113254b0be17cf626430b8",
-      "assets/responsive/portfolio/fodez-mobile-620.avif": "3eb3fa1650e532d9757293e02e439c1a043277264ab51a7c70f084f92900ad2a",
-      "assets/responsive/portfolio/fodez-mobile-620.webp": "4f321da0d1b5e1860a6bca3a4362381ecf248ea64c26e4508549a7d9e3dc0017"
-    }
-  },
-  {
-    "source": "assets/portfolio/fodez-services.webp",
-    "sourceSha256": "56891c3ac2e15aa3a5d50d887c565fd6cf2668108afebbdb47a052ac7e343ac7",
-    "width": 1200,
-    "height": 760,
+    "source": "assets/portfolio/formula-home-20261007.jpg",
+    "sourceSha256": "a0bf397a68c4da416965c33f45c295ff6ea94790ea119c7ba14ad3672d4eb88c",
+    "width": 1165,
+    "height": 747,
     "candidates": [
       480,
       768,
-      1200
+      1165
     ],
     "variantSha256": {
-      "assets/responsive/portfolio/fodez-services-480.avif": "4011874a2a5672d180ac22ef8b62678524d542ce692ca8d228d30053525bb2a9",
-      "assets/responsive/portfolio/fodez-services-480.webp": "1bb6f43f1f60586163b39540ba113614c050ed1ccf1a903fa0f03755d049d98a",
-      "assets/responsive/portfolio/fodez-services-768.avif": "e89e5b1de1311bf5e041591af807e048d8c0675c15f21830374920d87ca4c6d0",
-      "assets/responsive/portfolio/fodez-services-768.webp": "e23d7fe97b71ef8262b1898c893f750dc925ae5f4e100295cb9c9e6a37a42994",
-      "assets/responsive/portfolio/fodez-services-1200.avif": "714f05904b801fe000e318e585e4fb9af90d707653ada3c55efadd008323df8e",
-      "assets/responsive/portfolio/fodez-services-1200.webp": "51f48f0b50513fc8cfdcc158bc721030171e00a1ee85dff874df04c7ff14dd8d"
+      "assets/responsive/portfolio/formula-home-20261007-480.avif": "3e12fa686b0e6077a3ccae87d04427dfcbda15d43980c527323950139706e7e5",
+      "assets/responsive/portfolio/formula-home-20261007-480.webp": "e9d4636690384377cf51dc9f8e9f603dd9af8b296e98ac8fa8acedd1b7aa3080",
+      "assets/responsive/portfolio/formula-home-20261007-768.avif": "f1ff490b18955ebcbccf19829ff4d6aa07b510ebaae335d56ef63d1996866cd0",
+      "assets/responsive/portfolio/formula-home-20261007-768.webp": "de7826d5592bdb78ccd66cfb1b9a36498332e6953ca0c7b9fa364e20d25464b9",
+      "assets/responsive/portfolio/formula-home-20261007-1165.avif": "3d19e28eaceafeb865299d70b767547b80ae3ea723031f772b64c751e4c2760f",
+      "assets/responsive/portfolio/formula-home-20261007-1165.webp": "9eeae8eadad604e2c809c1eae8e510ca5d7ee0bd48a2f06907d95a40b91fd519"
     }
   },
   {
@@ -196,22 +237,6 @@
     }
   },
   {
-    "source": "assets/portfolio/formula-mobile.webp",
-    "sourceSha256": "ad9750132d0173891052ae110f403aec2723c70d93667c211efa24c0d35e068b",
-    "width": 620,
-    "height": 900,
-    "candidates": [
-      480,
-      620
-    ],
-    "variantSha256": {
-      "assets/responsive/portfolio/formula-mobile-480.avif": "6e5faaffbfd94d2cf94f2028949cd398db83a01a8a100d31f6818a13eec3a340",
-      "assets/responsive/portfolio/formula-mobile-480.webp": "db179dc3fef614d3388a881844d07b2b8030e961d46a06364937d2fa4b2098a9",
-      "assets/responsive/portfolio/formula-mobile-620.avif": "99440ab15b77f458aab95488c287a22623105e3d5666e009830313aacc3c2e89",
-      "assets/responsive/portfolio/formula-mobile-620.webp": "7e1a3bc01d1f37d8c715859ab63fc25946be5fe3fa2ff900a36f848bfacae47c"
-    }
-  },
-  {
     "source": "assets/portfolio/formula-services.webp",
     "sourceSha256": "d592a94d8b8e8e5bf0dc62f2f48b72d82e81dfa1f1202a64e34d9bd1eeef67e3",
     "width": 1200,
@@ -228,25 +253,6 @@
       "assets/responsive/portfolio/formula-services-768.webp": "fa0fa463fefd2648a14e27fd20cdfd68a36689deed35740abf5cc11306250f6d",
       "assets/responsive/portfolio/formula-services-1200.avif": "9bf89f2fcbb6d5fc02f4b030d8c38cd6c7775a7e3f59685155f73ad1b2f407a2",
       "assets/responsive/portfolio/formula-services-1200.webp": "f48118320fc6644b05c6255fb4aa87bf423975bf650fdfbd34298688a85941bf"
-    }
-  },
-  {
-    "source": "assets/portfolio/formula-works.webp",
-    "sourceSha256": "f0790dcaecb8c3bce9ee00137f031ef5c9cf68ece665fd9ae19945f0ee29d1de",
-    "width": 1200,
-    "height": 760,
-    "candidates": [
-      480,
-      768,
-      1200
-    ],
-    "variantSha256": {
-      "assets/responsive/portfolio/formula-works-480.avif": "b96b302ce0a4ba0957eec3ab73f93d8f238d088ade95596a111ba4e3fb3a7481",
-      "assets/responsive/portfolio/formula-works-480.webp": "959210b230f0779744b6c534c3346de2d54674636a86f9ddf2952b8f74e9e404",
-      "assets/responsive/portfolio/formula-works-768.avif": "bf8869955153dff2f54582fc3b76af1900e88572607f18cb1ab3d9a66eae8533",
-      "assets/responsive/portfolio/formula-works-768.webp": "5aef988b9c2964ded5341eb9a92f37c43cfd53fe61f0aed5074afe4f9e306d81",
-      "assets/responsive/portfolio/formula-works-1200.avif": "6457159d958069eebd2d176ea43e8fc4bade9b57dd0da53133962fe30abecb49",
-      "assets/responsive/portfolio/formula-works-1200.webp": "e9e2a0bd1aa1421026a8deb63ef90ad8f07b0e9d14fa44d1fc3d18766c642fd9"
     }
   },
   {
