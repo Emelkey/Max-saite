@@ -11,7 +11,21 @@ for(const [slug,name,live] of cases){
  test(`${name}: readable actual screenshots, sections and form at desktop and narrow mobile widths`,async({page},testInfo)=>{
   for(const width of [1440,768,390,320]){
    await page.setViewportSize({width,height:900});
+   // A fresh entry must be distinct from browser history/scroll restoration.
+   await page.goto('/portfolio/');
    await page.goto(`/portfolio/${slug}/`);
+   await page.evaluate(async()=>{window.scrollTo({top:0,behavior:'instant'});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));});
+   const initial=await page.evaluate(()=>{
+    const header=document.querySelector('.site-header').getBoundingClientRect();
+    const breadcrumbs=document.querySelector('.breadcrumbs').getBoundingClientRect();
+    const h1=document.querySelector('h1').getBoundingClientRect();
+    return {scrollY,headerTop:header.top,headerBottom:header.bottom,breadcrumbsTop:breadcrumbs.top,h1Top:h1.top};
+   });
+   expect(initial.scrollY).toBe(0);
+   expect(Math.abs(initial.headerTop)).toBeLessThanOrEqual(1);
+   expect(initial.headerBottom).toBeLessThanOrEqual(initial.breadcrumbsTop);
+   expect(initial.headerBottom).toBeLessThanOrEqual(initial.h1Top);
+   if([1440,390].includes(width))await testInfo.attach(`${slug}-${width}-initial-viewport`,{body:await page.screenshot({fullPage:false}),contentType:'image/png'});
    await expect(page.locator('h1')).toHaveText(name);
    await expect(page.locator('.case-ownership')).toContainText('пов’язаний із власником MAX SITE');
    await expect(page.locator('.case-intro .btn').first()).toHaveAttribute('href',live);
@@ -24,7 +38,12 @@ for(const [slug,name,live] of cases){
     const section=page.locator(`#${id}`);await section.scrollIntoViewIfNeeded();await expect(section).toBeVisible();
    }
    expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
-   await page.locator('.case-intro').scrollIntoViewIfNeeded();
+   // Reset after the lead/evidence checks. A scrolled full-page capture paints
+   // sticky/fixed elements at the saved scroll offset and can falsely hide H1.
+   await page.evaluate(async()=>{window.scrollTo({top:0,behavior:'instant'});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));});
+   expect(await page.evaluate(()=>scrollY)).toBe(0);
+   const returned=await page.evaluate(()=>({headerBottom:document.querySelector('.site-header').getBoundingClientRect().bottom,h1Top:document.querySelector('h1').getBoundingClientRect().top}));
+   expect(returned.headerBottom).toBeLessThanOrEqual(returned.h1Top);
    if([1440,390].includes(width))await testInfo.attach(`${slug}-${width}`,{body:await page.screenshot({fullPage:true}),contentType:'image/png'});
   }
  });
