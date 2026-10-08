@@ -29,3 +29,8 @@ body:has(> .site-header) .cro-landing .cro-quote-hero h1 { font-size: clamp(30px
   .cro-offer-points { font-size: 14px; gap: 6px; }
   .cro-quote-hero .hero-buttons .btn { white-space: normal; }
 }
+/* The shared section's 92px top padding pushed desktop offer actions behind
+   the consent notice. Reclaim empty space without shrinking content or controls. */
+@media (min-width: 1001px) {
+  body:has(> .site-header) main.cro-landing:has(.cro-quote-hero) { padding-top: 40px; }
+}

@@ -1,4 +1,5 @@
 const {test,expect}=require('@playwright/test');
+const {captureScreenshot}=require('../helpers/capture-screenshot');
 const fs=require('node:fs');
 const path=require('node:path');
 const endpoint='https://max-site-leads.emelkey777.workers.dev/**';
@@ -30,7 +31,7 @@ test('paid landing keeps one accessible quote form, honest prices and SEO identi
   await expect(page.locator('.cro-proof-note')).toContainText('пов’язані з власником');
   const out=path.join('artifacts/playwright/ads-landing',testInfo.project.name);
   fs.mkdirSync(out,{recursive:true});
-  await page.screenshot({path:path.join(out,'first-screen.png')});
+  await captureScreenshot(page, {path:path.join(out,'first-screen.png')});
   await page.goto('/stvorennya-saytiv/#lead');
   const heading=page.locator('#quote-title');
   await expect(heading).toBeVisible();
@@ -38,7 +39,7 @@ test('paid landing keeps one accessible quote form, honest prices and SEO identi
     const h=await heading.boundingBox();const header=await page.locator('.site-header').boundingBox();
     return h.y-header.y-header.height;
   }).toBeGreaterThanOrEqual(0);
-  await page.screenshot({path:path.join(out,'quote-form.png')});
+  await captureScreenshot(page, {path:path.join(out,'quote-form.png')});
 });
 
 for(const acknowledgement of ['matching','mismatched']) test(`hero quote ${acknowledgement} acknowledgement is handled honestly`,async({page})=>{
@@ -107,7 +108,7 @@ for (const viewport of [{width:1180,height:757},{width:1440,height:900},{width:7
         expect(overlap,`${selector} must not be covered by consent`).toBe(false);
       }
     }
-    await testInfo.attach(`paid-first-visit-${viewport.width}x${viewport.height}`,{body:await page.screenshot(),contentType:'image/png'});
+    await testInfo.attach(`paid-first-visit-${viewport.width}x${viewport.height}`,{body:await captureScreenshot(page, ),contentType:'image/png'});
     await panel.getByRole('button',{name:'Лише необхідні',exact:true}).click();
     await expect(panel).toBeHidden();
     await page.locator('.consent-settings').click();

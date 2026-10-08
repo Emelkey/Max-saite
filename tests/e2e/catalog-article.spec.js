@@ -1,4 +1,5 @@
 const {test,expect}=require('@playwright/test');
+const {captureScreenshot}=require('../helpers/capture-screenshot');
 test.use({serviceWorkers:'block'});
 const route='/blog/sajt-katalog-chy-internet-magazyn/';
 
@@ -25,7 +26,7 @@ test('catalog decision guide renders and supports read-only navigation',async({p
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://maxsite.com.ua'+route);
   await expect(page.locator('.article-body')).toContainText('Умовний приклад:');
   expect(await page.locator('img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0))).toBe(true);
-  await testInfo.attach('catalog-article-top',{body:await page.screenshot(),contentType:'image/png'});
+  await testInfo.attach('catalog-article-top',{body:await captureScreenshot(page, ),contentType:'image/png'});
   await page.getByRole('link',{name:'П’ять запитань для вибору'}).click();
   await expect(page.locator('#decision')).toBeInViewport();
   for(const detail of await page.locator('#faq details').all()){
@@ -33,7 +34,7 @@ test('catalog decision guide renders and supports read-only navigation',async({p
     await detail.locator('summary').click();await expect(detail.locator('p')).not.toBeVisible();
   }
   await page.locator('#next').scrollIntoViewIfNeeded();
-  await testInfo.attach('catalog-article-next-steps',{body:await page.screenshot(),contentType:'image/png'});
+  await testInfo.attach('catalog-article-next-steps',{body:await captureScreenshot(page, ),contentType:'image/png'});
   await page.locator('.article-body a[href="/kalkulyator-vartosti-saytu/"]').click();
   await expect(page).toHaveURL(/\/kalkulyator-vartosti-saytu\/$/);
   await page.goBack();await expect(page.locator('h1')).toContainText('Сайт-каталог');
