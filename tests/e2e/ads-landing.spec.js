@@ -3,11 +3,13 @@ const fs=require('node:fs');
 const path=require('node:path');
 const endpoint='https://max-site-leads.emelkey777.workers.dev/**';
 
-test.beforeEach(async({page})=>{
+test.beforeEach(async({page},testInfo)=>{
   // All QA is local: never deliver a lead or analytics event to a live service.
   await page.route('https://**/*',route=>route.request().url().includes('googletagmanager.com')
     ? route.fulfill({status:200,contentType:'application/javascript',body:''}) : route.abort());
-  await page.addInitScript(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()})));
+  if(!testInfo.title.startsWith('paid hero typography and first-visit')) {
+    await page.addInitScript(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()})));
+  }
 });
 
 test('paid landing keeps one accessible quote form, honest prices and SEO identity',async({page},testInfo)=>{
@@ -79,3 +81,37 @@ test('combined contact supports phone and Telegram text entry without mobile cap
     await expect(contact).toHaveValue('+380000000000');
   }
 });
+
+for (const viewport of [{width:1180,height:757},{width:1440,height:900},{width:768,height:1024},{width:390,height:844},{width:320,height:640}]) {
+  test(`paid hero typography and first-visit consent at ${viewport.width}px`,async({page},testInfo)=>{
+    await page.setViewportSize(viewport);
+    await page.goto('/stvorennya-saytiv/');
+    await page.evaluate(()=>document.fonts.ready);
+    expect(await page.evaluate(()=>scrollY)).toBe(0);
+    const panel=page.locator('.consent-panel');
+    await expect(panel).toBeVisible();
+    const heading=page.locator('.cro-quote-hero h1');
+    const fontSize=await heading.evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+    expect(fontSize).toBeLessThanOrEqual(viewport.width<=760?30:46);
+    expect(fontSize).toBeGreaterThanOrEqual(24);
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width);
+    {
+      const consent=await panel.boundingBox();
+      const selectors=['.cro-price','.cro-quote-hero .hero-buttons'];
+      if(viewport.width>=1180) selectors.push('#lead button[type=submit]');
+      for(const selector of selectors){
+        const box=await page.locator(selector).boundingBox();
+        expect(box.y+box.height).toBeLessThanOrEqual(viewport.height);
+        const overlap=Math.min(box.x+box.width,consent.x+consent.width)>Math.max(box.x,consent.x)
+          && Math.min(box.y+box.height,consent.y+consent.height)>Math.max(box.y,consent.y);
+        expect(overlap,`${selector} must not be covered by consent`).toBe(false);
+      }
+    }
+    await testInfo.attach(`paid-first-visit-${viewport.width}`,{body:await page.screenshot(),contentType:'image/png'});
+    await panel.getByRole('button',{name:'Лише необхідні',exact:true}).click();
+    await expect(panel).toBeHidden();
+    await page.locator('.consent-settings').click();
+    await expect(panel).toBeVisible();
+    await expect(panel.locator('button')).toHaveCount(3);
+  });
+}

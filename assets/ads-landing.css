@@ -1,7 +1,7 @@
 /* Scoped to the paid website-development landing; no global layout changes. */
 .cro-landing .cro-quote-hero { grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); align-items: start; }
 .cro-quote-hero > * { min-width: 0; }
-.cro-landing .cro-quote-hero h1 { font-size: clamp(30px, 3.4vw, 46px); }
+body:has(> .site-header) .cro-landing .cro-quote-hero h1 { font-size: clamp(30px, 3.4vw, 46px); }
 .cro-quote-hero .cro-price .cro-business-price { color: var(--green); font-size: 20px; font-weight: 750; }
 .cro-quote-hero .cro-offer .cro-price-note { margin-top: 18px; font-size: 13px; line-height: 1.5; color: var(--muted); }
 .cro-offer-points { padding-left: 20px; margin: 16px 0; display: grid; gap: 8px; color: var(--muted); font-size: 15px; line-height: 1.5; }
@@ -22,7 +22,7 @@
   .cro-landing .cro-quote-hero { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 760px) {
-  .cro-landing .cro-quote-hero h1 { font-size: clamp(24px, 7vw, 30px); }
+  body:has(> .site-header) .cro-landing .cro-quote-hero h1 { font-size: clamp(24px, 7vw, 30px); }
   .cro-quote-hero .cro-price .cro-business-price { font-size: 16px; }
   .cro-landing .cro-quote-card { padding: 16px; gap: 12px; scroll-margin-top: 90px; }
   .cro-quote-card h2 { font-size: 24px; }
