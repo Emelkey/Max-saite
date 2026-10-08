@@ -82,8 +82,8 @@ test('combined contact supports phone and Telegram text entry without mobile cap
   }
 });
 
-for (const viewport of [{width:1180,height:757},{width:1440,height:900},{width:768,height:1024},{width:390,height:844},{width:320,height:640}]) {
-  test(`paid hero typography and first-visit consent at ${viewport.width}px`,async({page},testInfo)=>{
+for (const viewport of [{width:1180,height:757},{width:1440,height:900},{width:768,height:1024},{width:390,height:844},{width:320,height:640},{width:320,height:568}]) {
+  test(`paid hero typography and first-visit consent at ${viewport.width}x${viewport.height}px`,async({page},testInfo)=>{
     await page.setViewportSize(viewport);
     await page.goto('/stvorennya-saytiv/');
     await page.evaluate(()=>document.fonts.ready);
@@ -95,7 +95,7 @@ for (const viewport of [{width:1180,height:757},{width:1440,height:900},{width:7
     expect(fontSize).toBeLessThanOrEqual(viewport.width<=760?30:46);
     expect(fontSize).toBeGreaterThanOrEqual(24);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width);
-    {
+    if(viewport.height>=640){
       const consent=await panel.boundingBox();
       const selectors=['.cro-price','.cro-quote-hero .hero-buttons'];
       if(viewport.width>=1180) selectors.push('#lead button[type=submit]');
@@ -107,7 +107,7 @@ for (const viewport of [{width:1180,height:757},{width:1440,height:900},{width:7
         expect(overlap,`${selector} must not be covered by consent`).toBe(false);
       }
     }
-    await testInfo.attach(`paid-first-visit-${viewport.width}`,{body:await page.screenshot(),contentType:'image/png'});
+    await testInfo.attach(`paid-first-visit-${viewport.width}x${viewport.height}`,{body:await page.screenshot(),contentType:'image/png'});
     await panel.getByRole('button',{name:'Лише необхідні',exact:true}).click();
     await expect(panel).toBeHidden();
     await page.locator('.consent-settings').click();
@@ -115,3 +115,37 @@ for (const viewport of [{width:1180,height:757},{width:1440,height:900},{width:7
     await expect(panel.locator('button')).toHaveCount(3);
   });
 }
+
+const legacyServiceRoutes={
+  '/stvorennya-lendingiv/':'/stvorennya-landing-page/',
+  '/korporatyvni-sajty/':'/stvorennya-korporatyvnoho-saytu/',
+  '/internet-magazyn-pid-klyuch/':'/stvorennya-internet-mahazynu/'
+};
+for(const [source,target] of Object.entries(legacyServiceRoutes)){
+  test(`legacy service ${source} reaches the current offer with attribution`,async({page})=>{
+    const suffix='?utm_source=google&utm_medium=cpc&gclid=qa-alias-click#lead';
+    await page.goto(source+suffix);
+    await expect(page).toHaveURL(new RegExp(target.replaceAll('/','\\/')+'\\?utm_source=google&utm_medium=cpc&gclid=qa-alias-click#lead$'));
+    await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href','https://maxsite.com.ua'+target);
+    await expect(page.locator('form')).toHaveCount(1);
+    expect(await page.evaluate(()=>window.MAX_SITE_CONSENT.ad_storage)).toBe('denied');
+    expect(await page.evaluate(()=>sessionStorage.getItem('max_site_gclid'))).toBeNull();
+  });
+}
+
+test('legacy aliases remain usable without JavaScript and show no stale prices',async({browser,baseURL})=>{
+  const page=await browser.newPage({javaScriptEnabled:false});
+  try{
+    await page.route('https://**/*',route=>route.abort());
+    for(const [source,target] of Object.entries(legacyServiceRoutes)){
+      await page.goto(baseURL+source);
+      const link=page.locator('[data-legacy-destination]');
+      await expect(link).toHaveAttribute('href',target);
+      await expect(link).toBeVisible();
+      await expect(page.locator('body')).not.toContainText('10 500');
+      await expect(page.locator('meta[name=robots]')).toHaveAttribute('content','noindex, follow');
+      await link.click();
+      await expect(page).toHaveURL(baseURL+target);
+    }
+  }finally{await page.close();}
+});
