@@ -209,7 +209,22 @@ for (const file of collectHtml(root)) {
   if (hasLegacyHostingReference(html)) {
     errors.push(`Legacy domain or GitHub Pages base found: ${route}`);
   }
-  if (googleTagCount !== 1) errors.push(`Expected one Google tag, found ${googleTagCount}: ${route}`);
+  const transitionTargets = {
+    "/stvorennya-lendingiv/": "/stvorennya-landing-page/",
+    "/korporatyvni-sajty/": "/stvorennya-korporatyvnoho-saytu/",
+    "/internet-magazyn-pid-klyuch/": "/stvorennya-internet-mahazynu/",
+  };
+  const transitionTarget = transitionTargets[route];
+  if (transitionTarget) {
+    // Only these reviewed transition shells are tag-free; destination pages
+    // still require the normal consent and analytics contract.
+    if (googleTagCount !== 0) errors.push(`Transition alias must not collect analytics: ${route}`);
+    if (!robots.includes("noindex") || canonical !== `${publicBase}${transitionTarget}` ||
+        !/src="\/assets\/legacy-redirect\.js(?:\?[^"<>]*)?" defer/.test(html) ||
+        !html.includes(`href="${transitionTarget}" data-legacy-destination`)) {
+      errors.push(`Invalid canonical transition shell: ${route}`);
+    }
+  } else if (googleTagCount !== 1) errors.push(`Expected one Google tag, found ${googleTagCount}: ${route}`);
 
   if (!auditedFiles.has(path.resolve(file))) {
     if (robots.includes("noindex")) {

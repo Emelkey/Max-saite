@@ -45,10 +45,17 @@ test('analytics event payload never includes contact PII',()=>{
   assert.match(script,/\bchannel\b/);
 });
 
-test('every document has one consent bootstrap and one Google tag',()=>{
+test('content documents have one consent bootstrap and tag; transition aliases collect nothing',()=>{
   const ids=new Set();
   for(const file of htmlFiles()){
     const html=fs.readFileSync(file,'utf8');
+    const transitionAliases=['stvorennya-lendingiv/index.html','korporatyvni-sajty/index.html','internet-magazyn-pid-klyuch/index.html'];
+    if(transitionAliases.includes(path.relative(root,file).replaceAll(path.sep,'/'))){
+      assert.match(html,/src="\/assets\/legacy-redirect\.js" defer/);
+      assert.match(html,/content="noindex, follow"/);
+      assert.doesNotMatch(html,/assets\/consent\.js|googletagmanager/);
+      continue;
+    }
     assert.equal((html.match(/\/assets\/consent\.js/g)||[]).length,1,`${path.relative(root,file)} consent bootstrap count`);
     const tags=[...html.matchAll(/googletagmanager\.com\/gtag\/js\?id=([^"'&<]+)/g)];
     assert.equal(tags.length,1,`${path.relative(root,file)} Google tag count`);
