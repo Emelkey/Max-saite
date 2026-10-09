@@ -45,8 +45,8 @@ for(const route of ['/','/stvorennya-saytiv/','/kontakty/','/blog/nextjs-chy-wor
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  });
 }
-test('Navigation remains clear at 320px and desktop breakpoints',async({page},testInfo)=>{
- for(const width of [320,980,981,1120,1121,1200,1201,1280,1440,1441])for(const route of ['/','/stvorennya-saytiv/']){
+for(const width of [320,980,981,1120,1121,1200,1201,1280,1440,1441])test(`Navigation remains clear at ${width}px`,async({page},testInfo)=>{
+ for(const route of ['/','/stvorennya-saytiv/']){
   await page.setViewportSize({width,height:800});await page.goto(route+'?maxsite_qa=1');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${route} at ${width}`).toBe(true);
   const toggle=page.locator(route==='/'?'.mx-menu-toggle':'.nav-toggle');
