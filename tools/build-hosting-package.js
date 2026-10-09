@@ -5,6 +5,8 @@ const { createHash } = require("crypto");
 const { RELEASE_FILES, RELEASE_MARKER } = require("./verify-production-release");
 const { versionBuiltHtmlAssets } = require("./lib/version-local-assets");
 
+const { enhanceInstagramShell } = require("./lib/instagram-shell");
+
 const root = path.resolve(__dirname, "..");
 const releaseRoot = path.join(root, "release");
 const sourceSiteUrl = "https://maxsite.com.ua";
@@ -169,6 +171,7 @@ const transformDirectory = (directory) => {
     if (!isTextFile(file)) continue;
 
     let content = fs.readFileSync(file, "utf8");
+    if (file.endsWith(".html")) content = enhanceInstagramShell(content);
     const publicUrlToken = "__MAX_SITE_PUBLIC_URL__";
     content = content.replaceAll(sourceSiteUrl, publicUrlToken);
     if (sourceBasePath !== targetBasePath) {
