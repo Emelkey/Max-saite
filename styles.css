@@ -3209,3 +3209,39 @@ body:has(> .site-header) .cro-quote-hero .cro-offer-points {
     transition: none;
   }
 }
+
+/* Shared Instagram links: recognizable, keyboard-visible, and touch-sized. */
+a.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #74876b;
+  border-radius: 999px;
+  color: #f4f2e9;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+a.instagram-link .instagram-icon { flex: 0 0 20px; width: 20px; height: 20px; }
+a.instagram-link:hover { background: rgba(180,252,114,.12); }
+a.instagram-link:focus-visible { outline: 3px solid #b4fc72; outline-offset: 4px; }
+body:has(> .site-header) .site-footer a.instagram-link { color: #f4f2e9; }
+.main-nav > a.instagram-nav { border: 1px solid #74876b; }
+@media (min-width: 1121px) and (max-width: 1440px) {
+  .site-header { gap: 12px; padding-inline: 20px; }
+  .main-nav { gap: 2px; }
+  .main-nav > a, .nav-item > button { padding-inline: 8px; }
+}
+@media (max-width: 1120px) {
+  .nav-open .main-nav > a.instagram-nav { justify-content: flex-start; }
+}
+@media (min-width: 1121px) and (max-width: 1320px) {
+  .brand-header img { width: 144px; }
+  .call-button { min-width: 120px; padding-inline: 10px; }
+  .main-nav > a, .nav-item > button { padding-inline: 6px; }
+  .request-button { padding-inline: 12px; font-size: 13px; }
+}
