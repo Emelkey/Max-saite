@@ -133,9 +133,10 @@ test('native touch tap releases without sticky hover and keeps CTA navigation',a
   await page.goto('/#pricing');
   const button=page.locator('.mx-price .mx-pill').first();
   await button.tap();
-  await expect(page.locator('#lead-name')).toBeFocused();
+  await expect(page).toHaveURL(/\/obgovoryty-proiekt\/\?format=start$/);
+  await expect(page.locator('#lead-name')).not.toBeFocused();
   await expect(page.locator('#lead-comment')).toHaveValue('Цікавить формат: Старт. ');
-  await settled(button);
+  expect(await page.evaluate(()=>document.activeElement.matches('input, textarea, select'))).toBe(false);
   const y=await page.evaluate(()=>scrollY);
   await page.waitForTimeout(450);
   expect(await page.evaluate(()=>scrollY)).toBe(y);

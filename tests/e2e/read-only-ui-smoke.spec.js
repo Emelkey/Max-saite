@@ -46,14 +46,15 @@ test('read-only release UI: pricing, spring, CTA navigation and empty form',asyn
   }
   await testInfo.attach('pricing-buttons',{body:await page.screenshot(),contentType:'image/png'});
   await activate(cta,isMobile);
-  await expect(page.locator('#lead-name')).toBeFocused();
+  await expect(page).toHaveURL(/\/obgovoryty-proiekt\/\?format=start$/);
+  await expect(page.locator('#lead-name')).not.toBeFocused();
+  await expect(page.locator('#leadForm')).toBeInViewport();
   await expect(page.locator('#lead-name')).toHaveValue('');
   await expect(page.locator('#lead-phone')).toHaveValue('');
   await expect(page.locator('#lead-comment')).toHaveValue('Цікавить формат: Старт. ');
   await expect(page.locator('#lead-consent')).not.toBeChecked();
-  await expect(page.locator('.mx-submit')).toBeEnabled();
-  await settle(cta);
-  expect(await cta.evaluate(el=>getComputedStyle(el).transform)).toBe('none');
+  await expect(page.locator('#leadForm button[type=submit]')).toBeEnabled();
+  expect(await page.evaluate(()=>document.activeElement.matches('input, textarea, select'))).toBe(false);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   expect(errors).toEqual([]);
   await testInfo.attach('lead-form-without-submission',{body:await page.screenshot(),contentType:'image/png'});

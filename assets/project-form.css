@@ -1,0 +1,61 @@
+/* Dedicated short-brief page. The shared /script.js owns all form delivery. */
+body.mx-project-page{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:radial-gradient(ellipse at 90% 25%,rgba(180,252,114,.045),transparent 48%),var(--bg)}
+.mx-project-page *{box-sizing:border-box}
+.project-header,.project-main,.project-footer{width:min(1120px,calc(100% - 80px));margin-inline:auto}
+.project-header{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:96px;border-bottom:1px solid var(--hair)}
+.project-back{display:inline-flex;align-items:center;gap:9px;min-height:44px;font-size:14px;font-weight:600;color:var(--soft)!important}
+.project-back:hover{color:var(--line)!important}
+.project-main{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:start;gap:clamp(40px,7vw,104px);padding-block:56px 64px;flex:1}
+.project-main:focus{outline:none}
+.project-title{margin-bottom:26px}
+.project-kicker{display:block;margin-bottom:12px;color:var(--muted);font:500 11px/1.4 var(--mono);letter-spacing:.13em}
+.mx-project-page h1{margin:0;font-size:clamp(36px,4vw,52px);font-weight:650;letter-spacing:-.05em;line-height:1.1}
+.project-form.compact-form{position:relative;display:flex;flex-direction:column;gap:19px;margin:0;padding:28px;border:1px solid var(--hair);border-radius:24px;background:var(--bg2);min-width:0}
+.project-form.compact-form>label{display:flex;flex-direction:column;gap:9px;min-width:0;margin:0;color:var(--fg);font-size:14px;font-weight:500;line-height:1.45}
+.project-optional{margin-left:6px;color:var(--muted);font-size:12px;font-weight:400}
+.project-form.compact-form input:not([type="checkbox"]):not([type="hidden"]):not(.form-honeypot),.project-form.compact-form textarea{display:block;width:100%;max-width:100%;min-height:52px;padding:14px 16px;border:1px solid rgba(244,242,233,.22);border-radius:12px;background:var(--bg);color:var(--fg);font:400 16px/1.45 var(--sans);box-shadow:none;transition:border-color .15s}
+.project-form.compact-form textarea{min-height:104px;resize:vertical}
+.project-form.compact-form input::placeholder,.project-form.compact-form textarea::placeholder{color:#9ca398;opacity:1}
+.project-form.compact-form input:focus-visible,.project-form.compact-form textarea:focus-visible{outline:2px solid var(--line);outline-offset:2px;border-color:transparent}
+.project-form.compact-form .form-consent{flex-direction:row;align-items:center;gap:12px;min-height:44px;color:var(--soft);font-size:13px;font-weight:400;cursor:pointer}
+.project-form.compact-form .form-consent input{width:20px;min-width:20px;height:20px;min-height:20px;margin:0;padding:0;accent-color:var(--line);cursor:pointer}
+.project-form.compact-form .form-consent a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.project-form.compact-form .form-consent a:hover{color:var(--line)}
+.project-submit{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:14px 22px;border:0;border-radius:999px;background:var(--line);color:var(--ink);font-size:16px;font-weight:700;cursor:pointer;transition:background .15s,transform .15s}
+.project-submit span{font-size:23px;font-weight:400;line-height:1}
+.project-submit:hover{background:#c9ff95}
+.project-submit:active{transform:scale(.985)}
+.project-submit:disabled{opacity:.55;cursor:not-allowed}
+.project-package{margin:0;padding:10px 12px;border:1px solid rgba(180,252,114,.25);border-radius:9px;background:rgba(180,252,114,.055);font-size:13px;color:var(--soft)}
+.project-package strong{color:var(--line);font-weight:600}
+.project-package[hidden]{display:none}
+.project-form input[type="hidden"]{display:none!important}
+.project-form .form-status:empty{display:none}
+.project-form .form-status:not(:empty){margin:0;padding:14px 16px;border:1px solid rgba(180,252,114,.35);border-radius:12px;background:rgba(180,252,114,.06);font-size:14px;line-height:1.6;color:var(--fg);overflow-wrap:anywhere}
+.project-form .form-status[data-state="error"],.project-form .form-status[data-state="fallback"]{border-color:rgba(242,184,75,.5);background:rgba(242,184,75,.06);color:#ffe1a2}
+.project-form .form-status a{display:inline-flex;align-items:center;min-height:44px;color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.project-form .form-status button{display:block;width:100%;min-height:44px;margin:12px 0 4px;padding:10px 14px;border:1px solid var(--hair2);border-radius:12px;background:transparent;color:var(--fg);font-size:14px;white-space:normal;box-shadow:none}
+.project-form .lead-fallback-feedback{display:block}
+.project-aside{padding-top:103px}
+.project-next{padding-bottom:32px;border-bottom:1px solid var(--hair)}
+.project-arrow{display:flex;align-items:center;justify-content:center;width:62px;height:62px;margin-bottom:28px;border:1px solid rgba(180,252,114,.3);border-radius:50%;color:var(--line);font-size:34px;font-weight:400}
+.mx-project-page .project-next h2{margin:0 0 16px;font-size:32px;font-weight:550;line-height:1.12;letter-spacing:-.035em}
+.project-next>p{margin:0;color:var(--soft);font-size:15px;line-height:1.65}
+.project-next-detail{display:flex;align-items:flex-start;gap:11px;margin-top:24px;color:var(--muted)}
+.project-next-detail>span{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:22px;height:22px;margin-top:2px;border-radius:50%;background:rgba(180,252,114,.09);color:var(--line);font-size:13px}
+.project-next-detail p{margin:0;font-size:13px;line-height:1.65}
+.project-contacts{padding-top:28px}
+.project-contacts p{margin:0 0 10px;color:var(--muted);font-size:13px}
+.project-phone{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;font-size:22px;font-weight:600;letter-spacing:-.035em}
+.project-phone>span{color:var(--line)}
+.project-telegram{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:4px;color:var(--soft)!important;font-size:14px;text-decoration:underline!important;text-underline-offset:4px}
+.project-phone:hover,.project-telegram:hover{color:var(--line)!important}
+.project-footer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 20px;padding-block:20px 68px;border-top:1px solid var(--hair);color:var(--muted);font-size:12px;line-height:1.5}
+.project-footer a{display:inline-flex;align-items:center;min-height:44px}
+.project-footer a:hover{color:var(--line)}
+.project-nojs{font-size:14px;line-height:1.65;color:var(--soft)}
+.project-nojs a{text-decoration:underline;color:var(--line)}
+@media(max-width:900px){.project-main{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:40px}.mx-project-page h1{font-size:38px}.project-form.compact-form{padding:22px}.project-aside{padding-top:87px}.mx-project-page .project-next h2{font-size:28px}}
+@media(max-width:700px){.project-header,.project-main,.project-footer{width:calc(100% - 40px)}.project-header{min-height:72px;gap:12px}.project-header .mx-logo,.project-header .mx-logo img{width:142px}.project-back{font-size:13px}.project-main{display:flex;flex-direction:column;gap:36px;padding-block:28px 36px}.project-brief{width:100%}.project-title{margin-bottom:20px}.project-kicker{font-size:10px;margin-bottom:9px}.mx-project-page h1{font-size:clamp(31px,8.5vw,42px);letter-spacing:-.05em}.project-form.compact-form{gap:16px;padding:20px;border-radius:20px}.project-form.compact-form>label{font-size:13px;gap:8px}.project-form.compact-form input:not([type="checkbox"]):not([type="hidden"]):not(.form-honeypot),.project-form.compact-form textarea{padding-inline:12px}.project-form.compact-form textarea{min-height:94px}.project-optional{font-size:11px}.project-form.compact-form .form-consent{font-size:12px}.project-submit{min-height:54px;font-size:15px;padding-inline:18px}.project-aside{width:100%;padding:0}.project-next{display:none}.project-contacts{padding:0 4px}.project-phone{max-width:300px;font-size:22px}.project-contacts p{margin-bottom:4px}.project-footer{padding-top:14px;padding-bottom:72px}}
+@media(max-width:360px){.project-header,.project-main,.project-footer{width:calc(100% - 28px)}.project-form.compact-form{padding:16px}.project-optional{display:block;margin-left:0}.project-header .mx-logo,.project-header .mx-logo img{width:130px}}
+@media(prefers-reduced-motion:reduce){.project-submit,.project-form.compact-form input:not([type="checkbox"]):not([type="hidden"]):not(.form-honeypot),.project-form.compact-form textarea{transition:none}}

@@ -34,7 +34,7 @@ body.mx-home{margin:0;background:var(--bg);color:var(--fg);font-family:var(--san
 .mx-mobile-menu{position:fixed;z-index:44;top:72px;left:0;right:0;padding:8px 24px 24px;background:#111412;border-bottom:1px solid var(--hair);display:flex;flex-direction:column;box-shadow:0 30px 60px rgba(0,0,0,.5)}
 .mx-mobile-menu a{display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid var(--hair);font-size:21px;font-weight:600}
 .mx-mobile-menu a span{color:var(--line);font-size:13px;font-family:var(--mono)}
-.mx-mobile-menu a[href="#lead"]{margin-top:18px;justify-content:center;border:0;border-radius:999px;background:var(--line);color:var(--ink);font-size:17px}
+.mx-mobile-menu a[href="/obgovoryty-proiekt/"]{margin-top:18px;justify-content:center;border:0;border-radius:999px;background:var(--line);color:var(--ink);font-size:17px}
 .mx-mobile-menu .mobile-nav-phone{justify-content:center;border:0;font-size:16px;color:var(--soft)}
 
 /* Hero */

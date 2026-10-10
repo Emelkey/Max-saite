@@ -94,7 +94,7 @@ for (const url of urls) {
   }
   const redesignedPersistentContact = hasFixedRedesignHeader &&
     html.includes('class="nav mx-global-nav"') &&
-    html.includes('class="mx-nav-cta" href="#lead"') &&
+    html.includes('class="mx-nav-cta" href="/obgovoryty-proiekt/"') &&
     html.includes('id="lead"') &&
     html.includes('class="mobile-nav-phone"');
   if (!html.includes('class="floating-contact"') && !redesignedPersistentContact) {

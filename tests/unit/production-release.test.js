@@ -10,11 +10,11 @@ const site = 'https://maxsite.com.ua';
 
 function fixture() {
   const bodies = new Map(RELEASE_FILES.map(item => [item.route, item.page
-    ? `<html><head><link href="${site}${item.route}" rel="canonical"><meta content="index, follow" name="robots"></head><body><h1>MAX SITE</h1><script src="/assets/site-cost-calculator.js"></script></body></html>`
+    ? `<html><head><link href="${site}${item.route}" rel="canonical"><meta content="${item.noindex ? 'noindex' : 'index'}, follow" name="robots"></head><body><h1>MAX SITE</h1><script src="/assets/site-cost-calculator.js"></script></body></html>`
     : 'verified asset bytes']));
   bodies.set('/robots.txt', 'User-agent: *\nAllow: /\nSitemap: ' + site + '/sitemap.xml\n');
   bodies.set('/sitemap.xml', '<sitemapindex>' + SITEMAPS.map(file => `<sitemap><loc>${site}/${file}</loc></sitemap>`).join('') + '</sitemapindex>');
-  const pages = RELEASE_FILES.filter(item => item.page);
+  const pages = RELEASE_FILES.filter(item => item.page && !item.noindex);
   SITEMAPS.forEach((file, index) => bodies.set('/' + file, '<urlset>' + (index === 0 ? pages : []).map(item => `<url><loc>${site}${item.route}</loc></url>`).join('') + '</urlset>'));
   const marker = { schemaVersion: 1, mode: 'production', revision, site, sitemapUrlCount: pages.length,
     files: Object.fromEntries(RELEASE_FILES.map(item => [item.route, { sha256: sha256(Buffer.from(bodies.get(item.route))) }])) };
@@ -34,7 +34,7 @@ test('production smoke checks matching release bytes, canonical routes, assets a
   const result = await verifyProductionRelease({ baseUrl: site, expectedRevision: revision, request: data.request });
   assert.equal(result.revision, revision);
   assert.equal(result.rows.length, RELEASE_FILES.length + 1);
-  assert.equal(result.sitemapUrlCount, RELEASE_FILES.filter(item => item.page).length);
+  assert.equal(result.sitemapUrlCount, RELEASE_FILES.filter(item => item.page && !item.noindex).length);
   for (const { url, options } of data.requests) {
     assert.equal(options.method, 'GET');
     assert.equal(options.redirect, 'manual');
