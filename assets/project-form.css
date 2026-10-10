@@ -5,7 +5,7 @@ body.mx-project-page{min-height:100vh;min-height:100svh;display:flex;flex-direct
 .project-header{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:96px;border-bottom:1px solid var(--hair)}
 .project-back{display:inline-flex;align-items:center;gap:9px;min-height:44px;font-size:14px;font-weight:600;color:var(--soft)!important}
 .project-back:hover{color:var(--line)!important}
-.project-main{display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);align-items:start;gap:clamp(40px,7vw,104px);padding-block:56px 64px;flex:1}
+.project-main{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:start;gap:clamp(40px,7vw,104px);padding-block:56px 64px;flex:1}
 .project-main:focus{outline:none}
 .project-title{margin-bottom:26px}
 .project-kicker{display:block;margin-bottom:12px;color:var(--muted);font:500 11px/1.4 var(--mono);letter-spacing:.13em}
