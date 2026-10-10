@@ -18,7 +18,7 @@ module.exports=defineConfig({
   },
   projects:[
     {name:'desktop-chromium',use:{...devices['Desktop Chrome']}},
-    {name:'desktop-webkit',testMatch:/instagram-visibility\.spec\.js/,use:{...devices['Desktop Safari'],browserName:'webkit'}},
+    {name:'desktop-webkit',testMatch:/(instagram-visibility|keyboard-scroll)\.spec\.js/,use:{...devices['Desktop Safari'],browserName:'webkit'}},
     {name:'mobile-chromium',use:{...devices['Pixel 7'],browserName:'chromium'}},
     {name:'mobile-webkit',testMatch:/(instagram-visibility|motion-autoplay|ads-landing|consent-first-view|production-consent|button-spring|read-only-ui-smoke|catalog-article|real-case-studies)\.spec\.js/,use:{...devices['iPhone 13'],browserName:'webkit'}}
   ]

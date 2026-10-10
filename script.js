@@ -160,6 +160,33 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+// Desktop Safari can receive page arrow keys without scrolling the document.
+// Keep this compatibility behavior out of editors, widgets and scroll regions.
+const safariUserAgent = window.navigator?.userAgent || "";
+const desktopSafari = /Macintosh/.test(safariUserAgent)
+  && /Safari\//.test(safariUserAgent)
+  && !/(Chrome|Chromium|CriOS|Edg|OPR|FxiOS)\//.test(safariUserAgent)
+  && !(window.navigator?.maxTouchPoints > 1);
+
+if (desktopSafari) {
+  document.addEventListener("keydown", (event) => {
+    if (!["ArrowDown", "ArrowUp"].includes(event.key) || event.defaultPrevented
+      || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
+    const target = event.target;
+    if (!target?.tagName) return;
+    const ownsArrowKeys = 'input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"], [role="combobox"], [role="listbox"], [role="slider"], [role="spinbutton"], [role="menu"], [role="menuitem"], [role="tab"], [role="tree"], [role="grid"]';
+    if (target?.closest?.(ownsArrowKeys) || document.activeElement?.closest?.(ownsArrowKeys)) return;
+    if (document.body.classList.contains("nav-open") || document.getElementById("mobileMenu")?.hidden === false) return;
+    if ([document.body, document.documentElement].some(element => /^(hidden|clip)$/.test(window.getComputedStyle(element).overflowY))) return;
+    for (let element = target; element && element !== document.body; element = element.parentElement) {
+      if (/^(auto|scroll)$/.test(window.getComputedStyle(element).overflowY)
+        && element.scrollHeight > element.clientHeight + 1) return;
+    }
+    event.preventDefault();
+    window.scrollBy({top: event.key === "ArrowDown" ? 40 : -40, behavior: "auto"});
+  });
+}
+
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     document.body.classList.remove("nav-open");

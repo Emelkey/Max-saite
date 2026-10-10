@@ -113,6 +113,10 @@
         {
           "url": "/blog/shcho-vhodyt-u-sajt-pid-klyuch/",
           "label": "Що входить у сайт під ключ: етапи й межі робіт"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-odesa/",
+          "label": "Бриф для сайту послуг або каталогу в Одесі"
         }
       ],
       "kind": "article"
@@ -284,6 +288,14 @@
         {
           "url": "/blog/skilky-koshtuye-stvorennya-internet-magazynu/",
           "label": "Скільки коштує створення інтернет-магазину"
+        },
+        {
+          "url": "/stvorennya-landing-page/",
+          "label": "Лендінг: склад робіт і стартова ціна"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-dnipro/",
+          "label": "Сайт компанії чи каталог для бізнесу з Дніпра"
         }
       ],
       "kind": "article"
@@ -936,6 +948,14 @@
         {
           "url": "/kontakty/",
           "label": "Контакти MAX SITE"
+        },
+        {
+          "url": "/stvorennya-landing-page/",
+          "label": "Лендінг для окремої послуги"
+        },
+        {
+          "url": "/mista/stvorennya-sajtiv-cherkasy/",
+          "label": "Сайт для сервісного бізнесу в Черкасах"
         }
       ]
     },
@@ -957,6 +977,10 @@
         {
           "url": "/kontakty/",
           "label": "Контакти MAX SITE"
+        },
+        {
+          "url": "/stvorennya-landing-page/",
+          "label": "Лендінг для рекламної пропозиції"
         }
       ]
     },
