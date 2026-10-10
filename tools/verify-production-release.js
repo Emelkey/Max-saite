@@ -22,10 +22,11 @@ const pageFiles = [
 ];
 const SITEMAPS = ['sitemap-services.xml', 'sitemap-cities.xml', 'sitemap-niches.xml', 'sitemap-cases.xml', 'sitemap-blog.xml'];
 const RELEASE_FILES = [
+  { file: 'obgovoryty-proiekt/index.html', route: '/obgovoryty-proiekt/', page: true, noindex: true },
   ...pageFiles.map(file => ({ file, route: '/' + file.replace(/index\.html$/, ''), page: true })),
   ...['robots.txt', 'sitemap.xml', ...SITEMAPS, 'styles.css', 'script.js',
     'assets/consent.js', 'assets/analytics-config.js', 'assets/telegram-config.js',
-    'assets/site-cost-calculator.js', 'assets/logo-full-dark.svg',
+    'assets/project-form.css', 'assets/project-form.js', 'assets/site-cost-calculator.js', 'assets/logo-full-dark.svg',
     'assets/maxsite-2/site.css', 'assets/maxsite-2/site.js',
     'assets/maxsite-2/motion.css', 'assets/maxsite-2/motion.js',
     'assets/downloads/top1/ecommerce-checkout-qa.md',
@@ -96,7 +97,8 @@ async function verifyProductionRelease({ baseUrl, expectedRevision, request = fe
         if (item.page) {
           const canonicals = tags(text, 'link').filter(tag => tag.rel?.toLowerCase() === 'canonical');
           if (canonicals.length !== 1 || canonicals[0].href !== site + item.route) throw Error(`${item.route}: canonical mismatch`);
-          if (tags(text, 'meta').some(tag => /^(robots|googlebot)$/i.test(tag.name || '') && /noindex/i.test(tag.content || ''))) throw Error(`${item.route}: noindex in production HTML`);
+          const isNoindex = tags(text, 'meta').some(tag => /^(robots|googlebot)$/i.test(tag.name || '') && /noindex/i.test(tag.content || ''));
+          if (Boolean(item.noindex) !== isNoindex) throw Error(`${item.route}: unexpected noindex policy`);
           if ((text.match(/<h1\b/gi) || []).length !== 1) throw Error(`${item.route}: expected one H1`);
         }
       } catch (error) { failures.push(error.message); }
@@ -108,7 +110,10 @@ async function verifyProductionRelease({ baseUrl, expectedRevision, request = fe
   const urls = SITEMAPS.flatMap(file => locations(contents.get('/' + file)));
   if (new Set(urls).size !== urls.length || urls.length !== marker.sitemapUrlCount) throw Error('Sitemap URL count or uniqueness differs from release');
   if (urls.some(url => { const parsed = new URL(url); return parsed.origin !== site || parsed.search || parsed.hash || /\/index\.html$/.test(parsed.pathname); })) throw Error('Sitemap contains a noncanonical URL');
-  for (const { route, page } of RELEASE_FILES) if (page && !urls.includes(site + route)) throw Error(`Sitemap missing ${route}`);
+  for (const { route, page, noindex } of RELEASE_FILES) {
+    if (page && !noindex && !urls.includes(site + route)) throw Error(`Sitemap missing ${route}`);
+    if (noindex && urls.includes(site + route)) throw Error(`Sitemap contains noindex ${route}`);
+  }
   const robots = contents.get('/robots.txt');
   if (/^\s*Disallow\s*:\s*\/\s*$/im.test(robots) || !robots.includes('Sitemap: ' + site + '/sitemap.xml')) throw Error('Production robots.txt blocks crawling or omits sitemap');
   if (!contents.get('/kalkulyator-vartosti-saytu/').includes('assets/site-cost-calculator.js')) throw Error('Calculator JS is not linked');

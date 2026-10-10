@@ -11,6 +11,7 @@ test.beforeEach(async({page})=>{
 
 const keyRoutes=[
   '/',
+  '/obgovoryty-proiekt/',
   '/stvorennya-saytiv/',
   '/stvorennya-saytu-dlya-biznesu/',
   '/stvorennya-internet-mahazynu/',
@@ -657,6 +658,10 @@ test('MAX SITE 2.0 homepage cards retain analytics events and the lead form fail
   await page.locator('.mx-case').first().scrollIntoViewIfNeeded();
   await expect.poll(()=>page.evaluate(()=>window.dataLayer.filter(item=>item[0]==='event'&&item[1]==='view_case').map(item=>item[2].case_name))).toContain('Формула Чистоти');
 
+  // Keep this analytics-only assertion on its original document. Real link
+  // navigation and package hand-off are covered by project-page.spec.js.
+  await page.locator('a[data-package]').evaluateAll(links=>links.forEach(link=>
+    link.addEventListener('click',event=>event.preventDefault())));
   await page.locator('.mx-price .mx-pill').first().click();
   await page.locator('.mx-shop a[data-package]').click();
   await page.locator('.mx-case a[href^="portfolio/"]').first().evaluate(link=>{

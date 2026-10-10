@@ -278,7 +278,7 @@ document.addEventListener("click", (event) => {
       city: PAGE_CONTEXT.city,
       destination_path: new URL(href, window.location.origin).pathname,
     });
-  } else if (link.matches('[href="#lead"], [href$="#lead"]')) {
+  } else if (link.matches('[href="#lead"], [href$="#lead"]') || (destination?.origin === window.location.origin && destination.pathname === '/obgovoryty-proiekt/')) {
     trackEvent("lead_cta_click");
     trackEvent("consultation_click", { link_text: link.textContent.trim().slice(0, 80) });
   }
