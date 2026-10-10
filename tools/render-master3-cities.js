@@ -6,7 +6,12 @@ const content = require('../seo/city-wave1-content.json');
 const esc = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const serviceNames = {'stvorennya-saytiv':'Створення сайтів під ключ', 'stvorennya-saytu-dlya-biznesu':'Сайт для бізнесу', 'stvorennya-korporatyvnoho-saytu':'Корпоративний сайт', 'stvorennya-landing-page':'Лендінг', 'stvorennya-internet-mahazynu':'Інтернет-магазин', 'stvorennya-program':'Програма для бізнесу', 'seo-prosuvannya':'SEO-просування'};
 const paragraph = value => `<p>${esc(value)}</p>`;
-for (const city of cities.filter(city => city.priority === 1)) {
+const selectedSlugs = process.argv.slice(2);
+for (const slug of selectedSlugs) {
+  if (!cities.some(city => city.slug === slug && city.priority === 1)) throw Error(`Unknown priority city: ${slug}`);
+}
+const selectedCities = cities.filter(city => city.priority === 1 && (!selectedSlugs.length || selectedSlugs.includes(city.slug)));
+for (const city of selectedCities) {
   const data = content[city.slug];
   if (!data || !city.index || city.state !== 'published') throw Error(`Missing approved published data: ${city.slug}`);
   const file = path.join(root, `mista/stvorennya-sajtiv-${city.slug}/index.html`);
@@ -15,8 +20,10 @@ for (const city of cities.filter(city => city.priority === 1)) {
   const budgetEvidence = html.match(/<section\b[^>]*id="kyiv-budget-evidence"[^>]*>[\s\S]*?<\/section>/)?.[0] || '';
   const form = html.match(/<form\b[\s\S]*?<\/form>/i)?.[0];
   if (!form) throw Error(`Missing existing lead form: ${city.slug}`);
-  const breadcrumbs = `<nav class="breadcrumbs" aria-label="Навігаційний ланцюжок"><a href="/">Головна</a><span> / </span><a href="/mista/">Міста</a><span> / ${esc(city.nominative)}</span></nav>`;
-  const hero = `<section class="seo-hero" data-seo-city-specific="true"><div><span class="eyebrow">${esc(city.nominative)} · онлайн-співпраця</span><h1>${esc(city.h1)}</h1>${data.intro.split(/\n\s*\n/).map(paragraph).join('')}<div class="hero-buttons"><a class="btn" href="#lead">Обговорити структуру</a><a class="btn btn-ghost" href="/portfolio/">Перевірити роботи</a></div></div><aside class="seo-hero-card"><strong>Що врахуємо в брифі</strong>${paragraph(data.aside)}</aside></section>`;
+  const breadcrumbs = `<nav class="breadcrumbs" aria-label="Навігаційний ланцюжок"><span><a href="/">Головна</a></span><span><a href="/mista/">Міста</a></span><span>${esc(city.nominative)}</span></nav>`;
+  const offer = data.offer;
+  const price = offer ? `<p class="cro-price"><strong>${esc(offer.price)}</strong><span>${esc(offer.priceNote)}</span></p>` : '';
+  const hero = `<section class="seo-hero${offer ? ' cro-hero' : ''}" data-seo-city-specific="true"><div><span class="eyebrow">${esc(city.nominative)} · онлайн-співпраця</span><h1>${esc(city.h1)}</h1>${data.intro.split(/\n\s*\n/).map(paragraph).join('')}${price}<div class="hero-buttons"><a class="btn" href="#lead">${esc(offer?.cta || 'Обговорити структуру')}</a><a class="btn btn-ghost" href="/portfolio/">Перевірити роботи</a></div></div><aside class="seo-hero-card"><strong>${esc(offer ? 'Що отримаєте після звернення' : 'Що врахуємо в брифі')}</strong>${paragraph(data.aside)}</aside></section>`;
   const reviewed = data.reviewedAt ? `<p data-editorial-review="${esc(data.reviewedAt)}">Зміст і посилання перевірено <time datetime="${esc(data.reviewedAt)}">${esc(new Intl.DateTimeFormat('uk-UA', {day:'numeric', month:'long', year:'numeric', timeZone:'UTC'}).format(new Date(`${data.reviewedAt}T00:00:00Z`)).replace(/\s*р\.$/, ''))}</time>.</p>` : '';
   const blocks = {
     market: `<section class="seo-band" data-seo-city-specific="true"><span class="eyebrow">Практичний контекст</span><h2>${esc(data.marketHeading)}</h2><p>Нижче — приклади задач для обговорення, а не статистика ринку чи твердження про наших місцевих клієнтів. Остаточні пріоритети визначаємо за вашим бізнесом і даними попиту.</p><div class="seo-columns">${data.segments.map(([heading,copy])=>`<article class="seo-mini-card"><h3>${esc(heading)}</h3>${paragraph(copy)}</article>`).join('')}</div></section>`,
@@ -27,6 +34,9 @@ for (const city of cities.filter(city => city.priority === 1)) {
     process: `<section class="seo-band" data-seo-shared="process"><h2>Як працюємо дистанційно й приймаємо результат</h2><ol class="seo-list-clean"><li>Бриф: задача, аудиторія, матеріали, правила обробки звернень.</li><li>Структура та прототип: погоджуємо сторінки, навігацію й зміст.</li><li>Дизайн і розробка: показуємо мобільні та широкі екрани.</li><li>QA: перевіряємо заявки, контакти, аналітику, доступність та SEO.</li><li>Реліз: передаємо погоджені доступи й опис наступних дій.</li></ol><p>За комунікацію та контроль запуску відповідає засновник. <a href="/pro-nas/">Про MAX SITE і формат співпраці</a>.</p></section>`,
     faq: `<section class="seo-band faq-list" data-seo-city-specific="true"><h2>Питання перед замовленням</h2>${data.faq.map(([q,a])=>`<details><summary>${esc(q)}</summary>${paragraph(a)}</details>`).join('')}</section>`
   };
+  if (data.packages) {
+    blocks.pricing = `<section class="seo-band" data-seo-city-specific="true"><span class="eyebrow">Склад і вартість</span><h2>${esc(data.packages.heading)}</h2>${paragraph(data.packages.intro)}<div class="seo-columns">${data.packages.items.map(item => `<article class="seo-mini-card"><h3>${esc(item.name)}</h3><p><strong>${esc(item.price)}</strong></p>${paragraph(item.use)}<ul class="seo-list-clean">${item.includes.map(copy => `<li>${esc(copy)}</li>`).join('')}</ul><a href="/${esc(item.service)}/">${esc(item.linkLabel)}</a></article>`).join('')}</div>${paragraph(data.packages.terms)}<a class="btn btn-ghost" href="#lead">Отримати кошторис під свою задачу</a></section>`;
+  }
   const services = `<section class="seo-links" data-seo-shared="navigation"><h2>Послуги за вашим завданням</h2><div class="link-grid">${(data.serviceSlugs || city.relatedServiceSlugs).map(slug=>{if(!serviceNames[slug] || !fs.existsSync(path.join(root, slug, 'index.html'))) throw Error(`Unknown service ${slug}`);return `<a href="/${slug}/">${esc(serviceNames[slug])}</a>`;}).join('')}</div></section>`;
   const articles = data.articles?.length ? `<section class="seo-band" data-seo-city-specific="true"><h2>Що прочитати перед замовленням</h2><div class="seo-columns">${data.articles.map(([slug,title,copy])=>{if(!fs.existsSync(path.join(root,'blog',slug,'index.html')))throw Error(`Missing related article ${slug}`);return `<article class="seo-mini-card"><h3><a href="/blog/${esc(slug)}/">${esc(title)}</a></h3>${paragraph(copy)}</article>`;}).join('')}</div></section>` : '';
   const related = `<section class="seo-links" data-seo-shared="navigation"><h2>Інші міські сторінки</h2><div class="link-grid">${city.relatedCitySlugs.map(slug=>{const target=cities.find(item=>item.slug===slug && item.index);if(!target)throw Error(`Unpublished related city ${slug}`);return `<a href="/mista/stvorennya-sajtiv-${slug}/">${esc(target.nominative)}: задачі й формати сайту</a>`;}).join('')}</div></section>`;
@@ -38,4 +48,4 @@ for (const city of cities.filter(city => city.priority === 1)) {
   city.marketEvidence = 'editorial-scenarios-not-market-statistics';
 }
 fs.writeFileSync(path.join(root, 'seo/cities.json'), JSON.stringify(cities,null,2)+'\n');
-console.log('Rebuilt five existing city hubs; no new URLs or indexation changes.');
+console.log(`Rebuilt ${selectedCities.length} existing city hubs; no new URLs or indexation changes.`);

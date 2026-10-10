@@ -70,8 +70,8 @@
     "priority": 1,
     "state": "published",
     "index": true,
-    "title": "Створення сайтів в Одесі під ключ | MAX SITE",
-    "description": "Створення сайтів в Одесі для hospitality, логістики, нерухомості, медицини й послуг. Сезонні офери, мультимовність, SEO та заявки без дублів.",
+    "title": "Створення сайтів в Одесі — від 10 500 грн | MAX SITE",
+    "description": "Сайти для бізнесу в Одесі: лендінги від 10 500 грн, сайти компаній від 19 700 грн. Каталоги й магазини за погодженим обсягом. Працюємо онлайн.",
     "h1": "Створення сайтів в Одесі під ключ",
     "relatedCitySlugs": [
       "kyiv",
@@ -88,7 +88,7 @@
     ],
     "proofMode": "national-case",
     "publishedAt": "2026-08-28",
-    "updatedAt": "2026-09-10",
+    "updatedAt": "2026-10-09",
     "contentKey": "odesa",
     "marketEvidence": "editorial-scenarios-not-market-statistics"
   },
@@ -101,8 +101,8 @@
     "priority": 1,
     "state": "published",
     "index": true,
-    "title": "Створення сайтів у Дніпрі для бізнесу | MAX SITE",
-    "description": "Створення сайтів у Дніпрі для виробництва, інженерії, логістики, авто й B2B. Каталоги, запити кошторису, SEO, аналітика й online-заявки.",
+    "title": "Створення сайтів у Дніпрі — від 10 500 грн | MAX SITE",
+    "description": "Замовити сайт у Дніпрі: лендінг від 10 500 грн, сайт компанії від 19 700 грн. Каталоги, форми й адаптація під телефон. Кошторис до старту.",
     "h1": "Створення сайтів у Дніпрі для бізнесу",
     "relatedCitySlugs": [
       "kharkiv",
@@ -119,7 +119,7 @@
     ],
     "proofMode": "national-case",
     "publishedAt": "2026-08-28",
-    "updatedAt": "2026-09-10",
+    "updatedAt": "2026-10-09",
     "contentKey": "dnipro",
     "marketEvidence": "editorial-scenarios-not-market-statistics"
   },
@@ -162,8 +162,8 @@
     "priority": 2,
     "state": "published",
     "index": true,
-    "title": "Створення сайтів у Черкасах для бізнесу | MAX SITE",
-    "description": "Створення сайтів для бізнесу в Черкасах: лендінги, сайти послуг, локальна SEO-структура, форми, аналітика й підготовка до Google Ads.",
+    "title": "Створення сайтів у Черкасах — від 10 500 грн | MAX SITE",
+    "description": "Замовити сайт у Черкасах: лендінг від 10 500 грн, бізнес-сайт від 19 700 грн. Реальний кейс «Формула Чистоти», мобільні форми й кошторис до старту.",
     "h1": "Створення сайтів у Черкасах для бізнесу",
     "relatedCitySlugs": [
       "kyiv",
@@ -176,7 +176,7 @@
     ],
     "proofMode": "local-case",
     "publishedAt": "2026-08-22",
-    "updatedAt": "2026-09-10"
+    "updatedAt": "2026-10-09"
   },
   {
     "slug": "ukrayina",
