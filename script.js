@@ -110,14 +110,39 @@ const PAGE_CONTEXT = (() => {
 })();
 
 const ATTRIBUTION_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"];
+const CAMPAIGN_ENTRY_KEYS = [...ATTRIBUTION_KEYS, "utm_id", "utm_source_platform", "gbraid", "wbraid", "gad_source", "gad_campaignid", "gclsrc"];
+const LANDING_PATH_KEY = "max_site_landing_path";
 
 const getAttribution = () => {
   const params = new URLSearchParams(window.location.search);
-  const attribution = {};
+  const analyticsAllowed = window.MAX_SITE_CONSENT?.analytics_storage === "granted" && !window.MAX_SITE_QA;
+  const advertisingAllowed = window.MAX_SITE_CONSENT?.ad_storage === "granted" && window.MAX_SITE_CONSENT?.ad_user_data === "granted" && !window.MAX_SITE_QA;
+  const hasCurrentCampaign = CAMPAIGN_ENTRY_KEYS.some(key => params.has(key));
+  const attribution = { landing_path: window.location.pathname };
+
+  // QA must neither reuse real attribution nor leave synthetic attribution for
+  // a subsequent campaign. Its navigation marker remains owned by consent.js.
+  if (window.MAX_SITE_QA) {
+    [LANDING_PATH_KEY, ...ATTRIBUTION_KEYS.map(key => `max_site_${key}`)].forEach(key => {
+      try { sessionStorage.removeItem(key); } catch {}
+    });
+  }
+  try {
+    if (!analyticsAllowed) {
+      sessionStorage.removeItem(LANDING_PATH_KEY);
+    } else {
+      // Explicit campaign documents are their own entry, including on Back.
+      // Direct form navigation and repeated reads retain the same entry value.
+      const storedPath = hasCurrentCampaign ? "" : sessionStorage.getItem(LANDING_PATH_KEY);
+      if (typeof storedPath === "string" && /^\/(?!\/)[^?#]*$/.test(storedPath)) {
+        attribution.landing_path = storedPath;
+      } else {
+        sessionStorage.setItem(LANDING_PATH_KEY, attribution.landing_path);
+      }
+    }
+  } catch { /* Blocked storage keeps the current page as a safe fallback. */ }
 
   ATTRIBUTION_KEYS.forEach((key) => {
-    const advertisingAllowed = window.MAX_SITE_CONSENT?.ad_storage === "granted" && window.MAX_SITE_CONSENT?.ad_user_data === "granted";
-    const analyticsAllowed = window.MAX_SITE_CONSENT?.analytics_storage === "granted";
     const storageAllowed = key === "gclid" ? advertisingAllowed : analyticsAllowed;
     const currentValue = params.get(key);
 
@@ -125,16 +150,21 @@ const getAttribution = () => {
       try { sessionStorage.removeItem(`max_site_${key}`); } catch {}
       // The current landing-page value can accompany a consented form submission,
       // but it is not persisted across pages before the matching storage consent.
-      attribution[key] = key === "gclid" ? "" : (currentValue || "").slice(0, 180);
+      attribution[key] = key === "gclid" || window.MAX_SITE_QA ? "" : (currentValue || "").slice(0, 180);
       return;
     }
 
     let stored = "";
     try {
-      if (currentValue) sessionStorage.setItem(`max_site_${key}`, currentValue.slice(0, 180));
+      // Replace the complete set on every campaign read, including BFCache
+      // restoration after a newer campaign changed this tab's stored values.
+      if (hasCurrentCampaign) {
+        if (currentValue) sessionStorage.setItem(`max_site_${key}`, currentValue.slice(0, 180));
+        else sessionStorage.removeItem(`max_site_${key}`);
+      }
       stored = sessionStorage.getItem(`max_site_${key}`) || "";
     } catch { /* Storage denial must never break navigation or lead delivery. */ }
-    attribution[key] = (currentValue || stored).slice(0, 180);
+    attribution[key] = (hasCurrentCampaign ? (currentValue || "") : stored).slice(0, 180);
   });
 
   return attribution;

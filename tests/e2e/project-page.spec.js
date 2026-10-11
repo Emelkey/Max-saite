@@ -186,7 +186,7 @@ test('consented attribution survives actual CTA navigation while URLs and analyt
   expect(requests).toHaveLength(1);
   expect(requests[0].fields).toMatchObject({name:'LOCAL QA PRIVATE NAME',phone:'@local_qa_private',comment:'LOCAL QA PRIVATE COMMENT'});
   expect(requests[0].pageUrl).toBe(`${new URL(baseURL).origin}${projectPath}`);
-  expect(requests[0].context).toMatchObject({landing_path:projectPath,utm_source:'qa-google',utm_medium:'cpc',utm_campaign:'qa-project',gclid:'qa-project-click',consent:true,consent_state:'ads_granted'});
+  expect(requests[0].context).toMatchObject({landing_path:'/',utm_source:'qa-google',utm_medium:'cpc',utm_campaign:'qa-project',gclid:'qa-project-click',consent:true,consent_state:'ads_granted'});
   expect(requests[0].context.referrer).not.toContain('?');
   await expect(page.locator('#lead-name')).toHaveValue('');
   await expect(page.locator('#lead-phone')).toHaveValue('');
@@ -246,5 +246,81 @@ for(const failure of ['HTTP 500','missing acknowledgement']){
     expect((await events(page)).filter(event=>event.name==='generate_lead')).toHaveLength(1);
     expect(JSON.stringify(await events(page))).not.toMatch(/LOCAL QA PRIVATE|local_qa_private/);
     expect(page.url()).not.toMatch(/PRIVATE|local_qa|phone=|name=|comment=/);
+  });
+}
+
+for(const [label,selector] of [['header','.request-button'],['hero','.cro-hero .hero-buttons .btn:first-child']]){
+  test(`paid landing ${label} opens the short form with website context and supports Back`,async({page,isMobile})=>{
+    test.skip(label==='header'&&isMobile,'Desktop header quote action is hidden on mobile.');
+    await page.goto('/stvorennya-saytiv/');
+    for(let visit=0;visit<2;visit++){
+      const action=page.locator(selector);
+      await expect(action).toHaveAttribute('href',`${projectPath}?format=website`);
+      await activate(action,isMobile);
+      await expect(page).toHaveURL(new RegExp(`${projectPath}\\?format=website$`));
+      await expect(page.locator('#lead-comment')).toHaveValue('Цікавить формат: Сайт під ключ. ');
+      await expect(page.locator('#project-package-name')).toHaveText('Сайт під ключ');
+      await expect(page.locator('#lead-name')).toBeInViewport({ratio:1});
+      await expectNoAutomaticKeyboard(page);
+      await page.goBack();
+      expect(new URL(page.url()).pathname).toBe('/stvorennya-saytiv/');
+      await expect(page.locator('#lead form')).toBeAttached();
+    }
+  });
+}
+
+for(const replacement of [false,true]){
+  test(`paid CTA preserves consented entry attribution${replacement?' and replaces stale campaigns':''}`,async({page,isMobile,baseURL})=>{
+    localOnly(baseURL);
+    const requests=[];
+    await page.route(endpoint,async route=>{
+      const payload=route.request().postDataJSON();requests.push(payload);
+      await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,lead_id:payload.requestId})});
+    });
+    await page.goto('/');
+    await page.evaluate(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'all',timestamp:Date.now()})));
+    await page.goto('/stvorennya-saytiv/?utm_source=google&utm_medium=cpc&utm_campaign=website&utm_term=sites&gclid=qa-paid-click&email=PRIVATE_QUERY_EMAIL');
+    if(replacement) await page.goto('/stvorennya-saytiv/?utm_source=newsletter&utm_campaign=october');
+    await activate(page.locator('.cro-hero .hero-buttons .btn:first-child'),isMobile);
+    await expect(page.locator('#lead-comment')).toHaveValue('Цікавить формат: Сайт під ключ. ');
+    await fillLead(page);
+    await page.locator('#leadForm button[type=submit]').click();
+    await expect(page.locator('#leadForm .form-status')).toHaveAttribute('data-state','success');
+    expect(requests).toHaveLength(1);
+    expect(requests[0].pageUrl).toBe(`${new URL(baseURL).origin}${projectPath}`);
+    expect(requests[0].context).toMatchObject({landing_path:'/stvorennya-saytiv/',...(replacement
+      ?{utm_source:'newsletter',utm_medium:'',utm_campaign:'october',utm_term:'',gclid:''}
+      :{utm_source:'google',utm_medium:'cpc',utm_campaign:'website',utm_term:'sites',gclid:'qa-paid-click'})});
+    const recorded=await events(page);
+    expect(recorded.filter(event=>event.name==='generate_lead')).toHaveLength(1);
+    expect(JSON.stringify(recorded)).not.toMatch(/PRIVATE_QUERY_EMAIL|LOCAL QA PRIVATE|local_qa_private/);
+  });
+}
+
+for(const revoke of [false,true]){
+  test(`restored paid landing refreshes ${revoke?'revoked consent':'its campaign'} before CTA navigation`,async({page,isMobile,baseURL})=>{
+    localOnly(baseURL);
+    await page.goto('/');
+    await page.evaluate(()=>localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'all',timestamp:Date.now()})));
+    await page.goto('/stvorennya-saytiv/?utm_source=newsletter&utm_campaign=october');
+    // Simulate the shared storage changes made by a newer document while this
+    // document was cached. Exercise the browser lifecycle handler, not a direct
+    // call to an attribution helper. No production requests are allowed.
+    await page.evaluate(revoke=>{
+      sessionStorage.setItem('max_site_utm_source','google');
+      sessionStorage.setItem('max_site_utm_medium','cpc');
+      sessionStorage.setItem('max_site_gclid','qa-newer-click');
+      sessionStorage.setItem('max_site_landing_path','/seo-prosuvannya/');
+      if(revoke)localStorage.setItem('max_site_consent_v1',JSON.stringify({choice:'necessary',timestamp:Date.now()}));
+      window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
+    },revoke);
+    const restored=await page.evaluate(()=>({source:sessionStorage.getItem('max_site_utm_source'),medium:sessionStorage.getItem('max_site_utm_medium'),gclid:sessionStorage.getItem('max_site_gclid'),landing:sessionStorage.getItem('max_site_landing_path'),consent:window.MAX_SITE_CONSENT.analytics_storage}));
+    expect(restored).toEqual(revoke
+      ?{source:null,medium:null,gclid:null,landing:null,consent:'denied'}
+      :{source:'newsletter',medium:null,gclid:null,landing:'/stvorennya-saytiv/',consent:'granted'});
+    await activate(page.locator('.cro-hero .hero-buttons .btn:first-child'),isMobile);
+    await expect(page.locator('#lead-comment')).toHaveValue('Цікавить формат: Сайт під ключ. ');
+    expect(await page.evaluate(()=>window.MAX_SITE_CONSENT.analytics_storage)).toBe(revoke?'denied':'granted');
+    expect(await page.evaluate(()=>sessionStorage.getItem('max_site_gclid'))).toBeNull();
   });
 }

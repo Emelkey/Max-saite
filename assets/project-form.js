@@ -4,6 +4,7 @@
   'use strict';
   const formats = new Map([
     ['start', 'Старт'],
+    ['website', 'Сайт під ключ'],
     ['business', 'Бізнес'],
     ['seo', 'SEO Pro'],
     ['shop', 'Інтернет-магазин'],
