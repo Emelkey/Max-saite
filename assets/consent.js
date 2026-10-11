@@ -7,34 +7,42 @@
   // Carry it through this tab's navigation, but never hide a later campaign or
   // an ad click. This changes analytics only; the lead endpoint is untouched.
   const qaKey = "max_site_qa_v1";
-  const params = new URLSearchParams(location.search || "");
-  const qaCampaign = params.get("utm_source") === "codex_qa" && ["test", "qa"].includes(params.get("utm_medium"));
   const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_source_platform", "utm_term", "utm_content"];
   const clickKeys = ["gclid", "gbraid", "wbraid", "gad_source", "gad_campaignid", "gclsrc"];
-  const realCampaign = clickKeys.some(key => params.has(key))
-    || (!qaCampaign && campaignKeys.some(key => params.has(key)));
-  let qaVisit = !realCampaign && (params.get("maxsite_qa") === "1" || qaCampaign);
-  try {
-    if (realCampaign || params.get("maxsite_qa") === "0") {
-      qaVisit = false;
-      sessionStorage.removeItem(qaKey);
-    } else if (qaVisit) {
-      sessionStorage.setItem(qaKey, "1");
+  const refreshQa = () => {
+    const params = new URLSearchParams(location.search || "");
+    const qaCampaign = params.get("utm_source") === "codex_qa" && ["test", "qa"].includes(params.get("utm_medium"));
+    const realCampaign = clickKeys.some(key => params.has(key))
+      || (!qaCampaign && campaignKeys.some(key => params.has(key)));
+    let qaVisit = !realCampaign && (params.get("maxsite_qa") === "1" || qaCampaign);
+    try {
+      if (realCampaign || params.get("maxsite_qa") === "0") {
+        qaVisit = false;
+        sessionStorage.removeItem(qaKey);
+      } else if (qaVisit) {
+        sessionStorage.setItem(qaKey, "1");
+      } else {
+        qaVisit = sessionStorage.getItem(qaKey) === "1";
+      }
+    } catch { /* Storage denial must not break the form or normal analytics. */ }
+    window.MAX_SITE_QA = qaVisit;
+    if (location.origin !== "https://maxsite.com.ua" || qaVisit) {
+      window["ga-disable-G-TS8DMMKK34"] = true;
     } else {
-      qaVisit = sessionStorage.getItem(qaKey) === "1";
+      delete window["ga-disable-G-TS8DMMKK34"];
     }
-  } catch { /* Storage denial must not break the form or normal analytics. */ }
-  window.MAX_SITE_QA = qaVisit;
-  if (location.origin !== "https://maxsite.com.ua" || qaVisit) {
-    window["ga-disable-G-TS8DMMKK34"] = true;
-  }
+  };
+  refreshQa();
   const key = "max_site_consent_v1";
   const denied = {analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied"};
-  let saved = null;
-  try {
-    const value = JSON.parse(localStorage.getItem(key));
-    if (value && Number.isFinite(value.timestamp) && value.timestamp <= Date.now() && Date.now() - value.timestamp < 180 * 86400000 && ["necessary", "analytics", "all"].includes(value.choice)) saved = value;
-  } catch {}
+  const readSavedConsent = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(key));
+      if (value && Number.isFinite(value.timestamp) && value.timestamp <= Date.now() && Date.now() - value.timestamp < 180 * 86400000 && ["necessary", "analytics", "all"].includes(value.choice)) return value;
+    } catch {}
+    return null;
+  };
+  let saved = readSavedConsent();
   const states = choice => ({...denied, analytics_storage: choice === "analytics" || choice === "all" ? "granted" : "denied", ...(choice === "all" ? {ad_storage: "granted", ad_user_data: "granted", ad_personalization: "granted"} : {})});
   window.MAX_SITE_CONSENT = states(saved?.choice);
   window.dataLayer = window.dataLayer || [];
@@ -105,6 +113,7 @@
         sessionStorage.removeItem("max_site_gclid");
       }
       if (window.MAX_SITE_CONSENT.analytics_storage !== "granted") {
+        sessionStorage.removeItem("max_site_landing_path");
         ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
           .forEach(key => sessionStorage.removeItem(`max_site_${key}`));
       }
@@ -130,12 +139,9 @@
     settings.textContent = "Налаштування cookies";
     (document.querySelector("footer") || document.body).append(settings);
     settings.addEventListener("click", () => { panel.hidden = false; panel.querySelector("button").focus(); });
-    panel.addEventListener("click", event => {
-      const choice = event.target.closest("button[data-choice]")?.dataset.choice;
-      if (!choice) return;
+    const updateConsent = () => {
       const analyticsWasGranted = window.MAX_SITE_CONSENT.analytics_storage === "granted";
-      saved = {choice, timestamp: Date.now()};
-      window.MAX_SITE_CONSENT = states(choice);
+      window.MAX_SITE_CONSENT = states(saved?.choice);
       window.gtag("consent", "update", window.MAX_SITE_CONSENT);
       const previousPageLocation = window.MAX_SITE_GOOGLE_PAGE.page_location;
       window.MAX_SITE_GOOGLE_PAGE = googlePage();
@@ -152,11 +158,27 @@
         window.gtag("event", "page_view", {...window.MAX_SITE_GOOGLE_PAGE, send_to: "G-TS8DMMKK34"});
         pageViewSent = true;
       }
-      try { localStorage.setItem(key, JSON.stringify(saved)); } catch {}
       purgeAttribution();
       window.dispatchEvent(new Event("max-site:consent-change"));
+    };
+    panel.addEventListener("click", event => {
+      const choice = event.target.closest("button[data-choice]")?.dataset.choice;
+      if (!choice) return;
+      saved = {choice, timestamp: Date.now()};
+      try { localStorage.setItem(key, JSON.stringify(saved)); } catch {}
+      updateConsent();
       panel.hidden = true;
       if (panel.contains(document.activeElement)) settings.focus({preventScroll: true});
+    });
+    window.addEventListener?.("pageshow", event => {
+      if (!event.persisted) return;
+      // BFCache preserves JS while another document can change consent, QA and
+      // campaign storage. Refresh privacy gates first, then recapture attribution
+      // before the visitor can follow a CTA. Preserve drafts and view-once state.
+      saved = readSavedConsent();
+      refreshQa();
+      updateConsent();
+      panel.hidden = Boolean(saved);
     });
   });
 })();
