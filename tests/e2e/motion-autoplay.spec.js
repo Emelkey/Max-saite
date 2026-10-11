@@ -58,3 +58,22 @@ test('desktop wheel scrolling moves the page natively from the first frame',asyn
   await page.mouse.wheel(0,900);
   await expect.poll(()=>page.evaluate(()=>window.scrollY),{timeout:1500}).toBeGreaterThan(500);
 });
+
+test('first-screen heading reuses its preloaded font subsets without changing typography',async({page})=>{
+  const requests=[];
+  page.on('request',request=>{
+    if(/\/assets\/fonts\/cormorant-italic-(cyrillic|latin)\.woff2$/.test(new URL(request.url()).pathname))requests.push(new URL(request.url()).pathname);
+  });
+  await page.goto('/');
+  await page.evaluate(()=>document.fonts.ready);
+  for(const subset of ['cyrillic','latin']){
+    const font=`assets/fonts/cormorant-italic-${subset}.woff2`;
+    await expect(page.locator(`link[rel=preload][href="${font}"]`)).toHaveAttribute('as','font');
+    expect(requests.filter(url=>url===`/${font}`)).toHaveLength(1);
+  }
+  const title=page.locator('#heroTitle em');
+  await expect(title).toHaveText('Вражаємо досвідом.');
+  expect(await title.evaluate(el=>getComputedStyle(el).fontFamily)).toContain('Cormorant Garamond');
+  expect(await title.evaluate(el=>getComputedStyle(el).fontStyle)).toBe('italic');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
