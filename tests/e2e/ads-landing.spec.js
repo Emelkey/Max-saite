@@ -24,6 +24,7 @@ test('paid landing keeps one accessible quote form, honest prices and SEO identi
   for(const selector of ['.request-button','.cro-hero .hero-buttons .btn:first-child','.cro-bottom-cta .btn','.floating-request']) {
     await expect(page.locator(selector)).toHaveAttribute('href','/obgovoryty-proiekt/?format=website');
   }
+  await expect(page.locator('.cro-offer > .eyebrow')).toHaveText('MAX SITE · maxsite.com.ua');
   await expect(page.locator('.cro-price')).toHaveCount(1);
   await expect(page.locator('.cro-price')).toContainText('10 500 грн');
   await expect(page.locator('.cro-price')).toContainText('19 700 грн');
