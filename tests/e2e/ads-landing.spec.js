@@ -155,7 +155,7 @@ test('legacy aliases remain usable without JavaScript and show no stale prices',
   }finally{await page.close();}
 });
 
-test('Google Ads hero distinguishes setup and management and accepts advertised contact formats', async({page})=>{
+test('Google Ads hero distinguishes setup and management and accepts advertised contact formats', async({page},testInfo)=>{
   const requests=[];
   await page.route(endpoint,async route=>{
     const payload=route.request().postDataJSON(); requests.push(payload);
@@ -168,6 +168,7 @@ test('Google Ads hero distinguishes setup and management and accepts advertised 
   await expect(offer).toContainText('Рекламний бюджет сплачується окремо напряму Google.');
   await expect(page.locator('.hero-buttons .btn').first()).toHaveAttribute('href','#lead');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:`artifacts/playwright/google-ads-offer/${testInfo.project.name}.png`});
   for(const contact of ['@local_qa','+380000000000']) {
     await page.goto('/google-ads/#lead');
     const form=page.locator('#lead form');

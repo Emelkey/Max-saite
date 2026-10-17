@@ -3249,8 +3249,9 @@ body:has(> .site-header) .site-footer a.instagram-link { color: #f4f2e9; }
 /* The two Google Ads offers need the existing compact hero spacing on all
    short phones, including 390px widths. Scope this to the changed landing. */
 @media (max-width: 600px) and (max-height: 700px) {
+  body:has(> .site-header).google-ads-page .cro-hero { padding-block: 6px; }
   body:has(> .site-header).google-ads-page .cro-hero .eyebrow { padding-block: 5px; }
-  body:has(> .site-header).google-ads-page .cro-landing .cro-hero h1 { margin: 4px 0; }
+  body:has(> .site-header).google-ads-page .cro-landing .cro-hero h1 { margin: 2px 0; }
   body:has(> .site-header).google-ads-page .cro-landing .cro-hero > div > p:first-of-type { margin-bottom: 6px; }
   body:has(> .site-header).google-ads-page .cro-hero .cro-price { margin: 6px 0; }
   body:has(> .site-header).google-ads-page .cro-hero .hero-buttons { margin-top: 6px; }
