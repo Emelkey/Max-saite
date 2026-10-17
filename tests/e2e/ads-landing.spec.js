@@ -154,3 +154,39 @@ test('legacy aliases remain usable without JavaScript and show no stale prices',
     }
   }finally{await page.close();}
 });
+
+test('Google Ads hero distinguishes setup and management and accepts advertised contact formats', async({page},testInfo)=>{
+  const requests=[];
+  await page.route(endpoint,async route=>{
+    const payload=route.request().postDataJSON(); requests.push(payload);
+    await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,lead_id:payload.requestId})});
+  });
+  await page.goto('/google-ads/');
+  const offer=page.locator('.cro-hero .cro-price');
+  await expect(offer).toContainText('Налаштування: від 5 600 грн разово');
+  await expect(offer).toContainText('Ведення: від 6 800 грн/міс.');
+  await expect(offer).toContainText('Рекламний бюджет сплачується окремо напряму Google.');
+  await expect(page.locator('.hero-buttons .btn').first()).toHaveAttribute('href','#lead');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:`artifacts/playwright/google-ads-offer/${testInfo.project.name}.png`});
+  for(const contact of ['@local_qa','+380000000000']) {
+    await page.goto('/google-ads/#lead');
+    const form=page.locator('#lead form');
+    const field=page.getByRole('textbox',{name:'Телефон або Telegram @username',exact:true});
+    await expect(field).toHaveAttribute('placeholder','Телефон або Telegram @username');
+    await expect(field).toHaveAttribute('inputmode','text');
+    await expect(field).toHaveAttribute('autocapitalize','none');
+    await form.locator('[name=name]').fill('LOCAL QA ONLY');
+    await field.fill('invalid');
+    await form.locator('[name=consent]').check();
+    const before=requests.length;
+    await form.evaluate(el=>el.requestSubmit());
+    await expect(form.locator('.form-status')).toHaveAttribute('data-state','error');
+    expect(requests.length).toBe(before);
+    await field.fill(contact);
+    await form.evaluate(el=>el.requestSubmit());
+    await expect.poll(()=>requests.length).toBe(before+1);
+    expect(requests.at(-1).fields.phone).toBe(contact);
+    await expect(form.locator('.form-status')).toHaveAttribute('data-state','success');
+  }
+});

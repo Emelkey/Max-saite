@@ -39,6 +39,9 @@ jobs:
       - name: Validate future Cloudflare edge contract
         run: node tools/verify-edge-contract.js --config-only
 
+      - name: Check Google Ads copy and short-phone clearance first
+        run: npx playwright test --grep "Google Ads hero distinguishes|short mobile ad landings"
+
       - name: Run desktop and mobile browser QA
         run: npm run test:browser
 
