@@ -163,7 +163,7 @@ test('Google Ads hero distinguishes setup and management and accepts advertised 
   });
   await page.goto('/google-ads/');
   const offer=page.locator('.cro-hero .cro-price');
-  await expect(offer).toContainText('Разове налаштування: від 5 600 грн');
+  await expect(offer).toContainText('Налаштування: від 5 600 грн разово');
   await expect(offer).toContainText('Ведення: від 6 800 грн/міс.');
   await expect(offer).toContainText('Рекламний бюджет сплачується окремо напряму Google.');
   await expect(page.locator('.hero-buttons .btn').first()).toHaveAttribute('href','#lead');

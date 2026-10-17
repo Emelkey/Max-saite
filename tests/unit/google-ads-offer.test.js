@@ -6,7 +6,7 @@ const html=fs.readFileSync(path.resolve(__dirname,'../../google-ads/index.html')
 
 test('Google Ads hero presents existing setup and monthly management prices separately',()=>{
   const hero=html.match(/<section class="seo-hero cro-hero">([\s\S]*?)<\/section>/)[1];
-  assert.match(hero,/Разове налаштування: від 5 600 грн/);
+  assert.match(hero,/Налаштування: від 5 600 грн разово/);
   assert.match(hero,/Ведення: від 6 800 грн\/міс\./);
   assert.match(hero,/Рекламний бюджет сплачується окремо напряму Google\./);
   assert.match(hero,/<a class="btn" href="#lead">Обговорити рекламу<\/a>/);
