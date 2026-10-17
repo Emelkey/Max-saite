@@ -12,21 +12,21 @@ test('calculator updates scope and exports the visible result without a lead',as
   const leads=[];
   page.on('request',request=>{if(request.method()==='POST')leads.push(request.url());});
   await page.goto('/kalkulyator-vartosti-saytu/');
-  await expect(page.locator('[data-cost-value]')).toContainText('10 500');
+  await expect(page.locator('[data-cost-value]')).toContainText('7 875');
   await page.locator('[name="site-type"][value="shop"]').check();
   await page.locator('[name="scope"][value="migration"]').check();
-  await expect(page.locator('[data-cost-value]')).toContainText('34 300');
+  await expect(page.locator('[data-cost-value]')).toContainText('25 725');
   await expect(page.locator('[data-cost-questions]')).toContainText('чинні URL');
   const telegram=new URL(await page.locator('[data-cost-telegram]').getAttribute('href'));
   expect(telegram.origin+telegram.pathname).toBe('https://t.me/share/url');
-  expect(telegram.searchParams.get('text')).toContain('34 300');
+  expect(telegram.searchParams.get('text')).toContain('25 725');
   expect(telegram.searchParams.get('text')).toContain('чинні URL');
   const email=new URL(await page.locator('[data-cost-email]').getAttribute('href'));
   expect(email.protocol).toBe('mailto:');
-  expect(email.searchParams.get('body')).toContain('34 300');
+  expect(email.searchParams.get('body')).toContain('25 725');
   await page.locator('[data-cost-copy]').click();
   await expect(page.locator('[data-cost-feedback]')).toContainText('скопійовано');
-  expect(await page.evaluate(()=>window.copiedCalculatorText)).toContain('34 300');
+  expect(await page.evaluate(()=>window.copiedCalculatorText)).toContain('25 725');
   expect(leads).toEqual([]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth)).toBeLessThanOrEqual(1);
 });
@@ -36,7 +36,7 @@ test('calculator handles unavailable clipboard without losing the result',async(
   await page.evaluate(()=>{navigator.clipboard.writeText=async()=>{throw new Error('denied');};});
   await page.locator('[data-cost-copy]').click();
   await expect(page.locator('[data-cost-feedback]')).toContainText('Telegram або email');
-  await expect(page.locator('[data-cost-value]')).toContainText('10 500');
+  await expect(page.locator('[data-cost-value]')).toContainText('7 875');
 });
 
 for(const route of ['/kalkulyator-vartosti-saytu/','/blog/nextjs-chy-wordpress/']){
