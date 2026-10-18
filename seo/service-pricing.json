@@ -1,0 +1,715 @@
+{
+  "baselineCommit": "f2c66921227e151b0a0b783f04f69c6f2d2d84c1",
+  "effectiveDate": "2026-10-17",
+  "factor": {
+    "numerator": 3,
+    "denominator": 4
+  },
+  "policy": "Exactly 25% off current MAX SITE own-service prices once; package scope and all third-party, historical, ad-spend and client-price evidence remain unchanged. No rounding.",
+  "prices": [
+    {
+      "service": "Landing/Старт",
+      "before": 10500,
+      "after": 7875,
+      "currency": "UAH"
+    },
+    {
+      "service": "Business",
+      "before": 19700,
+      "after": 14775,
+      "currency": "UAH"
+    },
+    {
+      "service": "SEO Pro",
+      "before": 29000,
+      "after": 21750,
+      "currency": "UAH"
+    },
+    {
+      "service": "Інтернет-магазин",
+      "before": 34300,
+      "after": 25725,
+      "currency": "UAH"
+    },
+    {
+      "service": "Google Ads разове налаштування",
+      "before": 5600,
+      "after": 4200,
+      "currency": "UAH"
+    },
+    {
+      "service": "Google Ads Старт щомісяця",
+      "before": 6800,
+      "after": 5100,
+      "currency": "UAH"
+    },
+    {
+      "service": "Google Ads Бізнес щомісяця",
+      "before": 10200,
+      "after": 7650,
+      "currency": "UAH"
+    },
+    {
+      "service": "Analytics або Search Console разово",
+      "before": 2900,
+      "after": 2175,
+      "currency": "UAH"
+    },
+    {
+      "service": "Analytics + Search Console щомісяця",
+      "before": 4500,
+      "after": 3375,
+      "currency": "UAH"
+    },
+    {
+      "service": "Повне ведення сайту щомісяця",
+      "before": 14800,
+      "after": 11100,
+      "currency": "UAH"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/project-tools.js",
+      "baselineSha256": "8a449e19d59e5ab8de49c68215d8c363573f7413cd3a9013c47b07140ca4cf91",
+      "occurrences": {
+        "10500": 1,
+        "19700": 1,
+        "29000": 1,
+        "34300": 1
+      }
+    },
+    {
+      "path": "assets/site-cost-calculator.js",
+      "baselineSha256": "72cfc67fb51faf4444b03c2d48026ae1b4c32ddf30d18635369648f7a819e092",
+      "occurrences": {
+        "10 500": 1,
+        "19 700": 1,
+        "29 000": 1,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "blog/chomu-sajt-bez-seo-ne-daye-rezultatu/index.html",
+      "baselineSha256": "c56cfe038b5e9013276e829befd55570c2f79458e221699f733d68e64c5abbbc",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "blog/google-ads-dlya-biznesu/index.html",
+      "baselineSha256": "2c4560f3ce2fcdf003112ecaeb2814e43fb0ee6e0b822bc0278a20181268c36b",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "blog/google-analytics-search-console/index.html",
+      "baselineSha256": "8c73231f63cafd528bcfaf40aa77cd1649cf8b86b10d8a9ed10088f1eb62be50",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "blog/index.html",
+      "baselineSha256": "91dd674501573d48afe5a61cfb3d7737d09945fe328ed512593d7b67f5458c22",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "blog/sajt-dlya-kliningovoyi-kompaniyi/index.html",
+      "baselineSha256": "b03d21f294b990115b4d9e23300863ed8de4ed0f48ea0aff9f820d45b63bd548",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "blog/skilky-koshtuye-stvorennya-internet-magazynu/index.html",
+      "baselineSha256": "b607935ffd433d6faba547e48513de1bfd2cb47610bbc006bdbeb9ae86ea6119",
+      "occurrences": {
+        "34 300": 2
+      }
+    },
+    {
+      "path": "blog/skilky-koshtuye-stvorennya-sajtu/index.html",
+      "baselineSha256": "6681fb93a1c413338ff8e850b58828e68bfeea89056fbf0fbf893b66bca83713",
+      "occurrences": {
+        "10 500": 1,
+        "19 700": 1,
+        "29 000": 1
+      }
+    },
+    {
+      "path": "blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/index.html",
+      "baselineSha256": "43c28b8740f10b639b98568b889bd249997801c5bfdb9cab56f2041a758c3c21",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/index.html",
+      "baselineSha256": "7a9d01543be06fac5f9413562574e22496ef0d6bd45b543ad7aea468121d02ab",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "blog/yakyj-sajt-potriben-lokalnomu-biznesu/index.html",
+      "baselineSha256": "d31c1b9f6ef01a1d301fdeb901279f48221136ef3e4b3dd089f25f6dd15ae861",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "google-ads/index.html",
+      "baselineSha256": "4380436536585fab747fadac0ae09cdd3cd77bae34cc31cd59a62fee1ff8235f",
+      "occurrences": {
+        "6 800": 5,
+        "6800": 1,
+        "10200": 1,
+        "5600": 1,
+        "5 600": 2,
+        "10 200": 1
+      }
+    },
+    {
+      "path": "google-analytics-search-console/index.html",
+      "baselineSha256": "e4d94c6d47b3c07b4811d2870589d989522fcc19ad23a605ec6616026666e0f2",
+      "occurrences": {
+        "2 900": 8,
+        "4500": 1,
+        "2900": 2,
+        "4 500": 2,
+        "14 800": 1
+      }
+    },
+    {
+      "path": "index.html",
+      "baselineSha256": "26b9229191a92ea296b38e21d7a093650dfc43abc28eb279b4334a5e6708172c",
+      "occurrences": {
+        "10 500": 2,
+        "19 700": 1,
+        "29 000": 1,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "kalkulyator-vartosti-saytu/index.html",
+      "baselineSha256": "6f5068e5ee66beb80cb1f66de7ee444a733d8b9dab9bab75200dc13c414d6231",
+      "occurrences": {
+        "10 500": 4,
+        "19 700": 2,
+        "29 000": 2,
+        "34 300": 2
+      }
+    },
+    {
+      "path": "kontakty/index.html",
+      "baselineSha256": "8db6588b98485c866caa6af812860407f9bbac93c15cae5d1843b23f62d7a20c",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-cherkasy/index.html",
+      "baselineSha256": "b70e1415171159dad5245541601447b691aad1c974daaeb4864fcad253657c37",
+      "occurrences": {
+        "10 500": 12,
+        "19 700": 9,
+        "10500": 1,
+        "29 000": 2,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-chernihiv/index.html",
+      "baselineSha256": "94037ba8427f3968d3de90abc8c46f535d92e5751ea74a365b788377439fd443",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-chernivtsi/index.html",
+      "baselineSha256": "ed13fbc62b47a20568136da72ff32de6560349e88ec428caea3bd9e279dea863",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-dnipro/index.html",
+      "baselineSha256": "0aa5b1e7ace3237c5f311c0968dd9bc75c27a8b54c47e17156c73a02838738d1",
+      "occurrences": {
+        "10 500": 9,
+        "19 700": 6,
+        "10500": 1
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-ivano-frankivsk/index.html",
+      "baselineSha256": "77b3912e20ac658ee097bfd4f7236e3e8d45de88618c659b5e3c119c4424303b",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-kharkiv/index.html",
+      "baselineSha256": "82c190890ccaedeab45991ce50fb26e6542f6c8fc6f8d7b782d7b2c86359b3a0",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 1,
+        "19 700": 1,
+        "29 000": 1,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-kherson/index.html",
+      "baselineSha256": "9d30896d559b496ad042b5252e6cd9c57b5d0c28f98a5fe97e06d8ed7e86ffe3",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-khmelnytskyi/index.html",
+      "baselineSha256": "fb737b173a5740bc987513f3adda0dce063492805ba13ed7dc3ff093f8756e38",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-kropyvnytskyi/index.html",
+      "baselineSha256": "aa068afd9221afea4358453a7641ff7e9befeb1059589205fd249441a15d8f5d",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-kyiv/index.html",
+      "baselineSha256": "b95a7abe037cddb32ab5a36632baaaaf058575220e689eb2893eeb166df7b7f5",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 1,
+        "19 700": 1,
+        "29 000": 1,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-lutsk/index.html",
+      "baselineSha256": "2b244a7507b32994f7a370bb1e750bca5f2dee80cc71c31f97cb47c048e9ecac",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-lviv/index.html",
+      "baselineSha256": "c38e0fcaa042d256a15b059e70ead1175064cfa3fb24c18ab6b80a4797632a93",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 1,
+        "19 700": 1,
+        "29 000": 1,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-mykolaiv/index.html",
+      "baselineSha256": "c833befd61b8798d173128142fcde1a3445998a79f2a6421e57dd0e0de39f5d3",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-odesa/index.html",
+      "baselineSha256": "9d97d2b9e367dea8b7aab4948fba390deff08319a3d20738047be5f132c75f59",
+      "occurrences": {
+        "10 500": 9,
+        "19 700": 6,
+        "10500": 1,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-poltava/index.html",
+      "baselineSha256": "e1f66d586d654ad2271e763ac56f2797989ae68366cf2d1cb0ed4a12ea076a80",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-rivne/index.html",
+      "baselineSha256": "d9103e73684b4b841c5ce173f754f83bf11813a34a9c44cf4bc90d53e3041c4d",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-sumy/index.html",
+      "baselineSha256": "70b8501ee80b5cb2c52dd901dddbe754f4bacd0117520c081fb70ce619d7c2eb",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-ternopil/index.html",
+      "baselineSha256": "5c4b9b60c57ef28d77dd1a9da40d773601442d3e498cf397ab6fa5ec1a23b5d5",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-uzhhorod/index.html",
+      "baselineSha256": "a4a642dcb583daa95cb9a9a3b0581f9a0b21fec83ea0d9c02d0a0fb8bbfce785",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-vinnytsya/index.html",
+      "baselineSha256": "18f0e5daa3ce0a0aa41c7e93377f8ca8733bf0d17825ecf13c1cf2b92672abea",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-zaporizhzhya/index.html",
+      "baselineSha256": "69d635fc6f3195e8f6e85e5cb413c913b8ab21ed195ab1c669c1ce72a6acd47a",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "mista/stvorennya-sajtiv-zhytomyr/index.html",
+      "baselineSha256": "b206b47321d3a83a48bde5078996643b40bc9b54c6fe25893b2b10205623006f",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 4,
+        "19 700": 3,
+        "29 000": 3,
+        "34 300": 3
+      }
+    },
+    {
+      "path": "nishi/index.html",
+      "baselineSha256": "32c5854ee33adf09ce8813bbbb1adee31e0c8895adb29c9f20d8092fdbd52349",
+      "occurrences": {
+        "10 500": 3
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-budivelnoyi-kompaniyi/index.html",
+      "baselineSha256": "5b8613f0592d993643aa2f4702f33b203658bd925abe8ea461b290155d59f9f6",
+      "occurrences": {
+        "19700": 1,
+        "19 700": 3,
+        "29 000": 2
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-kliningovoyi-kompaniyi/index.html",
+      "baselineSha256": "aa8e7f70823eb46640ef2a9595e336aeae6babd8873cc5b1ec53e1767d20b630",
+      "occurrences": {
+        "10 500": 8,
+        "10500": 1,
+        "19 700": 3,
+        "29 000": 2
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-kursiv/index.html",
+      "baselineSha256": "f1de7d41fecc36bf0eb3674a67e2e72c3e5b8a14c229c354038c8c207d3cac2f",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-lokalnogo-biznesu/index.html",
+      "baselineSha256": "bfedb7562ff784eb50d84f3ab63e3d40c0a18a248de5eb0c6075d117acc9e68c",
+      "occurrences": {
+        "10500": 1,
+        "10 500": 2,
+        "19 700": 2,
+        "29 000": 2
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-magazynu/index.html",
+      "baselineSha256": "31006174b2603b5187a067369bca6e0b498477d74adce56781a0f1f56419808d",
+      "occurrences": {
+        "34 300": 1
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-medychnyh-poslug/index.html",
+      "baselineSha256": "2a62a9fd855368c27d717333b8ef62cfaa58c311b25a00e34e12733e6f9cc611",
+      "occurrences": {
+        "19 700": 1
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-neruhomosti/index.html",
+      "baselineSha256": "d6bbfd61361a4d0563d9173b96e90f22e2392e62c3ccfc5e200f7f5e77170341",
+      "occurrences": {
+        "19 700": 1
+      }
+    },
+    {
+      "path": "nishi/sajt-dlya-vyrobnytstva/index.html",
+      "baselineSha256": "b78def54aacd1c97a994706dc981bf57efa19e7e77495a7988b4e6064d7d68b7",
+      "occurrences": {
+        "19 700": 1
+      }
+    },
+    {
+      "path": "poslugy/index.html",
+      "baselineSha256": "f71ed3fd839002b1417452fcbb8b196118108a6f388d0d2ffa4743d96cebea47",
+      "occurrences": {
+        "10 500": 4,
+        "19 700": 1,
+        "29 000": 1
+      }
+    },
+    {
+      "path": "qa-checklist/index.html",
+      "baselineSha256": "912e94ce64bdacf11ededa17a3cd4c20c3b0f76ce338841d2a65ced3d883f37b",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "sajty-dlya-poslug/index.html",
+      "baselineSha256": "1d89ebcb7c5812c58014fda05b815e4c05422a4cb1675d465c4d059969c555fd",
+      "occurrences": {
+        "10 500": 3,
+        "19 700": 1,
+        "29 000": 1
+      }
+    },
+    {
+      "path": "seo/cities.json",
+      "baselineSha256": "3a963c6fd9c8f9c04b606a8cbae413e8b2971399901a0ee99a9949c726e532b2",
+      "occurrences": {
+        "10 500": 6,
+        "19 700": 3
+      }
+    },
+    {
+      "path": "seo/city-wave1-content.json",
+      "baselineSha256": "e4e19ad5de0ba13293db161cbe34a4545570f8fc26d7d833213af53a781d1eb6",
+      "occurrences": {
+        "10 500": 4,
+        "19 700": 4,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "seo/niche-content.json",
+      "baselineSha256": "944f93c692b4d245f79631ec2644781f38c0b2a08b6a012d5b07e0a605c36fbe",
+      "occurrences": {
+        "34 300": 1,
+        "19 700": 3,
+        "10 500": 1
+      }
+    },
+    {
+      "path": "seo-sajt-pid-google/index.html",
+      "baselineSha256": "117705e11c5c8a90ee07a4dbf58e924535487ee70850dcd2c6081147f330e6e9",
+      "occurrences": {
+        "10 500": 4,
+        "19 700": 1,
+        "29 000": 1
+      }
+    },
+    {
+      "path": "stvorennya-internet-mahazynu/index.html",
+      "baselineSha256": "241c56bc93cf85dd6293a0ae4fc62e9ae03704be6ec4f9afab122835f10b2b79",
+      "occurrences": {
+        "34 300": 5
+      }
+    },
+    {
+      "path": "stvorennya-korporatyvnoho-saytu/index.html",
+      "baselineSha256": "465483b1d118b374f96d32b0b29d1ba1643f1cceb80226d97f1de78053a3cff5",
+      "occurrences": {
+        "19 700": 4
+      }
+    },
+    {
+      "path": "stvorennya-landing-page/index.html",
+      "baselineSha256": "ba5e535cc3f661f248cf844c0d433142c1f19e4d3631550445f8a5f6d39cd4a9",
+      "occurrences": {
+        "10 500": 13
+      }
+    },
+    {
+      "path": "stvorennya-sajtiv-pid-klyuch/index.html",
+      "baselineSha256": "aca9f864d5c1e4ec870115358a7c50c900c6fd9a716f1ede8208dcf35c6d6a89",
+      "occurrences": {
+        "10 500": 5,
+        "19 700": 2,
+        "29 000": 1
+      }
+    },
+    {
+      "path": "stvorennya-saytiv/index.html",
+      "baselineSha256": "a454f56cc1f9fde9686df34dbe5878a7cb9b5d82c693058f1d2e4f8d7be1e342",
+      "occurrences": {
+        "10 500": 4,
+        "19 700": 2,
+        "34 300": 1
+      }
+    },
+    {
+      "path": "stvorennya-saytu-dlya-biznesu/index.html",
+      "baselineSha256": "d08e7299c20f010d02e29c8d608d3850c43d0a2944a88a0a4b89ead7645d476c",
+      "occurrences": {
+        "19 700": 8
+      }
+    },
+    {
+      "path": "tools/add-project-resources.js",
+      "baselineSha256": "d0a9519fceb4afb93218389c85b7c713c55b02b46482f17c3ea9eeef5ce97e86",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "tools/add-visible-niche-faq.js",
+      "baselineSha256": "230587fbca37430a5d3df3295902aca9ef796c975ade193b8450ed4c80690018",
+      "occurrences": {
+        "10 500": 1
+      }
+    },
+    {
+      "path": "tools/apply-city-seo-cluster.js",
+      "baselineSha256": "6234884dda742e3275865a9012bb709a8f700fab0e614081ba7ec329b99bd107",
+      "occurrences": {
+        "10 500": 3,
+        "19 700": 2,
+        "29 000": 2,
+        "34 300": 2,
+        "10500": 1
+      }
+    },
+    {
+      "path": "tools/apply-content-hub.js",
+      "baselineSha256": "333ea4a4dc9b8fc4c8219a95624ee62fd90400a6300fb280274ff990a9b4b96e",
+      "occurrences": {
+        "10 500": 1,
+        "19 700": 1,
+        "29 000": 1
+      }
+    },
+    {
+      "path": "tools/apply-next-stage-content.js",
+      "baselineSha256": "620b6bea32478fc1a7a76f0180372b73dd167a514a3814bf840fdfb9b3313e4d",
+      "occurrences": {
+        "10 500": 11,
+        "19 700": 10,
+        "29 000": 7,
+        "10500": 3,
+        "19700": 1,
+        "6 800": 3,
+        "6800": 1,
+        "10200": 1,
+        "5600": 1,
+        "10 200": 1,
+        "5 600": 1,
+        "2 900": 5,
+        "4500": 1,
+        "2900": 2,
+        "4 500": 2,
+        "14 800": 1,
+        "34 300": 2
+      }
+    },
+    {
+      "path": "tools/apply-pr2-core-pages.js",
+      "baselineSha256": "fee07bebba640bda248e40fc1a52bced9eacff985f98f7b221a08f3ca54311d1",
+      "occurrences": {
+        "10 500": 4,
+        "19 700": 4,
+        "34 300": 2
+      }
+    },
+    {
+      "path": "tools/apply-seo-growth-2026-08-21.js",
+      "baselineSha256": "075492603d997a18f1e6bf1c2ae07559c3cbd115ec952b53fb46483762642385",
+      "occurrences": {
+        "10 500": 2,
+        "19 700": 1
+      }
+    },
+    {
+      "path": "tools/render-master3-cities.js",
+      "baselineSha256": "48c33db7f51e5d24a4225dc41b2a558b01510fdefd926a2e40dbf7c964d4d363",
+      "occurrences": {
+        "10 500": 1,
+        "19 700": 1,
+        "29 000": 1,
+        "34 300": 1
+      }
+    }
+  ]
+}
