@@ -159,7 +159,10 @@ if (check === 'schema') {
       }
       if (types.includes('Offer') || types.includes('AggregateOffer')) {
         const price=node.price ?? node.lowPrice;
-        if (price!==undefined && !text(row.main).replace(/\s/g,'').includes(String(price).replace(/\s/g,''))) errors.push(`${row.route}: schema price not visible: ${price}`);
+        if (price!==undefined) {
+          const visiblePrice=Number(price).toLocaleString('uk-UA', {minimumFractionDigits:Number.isInteger(Number(price))?0:2,maximumFractionDigits:2});
+          if (!text(row.main).replace(/\s/g,'').includes(visiblePrice.replace(/\s/g,''))) errors.push(`${row.route}: schema price not visible: ${price}`);
+        }
         if (!node.priceCurrency) errors.push(`${row.route}: schema offer missing currency`);
       }
       if (types.includes('FAQPage')) for (const question of node.mainEntity||[]) {

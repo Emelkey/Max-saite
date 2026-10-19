@@ -26,8 +26,8 @@ test('paid landing keeps one accessible quote form, honest prices and SEO identi
   }
   await expect(page.locator('.cro-offer > .eyebrow')).toHaveText('MAX SITE · maxsite.com.ua');
   await expect(page.locator('.cro-price')).toHaveCount(1);
-  await expect(page.locator('.cro-price')).toContainText('7 875 грн');
-  await expect(page.locator('.cro-price')).toContainText('14 775 грн');
+  await expect(page.locator('.cro-price')).toContainText('5 906,25 грн');
+  await expect(page.locator('.cro-price')).toContainText('11 081,25 грн');
   const form=page.locator('#lead form');
   expect(await form.locator('[required]').evaluateAll(nodes=>nodes.map(n=>n.name))).toEqual(['name','phone','consent']);
   await expect(form.locator('[name="business"]')).toHaveAttribute('type','hidden');
@@ -163,8 +163,8 @@ test('Google Ads hero distinguishes setup and management and accepts advertised 
   });
   await page.goto('/google-ads/');
   const offer=page.locator('.cro-hero .cro-price');
-  await expect(offer).toContainText('Налаштування: від 4 200 грн разово');
-  await expect(offer).toContainText('Ведення: від 5 100 грн/міс.');
+  await expect(offer).toContainText('Налаштування: від 3 150 грн разово');
+  await expect(offer).toContainText('Ведення: від 3 825 грн/міс.');
   await expect(offer).toContainText('Рекламний бюджет сплачується окремо напряму Google.');
   await expect(page.locator('.hero-buttons .btn').first()).toHaveAttribute('href','#lead');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

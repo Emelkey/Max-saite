@@ -612,7 +612,7 @@ test('short mobile ad landings keep both hero actions clear of consent',async({p
 test('budget estimator and editable resources work without sending personal data',async({page})=>{
   await page.goto('/qa-checklist/');
   await page.locator('#budget-format').selectOption('store');
-  await expect(page.locator('[data-budget-tool] output')).toContainText(/25\s*725/);
+  await expect(page.locator('[data-budget-tool] output')).toContainText(/19\s*293,75/);
   await page.getByLabel('CRM та синхронізація',{exact:true}).check();
   await expect(page.locator('[data-budget-tool] output')).toContainText('Окрема оцінка: CRM');
   for (const link of await page.locator('#project-resources a[download]').all()) {
