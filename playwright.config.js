@@ -20,6 +20,6 @@ module.exports=defineConfig({
     {name:'desktop-chromium',use:{...devices['Desktop Chrome']}},
     {name:'desktop-webkit',testMatch:/(project-page|instagram-visibility|keyboard-scroll)\.spec\.js/,use:{...devices['Desktop Safari'],browserName:'webkit'}},
     {name:'mobile-chromium',use:{...devices['Pixel 7'],browserName:'chromium'}},
-    {name:'mobile-webkit',testMatch:/(project-page|instagram-visibility|motion-autoplay|ads-landing|consent-first-view|production-consent|button-spring|read-only-ui-smoke|catalog-article|handover-article|animation-direction|real-case-studies)\.spec\.js/,use:{...devices['iPhone 13'],browserName:'webkit'}}
+    {name:'mobile-webkit',testMatch:/(project-page|instagram-visibility|motion-autoplay|ads-landing|consent-first-view|production-consent|button-spring|read-only-ui-smoke|catalog-article|handover-article|blog-hub|animation-direction|real-case-studies)\.spec\.js/,use:{...devices['iPhone 13'],browserName:'webkit'}}
   ]
 });
