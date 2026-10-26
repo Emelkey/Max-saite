@@ -37,6 +37,16 @@ test('all inventoried current price occurrences change while every other source 
     }
     let restored=current.replace(pattern,value=>reverse.get(value));
     if(entry.path==='assets/project-tools.js') restored=restored.replace("toLocaleString('uk-UA', {minimumFractionDigits: Number.isInteger(prices[value]) ? 0 : 2, maximumFractionDigits: 2})", "toLocaleString('uk-UA')");
+    // 2026-10-26: strip only the two exact, separately tested editorial links.
+    // All existing bytes and every price occurrence remain guarded by the original baseline.
+    const editorialAdditions={
+      'blog/index.html':'<p><a href="/blog/peredacha-saytu-vlasnyku-dostupy-kod-domen/">Передача сайту власнику: як прийняти доступи, код і сервіси</a> — практичний реєстр перевірки доступів, релізу та продовження сервісів.</p>',
+      'blog/shcho-vhodyt-u-sajt-pid-klyuch/index.html':'<p>Для приймання використайте <a href="/blog/peredacha-saytu-vlasnyku-dostupy-kod-domen/">реєстр передачі сайту власнику</a>: перевірте контроль над сервісами й відповідність коду опублікованій версії.</p>'
+    };
+    if(editorialAdditions[entry.path]) {
+      assert.equal(restored.split(editorialAdditions[entry.path]).length-1,1,'exact editorial insertion present once');
+      restored=restored.replace(editorialAdditions[entry.path],'');
+    }
     assert.equal(crypto.createHash('sha256').update(restored).digest('hex'),entry.baselineSha256,`${entry.path}: only the approved price substitutions may change`);
   }
 });
