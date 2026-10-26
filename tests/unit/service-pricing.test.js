@@ -48,6 +48,11 @@ test('all inventoried current price occurrences change while every other source 
       assert.equal(restored.split(editorialAdditions[entry.path]).length-1,1,'exact editorial insertion present once');
       restored=restored.replace(editorialAdditions[entry.path],'');
     }
+    if(entry.path==='blog/index.html') {
+      const insertion=source('tests/fixtures/blog-decision-guides.txt');
+      assert.equal(restored.split(insertion).length-1,1);
+      restored=restored.replace(insertion,'');
+    }
     assert.equal(crypto.createHash('sha256').update(restored).digest('hex'),entry.baselineSha256,`${entry.path}: only the approved price substitutions may change`);
   }
 });
