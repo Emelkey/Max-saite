@@ -36,7 +36,7 @@ const {launch}=await import(pathToFileURL(path.resolve(lhRoot,'../chrome-launche
 const chromePath=process.env.CHROME_PATH || '/usr/bin/chromium';
 // Same guard in both batches: no lead API or external collection calls. Other resources remain enabled.
 const blockedUrlPatterns=['*/api/lead*','*/api/tender*','*max-site-leads.emelkey777.workers.dev*','*api.telegram.org/*','*google-analytics.com/*collect*','*analytics.google.com/*collect*','*doubleclick.net/*','*facebook.com/tr*'];
-const meta={label,startedAt:new Date().toISOString(),releaseGate:gate,runs,modes,chromePath,host:{platform:process.platform,arch:process.arch,node:process.version,cpuCount:os.cpus().length,cpuModel:os.cpus()[0]?.model},methodology:'Sequential round-robin cold Chrome profiles; Lighthouse official mobile/desktop simulated throttling. No form, contact, consent or other interaction. Lead/collection endpoints blocked for safety; guarded lab load results are not field CWV. Report all valid runs, medians and min/max. TBT is not INP.',blockedUrlPatterns};
+const meta={label,startedAt:new Date().toISOString(),releaseGate:gate,runs,modes,chromePath,chromeFlags:['--headless=new','--no-first-run'],host:{platform:process.platform,arch:process.arch,node:process.version,cpuCount:os.cpus().length,cpuModel:os.cpus()[0]?.model},methodology:'Sequential round-robin cold Chrome profiles; Lighthouse official mobile/desktop simulated throttling. No form, contact, consent or other interaction. Lead/collection endpoints blocked for safety; guarded lab load results are not field CWV. Report all valid runs, medians and min/max. TBT is not INP.',blockedUrlPatterns};
 await fs.writeFile(path.join(output,'manifest.json'),JSON.stringify(meta,null,2));
 const rows=[];
 let halted=false;
@@ -47,7 +47,7 @@ for(const job of jobs){
   try{
     console.log(`START ${name} ${new Date().toISOString()}`);
     // Do not silently disable browser/OS sandboxing to work around an executor limitation.
-    chrome=await launch({chromePath,chromeFlags:['--headless=new','--no-first-run','--disable-gpu'],logLevel:'error'});
+    chrome=await launch({chromePath,chromeFlags:['--headless=new','--no-first-run'],logLevel:'error'});
     const result=await lighthouse(job.url,{port:chrome.port,logLevel:'error',output:['json','html'],onlyCategories:['performance','accessibility','best-practices','seo'],throttlingMethod:'simulate',blockedUrlPatterns},job.mode==='desktop'?desktopConfig:undefined);
     if(!result) throw Error('No Lighthouse result');
     const lhr=result.lhr;
