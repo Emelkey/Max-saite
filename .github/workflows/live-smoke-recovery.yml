@@ -1,0 +1,46 @@
+name: MAX SITE bounded read-only live verification
+on:
+  workflow_dispatch:
+  push:
+    branches: [qa/read-only-live-recovery-ce088208]
+    paths: [.github/workflows/live-smoke-recovery.yml]
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-noble@sha256:dcc5531e97840b9b5e794f2814476b21571c5124a3fca2267d73041f56e7580e
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ce088208b4315b153d8bc892a81cd24cdd98ca71
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify exact approved source tree
+        run: |
+          test "$(git rev-parse HEAD)" = ce088208b4315b153d8bc892a81cd24cdd98ca71
+          test "$(git rev-parse HEAD^{tree})" = 81bf1e6022b8142be5769ef947e7af89cdc67eae
+      - run: npm ci
+      - name: Verify matching preinstalled browsers
+        run: |
+          node -e 'const fs=require("fs"),a=require("assert/strict"),p=require("@playwright/test");a.equal(require("@playwright/test/package.json").version,"1.62.1");for(const b of [p.chromium,p.webkit])fs.accessSync(b.executablePath(),fs.constants.X_OK)'
+      - name: Verify exact public revision before tests
+        run: node tools/verify-production-release.js --base-url https://maxsite.com.ua --expected-revision ce088208b4315b153d8bc892a81cd24cdd98ca71 --attempts 1
+      - name: All unchanged read-only desktop and mobile assertions
+        env:
+          EXPECTED_RELEASE_REVISION: ce088208b4315b153d8bc892a81cd24cdd98ca71
+        run: npx playwright test --config=playwright.live.config.js
+      - name: Verify public revision stayed unchanged
+        run: node tools/verify-production-release.js --base-url https://maxsite.com.ua --expected-revision ce088208b4315b153d8bc892a81cd24cdd98ca71 --attempts 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: maxsite-read-only-live-recovery
+          path: |
+            artifacts/seo/production-release-smoke.json
+            artifacts/playwright/live-results
+            artifacts/playwright/live-report
