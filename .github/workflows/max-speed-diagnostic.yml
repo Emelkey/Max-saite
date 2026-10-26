@@ -1,0 +1,30 @@
+name: MAX read-only renderer and LCP diagnosis
+on:
+  push:
+    branches: [audit/max-speed-diagnosis-20261026]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Balanced mobile renderer experiment on unchanged public homepage
+        run: |
+          export CHROME_PATH="$(command -v google-chrome)"
+          google-chrome --version
+          node tools/max-speed-diagnostic.mjs
+      - name: Retain complete evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: max-renderer-diagnostic-${{ github.run_id }}
+          path: artifacts/max-speed-diagnostic/
+          if-no-files-found: error
+          retention-days: 14
