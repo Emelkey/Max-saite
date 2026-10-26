@@ -1,10 +1,10 @@
 {
   "finalReleaseConfirmed": true,
-  "confirmedAt": "2026-10-26T21:16:31Z",
-  "parentGoAhead": "GO final-stage speed audit now; final MAX independently live verified; all four remote refs reverified 21:17 UTC",
+  "confirmedAt": "2026-10-26T21:50:24Z",
+  "parentGoAhead": "Final-stage authorized Formula performance repair deployed; exact-SHA production status and public four-route chunk fingerprints verified; other three app revisions unchanged",
   "commits": {
     "fodez": "51cccdc41601929f597f5a6e68ec4203f09648fb",
-    "formula": "7ed9b4d1fccc8e280c3692e7562040fd942a98b3",
+    "formula": "f7952c207d812931125f72c76d5f03bd8706544f",
     "b2b": "eec869debb75466b0bcf4a792c7015d12ae0ba60",
     "max": "ce088208b4315b153d8bc892a81cd24cdd98ca71"
   }

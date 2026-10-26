@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        site: [fodez, formula, b2b, max]
+        site: [formula]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,15 +36,15 @@ jobs:
           LIGHTHOUSE_PACKAGE: ${{ github.workspace }}/node_modules/lighthouse
         run: |
           export CHROME_PATH="$(command -v google-chrome)"
-          node tools/performance-audit/run-lighthouse.mjs --sites=${{ matrix.site }} --runs=3 --label=baseline-default-20261026 --release-manifest=tools/performance-audit/release-confirmed.json
+          node tools/performance-audit/run-lighthouse.mjs --sites=${{ matrix.site }} --runs=3 --label=after-formula-20261026 --release-manifest=tools/performance-audit/release-confirmed.json
       - name: Print complete summary
         if: always()
-        run: cat tools/performance-audit/evidence/baseline-default-20261026/summary.json || true
+        run: cat tools/performance-audit/evidence/after-formula-20261026/summary.json || true
       - name: Retain exact raw lab evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: four-site-default-${{ matrix.site }}-${{ github.run_id }}
-          path: tools/performance-audit/evidence/baseline-default-20261026/
+          name: four-site-after-${{ matrix.site }}-${{ github.run_id }}
+          path: tools/performance-audit/evidence/after-formula-20261026/
           if-no-files-found: error
           retention-days: 14
