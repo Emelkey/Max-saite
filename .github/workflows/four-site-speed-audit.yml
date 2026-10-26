@@ -1,0 +1,50 @@
+name: Four-site read-only final-stage speed audit
+on:
+  push:
+    branches: [audit/four-site-speed-20261026]
+    paths:
+      - .github/workflows/four-site-speed-audit.yml
+      - tools/performance-audit/**
+permissions:
+  contents: read
+concurrency:
+  group: four-site-speed-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        site: [fodez, formula, b2b, max]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked audit dependencies
+        run: npm ci
+      - name: Record browser and runner
+        run: |
+          google-chrome --version
+          node --version
+          lscpu | head -25
+      - name: Three cold mobile and desktop runs per representative page
+        env:
+          LIGHTHOUSE_PACKAGE: ${{ github.workspace }}/node_modules/lighthouse
+        run: |
+          export CHROME_PATH="$(command -v google-chrome)"
+          node tools/performance-audit/run-lighthouse.mjs --sites=${{ matrix.site }} --runs=3 --label=baseline-20261026 --release-manifest=tools/performance-audit/release-confirmed.json
+      - name: Print complete summary
+        if: always()
+        run: cat tools/performance-audit/evidence/baseline-20261026/summary.json || true
+      - name: Retain exact raw lab evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: four-site-speed-${{ matrix.site }}-${{ github.run_id }}
+          path: tools/performance-audit/evidence/baseline-20261026/
+          if-no-files-found: error
+          retention-days: 14
