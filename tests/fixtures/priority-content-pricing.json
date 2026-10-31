@@ -1,0 +1,47 @@
+{
+  "reason": "2026-10-31 authorized priority-content review; prices unchanged, extra cleaning scope repeats existing amounts.",
+  "files": {
+    "mista/stvorennya-sajtiv-cherkasy/index.html": {
+      "sha256": "2ec8ade8c61db40fb95a708e7a28e4bb73785e7b2b16c80c3de586dfe6c8c03a",
+      "occurrences": {
+        "7875": 1,
+        "7 875": 12,
+        "14 775": 9,
+        "21 750": 2,
+        "25 725": 1
+      }
+    },
+    "mista/stvorennya-sajtiv-dnipro/index.html": {
+      "sha256": "fdc36737e3b4fb71483e60a5dbe459edaa167efcec74268be4e4a60fcf921ba4",
+      "occurrences": {
+        "7875": 1,
+        "7 875": 9,
+        "14 775": 6
+      }
+    },
+    "nishi/sajt-dlya-kliningovoyi-kompaniyi/index.html": {
+      "sha256": "a6cb35454d4c94536512ca6cb8818ab412130d03f4702bb7022318a730a00878",
+      "occurrences": {
+        "7875": 1,
+        "7 875": 9,
+        "14 775": 4,
+        "21 750": 2
+      }
+    },
+    "seo/cities.json": {
+      "sha256": "2c61fcb10781f0b77115715cee23165f3e995eb204785c4f8aab5ae7a47aae72",
+      "occurrences": {
+        "7 875": 6,
+        "14 775": 3
+      }
+    },
+    "seo/city-wave1-content.json": {
+      "sha256": "bad789636e34e5e03769efcdc5c8641528d46f584de12100d1dea83e2c59f3f7",
+      "occurrences": {
+        "7 875": 4,
+        "14 775": 4,
+        "25 725": 1
+      }
+    }
+  }
+}

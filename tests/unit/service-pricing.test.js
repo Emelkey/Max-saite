@@ -4,6 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
 const ledger=require('../../seo/service-pricing.json');
+const editorial=require('../fixtures/priority-content-pricing.json');
 const root=path.resolve(__dirname,'../..');
 const format=value=>{const [whole,fraction]=value.toFixed(Number.isInteger(value)?0:2).split('.');return whole.replace(/\B(?=(\d{3})+(?!\d))/g,' ')+(fraction?','+fraction:'');};
 const escape=value=>value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
@@ -19,7 +20,7 @@ test('every service amount is reduced exactly 25 percent once without rounding',
   }
 });
 
-test('all inventoried current price occurrences change while every other source byte stays intact',()=>{
+test('inventoried price amounts and explicitly reviewed content baselines stay intact',()=>{
   const reverse=new Map();
   for(const price of ledger.prices) {
     reverse.set(String(price.after),String(price.before));
@@ -28,12 +29,19 @@ test('all inventoried current price occurrences change while every other source 
   const pattern=new RegExp(`(?<!\\d)(?:${[...reverse.keys()].sort((a,b)=>b.length-a.length).map(escape).join('|')})(?!\\d)`,'g');
   for(const entry of ledger.files) {
     const current=source(entry.path);
-    for(const [before,count] of Object.entries(entry.occurrences)) {
+    // Only the named priority content/data files have a separate editorial baseline.
+    // The original price-only ledger stays immutable; all other files retain its byte guard.
+    const approved=editorial.files[entry.path];
+    for(const [before,count] of Object.entries(approved?.occurrences || entry.occurrences)) {
       const price=ledger.prices.find(row=>row.before===Number(before.replaceAll(' ','')));
       const after=before.includes(' ')?format(price.after):String(price.after);
       const matches=current.match(new RegExp(`(?<!\\d)${escape(after)}(?!\\d)`,'g'))||[];
       assert.equal(matches.length,count,`${entry.path}: ${before} -> ${after}`);
       assert.doesNotMatch(current,new RegExp(`(?<!\\d)${escape(before)}(?!\\d)`),`${entry.path}: stale price ${before}`);
+    }
+    if(approved) {
+      assert.equal(crypto.createHash('sha256').update(current).digest('hex'),approved.sha256,`${entry.path}: approved editorial content and exact prices`);
+      continue;
     }
     let restored=current.replace(pattern,value=>reverse.get(value));
     if(entry.path==='assets/project-tools.js') restored=restored.replace("toLocaleString('uk-UA', {minimumFractionDigits: Number.isInteger(prices[value]) ? 0 : 2, maximumFractionDigits: 2})", "toLocaleString('uk-UA')");
