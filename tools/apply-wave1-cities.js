@@ -194,8 +194,7 @@ for (const slug of servicePages) {
 const cityHubFile = path.join(root, "mista/index.html");
 let cityHub = fs.readFileSync(cityHubFile, "utf8");
 const publishedLinks = allCities.filter((city) => city.index).map((city) => `<a href="/mista/stvorennya-sajtiv-${city.slug}/">Створення сайтів — ${city.nominative}</a>`).join("");
-const roadmap = allCities.filter((city) => !city.index).map((city) => city.nominative).join(", ");
-const publishedSection = `<section class="seo-links" id="published-city-hubs"><h2>Опубліковані міські сторінки</h2><p>Публікуємо окрему міську сторінку, коли можемо пояснити релевантні бізнес-сценарії, формат дистанційної співпраці та корисний шлях до послуги.</p><div class="link-grid">${publishedLinks}</div><p><strong>Наступні міста готуємо поступово:</strong> ${roadmap}. Додаємо їх до пошуку лише після перевірки попиту, змісту та реальної готовності обслуговувати клієнтів.</p></section>`;
+const publishedSection = `<section class="seo-links" id="published-city-hubs"><h2>Оберіть місто або напрямок роботи</h2><p>На сторінках міст зібрані приклади структури для різних бізнес-задач: від лендінгу послуги до корпоративного сайту й каталогу. Розробка та погодження відбуваються онлайн.</p><div class="link-grid">${publishedLinks}</div><p><strong>Не знайшли свого міста?</strong> Перегляньте <a href="/mista/stvorennya-sajtiv-ukrayina/">формат роботи по Україні</a> або <a href="/obgovoryty-proiekt/">опишіть проєкт</a>. Укажіть послуги й територію роботи вашого бізнесу — це допоможе погодити потрібні сторінки та обсяг розробки.</p></section>`;
 cityHub = cityHub.replace(/<section class="seo-links"><h2>Міста України<\/h2>[\s\S]*?<\/section>/, publishedSection);
 fs.writeFileSync(cityHubFile, cityHub);
 

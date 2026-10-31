@@ -9,11 +9,16 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
 test('city hub contains client language rather than implementation statuses', () => {
   const html = read('mista/index.html');
-  for (const internalTerm of ['similarity/QA gates', 'Wave 2/3 review', 'залишаються noindex']) {
+  for (const internalTerm of ['similarity/QA gates', 'Wave 2/3 review', 'залишаються noindex', 'Наступні міста готуємо поступово', '22 міста']) {
     assert.doesNotMatch(html, new RegExp(internalTerm, 'i'));
   }
-  assert.match(html, /Додаємо їх до пошуку лише після перевірки попиту, змісту та реальної готовності обслуговувати клієнтів/);
-  assert.match(read('tools/apply-wave1-cities.js'), /Наступні міста готуємо поступово/);
+  assert.match(html, /Співпраця онлайн по Україні/);
+  assert.match(html, /Не знайшли свого міста/);
+  assert.match(read('tools/apply-wave1-cities.js'), /Не знайшли свого міста/);
+  const cities = JSON.parse(read('seo/cities.json'));
+  for (const city of cities) {
+    assert.equal(html.includes(`href="/mista/stvorennya-sajtiv-${city.slug}/"`), city.index, city.slug);
+  }
 });
 
 test('city readiness register preserves six open and sixteen deferred cities', () => {

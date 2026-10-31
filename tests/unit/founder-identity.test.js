@@ -11,7 +11,8 @@ test('approved founder identity is visible and matches Person structured data',(
   assert.ok(html.includes('<strong>Максим Митрофаненко</strong>'));
   assert.equal(graph.find(node=>node['@type']==='AboutPage').about['@id'],person['@id']);
   assert.equal(graph.find(node=>node['@type']==='Organization').founder['@id'],person['@id']);
-  assert.doesNotMatch(html,/внутрішньому реєстрі доказів/);
+  assert.doesNotMatch(html,/внутрішньому реєстрі доказів|Підтверджені публічне ім’я|ім’я засновника.*будуть додані/);
+  assert.match(html,/власний сайт, технічний процес і датований вихідний зріз Search Console без гарантій результату/);
   const about=fs.readFileSync(path.join(root,'pro-nas/index.html'),'utf8');
   assert.ok(about.includes('href="/zasnovnyk/">Максим Митрофаненко'));
 });
