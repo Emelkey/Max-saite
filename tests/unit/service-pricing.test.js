@@ -49,6 +49,9 @@ test('all inventoried current price occurrences change while every other source 
       restored=restored.replace(editorialAdditions[entry.path],'');
     }
     if(entry.path==='blog/index.html') {
+      const seasonal=source('tests/fixtures/seasonal-blog-card.txt');
+      assert.equal(restored.split(seasonal).length-1,1,'exact seasonal article card present once');
+      restored=restored.replace(seasonal,'');
       const insertion=source('tests/fixtures/blog-decision-guides.txt');
       assert.equal(restored.split(insertion).length-1,1);
       restored=restored.replace(insertion,'');
