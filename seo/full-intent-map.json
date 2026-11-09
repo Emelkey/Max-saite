@@ -2543,6 +2543,21 @@
       "priority": "P2",
       "observedQueries": [],
       "reviewedAt": "2026-10-26"
+    },
+    {
+      "url": "/blog/yak-pidhotuvaty-sayt-do-chornoyi-pyatnytsi/",
+      "cluster": "blog-seasonal-campaign-readiness",
+      "primary": "як підготувати сайт до Чорної п’ятниці",
+      "secondary": [
+        "чекліст сайту перед розпродажем",
+        "перевірка інтернет-магазину перед акцією"
+      ],
+      "intent": "Практична перевірка готовності сайту до сезонної акції: узгоджені умови, замовлення, аналітика та завершення; не загальний гайд GA4 чи запуску реклами",
+      "searchIntent": "informational",
+      "contentType": "article",
+      "queryBasis": "editorial assignment; not search-volume evidence",
+      "priority": "P2",
+      "observedQueries": []
     }
   ]
 }

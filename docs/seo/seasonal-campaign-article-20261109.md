@@ -1,0 +1,9 @@
+# Seasonal campaign readiness article — 2026-11-09
+
+New original Ukrainian guide: `/blog/yak-pidhotuvaty-sayt-do-chornoyi-pyatnytsi/`.
+
+The existing 32-article blog inventory was checked. The new intent is readiness for a seasonal promotion, not a general Google Ads, GA4, store-development or website-handover guide. Covers consistent offer terms, landing-page access, mobile interaction, cancellation and retry scenarios, delivery to the operator, measurement, responsibilities and promotion shutdown. No invented case studies, measured outcomes, prices or promises. Source links refer to Google's official seasonal-page guidance, Merchant Center sale price specification and GA4 ecommerce documentation, read on November 9, 2026. Search demand was not measured; the intent assignment is editorial.
+
+Adds Article and WebPage dates matching the visible publication date, self canonical, Open Graph, breadcrumbs, homepage-blog hub card, a related store-scope article link and generated sitemap membership. Existing service prices and lead systems are unchanged. The price-baseline guard strips only the exact separately tested new hub card, preserving its original checksum checks.
+
+Verification: full `npm run seo:check` passed (153 unit tests, 94 canonical pages, 5,522 internal links, zero package audit errors). Edge configuration contract passed. A clean locked dependency install succeeded using a writable npm cache. Local pinned browser download was unavailable. Installed system Chromium could not launch because the execution sandbox denies its required socket calls; no local browser assertions or Lighthouse checks passed. The separate browser could not reach the local HTTP server. The new guide is included in mobile WebKit CI and read-only live coverage. Full remote quality and production receipt checks are required before declaring publication complete.

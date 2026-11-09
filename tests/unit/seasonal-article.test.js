@@ -1,0 +1,21 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const route='/blog/yak-pidhotuvaty-sayt-do-chornoyi-pyatnytsi/';
+test('seasonal campaign guide is dated, original, discoverable and has consistent schema',()=>{
+ const html=fs.readFileSync('.'+route+'index.html','utf8');
+ assert.equal((html.match(/<h1\b/g)||[]).length,1);
+ assert.match(html,/datetime="2026-11-09"/);
+ assert.match(html,/не результати клієнтського кейсу/);
+ assert.match(html,/без списання коштів/);
+ assert.match(html,/Наявність у sitemap не доводить індексацію/);
+ assert.match(html,/Підготовка не гарантує продажів/);
+ const graph=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])['@graph'];
+ assert.equal(graph.find(x=>x['@type']==='Article').datePublished,'2026-11-09');
+ assert.equal(graph.find(x=>x['@type']==='Article').dateModified,'2026-11-09');
+ assert.equal(graph.find(x=>x['@type']==='WebPage').url,'https://maxsite.com.ua'+route);
+ assert.ok(!graph.some(x=>['FAQPage','Review','Product'].includes(x['@type'])));
+ for(const p of ['blog/index.html','blog/shcho-vhodyt-u-stvorennya-internet-magazynu-pid-klyuch/index.html','sitemap-blog.xml','seo/full-intent-map.json'])assert.ok(fs.readFileSync(p,'utf8').includes(route),p);
+ assert.ok(fs.readFileSync('blog/index.html','utf8').includes(fs.readFileSync('tests/fixtures/seasonal-blog-card.txt','utf8')));
+ assert.match(html,/href="\/obgovoryty-proiekt\/\?format=website"/);
+});
