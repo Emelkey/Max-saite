@@ -1,0 +1,45 @@
+{
+  "baseCommit": "ce088208b4315b153d8bc892a81cd24cdd98ca71",
+  "pages": {
+    "mista/stvorennya-sajtiv-cherkasy/index.html": {
+      "forms": "f52f1c3671ec35f9709f6e20587e9057529b6f6f64011ef8147cf59c60bc34ef",
+      "scripts": "7db9c0319c9fa22b3b274413972248ec1e96a3ec9ecc3cf5d77e756593812b70",
+      "projectExamples": "26261444ac670b2be28d30f807b1af7587a7e1af1928e5b94ab9efb036158548"
+    },
+    "mista/stvorennya-sajtiv-dnipro/index.html": {
+      "forms": "e4dcc32d79202f24c4db924ef4dd4803c1c73236d21c0e6d3fec44db5cce871e",
+      "scripts": "7db9c0319c9fa22b3b274413972248ec1e96a3ec9ecc3cf5d77e756593812b70"
+    },
+    "nishi/sajt-dlya-kliningovoyi-kompaniyi/index.html": {
+      "forms": "f52f1c3671ec35f9709f6e20587e9057529b6f6f64011ef8147cf59c60bc34ef",
+      "scripts": "7db9c0319c9fa22b3b274413972248ec1e96a3ec9ecc3cf5d77e756593812b70",
+      "projectExamples": "f8689d493c873c8c76bbddb6cbb3426471b48817e2dd51637e8bbc6ce9cef587"
+    },
+    "mista/index.html": {
+      "forms": "51861fd5b5de7dc9c3ba8e180bf70b8f6c708f590e965f9fdd72622e1f714b97",
+      "scripts": "ef519a6272cf9a41e631f17166ea8960dea18f6ba0b96daca8639737c74960e3"
+    },
+    "zasnovnyk/index.html": {
+      "forms": "0845865b3a460e8864539d7d9763dc5270025c75ef687242d257c458378cbdeb",
+      "scripts": "74fe0ba92aa0b324bddbc72c358a32753a010484d2f4146a93db356cf46e17d5"
+    }
+  },
+  "deferredCities": {
+    "mista/stvorennya-sajtiv-vinnytsya/index.html": "32cbb5e8d2222b31b19606f36524f62c78c747ecc7d4674d99a69f34a6af8b5e",
+    "mista/stvorennya-sajtiv-ivano-frankivsk/index.html": "5de68aaf855250e6f8c8267ad83f1c44899412f671fdb6b2a10d3740ac261757",
+    "mista/stvorennya-sajtiv-ternopil/index.html": "f7477468cbb720d85d5777e1d5296a8732156b587d5da729652818d4fc704fd8",
+    "mista/stvorennya-sajtiv-khmelnytskyi/index.html": "0d6d1bcf04d818d31235596a7fef6633e4529410fce4ff6c7fb81f38ebd80941",
+    "mista/stvorennya-sajtiv-rivne/index.html": "629cd1949f63457fddec2f3e419e5aec53e2d7e607c0b3acf35bb89bb326495d",
+    "mista/stvorennya-sajtiv-lutsk/index.html": "1fe44e2b0e5482373ae514e77148a687240eeb3d3577fa8c9328c71bb61f7d67",
+    "mista/stvorennya-sajtiv-poltava/index.html": "0e399953d6663498a9cc5b1a351d3a27f52ecabe3179ecb53fd257dcd18b9b4f",
+    "mista/stvorennya-sajtiv-chernivtsi/index.html": "3e11c0bc5a7f00b20667cbb89123ebd29f255228dc45db6e955df4afbfd76d99",
+    "mista/stvorennya-sajtiv-zhytomyr/index.html": "97129c52ee3cb0b4758f37ed1bc70fc670d1ed9e2a45b26e027edc681065e870",
+    "mista/stvorennya-sajtiv-chernihiv/index.html": "445dbcb1428e1f9cf8fe5c6ec99e0dc981dcf2a5ef114fe0b72600f1ac0a424c",
+    "mista/stvorennya-sajtiv-kherson/index.html": "0ab38353f12bc3c6a15295e7c499b374c3cd60a226844f845092daa5d38b31c4",
+    "mista/stvorennya-sajtiv-kropyvnytskyi/index.html": "ef9e43b586ee6a961cc338d522cdde0c4138d1ca5bcbffc071d271296d85c885",
+    "mista/stvorennya-sajtiv-mykolaiv/index.html": "96516199c94852fe1a139a104f22c245868eeadb6aaf02aa19e4749645a8c033",
+    "mista/stvorennya-sajtiv-sumy/index.html": "09d65186f6245296afe13f554bffe989fa6483229e8a10c4cec2214668916ab3",
+    "mista/stvorennya-sajtiv-uzhhorod/index.html": "ef9b80596636d4668956bd302b4dfc7fc81af4e18ae5da0704166fe9b456b7ce",
+    "mista/stvorennya-sajtiv-zaporizhzhya/index.html": "39283a7b6bf808584578340acaa5ef2e9b0f78cafc3009dd9c86388e8a65767f"
+  }
+}
