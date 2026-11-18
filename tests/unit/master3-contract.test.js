@@ -47,7 +47,7 @@ test('preview robots replace conflicting index directive',()=>{
 
 test('budget estimator matches published tariffs and explicitly excludes integration pricing',()=>{
   const source=fs.readFileSync(path.join(root,'assets/project-tools.js'),'utf8');
-  assert.match(source,/landing:5906\.25,business:11081\.25,seo:16312\.5,store:19293\.75/);
+  assert.match(source,/landing:5900,business:11050,seo:16300,store:19250/);
   assert.match(source,/Окрема оцінка/);
   assert.doesNotMatch(source,/fetch\(|XMLHttpRequest|localStorage|sessionStorage/);
 });

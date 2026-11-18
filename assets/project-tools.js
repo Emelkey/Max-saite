@@ -1,7 +1,7 @@
 (() => {
   const tool = document.querySelector('[data-budget-tool]');
   if (!tool) return;
-  const prices = {landing:5906.25,business:11081.25,seo:16312.5,store:19293.75};
+  const prices = {landing:5900,business:11050,seo:16300,store:19250};
   const update = () => {
     const value = tool.querySelector('select').value;
     const output = tool.querySelector('output');
