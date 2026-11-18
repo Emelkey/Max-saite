@@ -14,7 +14,7 @@ test('homepage has no autoplay player and keeps the approved section order',asyn
   expect(await page.locator('.mx-content > section').evaluateAll(sections=>sections.map(section=>section.id)))
     .toEqual(['work','pricing','services','founder','process','faq','lead']);
   await expect(page.locator('h1')).toContainText('Створюємо');
-  await expect(page.locator('h1')).toContainText('Для вашого бізнесу.');
+  await expect(page.locator('h1')).toContainText('Для бізнесу.');
 });
 
 test('direct section links land on visible content without waiting for motion',async({page})=>{
@@ -72,7 +72,7 @@ test('first-screen heading reuses its preloaded font subsets without changing ty
     expect(requests.filter(url=>url===`/${font}`)).toHaveLength(1);
   }
   const title=page.locator('#heroTitle em');
-  await expect(title).toHaveText('Для вашого бізнесу.');
+  await expect(title).toHaveText('Для бізнесу.');
   expect(await title.evaluate(el=>getComputedStyle(el).fontFamily)).toContain('Cormorant Garamond');
   expect(await title.evaluate(el=>getComputedStyle(el).fontStyle)).toBe('italic');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
