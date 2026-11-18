@@ -22,6 +22,20 @@ test('calculator transfers scope to real form, preserves notes and supports repe
  await expect(page.locator('[data-cost-telegram]')).toHaveText('Поділитися через Telegram');
  expect(new URL(await page.locator('[data-cost-email]').getAttribute('href')).pathname).toBe('');
  expect(posts).toEqual([]);
+ const payloads=[];
+ await page.route('https://max-site-leads.emelkey777.workers.dev/**',async route=>{
+  const payload=route.request().postDataJSON();payloads.push(payload);
+  await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,lead_id:payload.requestId})});
+ });
+ await page.locator('#lead [name=name]').fill('LOCAL QA');
+ await page.locator('#lead [name=phone]').fill('+380000000000');
+ await page.locator('#lead [name=consent]').check();
+ await page.locator('#lead button[type=submit]').click();
+ await expect(page.locator('#lead .form-status')).toHaveAttribute('data-state','success');
+ expect(payloads).toHaveLength(1);
+ expect(payloads[0].fields.comment).toContain('Калькулятор MAX SITE: Сайт для бізнесу');
+ expect(payloads[0].fields.comment).toContain('чинні URL');
+ expect(payloads[0].fields.comment).toContain('Мій додатковий опис');
 });
 for(const width of [320,390,1440])test(`conversion routes fit ${width}px without hidden primary controls`,async({page},info)=>{
  await page.setViewportSize({width,height:844});
