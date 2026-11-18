@@ -1,71 +1,81 @@
 {
   "baselineCommit": "918144bf07edb6d4bac4e9d1305389eaef65c70d",
-  "effectiveDate": "2026-10-19",
+  "effectiveDate": "2026-11-18",
   "factor": {
     "numerator": 3,
     "denominator": 4
   },
-  "policy": "One additional exact 25% reduction of the current MAX SITE own-service prices. Integer kopecks; no marketing rounding. Historical, third-party, ad-spend and client-price evidence unchanged.",
+  "policy": "2026-10-19 exact 25% reduction retained as beforeRounding. 2026-11-18 round current own-service prices down to multiples of 50 UAH; no increases. Historical, third-party, ad-spend and client-price evidence unchanged.",
   "prices": [
     {
       "service": "Landing/Старт",
       "before": 7875,
-      "after": 5906.25,
-      "currency": "UAH"
+      "after": 5900,
+      "currency": "UAH",
+      "beforeRounding": 5906.25
     },
     {
       "service": "Business",
       "before": 14775,
-      "after": 11081.25,
-      "currency": "UAH"
+      "after": 11050,
+      "currency": "UAH",
+      "beforeRounding": 11081.25
     },
     {
       "service": "SEO Pro",
       "before": 21750,
-      "after": 16312.5,
-      "currency": "UAH"
+      "after": 16300,
+      "currency": "UAH",
+      "beforeRounding": 16312.5
     },
     {
       "service": "Інтернет-магазин",
       "before": 25725,
-      "after": 19293.75,
-      "currency": "UAH"
+      "after": 19250,
+      "currency": "UAH",
+      "beforeRounding": 19293.75
     },
     {
       "service": "Google Ads разове налаштування",
       "before": 4200,
-      "after": 3150.0,
-      "currency": "UAH"
+      "after": 3150,
+      "currency": "UAH",
+      "beforeRounding": 3150
     },
     {
       "service": "Google Ads Старт щомісяця",
       "before": 5100,
-      "after": 3825.0,
-      "currency": "UAH"
+      "after": 3800,
+      "currency": "UAH",
+      "beforeRounding": 3825
     },
     {
       "service": "Google Ads Бізнес щомісяця",
       "before": 7650,
-      "after": 5737.5,
-      "currency": "UAH"
+      "after": 5700,
+      "currency": "UAH",
+      "beforeRounding": 5737.5
     },
     {
       "service": "Analytics або Search Console разово",
       "before": 2175,
-      "after": 1631.25,
-      "currency": "UAH"
+      "after": 1600,
+      "currency": "UAH",
+      "beforeRounding": 1631.25
     },
     {
       "service": "Analytics + Search Console щомісяця",
       "before": 3375,
-      "after": 2531.25,
-      "currency": "UAH"
+      "after": 2500,
+      "currency": "UAH",
+      "beforeRounding": 2531.25
     },
     {
       "service": "Повне ведення сайту щомісяця",
       "before": 11100,
-      "after": 8325.0,
-      "currency": "UAH"
+      "after": 8300,
+      "currency": "UAH",
+      "beforeRounding": 8325
     }
   ],
   "files": [
@@ -77,7 +87,8 @@
         "14775": 1,
         "21750": 1,
         "25725": 1
-      }
+      },
+      "roundedContentSha256": "1393381dbd7e0875957b5bb43cdbe16eb59dd33215183c1f3d248308baa6ec61"
     },
     {
       "path": "assets/site-cost-calculator.js",
@@ -87,49 +98,58 @@
         "14 775": 1,
         "21 750": 1,
         "25 725": 1
-      }
+      },
+      "approvedConversionContentDate": "2026-11-18",
+      "approvedConversionSha256": "0dabbde91ef078d27b14ae8439fdde1b1139764aed3aa5c6c90937450acf3805",
+      "roundedContentSha256": "aebc6d9929fe89f0d08c98d58320117e0c112c4b16e6403e373d3c86708583b5"
     },
     {
       "path": "blog/chomu-sajt-bez-seo-ne-daye-rezultatu/index.html",
       "baselineSha256": "dfe529db8cd75f31fd3dd1dcd562e43e2e3c5d1523f5d03d03e151b7d3c8fb34",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "48d7491341af449423025348757c2a902c409d454b09a75392b8368c4b7a06ec"
     },
     {
       "path": "blog/google-ads-dlya-biznesu/index.html",
       "baselineSha256": "2ccc89bfc3fda487323de4af1f2bbbcce941969f417b40f1d139db6a907edc61",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "7428a16dbff8aa307c03427b45bf37fed7902f63b0a854511bbc49ece615ee26"
     },
     {
       "path": "blog/google-analytics-search-console/index.html",
       "baselineSha256": "2fcc4c3e55eec9e5d1943a3fdfc2dae125b334da4f651ebe6249fddaa329c517",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "a4fd23a8bb49c88453df7ff23fa7e8341b81076f2da54c1b1a40a6b8601b140c"
     },
     {
       "path": "blog/index.html",
       "baselineSha256": "23c5964702c960499c013766d24329c1976d49fbf8813bbf9633e4d69737c6b1",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "0650bfd706c87c6486dd6ecc13aca89edbdbb6b332b5acf4a1c68870fefe07f2"
     },
     {
       "path": "blog/sajt-dlya-kliningovoyi-kompaniyi/index.html",
       "baselineSha256": "44775ec3e81acb07cd9cf356c199c9f6bbadb69044185f911a4f3d2171af53e6",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "6ccad8c185ee2b65c4294ef3416f1564f90384e9cd27bb4a30d487885b7e7778"
     },
     {
       "path": "blog/skilky-koshtuye-stvorennya-internet-magazynu/index.html",
       "baselineSha256": "76ce81d556c0f6da98dbe44015b550167d2c53d81f5f928124369a07b3de4fbc",
       "occurrences": {
         "25 725": 2
-      }
+      },
+      "roundedContentSha256": "7efea7fdd707216c4edd1e74835f0fe432893b19bc10c49fb76b2a974d747ac6"
     },
     {
       "path": "blog/skilky-koshtuye-stvorennya-sajtu/index.html",
@@ -138,51 +158,57 @@
         "7 875": 1,
         "14 775": 1,
         "21 750": 1
-      }
+      },
+      "roundedContentSha256": "304e3685f1635a97923fb12508e29fca5eb5804b2ee48b31f0936d88b2187e23"
     },
     {
       "path": "blog/yak-pidgotuvaty-biznes-do-zapusku-sajtu/index.html",
       "baselineSha256": "5a6749120e015a6bb3b32437905837d1f0d4b97eae103c95e44da15c825c2ddd",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "d6082f14af98723da3892065824f6dbe23d6d14af4494d2c3edb3bdf4cb97ef8"
     },
     {
       "path": "blog/yak-sajt-dopomagaye-otrymuvaty-zayavky/index.html",
       "baselineSha256": "adb9254474622d202171d8de0e4a20a7624b6627935ed189a981757f69a3c83e",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "acef079043bee2079990ac6c030392f94d9d0e7baa82f9c99d4357cd8d36e2e4"
     },
     {
       "path": "blog/yakyj-sajt-potriben-lokalnomu-biznesu/index.html",
       "baselineSha256": "0741efed883848ac838dbf25ad39171612423e5242ff06fd1e0162d78f9c7c36",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "ee7207971869dbd3887d4ab3b3c3a53a0df0ddcd981b224f54b929180745a230"
     },
     {
       "path": "google-ads/index.html",
       "baselineSha256": "51e7e56d6c0e40f68dcf360d9eacb62e2efde72f44054b43927cb1e9fc67142b",
       "occurrences": {
-        "5 100": 5,
+        "4200": 1,
         "5100": 1,
         "7650": 1,
-        "4200": 1,
+        "5 100": 5,
         "4 200": 2,
         "7 650": 1
-      }
+      },
+      "roundedContentSha256": "111141f5493f8425853aa96857bb213f7d889f09e1198442a9e09eb62513c0d8"
     },
     {
       "path": "google-analytics-search-console/index.html",
       "baselineSha256": "26d1804fd149c114c80e77db45bd6df8a5b060d31e2295a20acd8d2f5882e4f8",
       "occurrences": {
-        "2 175": 8,
-        "3375": 1,
         "2175": 2,
+        "3375": 1,
+        "2 175": 8,
         "3 375": 2,
         "11 100": 1
-      }
+      },
+      "roundedContentSha256": "cc55c691bd37543e3a825b3c709466cdcac9bd4ab319fd63d497ba15708f1e11"
     },
     {
       "path": "index.html",
@@ -192,7 +218,10 @@
         "14 775": 1,
         "21 750": 1,
         "25 725": 1
-      }
+      },
+      "approvedConversionContentDate": "2026-11-18",
+      "approvedConversionSha256": "69c2f62430d56b4a05c83356a3b799a84ebf7352453ef624d6f8a47048c7c3a4",
+      "roundedContentSha256": "f450c087dcca380f134ae9a81079b37ca70f5c7e25157040d0de397ba4be56dc"
     },
     {
       "path": "kalkulyator-vartosti-saytu/index.html",
@@ -202,25 +231,30 @@
         "14 775": 2,
         "21 750": 2,
         "25 725": 2
-      }
+      },
+      "approvedConversionContentDate": "2026-11-18",
+      "approvedConversionSha256": "f52ed0ac9c7a468168ba0c5187aa05f570bdadfeb36dcdd08395cacb353fac0c",
+      "roundedContentSha256": "07afbbf0a7c6605700ed60dcad7a4910ca6a75d7f62c2c651e7511b0d5b1a82a"
     },
     {
       "path": "kontakty/index.html",
       "baselineSha256": "ba6d34649d61a8eb66df40de1a1220a9a9e93cb94dfbe7b423790f248151c3b0",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "c5ad24de01b0db0d98f2b9ce67667b71152e5d875e68a7cab3b8ab23f746ba70"
     },
     {
       "path": "mista/stvorennya-sajtiv-cherkasy/index.html",
       "baselineSha256": "c94bcb2539a91e0097c8e28b8603fd30b17fe0b2b67e5f09867ec2079ace0c19",
       "occurrences": {
+        "7875": 1,
         "7 875": 12,
         "14 775": 9,
-        "7875": 1,
         "21 750": 2,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "ad77a35d6b68251831b4cb5e4ffe9e0e253dc455a0f30753fd331ba8797403b4"
     },
     {
       "path": "mista/stvorennya-sajtiv-chernihiv/index.html",
@@ -231,7 +265,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "37ddde9961bfc5152d18355f729a96e3bc8f192303505b5ab97989c26f316a09"
     },
     {
       "path": "mista/stvorennya-sajtiv-chernivtsi/index.html",
@@ -242,16 +277,18 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "1afa8b0234010c79732990ec402d066560b79d981a5e89944c3f056e087b5fea"
     },
     {
       "path": "mista/stvorennya-sajtiv-dnipro/index.html",
       "baselineSha256": "14279291782eb7dbd341cc5e66be84df4196a09d34c248f4aec1322a2fa65469",
       "occurrences": {
+        "7875": 1,
         "7 875": 9,
-        "14 775": 6,
-        "7875": 1
-      }
+        "14 775": 6
+      },
+      "roundedContentSha256": "1cc7158b4ab3a26afea936e9648bf9b06d1e7bbb8d144ff6b73f911ee79cd409"
     },
     {
       "path": "mista/stvorennya-sajtiv-ivano-frankivsk/index.html",
@@ -262,7 +299,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "79184e673a6e0590eb3876aee1582727884d02f699ba767141c9c046a3c85c26"
     },
     {
       "path": "mista/stvorennya-sajtiv-kharkiv/index.html",
@@ -273,7 +311,8 @@
         "14 775": 1,
         "21 750": 1,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "7c455ad0b08dfd01bd78b56c7dd698610da30e13a2a624743786fcf928257ece"
     },
     {
       "path": "mista/stvorennya-sajtiv-kherson/index.html",
@@ -284,7 +323,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "9f0a81ecdc22bef20ce8b3b67d5acf4f73d1036b6ea12ce92d4e1906160d8d07"
     },
     {
       "path": "mista/stvorennya-sajtiv-khmelnytskyi/index.html",
@@ -295,7 +335,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "0cf0c5519f159a2c7f0266bf8f0f73aad6c2fc3ac8a2bb5e410fbfc4cd8349b2"
     },
     {
       "path": "mista/stvorennya-sajtiv-kropyvnytskyi/index.html",
@@ -306,7 +347,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "db41d147d2b723d4068a1c0b0b87f9ad402a49c955af785b47f1dc10ade0bf38"
     },
     {
       "path": "mista/stvorennya-sajtiv-kyiv/index.html",
@@ -317,7 +359,8 @@
         "14 775": 1,
         "21 750": 1,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "1f95666f2b4493e70729071b511488541cbe5c8aa21ccc24259469e7bdf91ec1"
     },
     {
       "path": "mista/stvorennya-sajtiv-lutsk/index.html",
@@ -328,7 +371,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "d7bd7445967eaf2ed9749e4d80f48a3e552901beefce848441e187c5c48174c7"
     },
     {
       "path": "mista/stvorennya-sajtiv-lviv/index.html",
@@ -339,7 +383,8 @@
         "14 775": 1,
         "21 750": 1,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "89e5af676b2bd407d59850a45926fac9a20f23a835a7b465a515302cc42b6de3"
     },
     {
       "path": "mista/stvorennya-sajtiv-mykolaiv/index.html",
@@ -350,17 +395,19 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "c111188d7a6c893da2d8450bc9e7e8aa2efb9ab106384914a8ad0ac3f979e0ff"
     },
     {
       "path": "mista/stvorennya-sajtiv-odesa/index.html",
       "baselineSha256": "433ee579b96ddd463c248d541ef0672c8e0118c31d4e3b6b1123961d008b1190",
       "occurrences": {
+        "7875": 1,
         "7 875": 9,
         "14 775": 6,
-        "7875": 1,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "b7534feda1089aa8504535e270ea3f9582125d575174f999609200f752714150"
     },
     {
       "path": "mista/stvorennya-sajtiv-poltava/index.html",
@@ -371,7 +418,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "df5f52d79f26e1044800a5f56a29fd5c6a08886526fedbf8f89a9c7f7ae863bc"
     },
     {
       "path": "mista/stvorennya-sajtiv-rivne/index.html",
@@ -382,7 +430,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "b08ea9d80389aebcf8e79e50f96782e52d12ca8fd148a12389ad0eccda6b6f85"
     },
     {
       "path": "mista/stvorennya-sajtiv-sumy/index.html",
@@ -393,7 +442,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "35a5c1e54b5ab9934c3329d20376ae36ae6489503e08cf1f5dab5fd0c7c83dff"
     },
     {
       "path": "mista/stvorennya-sajtiv-ternopil/index.html",
@@ -404,7 +454,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "2db09484434f3768d661f61cf21a0a1770385bce2849c55ebaa6d17ecba2ec11"
     },
     {
       "path": "mista/stvorennya-sajtiv-uzhhorod/index.html",
@@ -415,7 +466,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "e55ccf3f365dde2f641f37af1944fe2673167824f9f2f3aeca49f50a610f2bd6"
     },
     {
       "path": "mista/stvorennya-sajtiv-vinnytsya/index.html",
@@ -426,7 +478,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "8016b20fe4146d294f64c1ae79b31cbbefa843e6f7872ec7998606c6ba05f3e0"
     },
     {
       "path": "mista/stvorennya-sajtiv-zaporizhzhya/index.html",
@@ -437,7 +490,8 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "35123f14a6f60c6b7eb1eadde25e52ded8fcfc18b3ddd45a542575d9d7340f28"
     },
     {
       "path": "mista/stvorennya-sajtiv-zhytomyr/index.html",
@@ -448,14 +502,16 @@
         "14 775": 3,
         "21 750": 3,
         "25 725": 3
-      }
+      },
+      "roundedContentSha256": "fc89557c5b51cff3bd787deda1f12655eba7bd43299684bab99f372474066a67"
     },
     {
       "path": "nishi/index.html",
       "baselineSha256": "704eae8095bdda272d47041e45b576d0b8aae911f63fcb08016351e6d948fa00",
       "occurrences": {
         "7 875": 3
-      }
+      },
+      "roundedContentSha256": "f93f1e11c51c4d851176f848f2a123e76f30e01da780a658afd86b5641be60dd"
     },
     {
       "path": "nishi/sajt-dlya-budivelnoyi-kompaniyi/index.html",
@@ -464,24 +520,27 @@
         "14775": 1,
         "14 775": 3,
         "21 750": 2
-      }
+      },
+      "roundedContentSha256": "bd59c5410169d4eb135ea1996478b5f2c00059d5ea42d33b0c07c3e701fc599d"
     },
     {
       "path": "nishi/sajt-dlya-kliningovoyi-kompaniyi/index.html",
       "baselineSha256": "a04ab816c06ef52b91f139f72e40098dd1bd83f8ab0fc671a7eed668ba70a062",
       "occurrences": {
-        "7 875": 8,
         "7875": 1,
+        "7 875": 8,
         "14 775": 3,
         "21 750": 2
-      }
+      },
+      "roundedContentSha256": "bc87242dea45f9092ce2d9455f0954dc06e5da08dae5457ef2b56484cf333f7e"
     },
     {
       "path": "nishi/sajt-dlya-kursiv/index.html",
       "baselineSha256": "e1ff798b0529fce23dd3414e63487a2e3ad96787e5b5cd55e6c66d1270280af2",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "6cc617ede928e22b1e7bedfa23d3f775bb6eeaae3574cf20460c4b7fb1f66692"
     },
     {
       "path": "nishi/sajt-dlya-lokalnogo-biznesu/index.html",
@@ -491,35 +550,40 @@
         "7 875": 2,
         "14 775": 2,
         "21 750": 2
-      }
+      },
+      "roundedContentSha256": "4415a5e0103fe988835be67585904f4797fea9249c0b3e7be885f285f8d372b7"
     },
     {
       "path": "nishi/sajt-dlya-magazynu/index.html",
       "baselineSha256": "49e51a3e00cf11ba8ec1e069b90c3ce6c0bfbf011fd627eda9b3aa5df07e33a8",
       "occurrences": {
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "2061885d53d0324ffc398b1ac4a41293e676b887bc368cbebb8f5e6fb5a8ea7d"
     },
     {
       "path": "nishi/sajt-dlya-medychnyh-poslug/index.html",
       "baselineSha256": "6e07f2126337826bc5247aed56f23036e9560bdc379e2bde039f1b9a74bd3ea8",
       "occurrences": {
         "14 775": 1
-      }
+      },
+      "roundedContentSha256": "d8bb1499b63c06cf210238781022d5569585bc3185a90abaef8a8b9677cb7934"
     },
     {
       "path": "nishi/sajt-dlya-neruhomosti/index.html",
       "baselineSha256": "5cbe6b2352fc60c385f558f0af0a944e7a5a5aba365ce0102f6f8094bac52c00",
       "occurrences": {
         "14 775": 1
-      }
+      },
+      "roundedContentSha256": "be996671a77be1fe6a6fb946c572bc47fa3b6c81faccd989f0cd04857cacd99b"
     },
     {
       "path": "nishi/sajt-dlya-vyrobnytstva/index.html",
       "baselineSha256": "d3e5f62bf0cabceafb1559d97d48d42ea580d9d4118c214aa07a429e8e37408c",
       "occurrences": {
         "14 775": 1
-      }
+      },
+      "roundedContentSha256": "e898b4dc04a9e461bf1910ba7b13e9b2b32865030dd8740d96e5894ddce62726"
     },
     {
       "path": "poslugy/index.html",
@@ -528,14 +592,16 @@
         "7 875": 4,
         "14 775": 1,
         "21 750": 1
-      }
+      },
+      "roundedContentSha256": "fb4a251e35898480a3116c1ff948e9e3040f0b712f7152dc862f1daa503df9e7"
     },
     {
       "path": "qa-checklist/index.html",
       "baselineSha256": "9004fc41b55aabe14df25163f5bf0474c6a137c49f7c7487c6b847c6231460c8",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "72cd04e033b3a8e956e7043750cb8e93b3d2ce6e79b37a81fb376852ceda6f26"
     },
     {
       "path": "sajty-dlya-poslug/index.html",
@@ -544,7 +610,8 @@
         "7 875": 3,
         "14 775": 1,
         "21 750": 1
-      }
+      },
+      "roundedContentSha256": "54220c2a50a0bafb6c4badf845d9161b397d58962b28807c0f2427afe6568b13"
     },
     {
       "path": "seo/cities.json",
@@ -552,7 +619,8 @@
       "occurrences": {
         "7 875": 6,
         "14 775": 3
-      }
+      },
+      "roundedContentSha256": "33f34a3d4eec3d8ff8da25f98bc8c2d1fbbf87e516e32dfcd2262d7f220fe913"
     },
     {
       "path": "seo/city-wave1-content.json",
@@ -561,7 +629,8 @@
         "7 875": 4,
         "14 775": 4,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "be7090a72f1c846648660fabcb53426d0d299170430b4514d590dd931a2c85c6"
     },
     {
       "path": "seo/niche-content.json",
@@ -570,7 +639,8 @@
         "25 725": 1,
         "14 775": 3,
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "1cdb548cb1e504d14990a094d246755ef47d58b3233192663b27cd48b8369fb3"
     },
     {
       "path": "seo-sajt-pid-google/index.html",
@@ -579,28 +649,32 @@
         "7 875": 4,
         "14 775": 1,
         "21 750": 1
-      }
+      },
+      "roundedContentSha256": "4e1e4aed14be8b1714fc1789ba49fb195c16aab88fe73ec450bfe9670567a5ba"
     },
     {
       "path": "stvorennya-internet-mahazynu/index.html",
       "baselineSha256": "88d29a06b12066eff654c42ee6e86a2621e0fc44aa68c559b7c2c0b852790f57",
       "occurrences": {
         "25 725": 5
-      }
+      },
+      "roundedContentSha256": "69752ed4d3e5757dfeed3acc9329e62fa310761e46b8cd950bd8c6f4a3da2fce"
     },
     {
       "path": "stvorennya-korporatyvnoho-saytu/index.html",
       "baselineSha256": "422e70f2d52cf25538682f023a20f0aceb2bad1bf8b7b50df2b3d5595b0401ff",
       "occurrences": {
         "14 775": 4
-      }
+      },
+      "roundedContentSha256": "208132f0625b36a3f2506d75aa779fbf57127667945deb11b04b3877ae53e414"
     },
     {
       "path": "stvorennya-landing-page/index.html",
       "baselineSha256": "c292db4fa3812c1ded7ed7208b897c13cc1aac5883b7c73ee67ad372aae3dd3e",
       "occurrences": {
         "7 875": 13
-      }
+      },
+      "roundedContentSha256": "41e42d592b2c01fd9fe5b8b76130dcdc7887b61771becd07af75e458f14ede35"
     },
     {
       "path": "stvorennya-sajtiv-pid-klyuch/index.html",
@@ -609,7 +683,8 @@
         "7 875": 5,
         "14 775": 2,
         "21 750": 1
-      }
+      },
+      "roundedContentSha256": "2ab51e6c86657d49a5588a56c1f0e3b7ae789a9beffdcc5fd55e9ebb7629165a"
     },
     {
       "path": "stvorennya-saytiv/index.html",
@@ -618,39 +693,44 @@
         "7 875": 4,
         "14 775": 2,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "b2eabb24a3d7a880b5e7c541029a977b0ce280098f8c2494cd2389e42548b4cf"
     },
     {
       "path": "stvorennya-saytu-dlya-biznesu/index.html",
       "baselineSha256": "22dfbf180062bc5dca5974777909fc4bd31ac3b349b7b11958927a0169bc8195",
       "occurrences": {
         "14 775": 8
-      }
+      },
+      "roundedContentSha256": "ef229c3a7521468b4e5088c230520b195631c4116511d8937c3548afad6179ba"
     },
     {
       "path": "tools/add-project-resources.js",
       "baselineSha256": "0175af7cd36950b0035818dfe988eb7c70154f5159e2e87aa2a82297e4b73912",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "149c050f1209c3bad707c4051f326f2377a835667960ac36b1b26606f4e54d93"
     },
     {
       "path": "tools/add-visible-niche-faq.js",
       "baselineSha256": "c1c663484defea95412121a5f295d9a55876410f6a4fa6d101c41afc5436906c",
       "occurrences": {
         "7 875": 1
-      }
+      },
+      "roundedContentSha256": "25ad7190c828231e9f552bb35521beef5f6d6917e5830f2b210f0dca1f505d3a"
     },
     {
       "path": "tools/apply-city-seo-cluster.js",
       "baselineSha256": "d56bf5f616a854619dd218afb98ee745533c9d91d5818a6635eaef6aadea9a0b",
       "occurrences": {
+        "7875": 1,
         "7 875": 3,
         "14 775": 2,
         "21 750": 2,
-        "25 725": 2,
-        "7875": 1
-      }
+        "25 725": 2
+      },
+      "roundedContentSha256": "d7e653d47ee55a51d88e791005e8cd12c0a3657dc1f30cd68eb132b7ce4ba73f"
     },
     {
       "path": "tools/apply-content-hub.js",
@@ -659,30 +739,32 @@
         "7 875": 1,
         "14 775": 1,
         "21 750": 1
-      }
+      },
+      "roundedContentSha256": "99120cda44c8cc922ed5b99605e5ee6f01eee41b1777df82f96b55d7eb6a5b16"
     },
     {
       "path": "tools/apply-next-stage-content.js",
       "baselineSha256": "989f006ce0130bafab1e4d4769f5ab4fcd535245d9263f9cf8ab1fa84cec2aa2",
       "occurrences": {
+        "2175": 2,
+        "3375": 1,
+        "4200": 1,
+        "5100": 1,
+        "7650": 1,
+        "7875": 3,
+        "14775": 1,
         "7 875": 11,
         "14 775": 10,
         "21 750": 7,
-        "7875": 3,
-        "14775": 1,
         "5 100": 3,
-        "5100": 1,
-        "7650": 1,
-        "4200": 1,
         "7 650": 1,
         "4 200": 1,
         "2 175": 5,
-        "3375": 1,
-        "2175": 2,
         "3 375": 2,
         "11 100": 1,
         "25 725": 2
-      }
+      },
+      "roundedContentSha256": "3a420c0e4a1274d65b43c17ec1ddaeaeeb18508f78ec663b8fef378ac894394a"
     },
     {
       "path": "tools/apply-pr2-core-pages.js",
@@ -691,7 +773,8 @@
         "7 875": 4,
         "14 775": 4,
         "25 725": 2
-      }
+      },
+      "roundedContentSha256": "68439bee9f0422221e0bd6c4a7199f848dc08398d2cc9332ba033806b576fbdf"
     },
     {
       "path": "tools/apply-seo-growth-2026-08-21.js",
@@ -699,7 +782,8 @@
       "occurrences": {
         "7 875": 2,
         "14 775": 1
-      }
+      },
+      "roundedContentSha256": "1a8123ecba1e4b877b13a3eaa1743ecd49c6f22429439e23d7b90db6820e99a9"
     },
     {
       "path": "tools/render-master3-cities.js",
@@ -709,7 +793,13 @@
         "14 775": 1,
         "21 750": 1,
         "25 725": 1
-      }
+      },
+      "roundedContentSha256": "4a3a91727802c94cd8d8e77f18d9eeaf51e43e801c856f3ea6e7aa71594f33ec"
     }
-  ]
+  ],
+  "rounding": {
+    "direction": "down",
+    "incrementUAH": 50,
+    "baselineCommit": "5b86d62b2fd2c51a28589583844e9778519324be"
+  }
 }
