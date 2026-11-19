@@ -14,5 +14,8 @@ for(const slug of ['cherkasy','dnipro']) test(`${slug}: useful city content and 
   await content.locator('a[href="#lead"]').click();
  }else await page.locator('.hero-buttons a[href="#lead"]').click();
  await expect(page.locator('#lead form')).toBeVisible();
- await expect(page.locator('#lead form input[type="tel"]')).toBeVisible();
+ const phone=page.locator('#lead form input[name="phone"]');
+ await expect(phone).toBeVisible();
+ await expect(phone).toHaveAttribute('inputmode','tel');
+ await expect(phone).toHaveAttribute('autocomplete','tel');
 });
