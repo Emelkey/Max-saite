@@ -1,0 +1,140 @@
+{
+  "kyiv": {
+    "index": true,
+    "robots": "<meta name=\"robots\" content=\"index, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-kyiv/\" />",
+    "form": "4f166e9d8d3c868c3c9bc7aca105c9ff4e6345c12e96040097693daac1d4047f"
+  },
+  "lviv": {
+    "index": true,
+    "robots": "<meta name=\"robots\" content=\"index, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-lviv/\" />",
+    "form": "f34b0a221c95355708113298fb0a9d221a073b23c5e1b9f62f1d248d5281296e"
+  },
+  "odesa": {
+    "index": true,
+    "robots": "<meta name=\"robots\" content=\"index, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-odesa/\" />",
+    "form": "d2ff2884d22d43c288f8872067c12d5605d3d1d559019455afb40a6d9ca8eed7"
+  },
+  "dnipro": {
+    "index": true,
+    "robots": "<meta name=\"robots\" content=\"index, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-dnipro/\" />",
+    "form": "568859387e9f55806b0dc5882dee9e01ea344171740face45d058ef7a7e64fd9"
+  },
+  "kharkiv": {
+    "index": true,
+    "robots": "<meta name=\"robots\" content=\"index, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-kharkiv/\" />",
+    "form": "6a72b01e4f108ba0b2bdb6e5edbb6a4586d579decf0e8bad4b264181db48ba18"
+  },
+  "cherkasy": {
+    "index": true,
+    "robots": "<meta name=\"robots\" content=\"index, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-cherkasy/\" />",
+    "form": "7a25a25d05e8a082c0b2935c58c22baac0a6582218af1652c298ba64b53f4ded"
+  },
+  "ukrayina": {
+    "index": true,
+    "robots": "<meta name=\"robots\" content=\"index, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-ukrayina/\" />",
+    "form": "4f166e9d8d3c868c3c9bc7aca105c9ff4e6345c12e96040097693daac1d4047f"
+  },
+  "vinnytsya": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-vinnytsya/\" />",
+    "form": "aec613945914626970c1f4b4d19d03e9e60935031c73d3324b04d8b67dbf5117"
+  },
+  "ivano-frankivsk": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-ivano-frankivsk/\" />",
+    "form": "27c0bacb5ddd029f92a74c5b8a8bf73f67a13ddca0d9786918b4ed76f88a9cb1"
+  },
+  "ternopil": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-ternopil/\" />",
+    "form": "ba57390f151142f2b412df8f22d901f6ae141e47a45ab21ce16d503cb57a535a"
+  },
+  "khmelnytskyi": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-khmelnytskyi/\" />",
+    "form": "0f6411d0b192b5d2f521bd70b868423b5eaa8ee20147bdc0d80e9a8b5d2e7186"
+  },
+  "rivne": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-rivne/\" />",
+    "form": "67e6f440293b29acbfc599e08ac7d843ba564757b228a14a5ff8c50ab4ea12c1"
+  },
+  "lutsk": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-lutsk/\" />",
+    "form": "86f3cfbcb5328a83535bdbbc51a9c0fb0be9161e6fa6fffb98c7b4b3dff6d440"
+  },
+  "poltava": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-poltava/\" />",
+    "form": "74e7d48922bc402e51ebb01a5fe7f77ba1cf19e77e2ed8429987fd3583b17035"
+  },
+  "chernivtsi": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-chernivtsi/\" />",
+    "form": "9b3607bbb716550971028a56e0b064ba55b8126390f10defdd6fabfd09d947e9"
+  },
+  "zhytomyr": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-zhytomyr/\" />",
+    "form": "13ed86479746c2e470ea9a8fc07bd33ca6355c9ad679b03bf43a0bfb0a7efaad"
+  },
+  "chernihiv": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-chernihiv/\" />",
+    "form": "a1303efb06749c80c8c4af4d2c71bc57396c88e08bb3b8fd5455147ebba501b8"
+  },
+  "kherson": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-kherson/\" />",
+    "form": "5e64b9a6cb24e50a5c259265dbbfa8749d7796859e0c830c3c9ad2766f052683"
+  },
+  "kropyvnytskyi": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-kropyvnytskyi/\" />",
+    "form": "7eabeed7c3b7c31b6ad756f7f5f4f5e18b79bab920d2d6259dfbcf96411156fe"
+  },
+  "mykolaiv": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-mykolaiv/\" />",
+    "form": "0b65ef78580c01383bfd91c22aa58b7f7511d3da0d17c20618072af16d3dc709"
+  },
+  "sumy": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-sumy/\" />",
+    "form": "92916889499bba06d6a1b953f259202cd48c8594099ba1928cdc3d758e7f44f7"
+  },
+  "uzhhorod": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-uzhhorod/\" />",
+    "form": "9fb72a8b69140a851b7afdf425c3e83a840f0d94778f5aa074290f4bfb297586"
+  },
+  "zaporizhzhya": {
+    "index": false,
+    "robots": "<meta name=\"robots\" content=\"noindex, follow\" />",
+    "canonical": "<link rel=\"canonical\" href=\"https://maxsite.com.ua/mista/stvorennya-sajtiv-zaporizhzhya/\" />",
+    "form": "340eee338d3789682746817723d938b1cfc460416270e1b2030ec08b80dcd929"
+  }
+}

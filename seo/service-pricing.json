@@ -254,7 +254,8 @@
         "21 750": 2,
         "25 725": 1
       },
-      "roundedContentSha256": "ad77a35d6b68251831b4cb5e4ffe9e0e253dc455a0f30753fd331ba8797403b4"
+      "roundedContentSha256": "a96721bb2330c7582f8fefed6b29f019c45ea53f67f19153afc2dba8022bb6d9",
+      "contentReview": "2026-11-19: city proof content only; price occurrences unchanged"
     },
     {
       "path": "mista/stvorennya-sajtiv-chernihiv/index.html",
@@ -288,7 +289,8 @@
         "7 875": 9,
         "14 775": 6
       },
-      "roundedContentSha256": "1cc7158b4ab3a26afea936e9648bf9b06d1e7bbb8d144ff6b73f911ee79cd409"
+      "roundedContentSha256": "95008a7b74043a8ea862938f6bcda56a304c4dda19417766168adbc2f3d876c7",
+      "contentReview": "2026-11-19: city proof content only; price occurrences unchanged"
     },
     {
       "path": "mista/stvorennya-sajtiv-ivano-frankivsk/index.html",
@@ -620,7 +622,8 @@
         "7 875": 6,
         "14 775": 3
       },
-      "roundedContentSha256": "33f34a3d4eec3d8ff8da25f98bc8c2d1fbbf87e516e32dfcd2262d7f220fe913"
+      "roundedContentSha256": "f9b92591b985f49699a84c83e0ad286be5711995cd4ce0def82cb69e5b811f62",
+      "contentReview": "2026-11-19: city proof content only; price occurrences unchanged"
     },
     {
       "path": "seo/city-wave1-content.json",
@@ -630,7 +633,8 @@
         "14 775": 4,
         "25 725": 1
       },
-      "roundedContentSha256": "be7090a72f1c846648660fabcb53426d0d299170430b4514d590dd931a2c85c6"
+      "roundedContentSha256": "4e7241daa45c0e79d55b1724de39843cb5d2bfd09f8c5bc1916350e51e11da68",
+      "contentReview": "2026-11-19: city proof content only; price occurrences unchanged"
     },
     {
       "path": "seo/niche-content.json",
